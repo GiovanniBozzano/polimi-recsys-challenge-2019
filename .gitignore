@@ -2,7 +2,4 @@
 __pycache__/
 venv/
 build/
-*.c
-*.html
-*.pyd
 /*.csv
