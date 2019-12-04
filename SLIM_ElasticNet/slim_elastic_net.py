@@ -2,6 +2,7 @@ import multiprocessing
 import warnings
 from functools import partial
 import numpy as np
+import pandas as pd
 import scipy.sparse as sps
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import ElasticNet
@@ -116,9 +117,14 @@ class SLIMElasticNet(object):
     def get_expected_ratings(self, user_id):
         user_profile = self.training_urm[user_id]
         expected_ratings = user_profile.dot(self.W_sparse).toarray().ravel()
+        if user_id == 19335:
+            print('ELASTICNET RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        """
         maximum = np.abs(expected_ratings).max(axis=0)
         if maximum > 0:
             expected_ratings = expected_ratings / maximum
+        """
         return expected_ratings
 
     def recommend(self, user_id, at=10):

@@ -87,11 +87,13 @@ class ContentBasedFiltering(object):
         # ha interagito avrà punteggio 2.0.
         expected_ratings = interacted_items.dot(self.similarity_matrix).toarray().ravel()
         if user_id == 19335:
-            print('CB RATINGS:')
+            print('CBF RATINGS:')
             print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        """
         maximum = np.abs(expected_ratings).max(axis=0)
         if maximum > 0:
             expected_ratings = expected_ratings / maximum
+        """
         expected_ratings[interacted_items.indices] = -1
         return expected_ratings
 

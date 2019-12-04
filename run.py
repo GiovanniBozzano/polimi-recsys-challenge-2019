@@ -64,7 +64,7 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
 # SLIM = 0.043278637039248266
 # ELASTICNET =
 # ============================
-# 0.050212198196069244
+# 0.05106765051586792
 # ======================================
 # > 10
 # ============================
@@ -75,15 +75,15 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
 # SLIM = 0.041645630700148734
 # ELASTICNET =
 # ============================
-# 0.04779255280260227
+# 0.04906610942956304
 # ======================================
-# 0.0475496268341618
+# 0.04850864702268111 - 1 - 2
 weights_short = {
     'cbf': 0.1,
     'user_cf': 0.2,
     'item_cf': 0.3,
     'slim': 0.2,
-    'elastic': 1.5,
+    'elastic': 1,
     'als': 0.2,
 
     'icm_svd': 0
@@ -94,10 +94,31 @@ weights_long = {
     'user_cf': 0.1,
     'item_cf': 0.4,
     'slim': 0.2,
-    'elastic': 1,
+    'elastic': 2,
     'als': 0.2,
 
     'icm_svd': 0
+}
+
+
+weights_short = {
+    "user_cf": 0.015,
+    "item_cf": 0.25,
+    "cbf": 0.15,
+    "icm_svd": 0,
+    "als": 0.3,
+    "slim": 0.6,
+    "elastic": 1.5
+}
+
+weights_long = {
+    "user_cf": 0.015,
+    "item_cf": 0.35,
+    "cbf": 0.2,
+    "icm_svd": 0,
+    "als": 0.3,
+    "slim": 0.22,
+    "elastic": 1.5
 }
 
 user_cf_param = {

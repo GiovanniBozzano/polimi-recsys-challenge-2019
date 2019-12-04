@@ -18,9 +18,9 @@ class Evaluator(object):
             for user_id in self.session.user_list_unique:
                 if self.session.urm[user_id].getnnz() > 10:
                     test_users2.append(user_id)
-            self.target_users = test_users2
+            self.target_users = self.session.user_list_unique
             self.training_urm, self.test_urm = utils.train_test_split_leave_one_out(self.session.urm,
-                                                                                    test_users2)
+                                                                                    self.session.user_list_unique)
         else:
             self.training_urm, self.test_urm, self.target_users = utils.train_test_split(self.session.urm,
                                                                                          test_percentage,

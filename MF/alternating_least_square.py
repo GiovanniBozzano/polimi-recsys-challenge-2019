@@ -35,9 +35,11 @@ class AlternatingLeastSquare:
         if user_id == 19335:
             print('ALS RATINGS:')
             print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        """
         maximum = np.abs(expected_ratings).max(axis=0)
         if maximum > 0:
             expected_ratings = expected_ratings / maximum
+        """
         return expected_ratings
 
     def recommend(self, user_id, k=10):
