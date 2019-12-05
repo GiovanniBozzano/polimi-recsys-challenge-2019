@@ -8,7 +8,8 @@ from Base.Similarity.Compute_Similarity import SimilarityFunction
 from MF.alternating_least_square import AlternatingLeastSquare
 from SLIM_BPR.slim_bpr import SLIMBPR
 from SLIM_ElasticNet.slim_elastic_net import SLIMElasticNet
-from cbf.content_based_filtering import ContentBasedFiltering
+from cbf.item_content_based_filtering import ContentBasedFiltering
+from cbf.user_content_based_filtering import UserContentBasedFiltering
 from cf.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from cf.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from evaluation.evaluator import Evaluator
@@ -144,6 +145,15 @@ cbf_param = {
     'weight_item_price': 0.2
 }
 
+ucbf_param = {
+    'top_k_user_region': 50,
+    'top_k_user_age': 50,
+    'shrink_user_region': 1,
+    'shrink_user_age': 1,
+    'weight_user_region': 0.2,
+    'weight_user_age': 0.2
+}
+
 slim_param = {
     'epochs': 80,
     'top-k': 40
@@ -167,10 +177,11 @@ recommender = HybridRecommender(weights_long=weights_long,
                                 user_cf_param=user_cf_param,
                                 item_cf_param=item_cf_param,
                                 cbf_param=cbf_param,
+                                ucbf_param=ucbf_param,
                                 slim_param=slim_param,
                                 svd_param=svd_param,
                                 als_param=als_param)
-# recommender = SLIMElasticNet()
+recommender = UserContentBasedFiltering()
 if __name__ == '__main__':
     run(recommender=recommender,
         urm_path=os.path.join(os.getcwd(), './dataset/data_train.csv'),

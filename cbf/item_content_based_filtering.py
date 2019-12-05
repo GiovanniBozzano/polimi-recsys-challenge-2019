@@ -25,7 +25,7 @@ def compute_similarity(icm, top_k, shrink, similarity):
 class ContentBasedFiltering(object):
     """
     Crea una similarity matrix che rappresenta quanto ogni oggetto è simile a top-k altri oggetti.
-    La similarity matrix è la somma pesata di tre similarity matrix, ciascuna rappresentate una feature diversa con
+    La similarity matrix è la somma pesata di tre similarity matrix, ciascuna rappresentante una feature diversa con
     valori da 0 a 1. I pesi dovrebbero avere somma 1 in modo da mantenere i valori normalizzati anche nella similarity
     matrix complessiva.
 

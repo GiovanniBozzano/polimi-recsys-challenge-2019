@@ -5,12 +5,13 @@ from SLIM_BPR.slim_bpr import SLIMBPR
 from SLIM_ElasticNet.slim_elastic_net import SLIMElasticNet
 from cf.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from cf.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
-from cbf.content_based_filtering import ContentBasedFiltering
+from cbf.user_content_based_filtering import UserContentBasedFiltering
+from cbf.item_content_based_filtering import ContentBasedFiltering
 from MF.alternating_least_square import AlternatingLeastSquare
 
 
 class HybridRecommender(object):
-    def __init__(self, weights_short, weights_long, user_cf_param, item_cf_param, cbf_param,
+    def __init__(self, weights_short, weights_long, user_cf_param, item_cf_param, cbf_param, ucbf_param,
                  slim_param, svd_param, als_param):
 
         self.weights_short = weights_short
@@ -35,6 +36,15 @@ class HybridRecommender(object):
                                                              shrink_item_sub_class=cbf_param['shrink_item_sub_class'],
                                                              weight_item_asset=cbf_param['weight_item_asset'],
                                                              weight_item_price=cbf_param['weight_item_price'])
+
+        # CBF #
+        self.user_content_based_filtering = UserContentBasedFiltering(
+                                                            top_k_user_region=ucbf_param['top_k_user_region'],
+                                                            top_k_user_age=ucbf_param['top_k_user_age'],
+                                                            shrink_user_region=ucbf_param['shrink_user_region'],
+                                                            shrink_user_age=ucbf_param['shrink_user_age'],
+                                                            weight_user_region=ucbf_param['weight_user_region'],
+                                                            weight_user_age=ucbf_param['weight_user_age'])
 
         self.slim_random = SLIMBPR(epochs=slim_param['epochs'], top_k=slim_param['top-k'])
 

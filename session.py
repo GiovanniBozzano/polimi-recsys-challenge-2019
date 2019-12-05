@@ -86,3 +86,21 @@ class Session(object):
         icm_sub_classes = sps.coo_matrix((values_list, (items_list, sub_classes_list)),
                                          shape=(self.items_amount, max(sub_classes_list) + 1), dtype=np.float64)
         return icm_sub_classes.tocsr()
+
+    def get_ucm_regions(self):
+        regions_data = pd.read_csv(os.path.join(os.getcwd(), self.ucm_regions_path))
+        items_list = list(regions_data[self.ucm_regions_index_column])
+        regions_list = list(regions_data[self.ucm_regions_value_column])
+        values_list = list(np.ones(len(regions_list)))
+        ucm_regions = sps.coo_matrix((values_list, (items_list, regions_list)),
+                                     shape=(self.users_amount, max(regions_list) + 1), dtype=np.float64)
+        return ucm_regions.tocsr()
+
+    def get_ucm_ages(self):
+        ages_data = pd.read_csv(os.path.join(os.getcwd(), self.ucm_ages_path))
+        items_list = list(ages_data[self.ucm_ages_index_column])
+        ages_list = list(ages_data[self.ucm_ages_value_column])
+        values_list = list(np.ones(len(ages_list)))
+        ucm_ages = sps.coo_matrix((values_list, (items_list, ages_list)),
+                                  shape=(self.users_amount, max(ages_list) + 1), dtype=np.float64)
+        return ucm_ages.tocsr()
