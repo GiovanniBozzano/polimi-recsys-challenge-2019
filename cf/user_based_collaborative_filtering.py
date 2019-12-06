@@ -1,12 +1,14 @@
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import normalize
+
 import utils
 from Base.Similarity.Compute_Similarity import Compute_Similarity, SimilarityFunction
 
 
 class UserBasedCollaborativeFiltering(object):
-    def __init__(self, top_k=2000, shrink=5, similarity=SimilarityFunction.COSINE.value):
-        # 0.02871289791663442 1000 5 cosine
+    def __init__(self, top_k=1000, shrink=5, similarity=SimilarityFunction.COSINE.value):
+        # 0.0415143136689643 1000 5 cosine
         self.top_k = top_k
         self.shrink = shrink
         self.similarity = similarity
@@ -25,15 +27,18 @@ class UserBasedCollaborativeFiltering(object):
         self.recommendations = similarity_matrix.dot(self.training_urm)
 
     def get_expected_ratings(self, user_id):
-        expected_ratings = self.recommendations[user_id].toarray().ravel()
-        if user_id == 19335:
-            print('U_CF RATINGS:')
+        expected_ratings = self.recommendations[user_id]
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = expected_ratings.toarray().ravel()
+        if user_id == 0:
+            print('0 U_CF RATINGS:')
             print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        """
-        maximum = np.abs(expected_ratings).max(axis=0)
-        if maximum > 0:
-            expected_ratings = expected_ratings / maximum
-        """
+        if user_id == 1:
+            print('1 U_CF RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        if user_id == 2:
+            print('2 U_CF RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
         return expected_ratings
 
     def recommend(self, user_id, k=10):

@@ -6,6 +6,7 @@ import pandas as pd
 import scipy.sparse as sps
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.linear_model import ElasticNet
+from sklearn.preprocessing import normalize
 
 
 class SLIMElasticNet(object):
@@ -22,7 +23,7 @@ class SLIMElasticNet(object):
         http://glaros.dtc.umn.edu/gkhome/fetch/papers/SLIM2011icdm.pdf
     """
     # 0.042518585493269104
-    def __init__(self, alpha=0.001, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False,
+    def __init__(self, alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False,
                  selection='cyclic', max_iter=3, tol=1e-4, top_k=50, positive_only=True,
                  workers=multiprocessing.cpu_count()):
 
@@ -45,6 +46,7 @@ class SLIMElasticNet(object):
     Fit given to each pool thread, to fit the W_sparse 
     '''
     def _partial_fit(self, current_item, X):
+        warnings.simplefilter('ignore', category=ConvergenceWarning)
 
         model = ElasticNet(alpha=self.alpha,
                            l1_ratio=self.l1_ratio,
@@ -55,8 +57,6 @@ class SLIMElasticNet(object):
                            selection=self.selection,
                            max_iter=self.max_iter,
                            tol=self.tol)
-
-        print('Processing item ' + str(current_item))
 
         # WARNING: make a copy of X to avoid race conditions on column j
         # TODO: We can probably come up with something better here.
@@ -82,9 +82,6 @@ class SLIMElasticNet(object):
         return values, rows, cols
 
     def fit(self, training_urm):
-        # Display ConvergenceWarning only once and not for every item it occurs
-        warnings.simplefilter('ignore', category=ConvergenceWarning)
-
         self.training_urm = sps.csc_matrix(training_urm)
 
         n_items = self.training_urm.shape[1]
@@ -116,15 +113,18 @@ class SLIMElasticNet(object):
 
     def get_expected_ratings(self, user_id):
         user_profile = self.training_urm[user_id]
-        expected_ratings = user_profile.dot(self.W_sparse).toarray().ravel()
-        if user_id == 19335:
-            print('ELASTICNET RATINGS:')
+        expected_ratings = user_profile.dot(self.W_sparse)
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = expected_ratings.toarray().ravel()
+        if user_id == 0:
+            print('0 ELASTICNET RATINGS:')
             print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        """
-        maximum = np.abs(expected_ratings).max(axis=0)
-        if maximum > 0:
-            expected_ratings = expected_ratings / maximum
-        """
+        if user_id == 1:
+            print('1 ELASTICNET RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        if user_id == 2:
+            print('2 ELASTICNET RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
         return expected_ratings
 
     def recommend(self, user_id, at=10):

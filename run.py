@@ -1,14 +1,11 @@
 import os
-
-import numpy as np
-
 import utils
 from tqdm import tqdm
 from Base.Similarity.Compute_Similarity import SimilarityFunction
 from MF.alternating_least_square import AlternatingLeastSquare
 from SLIM_BPR.slim_bpr import SLIMBPR
 from SLIM_ElasticNet.slim_elastic_net import SLIMElasticNet
-from cbf.item_content_based_filtering import ContentBasedFiltering
+from cbf.item_content_based_filtering import ItemContentBasedFiltering
 from cbf.user_content_based_filtering import UserContentBasedFiltering
 from cf.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from cf.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
@@ -80,61 +77,35 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
 # ======================================
 # 0.04850864702268111 - 1 - 2
 weights_short = {
-    'cbf': 0.1,
+    'user_cbf': 0.1,
+    'item_cbf': 0.1,
     'user_cf': 0.2,
     'item_cf': 0.3,
+    'slim': 0.2,
+    'elastic': 1.5,
+    'als': 0.2,
+
+    'icm_svd': 0
+}
+weights_long = {
+    'user_cbf': 0.1,
+    'item_cbf': 0.1,
+    'user_cf': 0.1,
+    'item_cf': 0.4,
     'slim': 0.2,
     'elastic': 1,
     'als': 0.2,
 
     'icm_svd': 0
 }
-
-weights_long = {
-    'cbf': 0.1,
-    'user_cf': 0.1,
-    'item_cf': 0.4,
-    'slim': 0.2,
-    'elastic': 2,
-    'als': 0.2,
-
-    'icm_svd': 0
+user_cbf_param = {
+    'top_k_user_region': 1000,
+    'top_k_user_age': 1000,
+    'shrink_user_region': 1,
+    'shrink_user_age': 1,
+    'weight_user_region': 0.6
 }
-
-
-weights_short = {
-    "user_cf": 0.015,
-    "item_cf": 0.25,
-    "cbf": 0.15,
-    "icm_svd": 0,
-    "als": 0.3,
-    "slim": 0.6,
-    "elastic": 1.5
-}
-
-weights_long = {
-    "user_cf": 0.015,
-    "item_cf": 0.35,
-    "cbf": 0.2,
-    "icm_svd": 0,
-    "als": 0.3,
-    "slim": 0.22,
-    "elastic": 1.5
-}
-
-user_cf_param = {
-    'top_k': 2000,
-    'shrink': 5,
-    'similarity': SimilarityFunction.COSINE.value
-}
-
-item_cf_param = {
-    'top_k': 10,
-    'shrink': 500,
-    'similarity': SimilarityFunction.JACCARD.value
-}
-
-cbf_param = {
+item_cbf_param = {
     'top_k_item_asset': 50,
     'top_k_item_price': 50,
     'top_k_item_sub_class': 50,
@@ -144,26 +115,24 @@ cbf_param = {
     'weight_item_asset': 0.2,
     'weight_item_price': 0.2
 }
-
-ucbf_param = {
-    'top_k_user_region': 50,
-    'top_k_user_age': 50,
-    'shrink_user_region': 1,
-    'shrink_user_age': 1,
-    'weight_user_region': 0.2,
-    'weight_user_age': 0.2
+user_cf_param = {
+    'top_k': 2000,
+    'shrink': 5,
+    'similarity': SimilarityFunction.COSINE.value
 }
-
+item_cf_param = {
+    'top_k': 10,
+    'shrink': 500,
+    'similarity': SimilarityFunction.JACCARD.value
+}
 slim_param = {
     'epochs': 80,
     'top-k': 40
 }
-
 svd_param = {
     'n_factors': 2000,
     'knn': 100
 }
-
 als_param = {
     'factors': 448,
     'regularization': 100,
@@ -174,14 +143,14 @@ als_param = {
 
 recommender = HybridRecommender(weights_long=weights_long,
                                 weights_short=weights_short,
+                                user_cbf_param=user_cbf_param,
+                                item_cbf_param=item_cbf_param,
                                 user_cf_param=user_cf_param,
                                 item_cf_param=item_cf_param,
-                                cbf_param=cbf_param,
-                                ucbf_param=ucbf_param,
                                 slim_param=slim_param,
                                 svd_param=svd_param,
                                 als_param=als_param)
-recommender = UserContentBasedFiltering()
+# recommender = ItemContentBasedFiltering()
 if __name__ == '__main__':
     run(recommender=recommender,
         urm_path=os.path.join(os.getcwd(), './dataset/data_train.csv'),

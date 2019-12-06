@@ -43,10 +43,6 @@ def get_matrix_tfidf(matrix):
     return matrix_tfidf.tocsr()
 
 
-def normalize_matrix(matrix, axis=0):
-    return normalize(matrix, axis=axis, norm='l2').tocsr()
-
-
 def mean_average_precision(recommended_items, relevant_items):
     is_relevant = np.in1d(recommended_items, relevant_items, assume_unique=True)
     p_at_k = is_relevant * np.cumsum(is_relevant, dtype=np.float32) / (1 + np.arange(len(is_relevant)))

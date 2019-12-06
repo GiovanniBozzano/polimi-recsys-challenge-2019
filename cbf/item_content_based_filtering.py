@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import normalize
 
 import session
 import utils
@@ -22,7 +23,7 @@ def compute_similarity(icm, top_k, shrink, similarity):
     return similarity_object
 
 
-class ContentBasedFiltering(object):
+class ItemContentBasedFiltering(object):
     """
     Crea una similarity matrix che rappresenta quanto ogni oggetto è simile a top-k altri oggetti.
     La similarity matrix è la somma pesata di tre similarity matrix, ciascuna rappresentante una feature diversa con
@@ -64,12 +65,15 @@ class ContentBasedFiltering(object):
         items_assets_similarity_matrix = compute_similarity(items_assets, self.top_k_item_asset,
                                                             self.shrink_item_asset,
                                                             similarity=SimilarityFunction.EUCLIDEAN.value)
+        #items_assets_similarity_matrix = items_assets_similarity_matrix.transpose().tocsr()
         items_prices_similarity_matrix = compute_similarity(items_prices, self.top_k_item_price,
                                                             self.shrink_item_price,
                                                             similarity=SimilarityFunction.EUCLIDEAN.value)
+        #items_prices_similarity_matrix = items_prices_similarity_matrix.transpose().tocsr()
         items_sub_classes_similarity_matrix = compute_similarity(items_sub_classes, self.top_k_item_sub_class,
                                                                  self.shrink_item_sub_class,
                                                                  similarity=SimilarityFunction.COSINE.value)
+        #items_sub_classes_similarity_matrix = items_sub_classes_similarity_matrix.transpose().tocsr()
         self.similarity_matrix = items_assets_similarity_matrix * self.weight_item_asset + \
             items_prices_similarity_matrix * self.weight_item_price + \
             items_sub_classes_similarity_matrix * (1 - self.weight_item_asset - self.weight_item_price)
@@ -85,16 +89,19 @@ class ContentBasedFiltering(object):
         # Si selezionano gli oggetti dalla similarity matrix in base a quelli con cui l'utente ha interagito,
         # sommando i punteggi se presenti più volte. Ad esempio un oggetto identico a due oggetti con cui l'utente
         # ha interagito avrà punteggio 2.0.
-        expected_ratings = interacted_items.dot(self.similarity_matrix).toarray().ravel()
-        if user_id == 19335:
-            print('CBF RATINGS:')
+        expected_ratings = interacted_items.dot(self.similarity_matrix)
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = expected_ratings.toarray().ravel()
+        if user_id == 0:
+            print('0 ICBF RATINGS:')
             print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        """
-        maximum = np.abs(expected_ratings).max(axis=0)
-        if maximum > 0:
-            expected_ratings = expected_ratings / maximum
-        """
-        expected_ratings[interacted_items.indices] = -1
+        if user_id == 1:
+            print('1 ICBF RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        if user_id == 2:
+            print('2 ICBF RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        expected_ratings[interacted_items.indices] = -100
         return expected_ratings
 
     def recommend(self, user_id, k=10):

@@ -6,55 +6,44 @@ from SLIM_ElasticNet.slim_elastic_net import SLIMElasticNet
 from cf.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from cf.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from cbf.user_content_based_filtering import UserContentBasedFiltering
-from cbf.item_content_based_filtering import ContentBasedFiltering
+from cbf.item_content_based_filtering import ItemContentBasedFiltering
 from MF.alternating_least_square import AlternatingLeastSquare
 
 
 class HybridRecommender(object):
-    def __init__(self, weights_short, weights_long, user_cf_param, item_cf_param, cbf_param, ucbf_param,
+    def __init__(self, weights_short, weights_long, user_cbf_param, item_cbf_param, user_cf_param, item_cf_param,
                  slim_param, svd_param, als_param):
 
         self.weights_short = weights_short
         self.weights_long = weights_long
 
-        # USER CF #
+        self.user_content_based_filtering = UserContentBasedFiltering(
+                                                            top_k_user_region=user_cbf_param['top_k_user_region'],
+                                                            top_k_user_age=user_cbf_param['top_k_user_age'],
+                                                            shrink_user_region=user_cbf_param['shrink_user_region'],
+                                                            shrink_user_age=user_cbf_param['shrink_user_age'],
+                                                            weight_user_region=user_cbf_param['weight_user_region'])
+        self.item_content_based_filtering = \
+            ItemContentBasedFiltering(top_k_item_asset=item_cbf_param['top_k_item_asset'],
+                                      top_k_item_price=item_cbf_param['top_k_item_price'],
+                                      top_k_item_sub_class=item_cbf_param['top_k_item_sub_class'],
+                                      shrink_item_asset=item_cbf_param['shrink_item_asset'],
+                                      shrink_item_price=item_cbf_param['shrink_item_price'],
+                                      shrink_item_sub_class=item_cbf_param['shrink_item_sub_class'],
+                                      weight_item_asset=item_cbf_param['weight_item_asset'],
+                                      weight_item_price=item_cbf_param['weight_item_price'])
+
         self.user_collaborative_filtering = UserBasedCollaborativeFiltering(top_k=user_cf_param['top_k'],
                                                                             shrink=user_cf_param['shrink'],
                                                                             similarity=item_cf_param['similarity'])
-
-        # ITEM_CF #
         self.item_collaborative_filtering = ItemBasedCollaborativeFiltering(top_k=item_cf_param['top_k'],
                                                                             shrink=item_cf_param['shrink'],
                                                                             similarity=item_cf_param['similarity'])
-
-        # CBF #
-        self.content_based_filtering = ContentBasedFiltering(top_k_item_asset=cbf_param['top_k_item_asset'],
-                                                             top_k_item_price=cbf_param['top_k_item_price'],
-                                                             top_k_item_sub_class=cbf_param['top_k_item_sub_class'],
-                                                             shrink_item_asset=cbf_param['shrink_item_asset'],
-                                                             shrink_item_price=cbf_param['shrink_item_price'],
-                                                             shrink_item_sub_class=cbf_param['shrink_item_sub_class'],
-                                                             weight_item_asset=cbf_param['weight_item_asset'],
-                                                             weight_item_price=cbf_param['weight_item_price'])
-
-        # CBF #
-        self.user_content_based_filtering = UserContentBasedFiltering(
-                                                            top_k_user_region=ucbf_param['top_k_user_region'],
-                                                            top_k_user_age=ucbf_param['top_k_user_age'],
-                                                            shrink_user_region=ucbf_param['shrink_user_region'],
-                                                            shrink_user_age=ucbf_param['shrink_user_age'],
-                                                            weight_user_region=ucbf_param['weight_user_region'],
-                                                            weight_user_age=ucbf_param['weight_user_age'])
-
-        self.slim_random = SLIMBPR(epochs=slim_param['epochs'], top_k=slim_param['top-k'])
-
-        self.slim_elastic = SLIMElasticNet()
-
+        self.slim_bpr = SLIMBPR(epochs=slim_param['epochs'], top_k=slim_param['top-k'])
+        self.elastic_net = SLIMElasticNet()
         # SVD BASED ON ITEM CONTENT MATRIX #
         # It takes too long to be computed and the increase in quality recommandations is quite low or none
         # self.svd_icm = SVDRec(n_factors=svd_param['n_factors'], knn=svd_param['knn'])
-
-        # ALS #
         self.als = AlternatingLeastSquare(factors=als_param['factors'],
                                           regularization=als_param['regularization'],
                                           iterations=als_param['iterations'],
@@ -65,20 +54,23 @@ class HybridRecommender(object):
     def fit(self, training_urm):
         self.training_urm = training_urm
 
-        print('Fitting cbf...')
-        self.content_based_filtering.fit(self.training_urm)
+        print('Fitting User Content Based Filtering...')
+        self.user_content_based_filtering.fit(self.training_urm)
 
-        print('Fitting user cf...')
+        print('Fitting Item Content Based Filtering...')
+        self.item_content_based_filtering.fit(self.training_urm)
+
+        print('Fitting User Collaborative Filtering...')
         self.user_collaborative_filtering.fit(self.training_urm)
 
-        print('Fitting item cf...')
+        print('Fitting Item Collaborative Filtering...')
         self.item_collaborative_filtering.fit(self.training_urm)
 
-        print('Fitting slim...')
-        self.slim_random.fit(self.training_urm)
+        print('Fitting SLIM BPR...')
+        self.slim_bpr.fit(self.training_urm)
         
-        print('Fitting slim elastic net...')
-        self.slim_elastic.fit(self.training_urm)
+        print('Fitting Elastic Net...')
+        self.elastic_net.fit(self.training_urm)
 
         # self.svd_icm.fit(self.training_urm)
 
@@ -92,12 +84,12 @@ class HybridRecommender(object):
         # TODO exploit inheritance to reduce code duplications and simple extract ratings, combine them,
         #  simply by iterate over a list of recommenders
 
-        # COMBINE RATINGS IN DIFFERENT WAYS (seq, random short, random long)
-        cbf_ratings = self.content_based_filtering.get_expected_ratings(user_id)
-        user_cf_ratings = self.user_collaborative_filtering.get_expected_ratings(user_id)
-        item_cf_ratings = self.item_collaborative_filtering.get_expected_ratings(user_id)
-        slim_ratings = self.slim_random.get_expected_ratings(user_id)
-        slim_elastic_ratings = self.slim_elastic.get_expected_ratings(user_id)
+        user_content_based_filtering_ratings = self.user_content_based_filtering.get_expected_ratings(user_id)
+        item_content_based_filtering_ratings = self.item_content_based_filtering.get_expected_ratings(user_id)
+        user_collaborative_filtering_ratings = self.user_collaborative_filtering.get_expected_ratings(user_id)
+        item_collaborative_filtering_ratings = self.item_collaborative_filtering.get_expected_ratings(user_id)
+        slim_bpr_ratings = self.slim_bpr.get_expected_ratings(user_id)
+        elastic_ratings = self.elastic_net.get_expected_ratings(user_id)
         # svd_icm_ratings = self.svd_icm.get_expected_ratings(user_id)
         als_ratings = self.als.get_expected_ratings(user_id)
         if self.training_urm[user_id].getnnz() > 10:
@@ -105,11 +97,12 @@ class HybridRecommender(object):
         else:
             weights = self.weights_short
 
-        hybrid_ratings = cbf_ratings * weights['cbf']
-        hybrid_ratings += user_cf_ratings * weights['user_cf']
-        hybrid_ratings += item_cf_ratings * weights['item_cf']
-        hybrid_ratings += slim_ratings * weights['slim']
-        hybrid_ratings += slim_elastic_ratings * weights['elastic']
+        hybrid_ratings = user_content_based_filtering_ratings * weights['user_cbf']
+        hybrid_ratings += item_content_based_filtering_ratings * weights['item_cbf']
+        hybrid_ratings += user_collaborative_filtering_ratings * weights['user_cf']
+        hybrid_ratings += item_collaborative_filtering_ratings * weights['item_cf']
+        hybrid_ratings += slim_bpr_ratings * weights['slim']
+        hybrid_ratings += elastic_ratings * weights['elastic']
         # hybrid_ratings += svd_icm_ratings * weights['svd_icm']
         hybrid_ratings += als_ratings * weights['als']
 

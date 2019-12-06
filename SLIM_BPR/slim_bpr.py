@@ -7,6 +7,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
+from sklearn.preprocessing import normalize
 
 from Base.Recommender_utils import similarityMatrixTopK, check_matrix
 
@@ -136,15 +137,18 @@ class SLIMBPR(object):
 
     def get_expected_ratings(self, user_id):
         user_id = int(user_id)
-        expected_ratings = self.recommendations[user_id].toarray().ravel()
-        if user_id == 19335:
-            print('SLIM BPR RATINGS:')
+        expected_ratings = self.recommendations[user_id]
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = expected_ratings.toarray().ravel()
+        if user_id == 0:
+            print('0 SLIM BPR RATINGS:')
             print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        """
-        maximum = np.abs(expected_ratings).max(axis=0)
-        if maximum > 0:
-            expected_ratings = expected_ratings / maximum
-        """
+        if user_id == 1:
+            print('1 SLIM BPR RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        if user_id == 2:
+            print('2 SLIM BPR RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
         return expected_ratings
 
     def recommend(self, user_id, at=10):

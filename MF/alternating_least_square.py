@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from implicit.als import AlternatingLeastSquares
+from sklearn.preprocessing import normalize
 
 
 class AlternatingLeastSquare:
@@ -31,15 +32,20 @@ class AlternatingLeastSquare:
         self.item_factors = model.item_factors
 
     def get_expected_ratings(self, user_id):
-        expected_ratings = np.dot(self.user_factors[user_id], self.item_factors.transpose())
-        if user_id == 19335:
-            print('ALS RATINGS:')
+        expected_ratings = self.user_factors[user_id].dot(self.item_factors.transpose())
+        expected_ratings = expected_ratings - expected_ratings.min()
+        expected_ratings = expected_ratings.reshape(1, -1)
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2')
+        expected_ratings = expected_ratings.ravel()
+        if user_id == 0:
+            print('0 ALS RATINGS:')
             print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        """
-        maximum = np.abs(expected_ratings).max(axis=0)
-        if maximum > 0:
-            expected_ratings = expected_ratings / maximum
-        """
+        if user_id == 1:
+            print('1 ALS RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        if user_id == 2:
+            print('2 ALS RATINGS:')
+            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
         return expected_ratings
 
     def recommend(self, user_id, k=10):
