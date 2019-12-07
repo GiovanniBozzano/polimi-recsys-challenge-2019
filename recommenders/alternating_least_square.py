@@ -35,7 +35,7 @@ class AlternatingLeastSquare:
         expected_ratings = self.user_factors[user_id].dot(self.item_factors.transpose())
         expected_ratings = expected_ratings - expected_ratings.min()
         expected_ratings = expected_ratings.reshape(1, -1)
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2')
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max')
         expected_ratings = expected_ratings.ravel()
         if user_id == 0:
             print('0 ALS RATINGS:')

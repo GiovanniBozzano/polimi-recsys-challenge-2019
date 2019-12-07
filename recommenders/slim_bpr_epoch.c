@@ -4,12 +4,12 @@
 {
     "distutils": {
         "depends": [],
-        "name": "SLIM_BPR_Cython_Epoch",
+        "name": "slim_bpr_epoch",
         "sources": [
-            "./cython/SLIM_BPR_Cython_Epoch.pyx"
+            "./recommenders/slim_bpr_epoch.pyx"
         ]
     },
-    "module_name": "SLIM_BPR_Cython_Epoch"
+    "module_name": "slim_bpr_epoch"
 }
 END: Cython Metadata */
 
@@ -603,8 +603,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__SLIM_BPR_Cython_Epoch
-#define __PYX_HAVE_API__SLIM_BPR_Cython_Epoch
+#define __PYX_HAVE__slim_bpr_epoch
+#define __PYX_HAVE_API__slim_bpr_epoch
 /* Early includes */
 #include <string.h>
 #include <stdio.h>
@@ -845,7 +845,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "cython\\SLIM_BPR_Cython_Epoch.pyx",
+  "recommenders\\slim_bpr_epoch.pyx",
   "stringsource",
   "venv\\lib\\site-packages\\Cython\\Includes\\numpy\\__init__.pxd",
   "venv\\lib\\site-packages\\Cython\\Includes\\cpython\\array.pxd",
@@ -1178,9 +1178,9 @@ static CYTHON_INLINE __pyx_t_double_complex __pyx_t_double_complex_from_parts(do
 struct arrayobject;
 typedef struct arrayobject arrayobject;
 #endif
-struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch;
-struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR;
-struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix;
+struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch;
+struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR;
+struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix;
 struct __pyx_array_obj;
 struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
@@ -1221,23 +1221,23 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  * cdef inline object PyArray_MultiIterNew1(a):
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
-struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample;
-struct __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s;
-typedef struct __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s;
-struct __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s;
-typedef struct __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s;
-struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr;
-struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree;
-struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr;
+struct __pyx_t_14slim_bpr_epoch_BPR_sample;
+struct __pyx_t_14slim_bpr_epoch_matrix_element_tree_s;
+typedef struct __pyx_t_14slim_bpr_epoch_matrix_element_tree_s __pyx_t_14slim_bpr_epoch_matrix_element_tree_s;
+struct __pyx_t_14slim_bpr_epoch_head_pointer_tree_s;
+typedef struct __pyx_t_14slim_bpr_epoch_head_pointer_tree_s __pyx_t_14slim_bpr_epoch_head_pointer_tree_s;
+struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr;
+struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree;
+struct __pyx_opt_args_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr;
 
-/* "SLIM_BPR_Cython_Epoch.pyx":45
+/* "slim_bpr_epoch.pyx":45
  * 
  * 
  * cdef struct BPR_sample:             # <<<<<<<<<<<<<<
  *     long user
  *     long pos_item
  */
-struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample {
+struct __pyx_t_14slim_bpr_epoch_BPR_sample {
   long user;
   long pos_item;
   long neg_item;
@@ -1245,77 +1245,77 @@ struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample {
   long seen_items_end_pos;
 };
 
-/* "SLIM_BPR_Cython_Epoch.pyx":512
+/* "slim_bpr_epoch.pyx":512
  * 
  * # Node struct
  * ctypedef struct matrix_element_tree_s:             # <<<<<<<<<<<<<<
  *     long column
  *     double data
  */
-struct __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s {
+struct __pyx_t_14slim_bpr_epoch_matrix_element_tree_s {
   long column;
   double data;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *higher;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *lower;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *higher;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *lower;
 };
 
-/* "SLIM_BPR_Cython_Epoch.pyx":518
+/* "slim_bpr_epoch.pyx":518
  *     matrix_element_tree_s *lower
  * 
  * ctypedef struct head_pointer_tree_s:             # <<<<<<<<<<<<<<
  *     matrix_element_tree_s *head
  * 
  */
-struct __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *head;
+struct __pyx_t_14slim_bpr_epoch_head_pointer_tree_s {
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *head;
 };
 
-/* "SLIM_BPR_Cython_Epoch.pyx":744
+/* "slim_bpr_epoch.pyx":744
  * 
  * 
  *     cdef get_scipy_csr(self, long TopK = False):             # <<<<<<<<<<<<<<
  *         """
  *         The function returns the current sparse matrix as a scipy_csr object
  */
-struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr {
+struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr {
   int __pyx_n;
   long TopK;
 };
 
-/* "SLIM_BPR_Cython_Epoch.pyx":789
+/* "slim_bpr_epoch.pyx":789
  * 
  * 
  *     cdef rebalance_tree(self, long TopK = False):             # <<<<<<<<<<<<<<
  *         """
  *         The function builds a balanced binary tree from the current one, for all matrix rows
  */
-struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree {
+struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree {
   int __pyx_n;
   long TopK;
 };
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1342
+/* "slim_bpr_epoch.pyx":1342
  * 
  * 
  *     cdef get_scipy_csr(self, long TopK = False):             # <<<<<<<<<<<<<<
  *         """
  *         The function returns the current sparse matrix as a scipy_csr object
  */
-struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr {
+struct __pyx_opt_args_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr {
   int __pyx_n;
   long TopK;
 };
 
-/* "SLIM_BPR_Cython_Epoch.pyx":59
+/* "slim_bpr_epoch.pyx":59
  * @cython.cdivision(True)
  * @cython.overflowcheck(False)
- * cdef class SLIM_BPR_Cython_Epoch:             # <<<<<<<<<<<<<<
+ * cdef class SLIMBPREpoch:             # <<<<<<<<<<<<<<
  * 
  *     cdef int n_users, n_items, batch_size
  */
-struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch {
+struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch {
   PyObject_HEAD
-  struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_vtab;
+  struct __pyx_vtabstruct_14slim_bpr_epoch_SLIMBPREpoch *__pyx_vtab;
   int n_users;
   int n_items;
   int batch_size;
@@ -1328,8 +1328,8 @@ struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch {
   double lj_reg;
   __Pyx_memviewslice URM_mask_indices;
   __Pyx_memviewslice URM_mask_indptr;
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *S_sparse;
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *S_symmetric;
+  struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *S_sparse;
+  struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *S_symmetric;
   __Pyx_memviewslice S_dense;
   int useAdaGrad;
   int useRmsprop;
@@ -1348,32 +1348,32 @@ struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch {
 };
 
 
-/* "SLIM_BPR_Cython_Epoch.pyx":582
+/* "slim_bpr_epoch.pyx":582
  * @cython.cdivision(True)
  * @cython.overflowcheck(False)
  * cdef class Sparse_Matrix_Tree_CSR:             # <<<<<<<<<<<<<<
  * 
  *     cdef long num_rows, num_cols
  */
-struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR {
+struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR {
   PyObject_HEAD
-  struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_vtab;
+  struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_vtab;
   long num_rows;
   long num_cols;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *row_pointer;
+  __pyx_t_14slim_bpr_epoch_head_pointer_tree_s *row_pointer;
 };
 
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1230
+/* "slim_bpr_epoch.pyx":1230
  * @cython.cdivision(True)
  * @cython.overflowcheck(False)
  * cdef class Triangular_Matrix:             # <<<<<<<<<<<<<<
  * 
  *     cdef long num_rows, num_cols
  */
-struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix {
+struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix {
   PyObject_HEAD
-  struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_vtab;
+  struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *__pyx_vtab;
   long num_rows;
   long num_cols;
   int isSymmetric;
@@ -1459,22 +1459,22 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "SLIM_BPR_Cython_Epoch.pyx":59
+/* "slim_bpr_epoch.pyx":59
  * @cython.cdivision(True)
  * @cython.overflowcheck(False)
- * cdef class SLIM_BPR_Cython_Epoch:             # <<<<<<<<<<<<<<
+ * cdef class SLIMBPREpoch:             # <<<<<<<<<<<<<<
  * 
  *     cdef int n_users, n_items, batch_size
  */
 
-struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch {
-  double (*adaptive_gradient)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *, double, long, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice);
-  struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample (*sampleBPR_Cython)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *);
+struct __pyx_vtabstruct_14slim_bpr_epoch_SLIMBPREpoch {
+  double (*adaptive_gradient)(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *, double, long, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice);
+  struct __pyx_t_14slim_bpr_epoch_BPR_sample (*sampleBPR_Cython)(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *);
 };
-static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_vtabptr_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch;
+static struct __pyx_vtabstruct_14slim_bpr_epoch_SLIMBPREpoch *__pyx_vtabptr_14slim_bpr_epoch_SLIMBPREpoch;
 
 
-/* "SLIM_BPR_Cython_Epoch.pyx":582
+/* "slim_bpr_epoch.pyx":582
  * @cython.cdivision(True)
  * @cython.overflowcheck(False)
  * cdef class Sparse_Matrix_Tree_CSR:             # <<<<<<<<<<<<<<
@@ -1482,24 +1482,24 @@ static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__
  *     cdef long num_rows, num_cols
  */
 
-struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR {
-  double (*add_value)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, long, double);
-  double (*get_value)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, long);
-  PyObject *(*get_scipy_csr)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args);
-  PyObject *(*rebalance_tree)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args);
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *(*subtree_to_list_flat)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *);
-  PyObject *(*from_linked_list_to_python_list)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *);
-  PyObject *(*subtree_free_memory)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *);
-  PyObject *(*list_free_memory)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *);
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *(*build_tree_from_list_flat)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *);
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *(*topK_selection_from_list)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *, long);
-  PyObject *(*test_list_tee_conversion)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, int __pyx_skip_dispatch);
-  PyObject *(*test_topK_from_list_selection)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, long, int __pyx_skip_dispatch);
+struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR {
+  double (*add_value)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, long, double);
+  double (*get_value)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, long);
+  PyObject *(*get_scipy_csr)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args);
+  PyObject *(*rebalance_tree)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args);
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *(*subtree_to_list_flat)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *);
+  PyObject *(*from_linked_list_to_python_list)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *);
+  PyObject *(*subtree_free_memory)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *);
+  PyObject *(*list_free_memory)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *);
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *(*build_tree_from_list_flat)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *);
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *(*topK_selection_from_list)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *, long);
+  PyObject *(*test_list_tee_conversion)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, int __pyx_skip_dispatch);
+  PyObject *(*test_topK_from_list_selection)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, long, int __pyx_skip_dispatch);
 };
-static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR;
+static struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_vtabptr_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR;
 
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1230
+/* "slim_bpr_epoch.pyx":1230
  * @cython.cdivision(True)
  * @cython.overflowcheck(False)
  * cdef class Triangular_Matrix:             # <<<<<<<<<<<<<<
@@ -1507,12 +1507,12 @@ static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *_
  *     cdef long num_rows, num_cols
  */
 
-struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix {
-  double (*add_value)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *, long, long, double);
-  double (*get_value)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *, long, long);
-  PyObject *(*get_scipy_csr)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args);
+struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix {
+  double (*add_value)(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *, long, long, double);
+  double (*get_value)(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *, long, long);
+  PyObject *(*get_scipy_csr)(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *, struct __pyx_opt_args_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args);
 };
-static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Triangular_Matrix;
+static struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *__pyx_vtabptr_14slim_bpr_epoch_Triangular_Matrix;
 
 
 /* "View.MemoryView":105
@@ -2662,23 +2662,23 @@ static int __Pyx_check_binary_version(void);
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_gradient(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, double __pyx_v_gradient, long __pyx_v_user_or_item_id, __Pyx_memviewslice __pyx_v_sgd_cache, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_1, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_2); /* proto*/
-static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_sampleBPR_Cython(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self); /* proto*/
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value); /* proto*/
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args); /* proto*/
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtree_to_list_flat(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_root); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_linked_list_to_python_list(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtree_free_memory(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_root); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_free_memory(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head); /* proto*/
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_build_tree_from_list_flat(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_flat_list_head); /* proto*/
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_topK_selection_from_list(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head, long __pyx_v_TopK); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK, int __pyx_skip_dispatch); /* proto*/
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value); /* proto*/
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col); /* proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args); /* proto*/
+static double __pyx_f_14slim_bpr_epoch_12SLIMBPREpoch_adaptive_gradient(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, double __pyx_v_gradient, long __pyx_v_user_or_item_id, __Pyx_memviewslice __pyx_v_sgd_cache, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_1, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_2); /* proto*/
+static struct __pyx_t_14slim_bpr_epoch_BPR_sample __pyx_f_14slim_bpr_epoch_12SLIMBPREpoch_sampleBPR_Cython(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self); /* proto*/
+static double __pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_add_value(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value); /* proto*/
+static double __pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_value(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args); /* proto*/
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_subtree_to_list_flat(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_root); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_from_linked_list_to_python_list(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_subtree_free_memory(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_root); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_list_free_memory(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head); /* proto*/
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_build_tree_from_list_flat(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_flat_list_head); /* proto*/
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_topK_selection_from_list(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head, long __pyx_v_TopK); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK, int __pyx_skip_dispatch); /* proto*/
+static double __pyx_f_14slim_bpr_epoch_17Triangular_Matrix_add_value(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value); /* proto*/
+static double __pyx_f_14slim_bpr_epoch_17Triangular_Matrix_get_value(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col); /* proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, struct __pyx_opt_args_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args); /* proto*/
 static PyObject *__pyx_array_get_memview(struct __pyx_array_obj *__pyx_v_self); /* proto*/
 static char *__pyx_memoryview_get_item_pointer(struct __pyx_memoryview_obj *__pyx_v_self, PyObject *__pyx_v_index); /* proto*/
 static PyObject *__pyx_memoryview_is_slice(struct __pyx_memoryview_obj *__pyx_v_self, PyObject *__pyx_v_obj); /* proto*/
@@ -2736,10 +2736,10 @@ static PyTypeObject *__pyx_ptype_7cpython_5array_array = 0;
 static CYTHON_INLINE arrayobject *__pyx_f_7cpython_5array_clone(arrayobject *, Py_ssize_t, int); /*proto*/
 static CYTHON_INLINE int __pyx_f_7cpython_5array_extend_buffer(arrayobject *, char *, Py_ssize_t); /*proto*/
 
-/* Module declarations from 'SLIM_BPR_Cython_Epoch' */
-static PyTypeObject *__pyx_ptype_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch = 0;
-static PyTypeObject *__pyx_ptype_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR = 0;
-static PyTypeObject *__pyx_ptype_21SLIM_BPR_Cython_Epoch_Triangular_Matrix = 0;
+/* Module declarations from 'slim_bpr_epoch' */
+static PyTypeObject *__pyx_ptype_14slim_bpr_epoch_SLIMBPREpoch = 0;
+static PyTypeObject *__pyx_ptype_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR = 0;
+static PyTypeObject *__pyx_ptype_14slim_bpr_epoch_Triangular_Matrix = 0;
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
@@ -2751,10 +2751,10 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_pointer_new_matrix_element_tree_s(long, double, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *); /*proto*/
-static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_column(void const *, void const *); /*proto*/
-static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *, void const *); /*proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *, PyObject *); /*proto*/
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_pointer_new_matrix_element_tree_s(long, double, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *); /*proto*/
+static int __pyx_f_14slim_bpr_epoch_compare_struct_on_column(void const *, void const *); /*proto*/
+static int __pyx_f_14slim_bpr_epoch_compare_struct_on_data(void const *, void const *); /*proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch___pyx_unpickle_SLIMBPREpoch__set_state(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *, PyObject *); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char *, char *); /*proto*/
 static void *__pyx_align_pointer(void *, size_t); /*proto*/
 static PyObject *__pyx_memoryview_new(PyObject *, int, int, __Pyx_TypeInfo *); /*proto*/
@@ -2792,11 +2792,11 @@ static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), 
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t = { "float64_t", NULL, sizeof(__pyx_t_5numpy_float64_t), { 0 }, 0, 'R', 0, 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_PY_LONG_LONG = { "long long", NULL, sizeof(PY_LONG_LONG), { 0 }, 0, IS_UNSIGNED(PY_LONG_LONG) ? 'U' : 'I', IS_UNSIGNED(PY_LONG_LONG), 0 };
 static __Pyx_TypeInfo __Pyx_TypeInfo_int = { "int", NULL, sizeof(int), { 0 }, 0, IS_UNSIGNED(int) ? 'U' : 'I', IS_UNSIGNED(int), 0 };
-#define __Pyx_MODULE_NAME "SLIM_BPR_Cython_Epoch"
-extern int __pyx_module_is_main_SLIM_BPR_Cython_Epoch;
-int __pyx_module_is_main_SLIM_BPR_Cython_Epoch = 0;
+#define __Pyx_MODULE_NAME "slim_bpr_epoch"
+extern int __pyx_module_is_main_slim_bpr_epoch;
+int __pyx_module_is_main_slim_bpr_epoch = 0;
 
-/* Implementation of 'SLIM_BPR_Cython_Epoch' */
+/* Implementation of 'slim_bpr_epoch' */
 static PyObject *__pyx_builtin_super;
 static PyObject *__pyx_builtin_print;
 static PyObject *__pyx_builtin_range;
@@ -2912,6 +2912,7 @@ static const char __pyx_k_PickleError[] = "PickleError";
 static const char __pyx_k_isSymmetric[] = "isSymmetric";
 static const char __pyx_k_random_seed[] = "random_seed";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
+static const char __pyx_k_SLIMBPREpoch[] = "SLIMBPREpoch";
 static const char __pyx_k_argpartition[] = "argpartition";
 static const char __pyx_k_check_matrix[] = "check_matrix";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
@@ -2920,6 +2921,7 @@ static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_learning_rate[] = "learning_rate";
 static const char __pyx_k_pyx_getbuffer[] = "__pyx_getbuffer";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
+static const char __pyx_k_slim_bpr_epoch[] = "slim_bpr_epoch";
 static const char __pyx_k_sorted_indices[] = "sorted_indices";
 static const char __pyx_k_View_MemoryView[] = "View.MemoryView";
 static const char __pyx_k_allocate_buffer[] = "allocate_buffer";
@@ -2934,9 +2936,8 @@ static const char __pyx_k_strided_and_direct[] = "<strided and direct>";
 static const char __pyx_k_seen_items_start_pos[] = "seen_items_start_pos";
 static const char __pyx_k_similarityMatrixTopK[] = "similarityMatrixTopK";
 static const char __pyx_k_strided_and_indirect[] = "<strided and indirect>";
-static const char __pyx_k_SLIM_BPR_Cython_Epoch[] = "SLIM_BPR_Cython_Epoch";
 static const char __pyx_k_contiguous_and_direct[] = "<contiguous and direct>";
-static const char __pyx_k_Base_Recommender_utils[] = "Base.Recommender_utils";
+static const char __pyx_k_lib_Recommender_utils[] = "lib.Recommender_utils";
 static const char __pyx_k_MemoryView_of_r_object[] = "<MemoryView of %r object>";
 static const char __pyx_k_Sparse_Matrix_Tree_CSR[] = "Sparse_Matrix_Tree_CSR";
 static const char __pyx_k_MemoryView_of_r_at_0x_x[] = "<MemoryView of %r at 0x%x>";
@@ -2944,6 +2945,7 @@ static const char __pyx_k_contiguous_and_indirect[] = "<contiguous and indirect>
 static const char __pyx_k_Cannot_index_with_type_s[] = "Cannot index with type '%s'";
 static const char __pyx_k_test_list_tee_conversion[] = "test_list_tee_conversion";
 static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %d: %d.";
+static const char __pyx_k_pyx_unpickle_SLIMBPREpoch[] = "__pyx_unpickle_SLIMBPREpoch";
 static const char __pyx_k_train_with_sparse_weights[] = "train_with_sparse_weights";
 static const char __pyx_k_final_model_sparse_weights[] = "final_model_sparse_weights";
 static const char __pyx_k_Deallocating_Cython_objects[] = "Deallocating Cython objects";
@@ -2955,7 +2957,6 @@ static const char __pyx_k_TopK_extracted_content_Passed[] = "TopK extracted cont
 static const char __pyx_k_test_topK_from_list_selection[] = "test_topK_from_list_selection";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
 static const char __pyx_k_Bidirectional_list_link_Passed[] = "Bidirectional list link - Passed";
-static const char __pyx_k_pyx_unpickle_SLIM_BPR_Cython_E[] = "__pyx_unpickle_SLIM_BPR_Cython_Epoch";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
 static const char __pyx_k_After_tree_construction_columns[] = "After tree construction columns are not ordered properly";
 static const char __pyx_k_Bidirectional_linked_list_after[] = "Bidirectional linked list after tree construction not consistent. From head to tail element count is {}, from tail to head is {}";
@@ -3002,7 +3003,6 @@ static const char __pyx_k_TopK_extracted_list_and_numpy_on_3[] = "TopK extracted
 static PyObject *__pyx_n_s_ASCII;
 static PyObject *__pyx_kp_u_After_tree_construction_columns;
 static PyObject *__pyx_kp_u_After_tree_construction_data_con;
-static PyObject *__pyx_n_s_Base_Recommender_utils;
 static PyObject *__pyx_kp_u_Bidirectional_linked_list_after;
 static PyObject *__pyx_kp_u_Bidirectional_linked_list_not_co;
 static PyObject *__pyx_kp_u_Bidirectional_list_from_tree_lin;
@@ -3041,7 +3041,7 @@ static PyObject *__pyx_kp_s_Out_of_bounds_on_buffer_access_a;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_kp_u_Processed_2f_in_2f_seconds_BPR_l;
 static PyObject *__pyx_n_s_RuntimeError;
-static PyObject *__pyx_n_s_SLIM_BPR_Cython_Epoch;
+static PyObject *__pyx_n_s_SLIMBPREpoch;
 static PyObject *__pyx_n_s_Sparse_Matrix_Tree_CSR;
 static PyObject *__pyx_n_s_T;
 static PyObject *__pyx_kp_u_TopK_data_and_column_lists_have;
@@ -3111,6 +3111,7 @@ static PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
 static PyObject *__pyx_n_s_k;
 static PyObject *__pyx_n_s_learning_rate;
 static PyObject *__pyx_n_s_li_reg;
+static PyObject *__pyx_n_s_lib_Recommender_utils;
 static PyObject *__pyx_n_s_lj_reg;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_memview;
@@ -3141,7 +3142,7 @@ static PyObject *__pyx_n_s_pyx_result;
 static PyObject *__pyx_n_s_pyx_state;
 static PyObject *__pyx_n_s_pyx_type;
 static PyObject *__pyx_n_s_pyx_unpickle_Enum;
-static PyObject *__pyx_n_s_pyx_unpickle_SLIM_BPR_Cython_E;
+static PyObject *__pyx_n_s_pyx_unpickle_SLIMBPREpoch;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_random_seed;
 static PyObject *__pyx_n_s_range;
@@ -3161,6 +3162,7 @@ static PyObject *__pyx_n_s_sgd_mode;
 static PyObject *__pyx_n_s_shape;
 static PyObject *__pyx_n_s_similarityMatrixTopK;
 static PyObject *__pyx_n_s_size;
+static PyObject *__pyx_n_s_slim_bpr_epoch;
 static PyObject *__pyx_n_s_sorted_indices;
 static PyObject *__pyx_n_s_sps;
 static PyObject *__pyx_n_s_start;
@@ -3190,25 +3192,25 @@ static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_user;
 static PyObject *__pyx_n_s_verbose;
 static PyObject *__pyx_n_s_zeros;
-static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, PyObject *__pyx_v_URM_mask, PyObject *__pyx_v_train_with_sparse_weights, PyObject *__pyx_v_final_model_sparse_weights, PyObject *__pyx_v_learning_rate, PyObject *__pyx_v_li_reg, PyObject *__pyx_v_lj_reg, PyObject *__pyx_v_batch_size, PyObject *__pyx_v_topK, PyObject *__pyx_v_symmetric, PyObject *__pyx_v_verbose, PyObject *__pyx_v_random_seed, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init_adaptive_gradient_cache(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2); /* proto */
-static void __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_4__dealloc__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_dealloc(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epochIteration_Cython(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_S(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__reduce_cython__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_14__setstate_cython__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_num_rows, long __pyx_v_num_cols); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2dealloc(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_num_rows, int __pyx_v_isSymmetric); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_Epoch(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch___init__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, PyObject *__pyx_v_URM_mask, PyObject *__pyx_v_train_with_sparse_weights, PyObject *__pyx_v_final_model_sparse_weights, PyObject *__pyx_v_learning_rate, PyObject *__pyx_v_li_reg, PyObject *__pyx_v_lj_reg, PyObject *__pyx_v_batch_size, PyObject *__pyx_v_topK, PyObject *__pyx_v_symmetric, PyObject *__pyx_v_verbose, PyObject *__pyx_v_random_seed, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_2_init_adaptive_gradient_cache(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2); /* proto */
+static void __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_4__dealloc__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_6_dealloc(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_8epochIteration_Cython(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_10get_S(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_12__reduce_cython__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_14__setstate_cython__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR___init__(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_num_rows, long __pyx_v_num_cols); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_2dealloc(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_14slim_bpr_epoch_17Triangular_Matrix___init__(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_num_rows, int __pyx_v_isSymmetric); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_2dealloc(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_14slim_bpr_epoch___pyx_unpickle_SLIMBPREpoch(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static int __pyx_pf_7cpython_5array_5array___getbuffer__(arrayobject *__pyx_v_self, Py_buffer *__pyx_v_info, CYTHON_UNUSED int __pyx_v_flags); /* proto */
@@ -3255,9 +3257,9 @@ static PyObject *__pyx_pf_15View_dot_MemoryView_16_memoryviewslice_4base___get__
 static PyObject *__pyx_pf___pyx_memoryviewslice___reduce_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf___pyx_memoryviewslice_2__setstate_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_15View_dot_MemoryView___pyx_unpickle_Enum(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_Triangular_Matrix(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14slim_bpr_epoch_SLIMBPREpoch(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14slim_bpr_epoch_Triangular_Matrix(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -3321,7 +3323,7 @@ static PyObject *__pyx_codeobj__13;
 static PyObject *__pyx_codeobj__39;
 /* Late includes */
 
-/* "SLIM_BPR_Cython_Epoch.pyx":87
+/* "slim_bpr_epoch.pyx":87
  * 
  * 
  *     def __init__(self, URM_mask,             # <<<<<<<<<<<<<<
@@ -3330,8 +3332,8 @@ static PyObject *__pyx_codeobj__39;
  */
 
 /* Python wrapper */
-static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_URM_mask = 0;
   PyObject *__pyx_v_train_with_sparse_weights = 0;
   PyObject *__pyx_v_final_model_sparse_weights = 0;
@@ -3354,7 +3356,7 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(Py
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_URM_mask,&__pyx_n_s_train_with_sparse_weights,&__pyx_n_s_final_model_sparse_weights,&__pyx_n_s_learning_rate,&__pyx_n_s_li_reg,&__pyx_n_s_lj_reg,&__pyx_n_s_batch_size,&__pyx_n_s_topK,&__pyx_n_s_symmetric,&__pyx_n_s_verbose,&__pyx_n_s_random_seed,&__pyx_n_s_sgd_mode,&__pyx_n_s_gamma,&__pyx_n_s_beta_1,&__pyx_n_s_beta_2,0};
     PyObject* values[15] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":88
+    /* "slim_bpr_epoch.pyx":88
  * 
  *     def __init__(self, URM_mask,
  *                  train_with_sparse_weights = False,             # <<<<<<<<<<<<<<
@@ -3363,7 +3365,7 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(Py
  */
     values[1] = ((PyObject *)Py_False);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":89
+    /* "slim_bpr_epoch.pyx":89
  *     def __init__(self, URM_mask,
  *                  train_with_sparse_weights = False,
  *                  final_model_sparse_weights = True,             # <<<<<<<<<<<<<<
@@ -3377,7 +3379,7 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(Py
     values[6] = ((PyObject *)__pyx_int_1);
     values[7] = ((PyObject *)__pyx_int_150);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":91
+    /* "slim_bpr_epoch.pyx":91
  *                  final_model_sparse_weights = True,
  *                  learning_rate = 0.01, li_reg = 0.0, lj_reg = 0.0,
  *                  batch_size = 1, topK = 150, symmetric = True,             # <<<<<<<<<<<<<<
@@ -3386,7 +3388,7 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(Py
  */
     values[8] = ((PyObject *)Py_True);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":92
+    /* "slim_bpr_epoch.pyx":92
  *                  learning_rate = 0.01, li_reg = 0.0, lj_reg = 0.0,
  *                  batch_size = 1, topK = 150, symmetric = True,
  *                  verbose = False, random_seed = None,             # <<<<<<<<<<<<<<
@@ -3584,13 +3586,13 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(Py
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 15, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 87, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self), __pyx_v_URM_mask, __pyx_v_train_with_sparse_weights, __pyx_v_final_model_sparse_weights, __pyx_v_learning_rate, __pyx_v_li_reg, __pyx_v_lj_reg, __pyx_v_batch_size, __pyx_v_topK, __pyx_v_symmetric, __pyx_v_verbose, __pyx_v_random_seed, __pyx_v_sgd_mode, __pyx_v_gamma, __pyx_v_beta_1, __pyx_v_beta_2);
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch___init__(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self), __pyx_v_URM_mask, __pyx_v_train_with_sparse_weights, __pyx_v_final_model_sparse_weights, __pyx_v_learning_rate, __pyx_v_li_reg, __pyx_v_lj_reg, __pyx_v_batch_size, __pyx_v_topK, __pyx_v_symmetric, __pyx_v_verbose, __pyx_v_random_seed, __pyx_v_sgd_mode, __pyx_v_gamma, __pyx_v_beta_1, __pyx_v_beta_2);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":87
+  /* "slim_bpr_epoch.pyx":87
  * 
  * 
  *     def __init__(self, URM_mask,             # <<<<<<<<<<<<<<
@@ -3603,7 +3605,7 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__(Py
   return __pyx_r;
 }
 
-static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, PyObject *__pyx_v_URM_mask, PyObject *__pyx_v_train_with_sparse_weights, PyObject *__pyx_v_final_model_sparse_weights, PyObject *__pyx_v_learning_rate, PyObject *__pyx_v_li_reg, PyObject *__pyx_v_lj_reg, PyObject *__pyx_v_batch_size, PyObject *__pyx_v_topK, PyObject *__pyx_v_symmetric, PyObject *__pyx_v_verbose, PyObject *__pyx_v_random_seed, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2) {
+static int __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch___init__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, PyObject *__pyx_v_URM_mask, PyObject *__pyx_v_train_with_sparse_weights, PyObject *__pyx_v_final_model_sparse_weights, PyObject *__pyx_v_learning_rate, PyObject *__pyx_v_li_reg, PyObject *__pyx_v_lj_reg, PyObject *__pyx_v_batch_size, PyObject *__pyx_v_topK, PyObject *__pyx_v_symmetric, PyObject *__pyx_v_verbose, PyObject *__pyx_v_random_seed, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2) {
   int __pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -3624,18 +3626,18 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_INCREF(__pyx_v_URM_mask);
   __Pyx_INCREF(__pyx_v_symmetric);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":95
+  /* "slim_bpr_epoch.pyx":95
  *                  sgd_mode='adam', gamma=0.995, beta_1=0.9, beta_2=0.999):
  * 
- *         super(SLIM_BPR_Cython_Epoch, self).__init__()             # <<<<<<<<<<<<<<
+ *         super(SLIMBPREpoch, self).__init__()             # <<<<<<<<<<<<<<
  * 
  *         # Create copy of URM_train in csr format
  */
   __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch));
-  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch));
+  __Pyx_INCREF(((PyObject *)__pyx_ptype_14slim_bpr_epoch_SLIMBPREpoch));
+  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_14slim_bpr_epoch_SLIMBPREpoch));
+  PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_14slim_bpr_epoch_SLIMBPREpoch));
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
@@ -3662,7 +3664,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":99
+  /* "slim_bpr_epoch.pyx":99
  *         # Create copy of URM_train in csr format
  *         # make sure indices are sorted
  *         URM_mask = check_matrix(URM_mask, 'csr')             # <<<<<<<<<<<<<<
@@ -3719,7 +3721,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_DECREF_SET(__pyx_v_URM_mask, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":100
+  /* "slim_bpr_epoch.pyx":100
  *         # make sure indices are sorted
  *         URM_mask = check_matrix(URM_mask, 'csr')
  *         URM_mask = URM_mask.sorted_indices()             # <<<<<<<<<<<<<<
@@ -3746,7 +3748,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_DECREF_SET(__pyx_v_URM_mask, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":102
+  /* "slim_bpr_epoch.pyx":102
  *         URM_mask = URM_mask.sorted_indices()
  * 
  *         self.n_users = URM_mask.shape[0]             # <<<<<<<<<<<<<<
@@ -3762,7 +3764,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_self->n_users = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":103
+  /* "slim_bpr_epoch.pyx":103
  * 
  *         self.n_users = URM_mask.shape[0]
  *         self.n_items = URM_mask.shape[1]             # <<<<<<<<<<<<<<
@@ -3778,7 +3780,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->n_items = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":104
+  /* "slim_bpr_epoch.pyx":104
  *         self.n_users = URM_mask.shape[0]
  *         self.n_items = URM_mask.shape[1]
  *         self.topK = topK             # <<<<<<<<<<<<<<
@@ -3788,7 +3790,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_topK); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 104, __pyx_L1_error)
   __pyx_v_self->topK = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":105
+  /* "slim_bpr_epoch.pyx":105
  *         self.n_items = URM_mask.shape[1]
  *         self.topK = topK
  *         self.learning_rate = learning_rate             # <<<<<<<<<<<<<<
@@ -3798,7 +3800,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_6 = __pyx_PyFloat_AsDouble(__pyx_v_learning_rate); if (unlikely((__pyx_t_6 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 105, __pyx_L1_error)
   __pyx_v_self->learning_rate = __pyx_t_6;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":106
+  /* "slim_bpr_epoch.pyx":106
  *         self.topK = topK
  *         self.learning_rate = learning_rate
  *         self.li_reg = li_reg             # <<<<<<<<<<<<<<
@@ -3808,7 +3810,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_6 = __pyx_PyFloat_AsDouble(__pyx_v_li_reg); if (unlikely((__pyx_t_6 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 106, __pyx_L1_error)
   __pyx_v_self->li_reg = __pyx_t_6;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":107
+  /* "slim_bpr_epoch.pyx":107
  *         self.learning_rate = learning_rate
  *         self.li_reg = li_reg
  *         self.lj_reg = lj_reg             # <<<<<<<<<<<<<<
@@ -3818,7 +3820,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_6 = __pyx_PyFloat_AsDouble(__pyx_v_lj_reg); if (unlikely((__pyx_t_6 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 107, __pyx_L1_error)
   __pyx_v_self->lj_reg = __pyx_t_6;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":108
+  /* "slim_bpr_epoch.pyx":108
  *         self.li_reg = li_reg
  *         self.lj_reg = lj_reg
  *         self.batch_size = batch_size             # <<<<<<<<<<<<<<
@@ -3828,7 +3830,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_batch_size); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L1_error)
   __pyx_v_self->batch_size = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":109
+  /* "slim_bpr_epoch.pyx":109
  *         self.lj_reg = lj_reg
  *         self.batch_size = batch_size
  *         self.verbose = verbose             # <<<<<<<<<<<<<<
@@ -3838,7 +3840,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_verbose); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 109, __pyx_L1_error)
   __pyx_v_self->verbose = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":112
+  /* "slim_bpr_epoch.pyx":112
  * 
  * 
  *         if train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -3848,7 +3850,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_train_with_sparse_weights); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 112, __pyx_L1_error)
   if (__pyx_t_7) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":113
+    /* "slim_bpr_epoch.pyx":113
  * 
  *         if train_with_sparse_weights:
  *             symmetric = False             # <<<<<<<<<<<<<<
@@ -3858,7 +3860,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
     __Pyx_INCREF(Py_False);
     __Pyx_DECREF_SET(__pyx_v_symmetric, Py_False);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":112
+    /* "slim_bpr_epoch.pyx":112
  * 
  * 
  *         if train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -3867,7 +3869,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":115
+  /* "slim_bpr_epoch.pyx":115
  *             symmetric = False
  * 
  *         self.train_with_sparse_weights = train_with_sparse_weights             # <<<<<<<<<<<<<<
@@ -3877,7 +3879,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_train_with_sparse_weights); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 115, __pyx_L1_error)
   __pyx_v_self->train_with_sparse_weights = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":116
+  /* "slim_bpr_epoch.pyx":116
  * 
  *         self.train_with_sparse_weights = train_with_sparse_weights
  *         self.final_model_sparse_weights = final_model_sparse_weights             # <<<<<<<<<<<<<<
@@ -3887,7 +3889,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_final_model_sparse_weights); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 116, __pyx_L1_error)
   __pyx_v_self->final_model_sparse_weights = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":117
+  /* "slim_bpr_epoch.pyx":117
  *         self.train_with_sparse_weights = train_with_sparse_weights
  *         self.final_model_sparse_weights = final_model_sparse_weights
  *         self.symmetric = symmetric             # <<<<<<<<<<<<<<
@@ -3897,7 +3899,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_symmetric); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 117, __pyx_L1_error)
   __pyx_v_self->symmetric = __pyx_t_4;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":119
+  /* "slim_bpr_epoch.pyx":119
  *         self.symmetric = symmetric
  * 
  *         self.URM_mask_indices = np.array(URM_mask.indices, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -3937,7 +3939,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_9.memview = NULL;
   __pyx_t_9.data = NULL;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":120
+  /* "slim_bpr_epoch.pyx":120
  * 
  *         self.URM_mask_indices = np.array(URM_mask.indices, dtype=np.int32)
  *         self.URM_mask_indptr = np.array(URM_mask.indptr, dtype=np.int32)             # <<<<<<<<<<<<<<
@@ -3977,7 +3979,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_9.memview = NULL;
   __pyx_t_9.data = NULL;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":123
+  /* "slim_bpr_epoch.pyx":123
  * 
  * 
  *         if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -3987,7 +3989,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_7 = (__pyx_v_self->train_with_sparse_weights != 0);
   if (__pyx_t_7) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":124
+    /* "slim_bpr_epoch.pyx":124
  * 
  *         if self.train_with_sparse_weights:
  *             self.S_sparse = Sparse_Matrix_Tree_CSR(self.n_items, self.n_items)             # <<<<<<<<<<<<<<
@@ -4006,16 +4008,16 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
     PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_8);
     __pyx_t_3 = 0;
     __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR), __pyx_t_5, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR), __pyx_t_5, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 124, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GIVEREF(__pyx_t_8);
     __Pyx_GOTREF(__pyx_v_self->S_sparse);
     __Pyx_DECREF(((PyObject *)__pyx_v_self->S_sparse));
-    __pyx_v_self->S_sparse = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_t_8);
+    __pyx_v_self->S_sparse = ((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_t_8);
     __pyx_t_8 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":123
+    /* "slim_bpr_epoch.pyx":123
  * 
  * 
  *         if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -4025,7 +4027,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
     goto __pyx_L4;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":126
+  /* "slim_bpr_epoch.pyx":126
  *             self.S_sparse = Sparse_Matrix_Tree_CSR(self.n_items, self.n_items)
  * 
  *         elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -4035,7 +4037,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_7 = (__pyx_v_self->symmetric != 0);
   if (__pyx_t_7) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":127
+    /* "slim_bpr_epoch.pyx":127
  * 
  *         elif self.symmetric:
  *             self.S_symmetric = Triangular_Matrix(self.n_items, isSymmetric = True)             # <<<<<<<<<<<<<<
@@ -4052,17 +4054,17 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
     __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 127, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_isSymmetric, Py_True) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_21SLIM_BPR_Cython_Epoch_Triangular_Matrix), __pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14slim_bpr_epoch_Triangular_Matrix), __pyx_t_5, __pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_GIVEREF(__pyx_t_3);
     __Pyx_GOTREF(__pyx_v_self->S_symmetric);
     __Pyx_DECREF(((PyObject *)__pyx_v_self->S_symmetric));
-    __pyx_v_self->S_symmetric = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_t_3);
+    __pyx_v_self->S_symmetric = ((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":126
+    /* "slim_bpr_epoch.pyx":126
  *             self.S_sparse = Sparse_Matrix_Tree_CSR(self.n_items, self.n_items)
  * 
  *         elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -4072,7 +4074,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
     goto __pyx_L4;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":129
+  /* "slim_bpr_epoch.pyx":129
  *             self.S_symmetric = Triangular_Matrix(self.n_items, isSymmetric = True)
  *         else:
  *             self.S_dense = np.zeros((self.n_items, self.n_items), dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4125,7 +4127,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   }
   __pyx_L4:;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":131
+  /* "slim_bpr_epoch.pyx":131
  *             self.S_dense = np.zeros((self.n_items, self.n_items), dtype=np.float64)
  * 
  *         if random_seed is not None:             # <<<<<<<<<<<<<<
@@ -4136,7 +4138,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __pyx_t_11 = (__pyx_t_7 != 0);
   if (__pyx_t_11) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":132
+    /* "slim_bpr_epoch.pyx":132
  * 
  *         if random_seed is not None:
  *             srand(<unsigned> random_seed)             # <<<<<<<<<<<<<<
@@ -4146,7 +4148,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
     __pyx_t_12 = __Pyx_PyInt_As_unsigned_int(__pyx_v_random_seed); if (unlikely((__pyx_t_12 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 132, __pyx_L1_error)
     srand(((unsigned int)__pyx_t_12));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":131
+    /* "slim_bpr_epoch.pyx":131
  *             self.S_dense = np.zeros((self.n_items, self.n_items), dtype=np.float64)
  * 
  *         if random_seed is not None:             # <<<<<<<<<<<<<<
@@ -4155,7 +4157,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":135
+  /* "slim_bpr_epoch.pyx":135
  * 
  * 
  *         self._init_adaptive_gradient_cache(sgd_mode, gamma, beta_1, beta_2)             # <<<<<<<<<<<<<<
@@ -4217,7 +4219,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":87
+  /* "slim_bpr_epoch.pyx":87
  * 
  * 
  *     def __init__(self, URM_mask,             # <<<<<<<<<<<<<<
@@ -4236,7 +4238,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   __Pyx_XDECREF(__pyx_t_8);
   __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_URM_mask);
@@ -4246,7 +4248,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":140
+/* "slim_bpr_epoch.pyx":140
  * 
  * 
  *     def _init_adaptive_gradient_cache(self, sgd_mode, gamma, beta_1, beta_2):             # <<<<<<<<<<<<<<
@@ -4255,8 +4257,8 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch___init__(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_3_init_adaptive_gradient_cache(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_3_init_adaptive_gradient_cache(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_3_init_adaptive_gradient_cache(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_3_init_adaptive_gradient_cache(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_sgd_mode = 0;
   PyObject *__pyx_v_gamma = 0;
   PyObject *__pyx_v_beta_1 = 0;
@@ -4326,18 +4328,18 @@ static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_3_init
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_init_adaptive_gradient_cache", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 140, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch._init_adaptive_gradient_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch._init_adaptive_gradient_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init_adaptive_gradient_cache(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self), __pyx_v_sgd_mode, __pyx_v_gamma, __pyx_v_beta_1, __pyx_v_beta_2);
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_2_init_adaptive_gradient_cache(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self), __pyx_v_sgd_mode, __pyx_v_gamma, __pyx_v_beta_1, __pyx_v_beta_2);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init_adaptive_gradient_cache(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_2_init_adaptive_gradient_cache(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, PyObject *__pyx_v_sgd_mode, PyObject *__pyx_v_gamma, PyObject *__pyx_v_beta_1, PyObject *__pyx_v_beta_2) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -4352,7 +4354,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   __Pyx_RefNannySetupContext("_init_adaptive_gradient_cache", 0);
   __Pyx_TraceCall("_init_adaptive_gradient_cache", __pyx_f[0], 140, 0, __PYX_ERR(0, 140, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":142
+  /* "slim_bpr_epoch.pyx":142
  *     def _init_adaptive_gradient_cache(self, sgd_mode, gamma, beta_1, beta_2):
  * 
  *         self.useAdaGrad = False             # <<<<<<<<<<<<<<
@@ -4361,7 +4363,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
  */
   __pyx_v_self->useAdaGrad = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":143
+  /* "slim_bpr_epoch.pyx":143
  * 
  *         self.useAdaGrad = False
  *         self.useRmsprop = False             # <<<<<<<<<<<<<<
@@ -4370,7 +4372,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
  */
   __pyx_v_self->useRmsprop = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":144
+  /* "slim_bpr_epoch.pyx":144
  *         self.useAdaGrad = False
  *         self.useRmsprop = False
  *         self.useAdam = False             # <<<<<<<<<<<<<<
@@ -4379,7 +4381,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
  */
   __pyx_v_self->useAdam = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":146
+  /* "slim_bpr_epoch.pyx":146
  *         self.useAdam = False
  * 
  *         if sgd_mode=='adagrad':             # <<<<<<<<<<<<<<
@@ -4389,7 +4391,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_sgd_mode, __pyx_n_u_adagrad, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 146, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":147
+    /* "slim_bpr_epoch.pyx":147
  * 
  *         if sgd_mode=='adagrad':
  *             self.useAdaGrad = True             # <<<<<<<<<<<<<<
@@ -4398,7 +4400,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
  */
     __pyx_v_self->useAdaGrad = 1;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":146
+    /* "slim_bpr_epoch.pyx":146
  *         self.useAdam = False
  * 
  *         if sgd_mode=='adagrad':             # <<<<<<<<<<<<<<
@@ -4408,7 +4410,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     goto __pyx_L3;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":149
+  /* "slim_bpr_epoch.pyx":149
  *             self.useAdaGrad = True
  * 
  *         elif sgd_mode=='rmsprop':             # <<<<<<<<<<<<<<
@@ -4418,7 +4420,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_sgd_mode, __pyx_n_u_rmsprop, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 149, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":150
+    /* "slim_bpr_epoch.pyx":150
  * 
  *         elif sgd_mode=='rmsprop':
  *             self.useRmsprop = True             # <<<<<<<<<<<<<<
@@ -4427,7 +4429,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
  */
     __pyx_v_self->useRmsprop = 1;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":154
+    /* "slim_bpr_epoch.pyx":154
  *             # Gamma default value suggested by Hinton
  *             # self.gamma = 0.9
  *             self.gamma = gamma             # <<<<<<<<<<<<<<
@@ -4437,7 +4439,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_gamma); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L1_error)
     __pyx_v_self->gamma = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":149
+    /* "slim_bpr_epoch.pyx":149
  *             self.useAdaGrad = True
  * 
  *         elif sgd_mode=='rmsprop':             # <<<<<<<<<<<<<<
@@ -4447,7 +4449,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     goto __pyx_L3;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":156
+  /* "slim_bpr_epoch.pyx":156
  *             self.gamma = gamma
  * 
  *         elif sgd_mode=='adam':             # <<<<<<<<<<<<<<
@@ -4457,7 +4459,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_sgd_mode, __pyx_n_u_adam, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 156, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":157
+    /* "slim_bpr_epoch.pyx":157
  * 
  *         elif sgd_mode=='adam':
  *             self.useAdam = True             # <<<<<<<<<<<<<<
@@ -4466,7 +4468,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
  */
     __pyx_v_self->useAdam = 1;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":161
+    /* "slim_bpr_epoch.pyx":161
  *             # Default value suggested by the original paper
  *             # beta_1=0.9, beta_2=0.999
  *             self.beta_1 = beta_1             # <<<<<<<<<<<<<<
@@ -4476,7 +4478,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_beta_1); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 161, __pyx_L1_error)
     __pyx_v_self->beta_1 = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":162
+    /* "slim_bpr_epoch.pyx":162
  *             # beta_1=0.9, beta_2=0.999
  *             self.beta_1 = beta_1
  *             self.beta_2 = beta_2             # <<<<<<<<<<<<<<
@@ -4486,7 +4488,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_beta_2); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 162, __pyx_L1_error)
     __pyx_v_self->beta_2 = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":163
+    /* "slim_bpr_epoch.pyx":163
  *             self.beta_1 = beta_1
  *             self.beta_2 = beta_2
  *             self.beta_1_power_t = beta_1             # <<<<<<<<<<<<<<
@@ -4496,7 +4498,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_beta_1); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L1_error)
     __pyx_v_self->beta_1_power_t = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":164
+    /* "slim_bpr_epoch.pyx":164
  *             self.beta_2 = beta_2
  *             self.beta_1_power_t = beta_1
  *             self.beta_2_power_t = beta_2             # <<<<<<<<<<<<<<
@@ -4506,7 +4508,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_v_beta_2); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 164, __pyx_L1_error)
     __pyx_v_self->beta_2_power_t = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":156
+    /* "slim_bpr_epoch.pyx":156
  *             self.gamma = gamma
  * 
  *         elif sgd_mode=='adam':             # <<<<<<<<<<<<<<
@@ -4516,7 +4518,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   }
   __pyx_L3:;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":168
+  /* "slim_bpr_epoch.pyx":168
  * 
  * 
  *         if sgd_mode=='sgd':             # <<<<<<<<<<<<<<
@@ -4526,7 +4528,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_sgd_mode, __pyx_n_u_sgd, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 168, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":169
+    /* "slim_bpr_epoch.pyx":169
  * 
  *         if sgd_mode=='sgd':
  *             self.sgd_cache_I = None             # <<<<<<<<<<<<<<
@@ -4539,7 +4541,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_3.memview = NULL;
     __pyx_t_3.data = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":171
+    /* "slim_bpr_epoch.pyx":171
  *             self.sgd_cache_I = None
  * 
  *             self.sgd_cache_I_momentum_1 = None             # <<<<<<<<<<<<<<
@@ -4552,7 +4554,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_3.memview = NULL;
     __pyx_t_3.data = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":172
+    /* "slim_bpr_epoch.pyx":172
  * 
  *             self.sgd_cache_I_momentum_1 = None
  *             self.sgd_cache_I_momentum_2 = None             # <<<<<<<<<<<<<<
@@ -4565,7 +4567,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_3.memview = NULL;
     __pyx_t_3.data = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":168
+    /* "slim_bpr_epoch.pyx":168
  * 
  * 
  *         if sgd_mode=='sgd':             # <<<<<<<<<<<<<<
@@ -4575,7 +4577,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     goto __pyx_L4;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":177
+  /* "slim_bpr_epoch.pyx":177
  * 
  *             # Adagrad and RMSProp
  *             self.sgd_cache_I = np.zeros((self.n_items), dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4616,7 +4618,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_3.memview = NULL;
     __pyx_t_3.data = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":180
+    /* "slim_bpr_epoch.pyx":180
  * 
  *             # Adam
  *             self.sgd_cache_I_momentum_1 = np.zeros((self.n_items), dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4656,7 +4658,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
     __pyx_t_3.memview = NULL;
     __pyx_t_3.data = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":181
+    /* "slim_bpr_epoch.pyx":181
  *             # Adam
  *             self.sgd_cache_I_momentum_1 = np.zeros((self.n_items), dtype=np.float64)
  *             self.sgd_cache_I_momentum_2 = np.zeros((self.n_items), dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -4698,7 +4700,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   }
   __pyx_L4:;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":140
+  /* "slim_bpr_epoch.pyx":140
  * 
  * 
  *     def _init_adaptive_gradient_cache(self, sgd_mode, gamma, beta_1, beta_2):             # <<<<<<<<<<<<<<
@@ -4716,7 +4718,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch._init_adaptive_gradient_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch._init_adaptive_gradient_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4725,7 +4727,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":186
+/* "slim_bpr_epoch.pyx":186
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -4734,17 +4736,17 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_2_init
  */
 
 /* Python wrapper */
-static void __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_5__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_5__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_5__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_4__dealloc__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self));
+  __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_4__dealloc__(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_4__dealloc__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self) {
+static void __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_4__dealloc__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self) {
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4753,7 +4755,7 @@ static void __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_4__dealloc_
   __Pyx_RefNannySetupContext("__dealloc__", 0);
   __Pyx_TraceCall("__dealloc__", __pyx_f[0], 186, 0, __PYX_ERR(0, 186, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":192
+  /* "slim_bpr_epoch.pyx":192
  *         """
  * 
  *         self._dealloc()             # <<<<<<<<<<<<<<
@@ -4779,7 +4781,7 @@ static void __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_4__dealloc_
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":186
+  /* "slim_bpr_epoch.pyx":186
  * 
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -4793,13 +4795,13 @@ static void __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_4__dealloc_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.__dealloc__", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.SLIMBPREpoch.__dealloc__", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
   __Pyx_RefNannyFinishContext();
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":195
+/* "slim_bpr_epoch.pyx":195
  * 
  * 
  *     def _dealloc(self):             # <<<<<<<<<<<<<<
@@ -4808,19 +4810,19 @@ static void __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_4__dealloc_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_7_dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_7_dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_7_dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_7_dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_dealloc (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_dealloc(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_6_dealloc(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_dealloc(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_6_dealloc(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -4832,7 +4834,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
   __Pyx_RefNannySetupContext("_dealloc", 0);
   __Pyx_TraceCall("_dealloc", __pyx_f[0], 195, 0, __PYX_ERR(0, 195, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":197
+  /* "slim_bpr_epoch.pyx":197
  *     def _dealloc(self):
  * 
  *         print("Deallocating Cython objects")             # <<<<<<<<<<<<<<
@@ -4843,7 +4845,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":199
+  /* "slim_bpr_epoch.pyx":199
  *         print("Deallocating Cython objects")
  * 
  *         if self.S_sparse is not None:             # <<<<<<<<<<<<<<
@@ -4854,7 +4856,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":200
+    /* "slim_bpr_epoch.pyx":200
  * 
  *         if self.S_sparse is not None:
  *             self.S_sparse.dealloc()             # <<<<<<<<<<<<<<
@@ -4880,7 +4882,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":201
+    /* "slim_bpr_epoch.pyx":201
  *         if self.S_sparse is not None:
  *             self.S_sparse.dealloc()
  *             self.S_sparse = None             # <<<<<<<<<<<<<<
@@ -4891,9 +4893,9 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
     __Pyx_GIVEREF(Py_None);
     __Pyx_GOTREF(__pyx_v_self->S_sparse);
     __Pyx_DECREF(((PyObject *)__pyx_v_self->S_sparse));
-    __pyx_v_self->S_sparse = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)Py_None);
+    __pyx_v_self->S_sparse = ((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)Py_None);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":199
+    /* "slim_bpr_epoch.pyx":199
  *         print("Deallocating Cython objects")
  * 
  *         if self.S_sparse is not None:             # <<<<<<<<<<<<<<
@@ -4902,7 +4904,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":203
+  /* "slim_bpr_epoch.pyx":203
  *             self.S_sparse = None
  * 
  *         if self.S_symmetric is not None:             # <<<<<<<<<<<<<<
@@ -4913,7 +4915,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
   __pyx_t_2 = (__pyx_t_3 != 0);
   if (__pyx_t_2) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":204
+    /* "slim_bpr_epoch.pyx":204
  * 
  *         if self.S_symmetric is not None:
  *             self.S_symmetric.dealloc()             # <<<<<<<<<<<<<<
@@ -4939,7 +4941,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":205
+    /* "slim_bpr_epoch.pyx":205
  *         if self.S_symmetric is not None:
  *             self.S_symmetric.dealloc()
  *             self.S_symmetric = None             # <<<<<<<<<<<<<<
@@ -4950,9 +4952,9 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
     __Pyx_GIVEREF(Py_None);
     __Pyx_GOTREF(__pyx_v_self->S_symmetric);
     __Pyx_DECREF(((PyObject *)__pyx_v_self->S_symmetric));
-    __pyx_v_self->S_symmetric = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)Py_None);
+    __pyx_v_self->S_symmetric = ((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)Py_None);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":203
+    /* "slim_bpr_epoch.pyx":203
  *             self.S_sparse = None
  * 
  *         if self.S_symmetric is not None:             # <<<<<<<<<<<<<<
@@ -4961,7 +4963,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":195
+  /* "slim_bpr_epoch.pyx":195
  * 
  * 
  *     def _dealloc(self):             # <<<<<<<<<<<<<<
@@ -4976,7 +4978,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch._dealloc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch._dealloc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4985,7 +4987,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":212
+/* "slim_bpr_epoch.pyx":212
  * 
  * 
  *     def epochIteration_Cython(self):             # <<<<<<<<<<<<<<
@@ -4994,23 +4996,23 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_6_deal
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_9epochIteration_Cython(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_9epochIteration_Cython(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_9epochIteration_Cython(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_9epochIteration_Cython(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("epochIteration_Cython (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epochIteration_Cython(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_8epochIteration_Cython(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epochIteration_Cython(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_8epochIteration_Cython(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self) {
   long __pyx_v_totalNumberOfBatch;
   long __pyx_v_start_time_epoch;
   long __pyx_v_start_time_batch;
-  struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_v_sample;
+  struct __pyx_t_14slim_bpr_epoch_BPR_sample __pyx_v_sample;
   long __pyx_v_i;
   long __pyx_v_j;
   long __pyx_v_index;
@@ -5048,7 +5050,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   Py_ssize_t __pyx_t_21;
   Py_ssize_t __pyx_t_22;
   int __pyx_t_23;
-  struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree __pyx_t_24;
+  struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree __pyx_t_24;
   PyObject *__pyx_t_25 = NULL;
   PyObject *__pyx_t_26 = NULL;
   PyObject *__pyx_t_27 = NULL;
@@ -5060,7 +5062,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   __Pyx_RefNannySetupContext("epochIteration_Cython", 0);
   __Pyx_TraceCall("epochIteration_Cython", __pyx_f[0], 212, 0, __PYX_ERR(0, 212, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":215
+  /* "slim_bpr_epoch.pyx":215
  * 
  *         # Get number of available interactions
  *         cdef long totalNumberOfBatch = int(self.n_users / self.batch_size) + 1             # <<<<<<<<<<<<<<
@@ -5079,7 +5081,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_totalNumberOfBatch = __pyx_t_3;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":217
+  /* "slim_bpr_epoch.pyx":217
  *         cdef long totalNumberOfBatch = int(self.n_users / self.batch_size) + 1
  * 
  *         cdef long start_time_epoch = time.time()             # <<<<<<<<<<<<<<
@@ -5110,7 +5112,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_start_time_epoch = __pyx_t_3;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":218
+  /* "slim_bpr_epoch.pyx":218
  * 
  *         cdef long start_time_epoch = time.time()
  *         cdef long start_time_batch = time.time()             # <<<<<<<<<<<<<<
@@ -5141,7 +5143,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_start_time_batch = __pyx_t_3;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":223
+  /* "slim_bpr_epoch.pyx":223
  *         cdef long i, j
  *         cdef long index, seenItem, numCurrentBatch, itemId
  *         cdef double x_uij, gradient, loss = 0.0             # <<<<<<<<<<<<<<
@@ -5150,7 +5152,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
   __pyx_v_loss = 0.0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":229
+  /* "slim_bpr_epoch.pyx":229
  *         cdef int printStep
  * 
  *         if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -5160,7 +5162,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   __pyx_t_5 = (__pyx_v_self->train_with_sparse_weights != 0);
   if (__pyx_t_5) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":230
+    /* "slim_bpr_epoch.pyx":230
  * 
  *         if self.train_with_sparse_weights:
  *             printStep = 500000             # <<<<<<<<<<<<<<
@@ -5169,7 +5171,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     __pyx_v_printStep = 0x7A120;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":229
+    /* "slim_bpr_epoch.pyx":229
  *         cdef int printStep
  * 
  *         if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -5179,7 +5181,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
     goto __pyx_L3;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":232
+  /* "slim_bpr_epoch.pyx":232
  *             printStep = 500000
  *         else:
  *             printStep = 5000000             # <<<<<<<<<<<<<<
@@ -5191,7 +5193,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   }
   __pyx_L3:;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":236
+  /* "slim_bpr_epoch.pyx":236
  * 
  *         # Uniform user sampling without replacement
  *         for numCurrentBatch in range(totalNumberOfBatch):             # <<<<<<<<<<<<<<
@@ -5203,16 +5205,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
     __pyx_v_numCurrentBatch = __pyx_t_7;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":238
+    /* "slim_bpr_epoch.pyx":238
  *         for numCurrentBatch in range(totalNumberOfBatch):
  * 
  *             sample = self.sampleBPR_Cython()             # <<<<<<<<<<<<<<
  * 
  *             i = sample.pos_item
  */
-    __pyx_v_sample = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self->__pyx_vtab)->sampleBPR_Cython(__pyx_v_self);
+    __pyx_v_sample = ((struct __pyx_vtabstruct_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self->__pyx_vtab)->sampleBPR_Cython(__pyx_v_self);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":240
+    /* "slim_bpr_epoch.pyx":240
  *             sample = self.sampleBPR_Cython()
  * 
  *             i = sample.pos_item             # <<<<<<<<<<<<<<
@@ -5222,7 +5224,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
     __pyx_t_8 = __pyx_v_sample.pos_item;
     __pyx_v_i = __pyx_t_8;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":241
+    /* "slim_bpr_epoch.pyx":241
  * 
  *             i = sample.pos_item
  *             j = sample.neg_item             # <<<<<<<<<<<<<<
@@ -5232,7 +5234,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
     __pyx_t_8 = __pyx_v_sample.neg_item;
     __pyx_v_j = __pyx_t_8;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":243
+    /* "slim_bpr_epoch.pyx":243
  *             j = sample.neg_item
  * 
  *             x_uij = 0.0             # <<<<<<<<<<<<<<
@@ -5241,7 +5243,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     __pyx_v_x_uij = 0.0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":247
+    /* "slim_bpr_epoch.pyx":247
  *             # The difference is computed on the user_seen items
  * 
  *             index = 0             # <<<<<<<<<<<<<<
@@ -5250,7 +5252,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     __pyx_v_index = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":248
+    /* "slim_bpr_epoch.pyx":248
  * 
  *             index = 0
  *             while index <  sample.seen_items_end_pos - sample.seen_items_start_pos:             # <<<<<<<<<<<<<<
@@ -5261,7 +5263,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_5 = ((__pyx_v_index < (__pyx_v_sample.seen_items_end_pos - __pyx_v_sample.seen_items_start_pos)) != 0);
       if (!__pyx_t_5) break;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":250
+      /* "slim_bpr_epoch.pyx":250
  *             while index <  sample.seen_items_end_pos - sample.seen_items_start_pos:
  * 
  *                 seenItem = self.URM_mask_indices[sample.seen_items_start_pos + index]             # <<<<<<<<<<<<<<
@@ -5271,7 +5273,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_9 = (__pyx_v_sample.seen_items_start_pos + __pyx_v_index);
       __pyx_v_seenItem = (*((int *) ( /* dim=0 */ (__pyx_v_self->URM_mask_indices.data + __pyx_t_9 * __pyx_v_self->URM_mask_indices.strides[0]) )));
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":251
+      /* "slim_bpr_epoch.pyx":251
  * 
  *                 seenItem = self.URM_mask_indices[sample.seen_items_start_pos + index]
  *                 index +=1             # <<<<<<<<<<<<<<
@@ -5280,7 +5282,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
       __pyx_v_index = (__pyx_v_index + 1);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":253
+      /* "slim_bpr_epoch.pyx":253
  *                 index +=1
  * 
  *                 if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -5290,16 +5292,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_5 = (__pyx_v_self->train_with_sparse_weights != 0);
       if (__pyx_t_5) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":254
+        /* "slim_bpr_epoch.pyx":254
  * 
  *                 if self.train_with_sparse_weights:
  *                    x_uij += self.S_sparse.get_value(i, seenItem) - self.S_sparse.get_value(j, seenItem)             # <<<<<<<<<<<<<<
  * 
  *                 elif self.symmetric:
  */
-        __pyx_v_x_uij = (__pyx_v_x_uij + (((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem) - ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem)));
+        __pyx_v_x_uij = (__pyx_v_x_uij + (((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem) - ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem)));
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":253
+        /* "slim_bpr_epoch.pyx":253
  *                 index +=1
  * 
  *                 if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -5309,7 +5311,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         goto __pyx_L8;
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":256
+      /* "slim_bpr_epoch.pyx":256
  *                    x_uij += self.S_sparse.get_value(i, seenItem) - self.S_sparse.get_value(j, seenItem)
  * 
  *                 elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -5319,16 +5321,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_5 = (__pyx_v_self->symmetric != 0);
       if (__pyx_t_5) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":257
+        /* "slim_bpr_epoch.pyx":257
  * 
  *                 elif self.symmetric:
  *                     x_uij += self.S_symmetric.get_value(i, seenItem) - self.S_symmetric.get_value(j, seenItem)             # <<<<<<<<<<<<<<
  * 
  *                 else:
  */
-        __pyx_v_x_uij = (__pyx_v_x_uij + (((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_i, __pyx_v_seenItem) - ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_j, __pyx_v_seenItem)));
+        __pyx_v_x_uij = (__pyx_v_x_uij + (((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_i, __pyx_v_seenItem) - ((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_j, __pyx_v_seenItem)));
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":256
+        /* "slim_bpr_epoch.pyx":256
  *                    x_uij += self.S_sparse.get_value(i, seenItem) - self.S_sparse.get_value(j, seenItem)
  * 
  *                 elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -5338,7 +5340,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         goto __pyx_L8;
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":260
+      /* "slim_bpr_epoch.pyx":260
  * 
  *                 else:
  *                     x_uij += self.S_dense[i, seenItem] - self.S_dense[j, seenItem]             # <<<<<<<<<<<<<<
@@ -5355,7 +5357,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_L8:;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":263
+    /* "slim_bpr_epoch.pyx":263
  * 
  * 
  *             gradient = 1 / (1 + exp(x_uij))             # <<<<<<<<<<<<<<
@@ -5364,7 +5366,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     __pyx_v_gradient = (1.0 / (1.0 + exp(__pyx_v_x_uij)));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":264
+    /* "slim_bpr_epoch.pyx":264
  * 
  *             gradient = 1 / (1 + exp(x_uij))
  *             loss += x_uij**2             # <<<<<<<<<<<<<<
@@ -5373,25 +5375,25 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     __pyx_v_loss = (__pyx_v_loss + pow(__pyx_v_x_uij, 2.0));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":267
+    /* "slim_bpr_epoch.pyx":267
  * 
  * 
  *             local_gradient_i = self.adaptive_gradient(gradient, i, self.sgd_cache_I, self.sgd_cache_I_momentum_1, self.sgd_cache_I_momentum_2)             # <<<<<<<<<<<<<<
  *             local_gradient_j = self.adaptive_gradient(gradient, j, self.sgd_cache_I, self.sgd_cache_I_momentum_1, self.sgd_cache_I_momentum_2)
  * 
  */
-    __pyx_v_local_gradient_i = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self->__pyx_vtab)->adaptive_gradient(__pyx_v_self, __pyx_v_gradient, __pyx_v_i, __pyx_v_self->sgd_cache_I, __pyx_v_self->sgd_cache_I_momentum_1, __pyx_v_self->sgd_cache_I_momentum_2);
+    __pyx_v_local_gradient_i = ((struct __pyx_vtabstruct_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self->__pyx_vtab)->adaptive_gradient(__pyx_v_self, __pyx_v_gradient, __pyx_v_i, __pyx_v_self->sgd_cache_I, __pyx_v_self->sgd_cache_I_momentum_1, __pyx_v_self->sgd_cache_I_momentum_2);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":268
+    /* "slim_bpr_epoch.pyx":268
  * 
  *             local_gradient_i = self.adaptive_gradient(gradient, i, self.sgd_cache_I, self.sgd_cache_I_momentum_1, self.sgd_cache_I_momentum_2)
  *             local_gradient_j = self.adaptive_gradient(gradient, j, self.sgd_cache_I, self.sgd_cache_I_momentum_1, self.sgd_cache_I_momentum_2)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_v_local_gradient_j = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self->__pyx_vtab)->adaptive_gradient(__pyx_v_self, __pyx_v_gradient, __pyx_v_j, __pyx_v_self->sgd_cache_I, __pyx_v_self->sgd_cache_I_momentum_1, __pyx_v_self->sgd_cache_I_momentum_2);
+    __pyx_v_local_gradient_j = ((struct __pyx_vtabstruct_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self->__pyx_vtab)->adaptive_gradient(__pyx_v_self, __pyx_v_gradient, __pyx_v_j, __pyx_v_self->sgd_cache_I, __pyx_v_self->sgd_cache_I_momentum_1, __pyx_v_self->sgd_cache_I_momentum_2);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":271
+    /* "slim_bpr_epoch.pyx":271
  * 
  * 
  *             index = 0             # <<<<<<<<<<<<<<
@@ -5400,7 +5402,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     __pyx_v_index = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":272
+    /* "slim_bpr_epoch.pyx":272
  * 
  *             index = 0
  *             while index < sample.seen_items_end_pos - sample.seen_items_start_pos:             # <<<<<<<<<<<<<<
@@ -5411,7 +5413,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_5 = ((__pyx_v_index < (__pyx_v_sample.seen_items_end_pos - __pyx_v_sample.seen_items_start_pos)) != 0);
       if (!__pyx_t_5) break;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":274
+      /* "slim_bpr_epoch.pyx":274
  *             while index < sample.seen_items_end_pos - sample.seen_items_start_pos:
  * 
  *                 seenItem = self.URM_mask_indices[sample.seen_items_start_pos + index]             # <<<<<<<<<<<<<<
@@ -5421,7 +5423,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_14 = (__pyx_v_sample.seen_items_start_pos + __pyx_v_index);
       __pyx_v_seenItem = (*((int *) ( /* dim=0 */ (__pyx_v_self->URM_mask_indices.data + __pyx_t_14 * __pyx_v_self->URM_mask_indices.strides[0]) )));
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":275
+      /* "slim_bpr_epoch.pyx":275
  * 
  *                 seenItem = self.URM_mask_indices[sample.seen_items_start_pos + index]
  *                 index +=1             # <<<<<<<<<<<<<<
@@ -5430,7 +5432,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
       __pyx_v_index = (__pyx_v_index + 1);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":277
+      /* "slim_bpr_epoch.pyx":277
  *                 index +=1
  * 
  *                 if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -5440,7 +5442,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_5 = (__pyx_v_self->train_with_sparse_weights != 0);
       if (__pyx_t_5) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":281
+        /* "slim_bpr_epoch.pyx":281
  *                     # If no reg is required, avoid accessing it
  * 
  *                     if seenItem != i:             # <<<<<<<<<<<<<<
@@ -5450,7 +5452,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         __pyx_t_5 = ((__pyx_v_seenItem != __pyx_v_i) != 0);
         if (__pyx_t_5) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":282
+          /* "slim_bpr_epoch.pyx":282
  * 
  *                     if seenItem != i:
  *                         if self.li_reg!= 0.0:             # <<<<<<<<<<<<<<
@@ -5460,16 +5462,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
           __pyx_t_5 = ((__pyx_v_self->li_reg != 0.0) != 0);
           if (__pyx_t_5) {
 
-            /* "SLIM_BPR_Cython_Epoch.pyx":283
+            /* "slim_bpr_epoch.pyx":283
  *                     if seenItem != i:
  *                         if self.li_reg!= 0.0:
  *                             self.S_sparse.add_value(i, seenItem, self.learning_rate * (local_gradient_i - self.li_reg * self.S_sparse.get_value(i, seenItem)))             # <<<<<<<<<<<<<<
  *                         else:
  *                             self.S_sparse.add_value(i, seenItem, self.learning_rate * local_gradient_i)
  */
-            (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem, (__pyx_v_self->learning_rate * (__pyx_v_local_gradient_i - (__pyx_v_self->li_reg * ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem))))));
+            (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem, (__pyx_v_self->learning_rate * (__pyx_v_local_gradient_i - (__pyx_v_self->li_reg * ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem))))));
 
-            /* "SLIM_BPR_Cython_Epoch.pyx":282
+            /* "slim_bpr_epoch.pyx":282
  * 
  *                     if seenItem != i:
  *                         if self.li_reg!= 0.0:             # <<<<<<<<<<<<<<
@@ -5479,7 +5481,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
             goto __pyx_L13;
           }
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":285
+          /* "slim_bpr_epoch.pyx":285
  *                             self.S_sparse.add_value(i, seenItem, self.learning_rate * (local_gradient_i - self.li_reg * self.S_sparse.get_value(i, seenItem)))
  *                         else:
  *                             self.S_sparse.add_value(i, seenItem, self.learning_rate * local_gradient_i)             # <<<<<<<<<<<<<<
@@ -5487,11 +5489,11 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  * 
  */
           /*else*/ {
-            (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem, (__pyx_v_self->learning_rate * __pyx_v_local_gradient_i)));
+            (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_i, __pyx_v_seenItem, (__pyx_v_self->learning_rate * __pyx_v_local_gradient_i)));
           }
           __pyx_L13:;
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":281
+          /* "slim_bpr_epoch.pyx":281
  *                     # If no reg is required, avoid accessing it
  * 
  *                     if seenItem != i:             # <<<<<<<<<<<<<<
@@ -5500,7 +5502,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
         }
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":288
+        /* "slim_bpr_epoch.pyx":288
  * 
  * 
  *                     if seenItem != j:             # <<<<<<<<<<<<<<
@@ -5510,7 +5512,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         __pyx_t_5 = ((__pyx_v_seenItem != __pyx_v_j) != 0);
         if (__pyx_t_5) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":289
+          /* "slim_bpr_epoch.pyx":289
  * 
  *                     if seenItem != j:
  *                         if self.lj_reg!= 0.0:             # <<<<<<<<<<<<<<
@@ -5520,16 +5522,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
           __pyx_t_5 = ((__pyx_v_self->lj_reg != 0.0) != 0);
           if (__pyx_t_5) {
 
-            /* "SLIM_BPR_Cython_Epoch.pyx":290
+            /* "slim_bpr_epoch.pyx":290
  *                     if seenItem != j:
  *                         if self.lj_reg!= 0.0:
  *                             self.S_sparse.add_value(j, seenItem, -self.learning_rate * (local_gradient_j - self.lj_reg * self.S_sparse.get_value(j, seenItem)))             # <<<<<<<<<<<<<<
  *                         else:
  *                             self.S_sparse.add_value(j, seenItem, -self.learning_rate * local_gradient_j)
  */
-            (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem, ((-__pyx_v_self->learning_rate) * (__pyx_v_local_gradient_j - (__pyx_v_self->lj_reg * ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem))))));
+            (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem, ((-__pyx_v_self->learning_rate) * (__pyx_v_local_gradient_j - (__pyx_v_self->lj_reg * ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem))))));
 
-            /* "SLIM_BPR_Cython_Epoch.pyx":289
+            /* "slim_bpr_epoch.pyx":289
  * 
  *                     if seenItem != j:
  *                         if self.lj_reg!= 0.0:             # <<<<<<<<<<<<<<
@@ -5539,7 +5541,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
             goto __pyx_L15;
           }
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":292
+          /* "slim_bpr_epoch.pyx":292
  *                             self.S_sparse.add_value(j, seenItem, -self.learning_rate * (local_gradient_j - self.lj_reg * self.S_sparse.get_value(j, seenItem)))
  *                         else:
  *                             self.S_sparse.add_value(j, seenItem, -self.learning_rate * local_gradient_j)             # <<<<<<<<<<<<<<
@@ -5547,11 +5549,11 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  * 
  */
           /*else*/ {
-            (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem, ((-__pyx_v_self->learning_rate) * __pyx_v_local_gradient_j)));
+            (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_j, __pyx_v_seenItem, ((-__pyx_v_self->learning_rate) * __pyx_v_local_gradient_j)));
           }
           __pyx_L15:;
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":288
+          /* "slim_bpr_epoch.pyx":288
  * 
  * 
  *                     if seenItem != j:             # <<<<<<<<<<<<<<
@@ -5560,7 +5562,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
         }
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":277
+        /* "slim_bpr_epoch.pyx":277
  *                 index +=1
  * 
  *                 if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -5570,7 +5572,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         goto __pyx_L11;
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":295
+      /* "slim_bpr_epoch.pyx":295
  * 
  * 
  *                 elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -5580,7 +5582,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_5 = (__pyx_v_self->symmetric != 0);
       if (__pyx_t_5) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":297
+        /* "slim_bpr_epoch.pyx":297
  *                 elif self.symmetric:
  * 
  *                     if seenItem != i:             # <<<<<<<<<<<<<<
@@ -5590,16 +5592,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         __pyx_t_5 = ((__pyx_v_seenItem != __pyx_v_i) != 0);
         if (__pyx_t_5) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":298
+          /* "slim_bpr_epoch.pyx":298
  * 
  *                     if seenItem != i:
  *                         self.S_symmetric.add_value(i, seenItem, self.learning_rate * (local_gradient_i - self.li_reg * self.S_symmetric.get_value(i, seenItem)))             # <<<<<<<<<<<<<<
  * 
  *                     if seenItem != j:
  */
-          (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->add_value(__pyx_v_self->S_symmetric, __pyx_v_i, __pyx_v_seenItem, (__pyx_v_self->learning_rate * (__pyx_v_local_gradient_i - (__pyx_v_self->li_reg * ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_i, __pyx_v_seenItem))))));
+          (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->add_value(__pyx_v_self->S_symmetric, __pyx_v_i, __pyx_v_seenItem, (__pyx_v_self->learning_rate * (__pyx_v_local_gradient_i - (__pyx_v_self->li_reg * ((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_i, __pyx_v_seenItem))))));
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":297
+          /* "slim_bpr_epoch.pyx":297
  *                 elif self.symmetric:
  * 
  *                     if seenItem != i:             # <<<<<<<<<<<<<<
@@ -5608,7 +5610,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
         }
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":300
+        /* "slim_bpr_epoch.pyx":300
  *                         self.S_symmetric.add_value(i, seenItem, self.learning_rate * (local_gradient_i - self.li_reg * self.S_symmetric.get_value(i, seenItem)))
  * 
  *                     if seenItem != j:             # <<<<<<<<<<<<<<
@@ -5618,16 +5620,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         __pyx_t_5 = ((__pyx_v_seenItem != __pyx_v_j) != 0);
         if (__pyx_t_5) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":301
+          /* "slim_bpr_epoch.pyx":301
  * 
  *                     if seenItem != j:
  *                         self.S_symmetric.add_value(j, seenItem, -self.learning_rate * (local_gradient_j - self.lj_reg * self.S_symmetric.get_value(j, seenItem)))             # <<<<<<<<<<<<<<
  * 
  *                 else:
  */
-          (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->add_value(__pyx_v_self->S_symmetric, __pyx_v_j, __pyx_v_seenItem, ((-__pyx_v_self->learning_rate) * (__pyx_v_local_gradient_j - (__pyx_v_self->lj_reg * ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_j, __pyx_v_seenItem))))));
+          (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->add_value(__pyx_v_self->S_symmetric, __pyx_v_j, __pyx_v_seenItem, ((-__pyx_v_self->learning_rate) * (__pyx_v_local_gradient_j - (__pyx_v_self->lj_reg * ((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_j, __pyx_v_seenItem))))));
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":300
+          /* "slim_bpr_epoch.pyx":300
  *                         self.S_symmetric.add_value(i, seenItem, self.learning_rate * (local_gradient_i - self.li_reg * self.S_symmetric.get_value(i, seenItem)))
  * 
  *                     if seenItem != j:             # <<<<<<<<<<<<<<
@@ -5636,7 +5638,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
         }
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":295
+        /* "slim_bpr_epoch.pyx":295
  * 
  * 
  *                 elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -5646,7 +5648,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         goto __pyx_L11;
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":305
+      /* "slim_bpr_epoch.pyx":305
  *                 else:
  * 
  *                     if seenItem != i:             # <<<<<<<<<<<<<<
@@ -5657,7 +5659,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         __pyx_t_5 = ((__pyx_v_seenItem != __pyx_v_i) != 0);
         if (__pyx_t_5) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":306
+          /* "slim_bpr_epoch.pyx":306
  * 
  *                     if seenItem != i:
  *                         self.S_dense[i, seenItem] += self.learning_rate * (local_gradient_i - self.li_reg * self.S_dense[i, seenItem])             # <<<<<<<<<<<<<<
@@ -5670,7 +5672,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
           __pyx_t_18 = __pyx_v_seenItem;
           *((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->S_dense.data + __pyx_t_17 * __pyx_v_self->S_dense.strides[0]) ) + __pyx_t_18 * __pyx_v_self->S_dense.strides[1]) )) += (__pyx_v_self->learning_rate * (__pyx_v_local_gradient_i - (__pyx_v_self->li_reg * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->S_dense.data + __pyx_t_15 * __pyx_v_self->S_dense.strides[0]) ) + __pyx_t_16 * __pyx_v_self->S_dense.strides[1]) ))))));
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":305
+          /* "slim_bpr_epoch.pyx":305
  *                 else:
  * 
  *                     if seenItem != i:             # <<<<<<<<<<<<<<
@@ -5679,7 +5681,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
         }
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":308
+        /* "slim_bpr_epoch.pyx":308
  *                         self.S_dense[i, seenItem] += self.learning_rate * (local_gradient_i - self.li_reg * self.S_dense[i, seenItem])
  * 
  *                     if seenItem != j:             # <<<<<<<<<<<<<<
@@ -5689,7 +5691,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
         __pyx_t_5 = ((__pyx_v_seenItem != __pyx_v_j) != 0);
         if (__pyx_t_5) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":309
+          /* "slim_bpr_epoch.pyx":309
  * 
  *                     if seenItem != j:
  *                         self.S_dense[j, seenItem] -= self.learning_rate * (local_gradient_j - self.lj_reg * self.S_dense[j, seenItem])             # <<<<<<<<<<<<<<
@@ -5702,7 +5704,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
           __pyx_t_22 = __pyx_v_seenItem;
           *((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->S_dense.data + __pyx_t_21 * __pyx_v_self->S_dense.strides[0]) ) + __pyx_t_22 * __pyx_v_self->S_dense.strides[1]) )) -= (__pyx_v_self->learning_rate * (__pyx_v_local_gradient_j - (__pyx_v_self->lj_reg * (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_self->S_dense.data + __pyx_t_19 * __pyx_v_self->S_dense.strides[0]) ) + __pyx_t_20 * __pyx_v_self->S_dense.strides[1]) ))))));
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":308
+          /* "slim_bpr_epoch.pyx":308
  *                         self.S_dense[i, seenItem] += self.learning_rate * (local_gradient_i - self.li_reg * self.S_dense[i, seenItem])
  * 
  *                     if seenItem != j:             # <<<<<<<<<<<<<<
@@ -5714,7 +5716,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_L11:;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":314
+    /* "slim_bpr_epoch.pyx":314
  * 
  *             # Exponentiation of beta at the end of each sample
  *             if self.useAdam:             # <<<<<<<<<<<<<<
@@ -5724,7 +5726,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
     __pyx_t_5 = (__pyx_v_self->useAdam != 0);
     if (__pyx_t_5) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":316
+      /* "slim_bpr_epoch.pyx":316
  *             if self.useAdam:
  * 
  *                 self.beta_1_power_t *= self.beta_1             # <<<<<<<<<<<<<<
@@ -5733,7 +5735,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
       __pyx_v_self->beta_1_power_t = (__pyx_v_self->beta_1_power_t * __pyx_v_self->beta_1);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":317
+      /* "slim_bpr_epoch.pyx":317
  * 
  *                 self.beta_1_power_t *= self.beta_1
  *                 self.beta_2_power_t *= self.beta_2             # <<<<<<<<<<<<<<
@@ -5742,7 +5744,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
       __pyx_v_self->beta_2_power_t = (__pyx_v_self->beta_2_power_t * __pyx_v_self->beta_2);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":314
+      /* "slim_bpr_epoch.pyx":314
  * 
  *             # Exponentiation of beta at the end of each sample
  *             if self.useAdam:             # <<<<<<<<<<<<<<
@@ -5751,7 +5753,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":323
+    /* "slim_bpr_epoch.pyx":323
  *             # If I have reached at least 20% of the total number of batches or samples
  *             # This allows to limit the memory occupancy of the sparse matrix
  *             if self.train_with_sparse_weights and numCurrentBatch % (totalNumberOfBatch/5) == 0 and numCurrentBatch!=0:             # <<<<<<<<<<<<<<
@@ -5775,7 +5777,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
     __pyx_L22_bool_binop_done:;
     if (__pyx_t_5) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":324
+      /* "slim_bpr_epoch.pyx":324
  *             # This allows to limit the memory occupancy of the sparse matrix
  *             if self.train_with_sparse_weights and numCurrentBatch % (totalNumberOfBatch/5) == 0 and numCurrentBatch!=0:
  *                 self.S_sparse.rebalance_tree(TopK=self.topK)             # <<<<<<<<<<<<<<
@@ -5784,11 +5786,11 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
       __pyx_t_24.__pyx_n = 1;
       __pyx_t_24.TopK = __pyx_v_self->topK;
-      __pyx_t_1 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->rebalance_tree(__pyx_v_self->S_sparse, &__pyx_t_24); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+      __pyx_t_1 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->rebalance_tree(__pyx_v_self->S_sparse, &__pyx_t_24); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":323
+      /* "slim_bpr_epoch.pyx":323
  *             # If I have reached at least 20% of the total number of batches or samples
  *             # This allows to limit the memory occupancy of the sparse matrix
  *             if self.train_with_sparse_weights and numCurrentBatch % (totalNumberOfBatch/5) == 0 and numCurrentBatch!=0:             # <<<<<<<<<<<<<<
@@ -5797,7 +5799,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":327
+    /* "slim_bpr_epoch.pyx":327
  * 
  * 
  *             if self.verbose and ((numCurrentBatch%printStep==0 and not numCurrentBatch==0) or numCurrentBatch==totalNumberOfBatch-1):             # <<<<<<<<<<<<<<
@@ -5827,7 +5829,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
     __pyx_L26_bool_binop_done:;
     if (__pyx_t_5) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":328
+      /* "slim_bpr_epoch.pyx":328
  * 
  *             if self.verbose and ((numCurrentBatch%printStep==0 and not numCurrentBatch==0) or numCurrentBatch==totalNumberOfBatch-1):
  *                 print("Processed {} ( {:.2f}% ) in {:.2f} seconds. BPR loss is {:.2E}. Sample per second: {:.0f}".format(             # <<<<<<<<<<<<<<
@@ -5837,7 +5839,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Processed_2f_in_2f_seconds_BPR_l, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 328, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":329
+      /* "slim_bpr_epoch.pyx":329
  *             if self.verbose and ((numCurrentBatch%printStep==0 and not numCurrentBatch==0) or numCurrentBatch==totalNumberOfBatch-1):
  *                 print("Processed {} ( {:.2f}% ) in {:.2f} seconds. BPR loss is {:.2E}. Sample per second: {:.0f}".format(
  *                     numCurrentBatch*self.batch_size,             # <<<<<<<<<<<<<<
@@ -5847,7 +5849,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_numCurrentBatch * __pyx_v_self->batch_size)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 329, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":330
+      /* "slim_bpr_epoch.pyx":330
  *                 print("Processed {} ( {:.2f}% ) in {:.2f} seconds. BPR loss is {:.2E}. Sample per second: {:.0f}".format(
  *                     numCurrentBatch*self.batch_size,
  *                     100.0* float(numCurrentBatch*self.batch_size)/self.n_users,             # <<<<<<<<<<<<<<
@@ -5857,7 +5859,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_25 = PyFloat_FromDouble(((100.0 * ((double)(__pyx_v_numCurrentBatch * __pyx_v_self->batch_size))) / ((double)__pyx_v_self->n_users))); if (unlikely(!__pyx_t_25)) __PYX_ERR(0, 330, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_25);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":331
+      /* "slim_bpr_epoch.pyx":331
  *                     numCurrentBatch*self.batch_size,
  *                     100.0* float(numCurrentBatch*self.batch_size)/self.n_users,
  *                     time.time() - start_time_batch,             # <<<<<<<<<<<<<<
@@ -5891,7 +5893,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __Pyx_DECREF(__pyx_t_26); __pyx_t_26 = 0;
       __Pyx_DECREF(__pyx_t_28); __pyx_t_28 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":332
+      /* "slim_bpr_epoch.pyx":332
  *                     100.0* float(numCurrentBatch*self.batch_size)/self.n_users,
  *                     time.time() - start_time_batch,
  *                     loss/(numCurrentBatch*self.batch_size + 1),             # <<<<<<<<<<<<<<
@@ -5901,7 +5903,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __pyx_t_28 = PyFloat_FromDouble((__pyx_v_loss / ((double)((__pyx_v_numCurrentBatch * __pyx_v_self->batch_size) + 1)))); if (unlikely(!__pyx_t_28)) __PYX_ERR(0, 332, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_28);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":333
+      /* "slim_bpr_epoch.pyx":333
  *                     time.time() - start_time_batch,
  *                     loss/(numCurrentBatch*self.batch_size + 1),
  *                     float(numCurrentBatch*self.batch_size + 1) / (time.time() - start_time_epoch)))             # <<<<<<<<<<<<<<
@@ -6005,7 +6007,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":328
+      /* "slim_bpr_epoch.pyx":328
  * 
  *             if self.verbose and ((numCurrentBatch%printStep==0 and not numCurrentBatch==0) or numCurrentBatch==totalNumberOfBatch-1):
  *                 print("Processed {} ( {:.2f}% ) in {:.2f} seconds. BPR loss is {:.2E}. Sample per second: {:.0f}".format(             # <<<<<<<<<<<<<<
@@ -6017,7 +6019,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":335
+      /* "slim_bpr_epoch.pyx":335
  *                     float(numCurrentBatch*self.batch_size + 1) / (time.time() - start_time_epoch)))
  * 
  *                 sys.stdout.flush()             # <<<<<<<<<<<<<<
@@ -6049,7 +6051,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":336
+      /* "slim_bpr_epoch.pyx":336
  * 
  *                 sys.stdout.flush()
  *                 sys.stderr.flush()             # <<<<<<<<<<<<<<
@@ -6081,7 +6083,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":338
+      /* "slim_bpr_epoch.pyx":338
  *                 sys.stderr.flush()
  * 
  *                 start_time_batch = time.time()             # <<<<<<<<<<<<<<
@@ -6112,7 +6114,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_v_start_time_batch = __pyx_t_8;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":327
+      /* "slim_bpr_epoch.pyx":327
  * 
  * 
  *             if self.verbose and ((numCurrentBatch%printStep==0 and not numCurrentBatch==0) or numCurrentBatch==totalNumberOfBatch-1):             # <<<<<<<<<<<<<<
@@ -6122,7 +6124,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":212
+  /* "slim_bpr_epoch.pyx":212
  * 
  * 
  *     def epochIteration_Cython(self):             # <<<<<<<<<<<<<<
@@ -6144,7 +6146,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   __Pyx_XDECREF(__pyx_t_29);
   __Pyx_XDECREF(__pyx_t_30);
   __Pyx_XDECREF(__pyx_t_31);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.epochIteration_Cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch.epochIteration_Cython", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6153,7 +6155,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":343
+/* "slim_bpr_epoch.pyx":343
  * 
  * 
  *     def get_S(self):             # <<<<<<<<<<<<<<
@@ -6162,19 +6164,19 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_8epoch
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_11get_S(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_11get_S(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_11get_S(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_11get_S(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_S (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_S(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_10get_S(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_S(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_10get_S(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self) {
   int __pyx_v_index;
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
@@ -6183,8 +6185,8 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
   Py_ssize_t __pyx_t_2;
   Py_ssize_t __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
-  struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr __pyx_t_5;
-  struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr __pyx_t_6;
+  struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr __pyx_t_5;
+  struct __pyx_opt_args_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr __pyx_t_6;
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
@@ -6193,7 +6195,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
   __Pyx_RefNannySetupContext("get_S", 0);
   __Pyx_TraceCall("get_S", __pyx_f[0], 343, 0, __PYX_ERR(0, 343, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":346
+  /* "slim_bpr_epoch.pyx":346
  * 
  *         # FIll diagonal with zeros
  *         cdef int index = 0             # <<<<<<<<<<<<<<
@@ -6202,7 +6204,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
   __pyx_v_index = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":348
+  /* "slim_bpr_epoch.pyx":348
  *         cdef int index = 0
  * 
  *         while index < self.n_items:             # <<<<<<<<<<<<<<
@@ -6213,7 +6215,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_t_1 = ((__pyx_v_index < __pyx_v_self->n_items) != 0);
     if (!__pyx_t_1) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":350
+    /* "slim_bpr_epoch.pyx":350
  *         while index < self.n_items:
  * 
  *             if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6223,16 +6225,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_t_1 = (__pyx_v_self->train_with_sparse_weights != 0);
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":351
+      /* "slim_bpr_epoch.pyx":351
  * 
  *             if self.train_with_sparse_weights:
  *                 self.S_sparse.add_value(index, index, -self.S_sparse.get_value(index, index))             # <<<<<<<<<<<<<<
  * 
  *             elif self.symmetric:
  */
-      (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_index, __pyx_v_index, (-((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_index, __pyx_v_index))));
+      (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->add_value(__pyx_v_self->S_sparse, __pyx_v_index, __pyx_v_index, (-((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_value(__pyx_v_self->S_sparse, __pyx_v_index, __pyx_v_index))));
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":350
+      /* "slim_bpr_epoch.pyx":350
  *         while index < self.n_items:
  * 
  *             if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6242,7 +6244,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       goto __pyx_L5;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":353
+    /* "slim_bpr_epoch.pyx":353
  *                 self.S_sparse.add_value(index, index, -self.S_sparse.get_value(index, index))
  * 
  *             elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -6252,16 +6254,16 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_t_1 = (__pyx_v_self->symmetric != 0);
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":354
+      /* "slim_bpr_epoch.pyx":354
  * 
  *             elif self.symmetric:
  *                 self.S_symmetric.add_value(index, index, -self.S_symmetric.get_value(index, index))             # <<<<<<<<<<<<<<
  * 
  *             else:
  */
-      (void)(((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->add_value(__pyx_v_self->S_symmetric, __pyx_v_index, __pyx_v_index, (-((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_index, __pyx_v_index))));
+      (void)(((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->add_value(__pyx_v_self->S_symmetric, __pyx_v_index, __pyx_v_index, (-((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_value(__pyx_v_self->S_symmetric, __pyx_v_index, __pyx_v_index))));
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":353
+      /* "slim_bpr_epoch.pyx":353
  *                 self.S_sparse.add_value(index, index, -self.S_sparse.get_value(index, index))
  * 
  *             elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -6271,7 +6273,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       goto __pyx_L5;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":357
+    /* "slim_bpr_epoch.pyx":357
  * 
  *             else:
  *                 self.S_dense[index, index] = 0.0             # <<<<<<<<<<<<<<
@@ -6285,7 +6287,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     }
     __pyx_L5:;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":359
+    /* "slim_bpr_epoch.pyx":359
  *                 self.S_dense[index, index] = 0.0
  * 
  *             index+=1             # <<<<<<<<<<<<<<
@@ -6295,7 +6297,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_v_index = (__pyx_v_index + 1);
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":363
+  /* "slim_bpr_epoch.pyx":363
  * 
  * 
  *         if self.topK == False:             # <<<<<<<<<<<<<<
@@ -6305,7 +6307,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
   __pyx_t_1 = ((__pyx_v_self->topK == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":365
+    /* "slim_bpr_epoch.pyx":365
  *         if self.topK == False:
  * 
  *             if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6315,7 +6317,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_t_1 = (__pyx_v_self->train_with_sparse_weights != 0);
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":366
+      /* "slim_bpr_epoch.pyx":366
  * 
  *             if self.train_with_sparse_weights:
  *                 return self.S_sparse.get_scipy_csr(TopK = False)             # <<<<<<<<<<<<<<
@@ -6325,13 +6327,13 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       __Pyx_XDECREF(__pyx_r);
       __pyx_t_5.__pyx_n = 1;
       __pyx_t_5.TopK = 0;
-      __pyx_t_4 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_sparse, &__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 366, __pyx_L1_error)
+      __pyx_t_4 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_sparse, &__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_r = __pyx_t_4;
       __pyx_t_4 = 0;
       goto __pyx_L0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":365
+      /* "slim_bpr_epoch.pyx":365
  *         if self.topK == False:
  * 
  *             if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6340,7 +6342,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":368
+    /* "slim_bpr_epoch.pyx":368
  *                 return self.S_sparse.get_scipy_csr(TopK = False)
  * 
  *             elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -6350,7 +6352,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_t_1 = (__pyx_v_self->symmetric != 0);
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":369
+      /* "slim_bpr_epoch.pyx":369
  * 
  *             elif self.symmetric:
  *                 return self.S_symmetric.get_scipy_csr(TopK = False)             # <<<<<<<<<<<<<<
@@ -6360,13 +6362,13 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       __Pyx_XDECREF(__pyx_r);
       __pyx_t_6.__pyx_n = 1;
       __pyx_t_6.TopK = 0;
-      __pyx_t_4 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_symmetric, &__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 369, __pyx_L1_error)
+      __pyx_t_4 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_symmetric, &__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 369, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_r = __pyx_t_4;
       __pyx_t_4 = 0;
       goto __pyx_L0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":368
+      /* "slim_bpr_epoch.pyx":368
  *                 return self.S_sparse.get_scipy_csr(TopK = False)
  * 
  *             elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -6375,7 +6377,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":373
+    /* "slim_bpr_epoch.pyx":373
  *             else:
  * 
  *                 if self.final_model_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6386,7 +6388,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       __pyx_t_1 = (__pyx_v_self->final_model_sparse_weights != 0);
       if (__pyx_t_1) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":374
+        /* "slim_bpr_epoch.pyx":374
  * 
  *                 if self.final_model_sparse_weights:
  *                     return similarityMatrixTopK(np.array(self.S_dense.T), k=self.topK).T             # <<<<<<<<<<<<<<
@@ -6448,7 +6450,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
         __pyx_t_7 = 0;
         goto __pyx_L0;
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":373
+        /* "slim_bpr_epoch.pyx":373
  *             else:
  * 
  *                 if self.final_model_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6457,7 +6459,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":376
+      /* "slim_bpr_epoch.pyx":376
  *                     return similarityMatrixTopK(np.array(self.S_dense.T), k=self.topK).T
  *                 else:
  *                     return np.array(self.S_dense)             # <<<<<<<<<<<<<<
@@ -6495,7 +6497,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       }
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":363
+    /* "slim_bpr_epoch.pyx":363
  * 
  * 
  *         if self.topK == False:             # <<<<<<<<<<<<<<
@@ -6504,7 +6506,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":381
+  /* "slim_bpr_epoch.pyx":381
  *         else :
  * 
  *             if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6515,7 +6517,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_t_1 = (__pyx_v_self->train_with_sparse_weights != 0);
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":382
+      /* "slim_bpr_epoch.pyx":382
  * 
  *             if self.train_with_sparse_weights:
  *                 return self.S_sparse.get_scipy_csr(TopK=self.topK)             # <<<<<<<<<<<<<<
@@ -6525,13 +6527,13 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       __Pyx_XDECREF(__pyx_r);
       __pyx_t_5.__pyx_n = 1;
       __pyx_t_5.TopK = __pyx_v_self->topK;
-      __pyx_t_7 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_sparse, &__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 382, __pyx_L1_error)
+      __pyx_t_7 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->S_sparse->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_sparse, &__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 382, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __pyx_r = __pyx_t_7;
       __pyx_t_7 = 0;
       goto __pyx_L0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":381
+      /* "slim_bpr_epoch.pyx":381
  *         else :
  * 
  *             if self.train_with_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6540,7 +6542,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":384
+    /* "slim_bpr_epoch.pyx":384
  *                 return self.S_sparse.get_scipy_csr(TopK=self.topK)
  * 
  *             elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -6550,7 +6552,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     __pyx_t_1 = (__pyx_v_self->symmetric != 0);
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":385
+      /* "slim_bpr_epoch.pyx":385
  * 
  *             elif self.symmetric:
  *                 return self.S_symmetric.get_scipy_csr(TopK=self.topK)             # <<<<<<<<<<<<<<
@@ -6560,13 +6562,13 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       __Pyx_XDECREF(__pyx_r);
       __pyx_t_6.__pyx_n = 1;
       __pyx_t_6.TopK = __pyx_v_self->topK;
-      __pyx_t_7 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_symmetric, &__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 385, __pyx_L1_error)
+      __pyx_t_7 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self->S_symmetric->__pyx_vtab)->get_scipy_csr(__pyx_v_self->S_symmetric, &__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 385, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __pyx_r = __pyx_t_7;
       __pyx_t_7 = 0;
       goto __pyx_L0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":384
+      /* "slim_bpr_epoch.pyx":384
  *                 return self.S_sparse.get_scipy_csr(TopK=self.topK)
  * 
  *             elif self.symmetric:             # <<<<<<<<<<<<<<
@@ -6575,7 +6577,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":388
+    /* "slim_bpr_epoch.pyx":388
  * 
  *             else:
  *                 if self.final_model_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6586,7 +6588,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
       __pyx_t_1 = (__pyx_v_self->final_model_sparse_weights != 0);
       if (__pyx_t_1) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":389
+        /* "slim_bpr_epoch.pyx":389
  *             else:
  *                 if self.final_model_sparse_weights:
  *                     return similarityMatrixTopK(np.array(self.S_dense.T), k=self.topK).T             # <<<<<<<<<<<<<<
@@ -6648,7 +6650,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
         __pyx_t_9 = 0;
         goto __pyx_L0;
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":388
+        /* "slim_bpr_epoch.pyx":388
  * 
  *             else:
  *                 if self.final_model_sparse_weights:             # <<<<<<<<<<<<<<
@@ -6657,7 +6659,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  */
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":391
+      /* "slim_bpr_epoch.pyx":391
  *                     return similarityMatrixTopK(np.array(self.S_dense.T), k=self.topK).T
  *                 else:
  *                     return np.array(self.S_dense)             # <<<<<<<<<<<<<<
@@ -6696,7 +6698,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":343
+  /* "slim_bpr_epoch.pyx":343
  * 
  * 
  *     def get_S(self):             # <<<<<<<<<<<<<<
@@ -6712,7 +6714,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
   __Pyx_XDECREF(__pyx_t_9);
   __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.get_S", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch.get_S", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6721,7 +6723,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":398
+/* "slim_bpr_epoch.pyx":398
  * 
  * 
  *     cdef double adaptive_gradient(self, double gradient, long user_or_item_id, double[:] sgd_cache, double[:] sgd_cache_momentum_1, double[:] sgd_cache_momentum_2):             # <<<<<<<<<<<<<<
@@ -6729,7 +6731,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_10get_
  * 
  */
 
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_gradient(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, double __pyx_v_gradient, long __pyx_v_user_or_item_id, __Pyx_memviewslice __pyx_v_sgd_cache, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_1, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_2) {
+static double __pyx_f_14slim_bpr_epoch_12SLIMBPREpoch_adaptive_gradient(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, double __pyx_v_gradient, long __pyx_v_user_or_item_id, __Pyx_memviewslice __pyx_v_sgd_cache, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_1, __Pyx_memviewslice __pyx_v_sgd_cache_momentum_2) {
   double __pyx_v_gradient_update;
   double __pyx_r;
   __Pyx_TraceDeclarations
@@ -6749,7 +6751,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
   __Pyx_RefNannySetupContext("adaptive_gradient", 0);
   __Pyx_TraceCall("adaptive_gradient", __pyx_f[0], 398, 0, __PYX_ERR(0, 398, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":403
+  /* "slim_bpr_epoch.pyx":403
  *         cdef double gradient_update
  * 
  *         if self.useAdaGrad:             # <<<<<<<<<<<<<<
@@ -6759,7 +6761,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
   __pyx_t_1 = (__pyx_v_self->useAdaGrad != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":404
+    /* "slim_bpr_epoch.pyx":404
  * 
  *         if self.useAdaGrad:
  *             sgd_cache[user_or_item_id] += gradient ** 2             # <<<<<<<<<<<<<<
@@ -6769,7 +6771,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_2 = __pyx_v_user_or_item_id;
     *((double *) ( /* dim=0 */ (__pyx_v_sgd_cache.data + __pyx_t_2 * __pyx_v_sgd_cache.strides[0]) )) += pow(__pyx_v_gradient, 2.0);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":406
+    /* "slim_bpr_epoch.pyx":406
  *             sgd_cache[user_or_item_id] += gradient ** 2
  * 
  *             gradient_update = gradient / (sqrt(sgd_cache[user_or_item_id]) + 1e-8)             # <<<<<<<<<<<<<<
@@ -6779,7 +6781,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_3 = __pyx_v_user_or_item_id;
     __pyx_v_gradient_update = (__pyx_v_gradient / (sqrt((*((double *) ( /* dim=0 */ (__pyx_v_sgd_cache.data + __pyx_t_3 * __pyx_v_sgd_cache.strides[0]) )))) + 1e-8));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":403
+    /* "slim_bpr_epoch.pyx":403
  *         cdef double gradient_update
  * 
  *         if self.useAdaGrad:             # <<<<<<<<<<<<<<
@@ -6789,7 +6791,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     goto __pyx_L3;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":409
+  /* "slim_bpr_epoch.pyx":409
  * 
  * 
  *         elif self.useRmsprop:             # <<<<<<<<<<<<<<
@@ -6799,7 +6801,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
   __pyx_t_1 = (__pyx_v_self->useRmsprop != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":410
+    /* "slim_bpr_epoch.pyx":410
  * 
  *         elif self.useRmsprop:
  *             sgd_cache[user_or_item_id] = sgd_cache[user_or_item_id] * self.gamma + (1 - self.gamma) * gradient ** 2             # <<<<<<<<<<<<<<
@@ -6810,7 +6812,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_5 = __pyx_v_user_or_item_id;
     *((double *) ( /* dim=0 */ (__pyx_v_sgd_cache.data + __pyx_t_5 * __pyx_v_sgd_cache.strides[0]) )) = (((*((double *) ( /* dim=0 */ (__pyx_v_sgd_cache.data + __pyx_t_4 * __pyx_v_sgd_cache.strides[0]) ))) * __pyx_v_self->gamma) + ((1.0 - __pyx_v_self->gamma) * pow(__pyx_v_gradient, 2.0)));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":412
+    /* "slim_bpr_epoch.pyx":412
  *             sgd_cache[user_or_item_id] = sgd_cache[user_or_item_id] * self.gamma + (1 - self.gamma) * gradient ** 2
  * 
  *             gradient_update = gradient / (sqrt(sgd_cache[user_or_item_id]) + 1e-8)             # <<<<<<<<<<<<<<
@@ -6820,7 +6822,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_6 = __pyx_v_user_or_item_id;
     __pyx_v_gradient_update = (__pyx_v_gradient / (sqrt((*((double *) ( /* dim=0 */ (__pyx_v_sgd_cache.data + __pyx_t_6 * __pyx_v_sgd_cache.strides[0]) )))) + 1e-8));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":409
+    /* "slim_bpr_epoch.pyx":409
  * 
  * 
  *         elif self.useRmsprop:             # <<<<<<<<<<<<<<
@@ -6830,7 +6832,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     goto __pyx_L3;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":415
+  /* "slim_bpr_epoch.pyx":415
  * 
  * 
  *         elif self.useAdam:             # <<<<<<<<<<<<<<
@@ -6840,7 +6842,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
   __pyx_t_1 = (__pyx_v_self->useAdam != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":418
+    /* "slim_bpr_epoch.pyx":418
  * 
  *             sgd_cache_momentum_1[user_or_item_id] = \
  *                 sgd_cache_momentum_1[user_or_item_id] * self.beta_1 + (1 - self.beta_1) * gradient             # <<<<<<<<<<<<<<
@@ -6849,7 +6851,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
  */
     __pyx_t_7 = __pyx_v_user_or_item_id;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":417
+    /* "slim_bpr_epoch.pyx":417
  *         elif self.useAdam:
  * 
  *             sgd_cache_momentum_1[user_or_item_id] = \             # <<<<<<<<<<<<<<
@@ -6859,7 +6861,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_8 = __pyx_v_user_or_item_id;
     *((double *) ( /* dim=0 */ (__pyx_v_sgd_cache_momentum_1.data + __pyx_t_8 * __pyx_v_sgd_cache_momentum_1.strides[0]) )) = (((*((double *) ( /* dim=0 */ (__pyx_v_sgd_cache_momentum_1.data + __pyx_t_7 * __pyx_v_sgd_cache_momentum_1.strides[0]) ))) * __pyx_v_self->beta_1) + ((1.0 - __pyx_v_self->beta_1) * __pyx_v_gradient));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":421
+    /* "slim_bpr_epoch.pyx":421
  * 
  *             sgd_cache_momentum_2[user_or_item_id] = \
  *                 sgd_cache_momentum_2[user_or_item_id] * self.beta_2 + (1 - self.beta_2) * gradient**2             # <<<<<<<<<<<<<<
@@ -6868,7 +6870,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
  */
     __pyx_t_9 = __pyx_v_user_or_item_id;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":420
+    /* "slim_bpr_epoch.pyx":420
  *                 sgd_cache_momentum_1[user_or_item_id] * self.beta_1 + (1 - self.beta_1) * gradient
  * 
  *             sgd_cache_momentum_2[user_or_item_id] = \             # <<<<<<<<<<<<<<
@@ -6878,7 +6880,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_10 = __pyx_v_user_or_item_id;
     *((double *) ( /* dim=0 */ (__pyx_v_sgd_cache_momentum_2.data + __pyx_t_10 * __pyx_v_sgd_cache_momentum_2.strides[0]) )) = (((*((double *) ( /* dim=0 */ (__pyx_v_sgd_cache_momentum_2.data + __pyx_t_9 * __pyx_v_sgd_cache_momentum_2.strides[0]) ))) * __pyx_v_self->beta_2) + ((1.0 - __pyx_v_self->beta_2) * pow(__pyx_v_gradient, 2.0)));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":424
+    /* "slim_bpr_epoch.pyx":424
  * 
  * 
  *             self.momentum_1 = sgd_cache_momentum_1[user_or_item_id]/ (1 - self.beta_1_power_t)             # <<<<<<<<<<<<<<
@@ -6888,7 +6890,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_11 = __pyx_v_user_or_item_id;
     __pyx_v_self->momentum_1 = ((*((double *) ( /* dim=0 */ (__pyx_v_sgd_cache_momentum_1.data + __pyx_t_11 * __pyx_v_sgd_cache_momentum_1.strides[0]) ))) / (1.0 - __pyx_v_self->beta_1_power_t));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":425
+    /* "slim_bpr_epoch.pyx":425
  * 
  *             self.momentum_1 = sgd_cache_momentum_1[user_or_item_id]/ (1 - self.beta_1_power_t)
  *             self.momentum_2 = sgd_cache_momentum_2[user_or_item_id]/ (1 - self.beta_2_power_t)             # <<<<<<<<<<<<<<
@@ -6898,7 +6900,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     __pyx_t_12 = __pyx_v_user_or_item_id;
     __pyx_v_self->momentum_2 = ((*((double *) ( /* dim=0 */ (__pyx_v_sgd_cache_momentum_2.data + __pyx_t_12 * __pyx_v_sgd_cache_momentum_2.strides[0]) ))) / (1.0 - __pyx_v_self->beta_2_power_t));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":427
+    /* "slim_bpr_epoch.pyx":427
  *             self.momentum_2 = sgd_cache_momentum_2[user_or_item_id]/ (1 - self.beta_2_power_t)
  * 
  *             gradient_update = self.momentum_1/ (sqrt(self.momentum_2) + 1e-8)             # <<<<<<<<<<<<<<
@@ -6907,7 +6909,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
  */
     __pyx_v_gradient_update = (__pyx_v_self->momentum_1 / (sqrt(__pyx_v_self->momentum_2) + 1e-8));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":415
+    /* "slim_bpr_epoch.pyx":415
  * 
  * 
  *         elif self.useAdam:             # <<<<<<<<<<<<<<
@@ -6917,7 +6919,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
     goto __pyx_L3;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":432
+  /* "slim_bpr_epoch.pyx":432
  *         else:
  * 
  *             gradient_update = gradient             # <<<<<<<<<<<<<<
@@ -6929,7 +6931,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
   }
   __pyx_L3:;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":436
+  /* "slim_bpr_epoch.pyx":436
  * 
  * 
  *         return gradient_update             # <<<<<<<<<<<<<<
@@ -6939,7 +6941,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
   __pyx_r = __pyx_v_gradient_update;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":398
+  /* "slim_bpr_epoch.pyx":398
  * 
  * 
  *     cdef double adaptive_gradient(self, double gradient, long user_or_item_id, double[:] sgd_cache, double[:] sgd_cache_momentum_1, double[:] sgd_cache_momentum_2):             # <<<<<<<<<<<<<<
@@ -6949,7 +6951,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.adaptive_gradient", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.SLIMBPREpoch.adaptive_gradient", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -6957,7 +6959,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":439
+/* "slim_bpr_epoch.pyx":439
  * 
  * 
  *     cdef BPR_sample sampleBPR_Cython(self):             # <<<<<<<<<<<<<<
@@ -6965,15 +6967,15 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_g
  *         cdef BPR_sample sample = BPR_sample(-1,-1,-1,-1,-1)
  */
 
-static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_sampleBPR_Cython(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self) {
-  struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_v_sample;
+static struct __pyx_t_14slim_bpr_epoch_BPR_sample __pyx_f_14slim_bpr_epoch_12SLIMBPREpoch_sampleBPR_Cython(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self) {
+  struct __pyx_t_14slim_bpr_epoch_BPR_sample __pyx_v_sample;
   long __pyx_v_index;
   int __pyx_v_neg_item_selected;
   int __pyx_v_n_seen_items;
-  struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_r;
+  struct __pyx_t_14slim_bpr_epoch_BPR_sample __pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
-  struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_t_1;
+  struct __pyx_t_14slim_bpr_epoch_BPR_sample __pyx_t_1;
   int __pyx_t_2;
   int __pyx_t_3;
   Py_ssize_t __pyx_t_4;
@@ -6984,7 +6986,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
   __Pyx_RefNannySetupContext("sampleBPR_Cython", 0);
   __Pyx_TraceCall("sampleBPR_Cython", __pyx_f[0], 439, 0, __PYX_ERR(0, 439, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":441
+  /* "slim_bpr_epoch.pyx":441
  *     cdef BPR_sample sampleBPR_Cython(self):
  * 
  *         cdef BPR_sample sample = BPR_sample(-1,-1,-1,-1,-1)             # <<<<<<<<<<<<<<
@@ -6998,7 +7000,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
   __pyx_t_1.seen_items_end_pos = -1L;
   __pyx_v_sample = __pyx_t_1;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":445
+  /* "slim_bpr_epoch.pyx":445
  *         cdef long index
  * 
  *         cdef int neg_item_selected, n_seen_items = 0             # <<<<<<<<<<<<<<
@@ -7007,7 +7009,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
   __pyx_v_n_seen_items = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":449
+  /* "slim_bpr_epoch.pyx":449
  * 
  *         # Skip users with no interactions or with no negative items
  *         while n_seen_items == 0 or n_seen_items == self.n_items:             # <<<<<<<<<<<<<<
@@ -7026,7 +7028,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_2) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":451
+    /* "slim_bpr_epoch.pyx":451
  *         while n_seen_items == 0 or n_seen_items == self.n_items:
  * 
  *             sample.user = rand() % self.n_users             # <<<<<<<<<<<<<<
@@ -7035,7 +7037,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
     __pyx_v_sample.user = (rand() % __pyx_v_self->n_users);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":453
+    /* "slim_bpr_epoch.pyx":453
  *             sample.user = rand() % self.n_users
  * 
  *             sample.seen_items_start_pos = self.URM_mask_indptr[sample.user]             # <<<<<<<<<<<<<<
@@ -7045,7 +7047,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
     __pyx_t_4 = __pyx_v_sample.user;
     __pyx_v_sample.seen_items_start_pos = (*((int *) ( /* dim=0 */ (__pyx_v_self->URM_mask_indptr.data + __pyx_t_4 * __pyx_v_self->URM_mask_indptr.strides[0]) )));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":454
+    /* "slim_bpr_epoch.pyx":454
  * 
  *             sample.seen_items_start_pos = self.URM_mask_indptr[sample.user]
  *             sample.seen_items_end_pos = self.URM_mask_indptr[sample.user + 1]             # <<<<<<<<<<<<<<
@@ -7055,7 +7057,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
     __pyx_t_5 = (__pyx_v_sample.user + 1);
     __pyx_v_sample.seen_items_end_pos = (*((int *) ( /* dim=0 */ (__pyx_v_self->URM_mask_indptr.data + __pyx_t_5 * __pyx_v_self->URM_mask_indptr.strides[0]) )));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":456
+    /* "slim_bpr_epoch.pyx":456
  *             sample.seen_items_end_pos = self.URM_mask_indptr[sample.user + 1]
  * 
  *             n_seen_items = sample.seen_items_end_pos - sample.seen_items_start_pos             # <<<<<<<<<<<<<<
@@ -7065,7 +7067,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
     __pyx_v_n_seen_items = (__pyx_v_sample.seen_items_end_pos - __pyx_v_sample.seen_items_start_pos);
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":459
+  /* "slim_bpr_epoch.pyx":459
  * 
  * 
  *         index = rand() % n_seen_items             # <<<<<<<<<<<<<<
@@ -7074,7 +7076,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
   __pyx_v_index = (rand() % __pyx_v_n_seen_items);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":461
+  /* "slim_bpr_epoch.pyx":461
  *         index = rand() % n_seen_items
  * 
  *         sample.pos_item = self.URM_mask_indices[sample.seen_items_start_pos + index]             # <<<<<<<<<<<<<<
@@ -7084,7 +7086,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
   __pyx_t_6 = (__pyx_v_sample.seen_items_start_pos + __pyx_v_index);
   __pyx_v_sample.pos_item = (*((int *) ( /* dim=0 */ (__pyx_v_self->URM_mask_indices.data + __pyx_t_6 * __pyx_v_self->URM_mask_indices.strides[0]) )));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":464
+  /* "slim_bpr_epoch.pyx":464
  * 
  * 
  *         neg_item_selected = False             # <<<<<<<<<<<<<<
@@ -7093,7 +7095,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
   __pyx_v_neg_item_selected = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":468
+  /* "slim_bpr_epoch.pyx":468
  *         # It's faster to just try again then to build a mapping of the non-seen items
  *         # for every user
  *         while not neg_item_selected:             # <<<<<<<<<<<<<<
@@ -7104,7 +7106,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
     __pyx_t_2 = ((!(__pyx_v_neg_item_selected != 0)) != 0);
     if (!__pyx_t_2) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":470
+    /* "slim_bpr_epoch.pyx":470
  *         while not neg_item_selected:
  * 
  *             sample.neg_item = rand() % self.n_items             # <<<<<<<<<<<<<<
@@ -7113,7 +7115,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
     __pyx_v_sample.neg_item = (rand() % __pyx_v_self->n_items);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":472
+    /* "slim_bpr_epoch.pyx":472
  *             sample.neg_item = rand() % self.n_items
  * 
  *             index = 0             # <<<<<<<<<<<<<<
@@ -7122,7 +7124,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
     __pyx_v_index = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":474
+    /* "slim_bpr_epoch.pyx":474
  *             index = 0
  *             # Indices data is sorted, so I don't need to go to the end of the current row
  *             while index < n_seen_items and self.URM_mask_indices[sample.seen_items_start_pos + index] < sample.neg_item:             # <<<<<<<<<<<<<<
@@ -7142,7 +7144,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
       __pyx_L11_bool_binop_done:;
       if (!__pyx_t_2) break;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":475
+      /* "slim_bpr_epoch.pyx":475
  *             # Indices data is sorted, so I don't need to go to the end of the current row
  *             while index < n_seen_items and self.URM_mask_indices[sample.seen_items_start_pos + index] < sample.neg_item:
  *                 index+=1             # <<<<<<<<<<<<<<
@@ -7152,7 +7154,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
       __pyx_v_index = (__pyx_v_index + 1);
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":479
+    /* "slim_bpr_epoch.pyx":479
  *             # If the positive item in position 'index' is == sample.neg_item, negative not selected
  *             # If the positive item in position 'index' is > sample.neg_item or index == n_seen_items, negative selected
  *             if index == n_seen_items or self.URM_mask_indices[sample.seen_items_start_pos + index] > sample.neg_item:             # <<<<<<<<<<<<<<
@@ -7171,7 +7173,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
     __pyx_L14_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":480
+      /* "slim_bpr_epoch.pyx":480
  *             # If the positive item in position 'index' is > sample.neg_item or index == n_seen_items, negative selected
  *             if index == n_seen_items or self.URM_mask_indices[sample.seen_items_start_pos + index] > sample.neg_item:
  *                 neg_item_selected = True             # <<<<<<<<<<<<<<
@@ -7180,7 +7182,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
       __pyx_v_neg_item_selected = 1;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":479
+      /* "slim_bpr_epoch.pyx":479
  *             # If the positive item in position 'index' is == sample.neg_item, negative not selected
  *             # If the positive item in position 'index' is > sample.neg_item or index == n_seen_items, negative selected
  *             if index == n_seen_items or self.URM_mask_indices[sample.seen_items_start_pos + index] > sample.neg_item:             # <<<<<<<<<<<<<<
@@ -7190,7 +7192,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":483
+  /* "slim_bpr_epoch.pyx":483
  * 
  * 
  *         return sample             # <<<<<<<<<<<<<<
@@ -7200,7 +7202,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
   __pyx_r = __pyx_v_sample;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":439
+  /* "slim_bpr_epoch.pyx":439
  * 
  * 
  *     cdef BPR_sample sampleBPR_Cython(self):             # <<<<<<<<<<<<<<
@@ -7210,7 +7212,7 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.sampleBPR_Cython", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.SLIMBPREpoch.sampleBPR_Cython", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -7225,19 +7227,19 @@ static struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample __pyx_f_21SLIM_BPR_Cyth
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_13__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__reduce_cython__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_12__reduce_cython__(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__reduce_cython__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_12__reduce_cython__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -7496,7 +7498,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__re
  *     else:
  *         use_setstate = self.S_sparse is not None or self.S_symmetric is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, None), state
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, None), state
  */
   /*else*/ {
     __pyx_t_29 = (((PyObject *)__pyx_v_self->S_sparse) != Py_None);
@@ -7518,7 +7520,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__re
  *     else:
  *         use_setstate = self.S_sparse is not None or self.S_symmetric is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, None), state
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, None), state
  *     else:
  */
   __pyx_t_30 = (__pyx_v_use_setstate != 0);
@@ -7527,12 +7529,12 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__re
     /* "(tree fragment)":13
  *         use_setstate = self.S_sparse is not None or self.S_symmetric is not None
  *     if use_setstate:
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, state)
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_27, __pyx_n_s_pyx_unpickle_SLIM_BPR_Cython_E); if (unlikely(!__pyx_t_27)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_27, __pyx_n_s_pyx_unpickle_SLIMBPREpoch); if (unlikely(!__pyx_t_27)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_27);
     __pyx_t_28 = PyTuple_New(3); if (unlikely(!__pyx_t_28)) __PYX_ERR(1, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_28);
@@ -7564,21 +7566,21 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__re
  *     else:
  *         use_setstate = self.S_sparse is not None or self.S_symmetric is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, None), state
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, None), state
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, None), state
  *     else:
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(self, __pyx_state)
+ *     __pyx_unpickle_SLIMBPREpoch__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_26, __pyx_n_s_pyx_unpickle_SLIM_BPR_Cython_E); if (unlikely(!__pyx_t_26)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_26, __pyx_n_s_pyx_unpickle_SLIMBPREpoch); if (unlikely(!__pyx_t_26)) __PYX_ERR(1, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_26);
     __pyx_t_28 = PyTuple_New(3); if (unlikely(!__pyx_t_28)) __PYX_ERR(1, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_28);
@@ -7640,7 +7642,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__re
   __Pyx_XDECREF(__pyx_t_26);
   __Pyx_XDECREF(__pyx_t_27);
   __Pyx_XDECREF(__pyx_t_28);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -7653,25 +7655,25 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_12__re
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, state)
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(self, __pyx_state)
+ *     __pyx_unpickle_SLIMBPREpoch__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_15__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_14__setstate_cython__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_14__setstate_cython__(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_14__setstate_cython__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_12SLIMBPREpoch_14__setstate_cython__(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -7680,20 +7682,20 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_14__se
   __Pyx_TraceCall("__setstate_cython__", __pyx_f[1], 16, 0, __PYX_ERR(1, 16, __pyx_L1_error));
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, state)
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, state)
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_SLIMBPREpoch__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14slim_bpr_epoch___pyx_unpickle_SLIMBPREpoch__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_SLIM_BPR_Cython_Epoch, (type(self), 0x66c4eac, state)
+ *         return __pyx_unpickle_SLIMBPREpoch, (type(self), 0x66c4eac, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(self, __pyx_state)
+ *     __pyx_unpickle_SLIMBPREpoch__set_state(self, __pyx_state)
  */
 
   /* function exit code */
@@ -7701,7 +7703,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_14__se
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.SLIMBPREpoch.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7710,7 +7712,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_14__se
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":523
+/* "slim_bpr_epoch.pyx":523
  * 
  * # Function to allocate a new node
  * cdef matrix_element_tree_s * pointer_new_matrix_element_tree_s(long column, double data, matrix_element_tree_s *higher,  matrix_element_tree_s *lower):             # <<<<<<<<<<<<<<
@@ -7718,24 +7720,24 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_14__se
  *     cdef matrix_element_tree_s * new_element
  */
 
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_pointer_new_matrix_element_tree_s(long __pyx_v_column, double __pyx_v_data, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_higher, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_lower) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_new_element;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_r;
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_pointer_new_matrix_element_tree_s(long __pyx_v_column, double __pyx_v_data, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_higher, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_lower) {
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_new_element;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("pointer_new_matrix_element_tree_s", 0);
   __Pyx_TraceCall("pointer_new_matrix_element_tree_s", __pyx_f[0], 523, 0, __PYX_ERR(0, 523, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":527
+  /* "slim_bpr_epoch.pyx":527
  *     cdef matrix_element_tree_s * new_element
  * 
  *     new_element = < matrix_element_tree_s * > PyMem_Malloc(sizeof(matrix_element_tree_s))             # <<<<<<<<<<<<<<
  *     new_element.column = column
  *     new_element.data = data
  */
-  __pyx_v_new_element = ((__pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *)PyMem_Malloc((sizeof(__pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s))));
+  __pyx_v_new_element = ((__pyx_t_14slim_bpr_epoch_matrix_element_tree_s *)PyMem_Malloc((sizeof(__pyx_t_14slim_bpr_epoch_matrix_element_tree_s))));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":528
+  /* "slim_bpr_epoch.pyx":528
  * 
  *     new_element = < matrix_element_tree_s * > PyMem_Malloc(sizeof(matrix_element_tree_s))
  *     new_element.column = column             # <<<<<<<<<<<<<<
@@ -7744,7 +7746,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_new_element->column = __pyx_v_column;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":529
+  /* "slim_bpr_epoch.pyx":529
  *     new_element = < matrix_element_tree_s * > PyMem_Malloc(sizeof(matrix_element_tree_s))
  *     new_element.column = column
  *     new_element.data = data             # <<<<<<<<<<<<<<
@@ -7753,7 +7755,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_new_element->data = __pyx_v_data;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":530
+  /* "slim_bpr_epoch.pyx":530
  *     new_element.column = column
  *     new_element.data = data
  *     new_element.higher = higher             # <<<<<<<<<<<<<<
@@ -7762,7 +7764,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_new_element->higher = __pyx_v_higher;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":531
+  /* "slim_bpr_epoch.pyx":531
  *     new_element.data = data
  *     new_element.higher = higher
  *     new_element.lower = lower             # <<<<<<<<<<<<<<
@@ -7771,7 +7773,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_new_element->lower = __pyx_v_lower;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":533
+  /* "slim_bpr_epoch.pyx":533
  *     new_element.lower = lower
  * 
  *     return new_element             # <<<<<<<<<<<<<<
@@ -7781,7 +7783,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_r = __pyx_v_new_element;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":523
+  /* "slim_bpr_epoch.pyx":523
  * 
  * # Function to allocate a new node
  * cdef matrix_element_tree_s * pointer_new_matrix_element_tree_s(long column, double data, matrix_element_tree_s *higher,  matrix_element_tree_s *lower):             # <<<<<<<<<<<<<<
@@ -7791,7 +7793,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.pointer_new_matrix_element_tree_s", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.pointer_new_matrix_element_tree_s", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -7799,7 +7801,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":537
+/* "slim_bpr_epoch.pyx":537
  * 
  * # Functions to compare structs to be used in C qsort
  * cdef int compare_struct_on_column(const void *a_input, const void *b_input):             # <<<<<<<<<<<<<<
@@ -7807,34 +7809,34 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  *     The function compares the column contained in the two struct passed.
  */
 
-static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_column(void const *__pyx_v_a_input, void const *__pyx_v_b_input) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *__pyx_v_a_casted;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *__pyx_v_b_casted;
+static int __pyx_f_14slim_bpr_epoch_compare_struct_on_column(void const *__pyx_v_a_input, void const *__pyx_v_b_input) {
+  __pyx_t_14slim_bpr_epoch_head_pointer_tree_s *__pyx_v_a_casted;
+  __pyx_t_14slim_bpr_epoch_head_pointer_tree_s *__pyx_v_b_casted;
   int __pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("compare_struct_on_column", 0);
   __Pyx_TraceCall("compare_struct_on_column", __pyx_f[0], 537, 0, __PYX_ERR(0, 537, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":546
+  /* "slim_bpr_epoch.pyx":546
  *     """
  * 
  *     cdef head_pointer_tree_s *a_casted = <head_pointer_tree_s *> a_input             # <<<<<<<<<<<<<<
  *     cdef head_pointer_tree_s *b_casted = <head_pointer_tree_s *> b_input
  * 
  */
-  __pyx_v_a_casted = ((__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *)__pyx_v_a_input);
+  __pyx_v_a_casted = ((__pyx_t_14slim_bpr_epoch_head_pointer_tree_s *)__pyx_v_a_input);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":547
+  /* "slim_bpr_epoch.pyx":547
  * 
  *     cdef head_pointer_tree_s *a_casted = <head_pointer_tree_s *> a_input
  *     cdef head_pointer_tree_s *b_casted = <head_pointer_tree_s *> b_input             # <<<<<<<<<<<<<<
  * 
  *     return a_casted.head.column  - b_casted.head.column
  */
-  __pyx_v_b_casted = ((__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *)__pyx_v_b_input);
+  __pyx_v_b_casted = ((__pyx_t_14slim_bpr_epoch_head_pointer_tree_s *)__pyx_v_b_input);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":549
+  /* "slim_bpr_epoch.pyx":549
  *     cdef head_pointer_tree_s *b_casted = <head_pointer_tree_s *> b_input
  * 
  *     return a_casted.head.column  - b_casted.head.column             # <<<<<<<<<<<<<<
@@ -7844,7 +7846,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_column(void const *
   __pyx_r = (__pyx_v_a_casted->head->column - __pyx_v_b_casted->head->column);
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":537
+  /* "slim_bpr_epoch.pyx":537
  * 
  * # Functions to compare structs to be used in C qsort
  * cdef int compare_struct_on_column(const void *a_input, const void *b_input):             # <<<<<<<<<<<<<<
@@ -7854,7 +7856,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_column(void const *
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.compare_struct_on_column", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.compare_struct_on_column", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -7862,7 +7864,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_column(void const *
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":553
+/* "slim_bpr_epoch.pyx":553
  * 
  * 
  * cdef int compare_struct_on_data(const void * a_input, const void * b_input):             # <<<<<<<<<<<<<<
@@ -7870,9 +7872,9 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_column(void const *
  *     The function compares the data contained in the two struct passed.
  */
 
-static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__pyx_v_a_input, void const *__pyx_v_b_input) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *__pyx_v_a_casted;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *__pyx_v_b_casted;
+static int __pyx_f_14slim_bpr_epoch_compare_struct_on_data(void const *__pyx_v_a_input, void const *__pyx_v_b_input) {
+  __pyx_t_14slim_bpr_epoch_head_pointer_tree_s *__pyx_v_a_casted;
+  __pyx_t_14slim_bpr_epoch_head_pointer_tree_s *__pyx_v_b_casted;
   int __pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -7880,25 +7882,25 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
   __Pyx_RefNannySetupContext("compare_struct_on_data", 0);
   __Pyx_TraceCall("compare_struct_on_data", __pyx_f[0], 553, 0, __PYX_ERR(0, 553, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":562
+  /* "slim_bpr_epoch.pyx":562
  *     """
  * 
  *     cdef head_pointer_tree_s * a_casted = <head_pointer_tree_s *> a_input             # <<<<<<<<<<<<<<
  *     cdef head_pointer_tree_s * b_casted = <head_pointer_tree_s *> b_input
  * 
  */
-  __pyx_v_a_casted = ((__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *)__pyx_v_a_input);
+  __pyx_v_a_casted = ((__pyx_t_14slim_bpr_epoch_head_pointer_tree_s *)__pyx_v_a_input);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":563
+  /* "slim_bpr_epoch.pyx":563
  * 
  *     cdef head_pointer_tree_s * a_casted = <head_pointer_tree_s *> a_input
  *     cdef head_pointer_tree_s * b_casted = <head_pointer_tree_s *> b_input             # <<<<<<<<<<<<<<
  * 
  *     if (a_casted.head.data - b_casted.head.data) > 0.0:
  */
-  __pyx_v_b_casted = ((__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *)__pyx_v_b_input);
+  __pyx_v_b_casted = ((__pyx_t_14slim_bpr_epoch_head_pointer_tree_s *)__pyx_v_b_input);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":565
+  /* "slim_bpr_epoch.pyx":565
  *     cdef head_pointer_tree_s * b_casted = <head_pointer_tree_s *> b_input
  * 
  *     if (a_casted.head.data - b_casted.head.data) > 0.0:             # <<<<<<<<<<<<<<
@@ -7908,7 +7910,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
   __pyx_t_1 = (((__pyx_v_a_casted->head->data - __pyx_v_b_casted->head->data) > 0.0) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":566
+    /* "slim_bpr_epoch.pyx":566
  * 
  *     if (a_casted.head.data - b_casted.head.data) > 0.0:
  *         return +1             # <<<<<<<<<<<<<<
@@ -7918,7 +7920,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":565
+    /* "slim_bpr_epoch.pyx":565
  *     cdef head_pointer_tree_s * b_casted = <head_pointer_tree_s *> b_input
  * 
  *     if (a_casted.head.data - b_casted.head.data) > 0.0:             # <<<<<<<<<<<<<<
@@ -7927,7 +7929,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":568
+  /* "slim_bpr_epoch.pyx":568
  *         return +1
  *     else:
  *         return -1             # <<<<<<<<<<<<<<
@@ -7939,7 +7941,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
     goto __pyx_L0;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":553
+  /* "slim_bpr_epoch.pyx":553
  * 
  * 
  * cdef int compare_struct_on_data(const void * a_input, const void * b_input):             # <<<<<<<<<<<<<<
@@ -7949,7 +7951,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.compare_struct_on_data", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.compare_struct_on_data", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -7957,7 +7959,7 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":590
+/* "slim_bpr_epoch.pyx":590
  * 
  * 
  *     def __init__(self, long num_rows, long num_cols):             # <<<<<<<<<<<<<<
@@ -7966,8 +7968,8 @@ static int __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data(void const *__
  */
 
 /* Python wrapper */
-static int __pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   long __pyx_v_num_rows;
   long __pyx_v_num_cols;
   int __pyx_r;
@@ -8015,18 +8017,18 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_1__init__(P
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 590, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), __pyx_v_num_rows, __pyx_v_num_cols);
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR___init__(((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), __pyx_v_num_rows, __pyx_v_num_cols);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_num_rows, long __pyx_v_num_cols) {
+static int __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR___init__(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_num_rows, long __pyx_v_num_cols) {
   long __pyx_v_index;
   int __pyx_r;
   __Pyx_TraceDeclarations
@@ -8037,7 +8039,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
   __Pyx_RefNannySetupContext("__init__", 0);
   __Pyx_TraceCall("__init__", __pyx_f[0], 590, 0, __PYX_ERR(0, 590, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":592
+  /* "slim_bpr_epoch.pyx":592
  *     def __init__(self, long num_rows, long num_cols):
  * 
  *         self.num_rows = num_rows             # <<<<<<<<<<<<<<
@@ -8046,7 +8048,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
  */
   __pyx_v_self->num_rows = __pyx_v_num_rows;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":593
+  /* "slim_bpr_epoch.pyx":593
  * 
  *         self.num_rows = num_rows
  *         self.num_cols = num_cols             # <<<<<<<<<<<<<<
@@ -8055,16 +8057,16 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
  */
   __pyx_v_self->num_cols = __pyx_v_num_cols;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":595
+  /* "slim_bpr_epoch.pyx":595
  *         self.num_cols = num_cols
  * 
  *         self.row_pointer = < head_pointer_tree_s *> PyMem_Malloc(self.num_rows * sizeof(head_pointer_tree_s))             # <<<<<<<<<<<<<<
  * 
  *         # Initialize all rows to empty
  */
-  __pyx_v_self->row_pointer = ((__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *)PyMem_Malloc((__pyx_v_self->num_rows * (sizeof(__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s)))));
+  __pyx_v_self->row_pointer = ((__pyx_t_14slim_bpr_epoch_head_pointer_tree_s *)PyMem_Malloc((__pyx_v_self->num_rows * (sizeof(__pyx_t_14slim_bpr_epoch_head_pointer_tree_s)))));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":598
+  /* "slim_bpr_epoch.pyx":598
  * 
  *         # Initialize all rows to empty
  *         for index in range(self.num_rows):             # <<<<<<<<<<<<<<
@@ -8076,7 +8078,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_index = __pyx_t_3;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":599
+    /* "slim_bpr_epoch.pyx":599
  *         # Initialize all rows to empty
  *         for index in range(self.num_rows):
  *             self.row_pointer[index].head = NULL             # <<<<<<<<<<<<<<
@@ -8086,7 +8088,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
     (__pyx_v_self->row_pointer[__pyx_v_index]).head = NULL;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":590
+  /* "slim_bpr_epoch.pyx":590
  * 
  * 
  *     def __init__(self, long num_rows, long num_cols):             # <<<<<<<<<<<<<<
@@ -8098,7 +8100,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -8106,7 +8108,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":603
+/* "slim_bpr_epoch.pyx":603
  * 
  * 
  *     def dealloc(self):             # <<<<<<<<<<<<<<
@@ -8115,20 +8117,20 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR___init__(st
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2dealloc[] = "\n        Remove all PyMalloc allocaded memory\n        :return:\n        ";
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_2dealloc[] = "\n        Remove all PyMalloc allocaded memory\n        :return:\n        ";
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("dealloc (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2dealloc(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_2dealloc(((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2dealloc(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_2dealloc(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self) {
   int __pyx_v_numRow;
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
@@ -8140,7 +8142,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2deal
   __Pyx_RefNannySetupContext("dealloc", 0);
   __Pyx_TraceCall("dealloc", __pyx_f[0], 603, 0, __PYX_ERR(0, 603, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":612
+  /* "slim_bpr_epoch.pyx":612
  * 
  *         # Free all rows memory
  *         for numRow in range(self.num_rows):             # <<<<<<<<<<<<<<
@@ -8152,19 +8154,19 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2deal
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_numRow = __pyx_t_3;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":613
+    /* "slim_bpr_epoch.pyx":613
  *         # Free all rows memory
  *         for numRow in range(self.num_rows):
  *             self.subtree_free_memory(self.row_pointer[numRow].head)             # <<<<<<<<<<<<<<
  * 
  *         PyMem_Free(self.row_pointer)
  */
-    __pyx_t_4 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_numRow]).head); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 613, __pyx_L1_error)
+    __pyx_t_4 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_numRow]).head); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 613, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":615
+  /* "slim_bpr_epoch.pyx":615
  *             self.subtree_free_memory(self.row_pointer[numRow].head)
  * 
  *         PyMem_Free(self.row_pointer)             # <<<<<<<<<<<<<<
@@ -8173,7 +8175,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2deal
  */
   PyMem_Free(__pyx_v_self->row_pointer);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":603
+  /* "slim_bpr_epoch.pyx":603
  * 
  * 
  *     def dealloc(self):             # <<<<<<<<<<<<<<
@@ -8186,7 +8188,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2deal
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.dealloc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.dealloc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -8195,7 +8197,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2deal
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":622
+/* "slim_bpr_epoch.pyx":622
  * 
  * 
  *     cdef double add_value(self, long row, long col, double value):             # <<<<<<<<<<<<<<
@@ -8203,8 +8205,8 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2deal
  *         The function adds a value to the specified cell. A new cell is created if necessary.
  */
 
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_current_element;
+static double __pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_add_value(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value) {
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_current_element;
   int __pyx_v_stopSearch;
   double __pyx_r;
   __Pyx_TraceDeclarations
@@ -8220,11 +8222,11 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   PyObject *__pyx_t_9 = NULL;
   int __pyx_t_10;
   PyObject *__pyx_t_11 = NULL;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_t_12;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_t_12;
   __Pyx_RefNannySetupContext("add_value", 0);
   __Pyx_TraceCall("add_value", __pyx_f[0], 622, 0, __PYX_ERR(0, 622, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":632
+  /* "slim_bpr_epoch.pyx":632
  *         """
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -8254,7 +8256,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":633
+    /* "slim_bpr_epoch.pyx":633
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(             # <<<<<<<<<<<<<<
@@ -8264,7 +8266,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Cell_is_outside_matrix_Matrix_sh, __pyx_n_s_format); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":634
+    /* "slim_bpr_epoch.pyx":634
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(
  *                 self.num_rows, self.num_cols, row, col))             # <<<<<<<<<<<<<<
@@ -8339,7 +8341,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":633
+    /* "slim_bpr_epoch.pyx":633
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(             # <<<<<<<<<<<<<<
@@ -8353,7 +8355,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __PYX_ERR(0, 633, __pyx_L1_error)
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":632
+    /* "slim_bpr_epoch.pyx":632
  *         """
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -8362,7 +8364,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":637
+  /* "slim_bpr_epoch.pyx":637
  * 
  *         cdef matrix_element_tree_s* current_element, new_element, * old_element
  *         cdef int stopSearch = False             # <<<<<<<<<<<<<<
@@ -8371,7 +8373,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  */
   __pyx_v_stopSearch = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":641
+  /* "slim_bpr_epoch.pyx":641
  * 
  *         # If the row is empty, create a new element
  *         if self.row_pointer[row].head == NULL:             # <<<<<<<<<<<<<<
@@ -8381,16 +8383,16 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   __pyx_t_1 = (((__pyx_v_self->row_pointer[__pyx_v_row]).head == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":644
+    /* "slim_bpr_epoch.pyx":644
  * 
  *             # row_pointer is a python object, so I need the object itself and not the address
  *             self.row_pointer[row].head = pointer_new_matrix_element_tree_s(col, value, NULL, NULL)             # <<<<<<<<<<<<<<
  * 
  *             return value
  */
-    (__pyx_v_self->row_pointer[__pyx_v_row]).head = __pyx_f_21SLIM_BPR_Cython_Epoch_pointer_new_matrix_element_tree_s(__pyx_v_col, __pyx_v_value, NULL, NULL);
+    (__pyx_v_self->row_pointer[__pyx_v_row]).head = __pyx_f_14slim_bpr_epoch_pointer_new_matrix_element_tree_s(__pyx_v_col, __pyx_v_value, NULL, NULL);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":646
+    /* "slim_bpr_epoch.pyx":646
  *             self.row_pointer[row].head = pointer_new_matrix_element_tree_s(col, value, NULL, NULL)
  * 
  *             return value             # <<<<<<<<<<<<<<
@@ -8400,7 +8402,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":641
+    /* "slim_bpr_epoch.pyx":641
  * 
  *         # If the row is empty, create a new element
  *         if self.row_pointer[row].head == NULL:             # <<<<<<<<<<<<<<
@@ -8409,7 +8411,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":651
+  /* "slim_bpr_epoch.pyx":651
  *         # If the row is not empty, look for the cell
  *         # row_pointer contains the struct itself, but I just want its address
  *         current_element = self.row_pointer[row].head             # <<<<<<<<<<<<<<
@@ -8419,7 +8421,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   __pyx_t_12 = (__pyx_v_self->row_pointer[__pyx_v_row]).head;
   __pyx_v_current_element = __pyx_t_12;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":654
+  /* "slim_bpr_epoch.pyx":654
  * 
  *         # Follow the tree structure
  *         while not stopSearch:             # <<<<<<<<<<<<<<
@@ -8430,7 +8432,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_t_1 = ((!(__pyx_v_stopSearch != 0)) != 0);
     if (!__pyx_t_1) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":656
+    /* "slim_bpr_epoch.pyx":656
  *         while not stopSearch:
  * 
  *             if current_element.column < col and current_element.higher != NULL:             # <<<<<<<<<<<<<<
@@ -8448,7 +8450,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_L12_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":657
+      /* "slim_bpr_epoch.pyx":657
  * 
  *             if current_element.column < col and current_element.higher != NULL:
  *                 current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -8458,7 +8460,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
       __pyx_t_12 = __pyx_v_current_element->higher;
       __pyx_v_current_element = __pyx_t_12;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":656
+      /* "slim_bpr_epoch.pyx":656
  *         while not stopSearch:
  * 
  *             if current_element.column < col and current_element.higher != NULL:             # <<<<<<<<<<<<<<
@@ -8468,7 +8470,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
       goto __pyx_L11;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":659
+    /* "slim_bpr_epoch.pyx":659
  *                 current_element = current_element.higher
  * 
  *             elif current_element.column > col and current_element.lower != NULL:             # <<<<<<<<<<<<<<
@@ -8486,7 +8488,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_L14_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":660
+      /* "slim_bpr_epoch.pyx":660
  * 
  *             elif current_element.column > col and current_element.lower != NULL:
  *                 current_element = current_element.lower             # <<<<<<<<<<<<<<
@@ -8496,7 +8498,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
       __pyx_t_12 = __pyx_v_current_element->lower;
       __pyx_v_current_element = __pyx_t_12;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":659
+      /* "slim_bpr_epoch.pyx":659
  *                 current_element = current_element.higher
  * 
  *             elif current_element.column > col and current_element.lower != NULL:             # <<<<<<<<<<<<<<
@@ -8506,7 +8508,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
       goto __pyx_L11;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":663
+    /* "slim_bpr_epoch.pyx":663
  * 
  *             else:
  *                 stopSearch = True             # <<<<<<<<<<<<<<
@@ -8519,7 +8521,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_L11:;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":666
+  /* "slim_bpr_epoch.pyx":666
  * 
  *         # If the cell exist, update its value
  *         if current_element.column == col:             # <<<<<<<<<<<<<<
@@ -8529,7 +8531,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   __pyx_t_1 = ((__pyx_v_current_element->column == __pyx_v_col) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":667
+    /* "slim_bpr_epoch.pyx":667
  *         # If the cell exist, update its value
  *         if current_element.column == col:
  *             current_element.data += value             # <<<<<<<<<<<<<<
@@ -8538,7 +8540,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  */
     __pyx_v_current_element->data = (__pyx_v_current_element->data + __pyx_v_value);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":669
+    /* "slim_bpr_epoch.pyx":669
  *             current_element.data += value
  * 
  *             return current_element.data             # <<<<<<<<<<<<<<
@@ -8548,7 +8550,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_r = __pyx_v_current_element->data;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":666
+    /* "slim_bpr_epoch.pyx":666
  * 
  *         # If the cell exist, update its value
  *         if current_element.column == col:             # <<<<<<<<<<<<<<
@@ -8557,7 +8559,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":673
+  /* "slim_bpr_epoch.pyx":673
  * 
  *         # The cell is not found, create new Higher element
  *         elif current_element.column < col and current_element.higher == NULL:             # <<<<<<<<<<<<<<
@@ -8575,16 +8577,16 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   __pyx_L17_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":675
+    /* "slim_bpr_epoch.pyx":675
  *         elif current_element.column < col and current_element.higher == NULL:
  * 
  *             current_element.higher = pointer_new_matrix_element_tree_s(col, value, NULL, NULL)             # <<<<<<<<<<<<<<
  * 
  *             return value
  */
-    __pyx_v_current_element->higher = __pyx_f_21SLIM_BPR_Cython_Epoch_pointer_new_matrix_element_tree_s(__pyx_v_col, __pyx_v_value, NULL, NULL);
+    __pyx_v_current_element->higher = __pyx_f_14slim_bpr_epoch_pointer_new_matrix_element_tree_s(__pyx_v_col, __pyx_v_value, NULL, NULL);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":677
+    /* "slim_bpr_epoch.pyx":677
  *             current_element.higher = pointer_new_matrix_element_tree_s(col, value, NULL, NULL)
  * 
  *             return value             # <<<<<<<<<<<<<<
@@ -8594,7 +8596,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":673
+    /* "slim_bpr_epoch.pyx":673
  * 
  *         # The cell is not found, create new Higher element
  *         elif current_element.column < col and current_element.higher == NULL:             # <<<<<<<<<<<<<<
@@ -8603,7 +8605,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":680
+  /* "slim_bpr_epoch.pyx":680
  * 
  *         # The cell is not found, create new Lower element
  *         elif current_element.column > col and current_element.lower == NULL:             # <<<<<<<<<<<<<<
@@ -8621,16 +8623,16 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   __pyx_L19_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":682
+    /* "slim_bpr_epoch.pyx":682
  *         elif current_element.column > col and current_element.lower == NULL:
  * 
  *             current_element.lower = pointer_new_matrix_element_tree_s(col, value, NULL, NULL)             # <<<<<<<<<<<<<<
  * 
  *             return value
  */
-    __pyx_v_current_element->lower = __pyx_f_21SLIM_BPR_Cython_Epoch_pointer_new_matrix_element_tree_s(__pyx_v_col, __pyx_v_value, NULL, NULL);
+    __pyx_v_current_element->lower = __pyx_f_14slim_bpr_epoch_pointer_new_matrix_element_tree_s(__pyx_v_col, __pyx_v_value, NULL, NULL);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":684
+    /* "slim_bpr_epoch.pyx":684
  *             current_element.lower = pointer_new_matrix_element_tree_s(col, value, NULL, NULL)
  * 
  *             return value             # <<<<<<<<<<<<<<
@@ -8640,7 +8642,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":680
+    /* "slim_bpr_epoch.pyx":680
  * 
  *         # The cell is not found, create new Lower element
  *         elif current_element.column > col and current_element.lower == NULL:             # <<<<<<<<<<<<<<
@@ -8649,7 +8651,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":687
+  /* "slim_bpr_epoch.pyx":687
  * 
  *         else:
  *             assert False, 'ERROR - Current insert operation is not implemented'             # <<<<<<<<<<<<<<
@@ -8667,7 +8669,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
     #endif
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":622
+  /* "slim_bpr_epoch.pyx":622
  * 
  * 
  *     cdef double add_value(self, long row, long col, double value):             # <<<<<<<<<<<<<<
@@ -8687,7 +8689,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.add_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.add_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -8695,7 +8697,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":692
+/* "slim_bpr_epoch.pyx":692
  * 
  * 
  *     cdef double get_value(self, long row, long col):             # <<<<<<<<<<<<<<
@@ -8703,8 +8705,8 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value
  *         The function returns the value of the specified cell.
  */
 
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_current_element;
+static double __pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_value(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_col) {
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_current_element;
   int __pyx_v_stopSearch;
   double __pyx_r;
   __Pyx_TraceDeclarations
@@ -8720,11 +8722,11 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
   PyObject *__pyx_t_9 = NULL;
   int __pyx_t_10;
   PyObject *__pyx_t_11 = NULL;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_t_12;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_t_12;
   __Pyx_RefNannySetupContext("get_value", 0);
   __Pyx_TraceCall("get_value", __pyx_f[0], 692, 0, __PYX_ERR(0, 692, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":702
+  /* "slim_bpr_epoch.pyx":702
  * 
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -8754,7 +8756,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":704
+    /* "slim_bpr_epoch.pyx":704
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError(
  *                 "Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(             # <<<<<<<<<<<<<<
@@ -8764,7 +8766,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Cell_is_outside_matrix_Matrix_sh, __pyx_n_s_format); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 704, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":705
+    /* "slim_bpr_epoch.pyx":705
  *             raise ValueError(
  *                 "Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(
  *                     self.num_rows, self.num_cols, row, col))             # <<<<<<<<<<<<<<
@@ -8839,7 +8841,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":703
+    /* "slim_bpr_epoch.pyx":703
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError(             # <<<<<<<<<<<<<<
@@ -8853,7 +8855,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __PYX_ERR(0, 703, __pyx_L1_error)
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":702
+    /* "slim_bpr_epoch.pyx":702
  * 
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -8862,7 +8864,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":709
+  /* "slim_bpr_epoch.pyx":709
  * 
  *         cdef matrix_element_tree_s* current_element
  *         cdef int stopSearch = False             # <<<<<<<<<<<<<<
@@ -8871,7 +8873,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
  */
   __pyx_v_stopSearch = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":712
+  /* "slim_bpr_epoch.pyx":712
  * 
  *         # If the row is empty, return default
  *         if self.row_pointer[row].head == NULL:             # <<<<<<<<<<<<<<
@@ -8881,7 +8883,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
   __pyx_t_1 = (((__pyx_v_self->row_pointer[__pyx_v_row]).head == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":713
+    /* "slim_bpr_epoch.pyx":713
  *         # If the row is empty, return default
  *         if self.row_pointer[row].head == NULL:
  *             return 0.0             # <<<<<<<<<<<<<<
@@ -8891,7 +8893,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __pyx_r = 0.0;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":712
+    /* "slim_bpr_epoch.pyx":712
  * 
  *         # If the row is empty, return default
  *         if self.row_pointer[row].head == NULL:             # <<<<<<<<<<<<<<
@@ -8900,7 +8902,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":718
+  /* "slim_bpr_epoch.pyx":718
  *         # If the row is not empty, look for the cell
  *         # row_pointer contains the struct itself, but I just want its address
  *         current_element = self.row_pointer[row].head             # <<<<<<<<<<<<<<
@@ -8910,7 +8912,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
   __pyx_t_12 = (__pyx_v_self->row_pointer[__pyx_v_row]).head;
   __pyx_v_current_element = __pyx_t_12;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":721
+  /* "slim_bpr_epoch.pyx":721
  * 
  *         # Follow the tree structure
  *         while not stopSearch:             # <<<<<<<<<<<<<<
@@ -8921,7 +8923,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __pyx_t_1 = ((!(__pyx_v_stopSearch != 0)) != 0);
     if (!__pyx_t_1) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":723
+    /* "slim_bpr_epoch.pyx":723
  *         while not stopSearch:
  * 
  *             if current_element.column < col and current_element.higher != NULL:             # <<<<<<<<<<<<<<
@@ -8939,7 +8941,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __pyx_L12_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":724
+      /* "slim_bpr_epoch.pyx":724
  * 
  *             if current_element.column < col and current_element.higher != NULL:
  *                 current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -8949,7 +8951,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
       __pyx_t_12 = __pyx_v_current_element->higher;
       __pyx_v_current_element = __pyx_t_12;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":723
+      /* "slim_bpr_epoch.pyx":723
  *         while not stopSearch:
  * 
  *             if current_element.column < col and current_element.higher != NULL:             # <<<<<<<<<<<<<<
@@ -8959,7 +8961,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
       goto __pyx_L11;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":726
+    /* "slim_bpr_epoch.pyx":726
  *                 current_element = current_element.higher
  * 
  *             elif current_element.column > col and current_element.lower != NULL:             # <<<<<<<<<<<<<<
@@ -8977,7 +8979,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __pyx_L14_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":727
+      /* "slim_bpr_epoch.pyx":727
  * 
  *             elif current_element.column > col and current_element.lower != NULL:
  *                 current_element = current_element.lower             # <<<<<<<<<<<<<<
@@ -8987,7 +8989,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
       __pyx_t_12 = __pyx_v_current_element->lower;
       __pyx_v_current_element = __pyx_t_12;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":726
+      /* "slim_bpr_epoch.pyx":726
  *                 current_element = current_element.higher
  * 
  *             elif current_element.column > col and current_element.lower != NULL:             # <<<<<<<<<<<<<<
@@ -8997,7 +8999,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
       goto __pyx_L11;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":730
+    /* "slim_bpr_epoch.pyx":730
  * 
  *             else:
  *                 stopSearch = True             # <<<<<<<<<<<<<<
@@ -9010,7 +9012,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __pyx_L11:;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":734
+  /* "slim_bpr_epoch.pyx":734
  * 
  *         # If the cell exist, return its value
  *         if current_element.column == col:             # <<<<<<<<<<<<<<
@@ -9020,7 +9022,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
   __pyx_t_1 = ((__pyx_v_current_element->column == __pyx_v_col) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":735
+    /* "slim_bpr_epoch.pyx":735
  *         # If the cell exist, return its value
  *         if current_element.column == col:
  *             return current_element.data             # <<<<<<<<<<<<<<
@@ -9030,7 +9032,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     __pyx_r = __pyx_v_current_element->data;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":734
+    /* "slim_bpr_epoch.pyx":734
  * 
  *         # If the cell exist, return its value
  *         if current_element.column == col:             # <<<<<<<<<<<<<<
@@ -9039,7 +9041,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":739
+  /* "slim_bpr_epoch.pyx":739
  *         # The cell is not found, return default
  *         else:
  *             return 0.0             # <<<<<<<<<<<<<<
@@ -9051,7 +9053,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
     goto __pyx_L0;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":692
+  /* "slim_bpr_epoch.pyx":692
  * 
  * 
  *     cdef double get_value(self, long row, long col):             # <<<<<<<<<<<<<<
@@ -9069,7 +9071,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.get_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.get_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -9077,7 +9079,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":744
+/* "slim_bpr_epoch.pyx":744
  * 
  * 
  *     cdef get_scipy_csr(self, long TopK = False):             # <<<<<<<<<<<<<<
@@ -9085,7 +9087,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value
  *         The function returns the current sparse matrix as a scipy_csr object
  */
 
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args) {
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args) {
   long __pyx_v_TopK = ((long)0);
   long __pyx_v_row;
   PyObject *__pyx_v_data = NULL;
@@ -9117,7 +9119,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":753
+  /* "slim_bpr_epoch.pyx":753
  *         cdef long row
  * 
  *         data = []             # <<<<<<<<<<<<<<
@@ -9129,7 +9131,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   __pyx_v_data = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":754
+  /* "slim_bpr_epoch.pyx":754
  * 
  *         data = []
  *         indices = []             # <<<<<<<<<<<<<<
@@ -9141,7 +9143,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   __pyx_v_indices = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":755
+  /* "slim_bpr_epoch.pyx":755
  *         data = []
  *         indices = []
  *         indptr = []             # <<<<<<<<<<<<<<
@@ -9153,7 +9155,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   __pyx_v_indptr = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":758
+  /* "slim_bpr_epoch.pyx":758
  * 
  *         # Loop the rows
  *         for row in range(self.num_rows):             # <<<<<<<<<<<<<<
@@ -9165,7 +9167,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_row = __pyx_t_4;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":761
+    /* "slim_bpr_epoch.pyx":761
  * 
  *             #Always set indptr
  *             indptr.append(len(data))             # <<<<<<<<<<<<<<
@@ -9178,7 +9180,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
     __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_indptr, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 761, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":764
+    /* "slim_bpr_epoch.pyx":764
  * 
  *             # row contains data
  *             if self.row_pointer[row].head != NULL:             # <<<<<<<<<<<<<<
@@ -9188,16 +9190,16 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
     __pyx_t_7 = (((__pyx_v_self->row_pointer[__pyx_v_row]).head != NULL) != 0);
     if (__pyx_t_7) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":767
+      /* "slim_bpr_epoch.pyx":767
  * 
  *                 # Flatten the data structure
  *                 self.row_pointer[row].head = self.subtree_to_list_flat(self.row_pointer[row].head)             # <<<<<<<<<<<<<<
  * 
  *                 if TopK:
  */
-      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
+      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":769
+      /* "slim_bpr_epoch.pyx":769
  *                 self.row_pointer[row].head = self.subtree_to_list_flat(self.row_pointer[row].head)
  * 
  *                 if TopK:             # <<<<<<<<<<<<<<
@@ -9207,16 +9209,16 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
       __pyx_t_7 = (__pyx_v_TopK != 0);
       if (__pyx_t_7) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":770
+        /* "slim_bpr_epoch.pyx":770
  * 
  *                 if TopK:
  *                     self.row_pointer[row].head = self.topK_selection_from_list(self.row_pointer[row].head, TopK)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-        (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->topK_selection_from_list(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head, __pyx_v_TopK);
+        (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->topK_selection_from_list(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head, __pyx_v_TopK);
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":769
+        /* "slim_bpr_epoch.pyx":769
  *                 self.row_pointer[row].head = self.subtree_to_list_flat(self.row_pointer[row].head)
  * 
  *                 if TopK:             # <<<<<<<<<<<<<<
@@ -9225,14 +9227,14 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
  */
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":774
+      /* "slim_bpr_epoch.pyx":774
  * 
  *                 # Flatten the tree data
  *                 subtree_column, subtree_data = self.from_linked_list_to_python_list(self.row_pointer[row].head)             # <<<<<<<<<<<<<<
  *                 data.extend(subtree_data)
  *                 indices.extend(subtree_column)
  */
-      __pyx_t_1 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 774, __pyx_L1_error)
+      __pyx_t_1 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 774, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
         PyObject* sequence = __pyx_t_1;
@@ -9285,7 +9287,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
       __Pyx_XDECREF_SET(__pyx_v_subtree_data, __pyx_t_9);
       __pyx_t_9 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":775
+      /* "slim_bpr_epoch.pyx":775
  *                 # Flatten the tree data
  *                 subtree_column, subtree_data = self.from_linked_list_to_python_list(self.row_pointer[row].head)
  *                 data.extend(subtree_data)             # <<<<<<<<<<<<<<
@@ -9294,7 +9296,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
  */
       __pyx_t_6 = __Pyx_PyList_Extend(__pyx_v_data, __pyx_v_subtree_data); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 775, __pyx_L1_error)
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":776
+      /* "slim_bpr_epoch.pyx":776
  *                 subtree_column, subtree_data = self.from_linked_list_to_python_list(self.row_pointer[row].head)
  *                 data.extend(subtree_data)
  *                 indices.extend(subtree_column)             # <<<<<<<<<<<<<<
@@ -9303,16 +9305,16 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
  */
       __pyx_t_6 = __Pyx_PyList_Extend(__pyx_v_indices, __pyx_v_subtree_column); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 776, __pyx_L1_error)
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":779
+      /* "slim_bpr_epoch.pyx":779
  * 
  *                 # Rebuild the tree
  *                 self.row_pointer[row].head = self.build_tree_from_list_flat(self.row_pointer[row].head)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
+      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":764
+      /* "slim_bpr_epoch.pyx":764
  * 
  *             # row contains data
  *             if self.row_pointer[row].head != NULL:             # <<<<<<<<<<<<<<
@@ -9322,7 +9324,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":783
+  /* "slim_bpr_epoch.pyx":783
  * 
  *         #Set terminal indptr
  *         indptr.append(len(data))             # <<<<<<<<<<<<<<
@@ -9335,7 +9337,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_indptr, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 783, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":785
+  /* "slim_bpr_epoch.pyx":785
  *         indptr.append(len(data))
  * 
  *         return sps.csr_matrix((data, indices, indptr), shape=(self.num_rows, self.num_cols))             # <<<<<<<<<<<<<<
@@ -9389,7 +9391,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   __pyx_t_13 = 0;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":744
+  /* "slim_bpr_epoch.pyx":744
  * 
  * 
  *     cdef get_scipy_csr(self, long TopK = False):             # <<<<<<<<<<<<<<
@@ -9405,7 +9407,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_12);
   __Pyx_XDECREF(__pyx_t_13);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.get_scipy_csr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.get_scipy_csr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_data);
@@ -9419,7 +9421,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":789
+/* "slim_bpr_epoch.pyx":789
  * 
  * 
  *     cdef rebalance_tree(self, long TopK = False):             # <<<<<<<<<<<<<<
@@ -9427,7 +9429,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_sc
  *         The function builds a balanced binary tree from the current one, for all matrix rows
  */
 
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args) {
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args) {
   long __pyx_v_TopK = ((long)0);
   long __pyx_v_row;
   PyObject *__pyx_r = NULL;
@@ -9445,7 +9447,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":798
+  /* "slim_bpr_epoch.pyx":798
  *         cdef long row
  * 
  *         for row in range(self.num_rows):             # <<<<<<<<<<<<<<
@@ -9457,7 +9459,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_row = __pyx_t_3;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":800
+    /* "slim_bpr_epoch.pyx":800
  *         for row in range(self.num_rows):
  * 
  *             if self.row_pointer[row].head != NULL:             # <<<<<<<<<<<<<<
@@ -9467,16 +9469,16 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
     __pyx_t_4 = (((__pyx_v_self->row_pointer[__pyx_v_row]).head != NULL) != 0);
     if (__pyx_t_4) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":803
+      /* "slim_bpr_epoch.pyx":803
  * 
  *                 # Flatten the data structure
  *                 self.row_pointer[row].head = self.subtree_to_list_flat(self.row_pointer[row].head)             # <<<<<<<<<<<<<<
  * 
  *                 if TopK:
  */
-      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
+      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":805
+      /* "slim_bpr_epoch.pyx":805
  *                 self.row_pointer[row].head = self.subtree_to_list_flat(self.row_pointer[row].head)
  * 
  *                 if TopK:             # <<<<<<<<<<<<<<
@@ -9486,16 +9488,16 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
       __pyx_t_4 = (__pyx_v_TopK != 0);
       if (__pyx_t_4) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":806
+        /* "slim_bpr_epoch.pyx":806
  * 
  *                 if TopK:
  *                     self.row_pointer[row].head = self.topK_selection_from_list(self.row_pointer[row].head, TopK)             # <<<<<<<<<<<<<<
  * 
  *                 # Rebuild the tree
  */
-        (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->topK_selection_from_list(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head, __pyx_v_TopK);
+        (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->topK_selection_from_list(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head, __pyx_v_TopK);
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":805
+        /* "slim_bpr_epoch.pyx":805
  *                 self.row_pointer[row].head = self.subtree_to_list_flat(self.row_pointer[row].head)
  * 
  *                 if TopK:             # <<<<<<<<<<<<<<
@@ -9504,16 +9506,16 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
  */
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":809
+      /* "slim_bpr_epoch.pyx":809
  * 
  *                 # Rebuild the tree
  *                 self.row_pointer[row].head = self.build_tree_from_list_flat(self.row_pointer[row].head)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
+      (__pyx_v_self->row_pointer[__pyx_v_row]).head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":800
+      /* "slim_bpr_epoch.pyx":800
  *         for row in range(self.num_rows):
  * 
  *             if self.row_pointer[row].head != NULL:             # <<<<<<<<<<<<<<
@@ -9523,7 +9525,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":789
+  /* "slim_bpr_epoch.pyx":789
  * 
  * 
  *     cdef rebalance_tree(self, long TopK = False):             # <<<<<<<<<<<<<<
@@ -9535,7 +9537,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.rebalance_tree", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.rebalance_tree", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9544,7 +9546,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":812
+/* "slim_bpr_epoch.pyx":812
  * 
  * 
  *     cdef matrix_element_tree_s * subtree_to_list_flat(self, matrix_element_tree_s * root):             # <<<<<<<<<<<<<<
@@ -9552,18 +9554,18 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebala
  *         The function flatten the structure of the subtree whose root is passed as a parameter
  */
 
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtree_to_list_flat(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_root) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_flat_list_head;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_current_element;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_r;
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_subtree_to_list_flat(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_root) {
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_flat_list_head;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_current_element;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_t_2;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_t_2;
   __Pyx_RefNannySetupContext("subtree_to_list_flat", 0);
   __Pyx_TraceCall("subtree_to_list_flat", __pyx_f[0], 812, 0, __PYX_ERR(0, 812, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":822
+  /* "slim_bpr_epoch.pyx":822
  *         """
  * 
  *         if root == NULL:             # <<<<<<<<<<<<<<
@@ -9573,7 +9575,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_root == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":823
+    /* "slim_bpr_epoch.pyx":823
  * 
  *         if root == NULL:
  *             return NULL             # <<<<<<<<<<<<<<
@@ -9583,7 +9585,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_r = NULL;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":822
+    /* "slim_bpr_epoch.pyx":822
  *         """
  * 
  *         if root == NULL:             # <<<<<<<<<<<<<<
@@ -9592,16 +9594,16 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":828
+  /* "slim_bpr_epoch.pyx":828
  * 
  *         # Flatten lower subtree
  *         flat_list_head = self.subtree_to_list_flat(root.lower)             # <<<<<<<<<<<<<<
  * 
  *         # If no lower elements exist, the head is the current element
  */
-  __pyx_v_flat_list_head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, __pyx_v_root->lower);
+  __pyx_v_flat_list_head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, __pyx_v_root->lower);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":831
+  /* "slim_bpr_epoch.pyx":831
  * 
  *         # If no lower elements exist, the head is the current element
  *         if flat_list_head == NULL:             # <<<<<<<<<<<<<<
@@ -9611,7 +9613,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_flat_list_head == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":832
+    /* "slim_bpr_epoch.pyx":832
  *         # If no lower elements exist, the head is the current element
  *         if flat_list_head == NULL:
  *             flat_list_head = root             # <<<<<<<<<<<<<<
@@ -9620,7 +9622,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_flat_list_head = __pyx_v_root;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":833
+    /* "slim_bpr_epoch.pyx":833
  *         if flat_list_head == NULL:
  *             flat_list_head = root
  *             root.lower = NULL             # <<<<<<<<<<<<<<
@@ -9629,7 +9631,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_root->lower = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":831
+    /* "slim_bpr_epoch.pyx":831
  * 
  *         # If no lower elements exist, the head is the current element
  *         if flat_list_head == NULL:             # <<<<<<<<<<<<<<
@@ -9639,7 +9641,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     goto __pyx_L4;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":837
+  /* "slim_bpr_epoch.pyx":837
  *         # Else move to the tail and add the subtree root
  *         else:
  *             current_element = flat_list_head             # <<<<<<<<<<<<<<
@@ -9649,7 +9651,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   /*else*/ {
     __pyx_v_current_element = __pyx_v_flat_list_head;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":838
+    /* "slim_bpr_epoch.pyx":838
  *         else:
  *             current_element = flat_list_head
  *             while current_element.higher != NULL:             # <<<<<<<<<<<<<<
@@ -9660,7 +9662,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
       __pyx_t_1 = ((__pyx_v_current_element->higher != NULL) != 0);
       if (!__pyx_t_1) break;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":839
+      /* "slim_bpr_epoch.pyx":839
  *             current_element = flat_list_head
  *             while current_element.higher != NULL:
  *                 current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -9671,7 +9673,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
       __pyx_v_current_element = __pyx_t_2;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":842
+    /* "slim_bpr_epoch.pyx":842
  * 
  *             # Attach the element with the bidirectional pointers
  *             current_element.higher = root             # <<<<<<<<<<<<<<
@@ -9680,7 +9682,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_current_element->higher = __pyx_v_root;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":843
+    /* "slim_bpr_epoch.pyx":843
  *             # Attach the element with the bidirectional pointers
  *             current_element.higher = root
  *             root.lower = current_element             # <<<<<<<<<<<<<<
@@ -9691,16 +9693,16 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   }
   __pyx_L4:;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":846
+  /* "slim_bpr_epoch.pyx":846
  * 
  *         # Flatten higher subtree and attach it to the tail of the flat list
  *         root.higher = self.subtree_to_list_flat(root.higher)             # <<<<<<<<<<<<<<
  * 
  *         # Attach the element with the bidirectional pointers
  */
-  __pyx_v_root->higher = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, __pyx_v_root->higher);
+  __pyx_v_root->higher = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, __pyx_v_root->higher);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":849
+  /* "slim_bpr_epoch.pyx":849
  * 
  *         # Attach the element with the bidirectional pointers
  *         if root.higher != NULL:             # <<<<<<<<<<<<<<
@@ -9710,7 +9712,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_root->higher != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":850
+    /* "slim_bpr_epoch.pyx":850
  *         # Attach the element with the bidirectional pointers
  *         if root.higher != NULL:
  *             root.higher.lower = root             # <<<<<<<<<<<<<<
@@ -9719,7 +9721,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_root->higher->lower = __pyx_v_root;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":849
+    /* "slim_bpr_epoch.pyx":849
  * 
  *         # Attach the element with the bidirectional pointers
  *         if root.higher != NULL:             # <<<<<<<<<<<<<<
@@ -9728,7 +9730,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":852
+  /* "slim_bpr_epoch.pyx":852
  *             root.higher.lower = root
  * 
  *         return flat_list_head             # <<<<<<<<<<<<<<
@@ -9738,7 +9740,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_r = __pyx_v_flat_list_head;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":812
+  /* "slim_bpr_epoch.pyx":812
  * 
  * 
  *     cdef matrix_element_tree_s * subtree_to_list_flat(self, matrix_element_tree_s * root):             # <<<<<<<<<<<<<<
@@ -9748,7 +9750,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.subtree_to_list_flat", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.subtree_to_list_flat", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -9756,7 +9758,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":856
+/* "slim_bpr_epoch.pyx":856
  * 
  * 
  *     cdef from_linked_list_to_python_list(self, matrix_element_tree_s * head):             # <<<<<<<<<<<<<<
@@ -9764,7 +9766,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  *         data = []
  */
 
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_linked_list_to_python_list(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head) {
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_from_linked_list_to_python_list(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head) {
   PyObject *__pyx_v_data = NULL;
   PyObject *__pyx_v_column = NULL;
   PyObject *__pyx_r = NULL;
@@ -9773,11 +9775,11 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
   PyObject *__pyx_t_1 = NULL;
   int __pyx_t_2;
   int __pyx_t_3;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_t_4;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_t_4;
   __Pyx_RefNannySetupContext("from_linked_list_to_python_list", 0);
   __Pyx_TraceCall("from_linked_list_to_python_list", __pyx_f[0], 856, 0, __PYX_ERR(0, 856, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":858
+  /* "slim_bpr_epoch.pyx":858
  *     cdef from_linked_list_to_python_list(self, matrix_element_tree_s * head):
  * 
  *         data = []             # <<<<<<<<<<<<<<
@@ -9789,7 +9791,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
   __pyx_v_data = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":859
+  /* "slim_bpr_epoch.pyx":859
  * 
  *         data = []
  *         column = []             # <<<<<<<<<<<<<<
@@ -9801,7 +9803,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
   __pyx_v_column = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":861
+  /* "slim_bpr_epoch.pyx":861
  *         column = []
  * 
  *         while head != NULL:             # <<<<<<<<<<<<<<
@@ -9812,7 +9814,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
     __pyx_t_2 = ((__pyx_v_head != NULL) != 0);
     if (!__pyx_t_2) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":863
+    /* "slim_bpr_epoch.pyx":863
  *         while head != NULL:
  * 
  *             if head.data != 0.0:             # <<<<<<<<<<<<<<
@@ -9822,7 +9824,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
     __pyx_t_2 = ((__pyx_v_head->data != 0.0) != 0);
     if (__pyx_t_2) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":864
+      /* "slim_bpr_epoch.pyx":864
  * 
  *             if head.data != 0.0:
  *                 data.append(head.data)             # <<<<<<<<<<<<<<
@@ -9834,7 +9836,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
       __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_data, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 864, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":865
+      /* "slim_bpr_epoch.pyx":865
  *             if head.data != 0.0:
  *                 data.append(head.data)
  *                 column.append(head.column)             # <<<<<<<<<<<<<<
@@ -9846,7 +9848,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
       __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_column, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 865, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":863
+      /* "slim_bpr_epoch.pyx":863
  *         while head != NULL:
  * 
  *             if head.data != 0.0:             # <<<<<<<<<<<<<<
@@ -9855,7 +9857,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":867
+    /* "slim_bpr_epoch.pyx":867
  *                 column.append(head.column)
  * 
  *             head = head.higher             # <<<<<<<<<<<<<<
@@ -9866,7 +9868,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
     __pyx_v_head = __pyx_t_4;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":869
+  /* "slim_bpr_epoch.pyx":869
  *             head = head.higher
  * 
  *         return column, data             # <<<<<<<<<<<<<<
@@ -9886,7 +9888,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":856
+  /* "slim_bpr_epoch.pyx":856
  * 
  * 
  *     cdef from_linked_list_to_python_list(self, matrix_element_tree_s * head):             # <<<<<<<<<<<<<<
@@ -9897,7 +9899,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.from_linked_list_to_python_list", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.from_linked_list_to_python_list", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_data);
@@ -9908,7 +9910,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":873
+/* "slim_bpr_epoch.pyx":873
  * 
  * 
  *     cdef subtree_free_memory(self, matrix_element_tree_s* root):             # <<<<<<<<<<<<<<
@@ -9916,7 +9918,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_l
  *         The function frees all struct in the subtree whose root is passed as a parameter, root included
  */
 
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtree_free_memory(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_root) {
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_subtree_free_memory(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_root) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -9925,7 +9927,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtre
   __Pyx_RefNannySetupContext("subtree_free_memory", 0);
   __Pyx_TraceCall("subtree_free_memory", __pyx_f[0], 873, 0, __PYX_ERR(0, 873, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":880
+  /* "slim_bpr_epoch.pyx":880
  *         """
  * 
  *         if root != NULL:             # <<<<<<<<<<<<<<
@@ -9935,29 +9937,29 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtre
   __pyx_t_1 = ((__pyx_v_root != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":882
+    /* "slim_bpr_epoch.pyx":882
  *         if root != NULL:
  *             # If the root exists, open recursion
  *             self.subtree_free_memory(root.higher)             # <<<<<<<<<<<<<<
  *             self.subtree_free_memory(root.lower)
  * 
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, __pyx_v_root->higher); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 882, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, __pyx_v_root->higher); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 882, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":883
+    /* "slim_bpr_epoch.pyx":883
  *             # If the root exists, open recursion
  *             self.subtree_free_memory(root.higher)
  *             self.subtree_free_memory(root.lower)             # <<<<<<<<<<<<<<
  * 
  *             # Once the lower elements have been reached, start freeing from the bottom
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, __pyx_v_root->lower); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 883, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, __pyx_v_root->lower); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 883, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":886
+    /* "slim_bpr_epoch.pyx":886
  * 
  *             # Once the lower elements have been reached, start freeing from the bottom
  *             PyMem_Free(root)             # <<<<<<<<<<<<<<
@@ -9966,7 +9968,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtre
  */
     PyMem_Free(__pyx_v_root);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":880
+    /* "slim_bpr_epoch.pyx":880
  *         """
  * 
  *         if root != NULL:             # <<<<<<<<<<<<<<
@@ -9975,7 +9977,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtre
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":873
+  /* "slim_bpr_epoch.pyx":873
  * 
  * 
  *     cdef subtree_free_memory(self, matrix_element_tree_s* root):             # <<<<<<<<<<<<<<
@@ -9988,7 +9990,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtre
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.subtree_free_memory", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.subtree_free_memory", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9997,7 +9999,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtre
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":890
+/* "slim_bpr_epoch.pyx":890
  * 
  * 
  *     cdef list_free_memory(self, matrix_element_tree_s * head):             # <<<<<<<<<<<<<<
@@ -10005,7 +10007,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtre
  *         The function frees all struct in the list whose head is passed as a parameter, head included
  */
 
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_free_memory(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head) {
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_list_free_memory(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -10014,7 +10016,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_f
   __Pyx_RefNannySetupContext("list_free_memory", 0);
   __Pyx_TraceCall("list_free_memory", __pyx_f[0], 890, 0, __PYX_ERR(0, 890, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":897
+  /* "slim_bpr_epoch.pyx":897
  *         """
  * 
  *         if head != NULL:             # <<<<<<<<<<<<<<
@@ -10024,18 +10026,18 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_f
   __pyx_t_1 = ((__pyx_v_head != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":899
+    /* "slim_bpr_epoch.pyx":899
  *         if head != NULL:
  *             # If the root exists, open recursion
  *             self.subtree_free_memory(head.higher)             # <<<<<<<<<<<<<<
  * 
  *             # Once the tail element have been reached, start freeing from them
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, __pyx_v_head->higher); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 899, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_free_memory(__pyx_v_self, __pyx_v_head->higher); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 899, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":902
+    /* "slim_bpr_epoch.pyx":902
  * 
  *             # Once the tail element have been reached, start freeing from them
  *             PyMem_Free(head)             # <<<<<<<<<<<<<<
@@ -10044,7 +10046,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_f
  */
     PyMem_Free(__pyx_v_head);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":897
+    /* "slim_bpr_epoch.pyx":897
  *         """
  * 
  *         if head != NULL:             # <<<<<<<<<<<<<<
@@ -10053,7 +10055,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_f
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":890
+  /* "slim_bpr_epoch.pyx":890
  * 
  * 
  *     cdef list_free_memory(self, matrix_element_tree_s * head):             # <<<<<<<<<<<<<<
@@ -10066,7 +10068,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_f
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.list_free_memory", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.list_free_memory", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -10075,7 +10077,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_f
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":906
+/* "slim_bpr_epoch.pyx":906
  * 
  * 
  *     cdef matrix_element_tree_s* build_tree_from_list_flat(self, matrix_element_tree_s* flat_list_head):             # <<<<<<<<<<<<<<
@@ -10083,21 +10085,21 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_f
  *         The function builds a tree containing the passed data. This is the recursive function, the
  */
 
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_build_tree_from_list_flat(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_flat_list_head) {
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_build_tree_from_list_flat(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_flat_list_head) {
   long __pyx_v_list_length;
   long __pyx_v_middle_element_step;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_current_element;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_middleElement;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_tree_root;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_r;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_current_element;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_middleElement;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_tree_root;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_t_2;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_t_2;
   __Pyx_RefNannySetupContext("build_tree_from_list_flat", 0);
   __Pyx_TraceCall("build_tree_from_list_flat", __pyx_f[0], 906, 0, __PYX_ERR(0, 906, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":917
+  /* "slim_bpr_epoch.pyx":917
  *         """
  * 
  *         if flat_list_head == NULL:             # <<<<<<<<<<<<<<
@@ -10107,7 +10109,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_flat_list_head == NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":918
+    /* "slim_bpr_epoch.pyx":918
  * 
  *         if flat_list_head == NULL:
  *             return NULL             # <<<<<<<<<<<<<<
@@ -10117,7 +10119,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_r = NULL;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":917
+    /* "slim_bpr_epoch.pyx":917
  *         """
  * 
  *         if flat_list_head == NULL:             # <<<<<<<<<<<<<<
@@ -10126,7 +10128,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":921
+  /* "slim_bpr_epoch.pyx":921
  * 
  * 
  *         cdef long list_length = 0             # <<<<<<<<<<<<<<
@@ -10135,7 +10137,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_list_length = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":922
+  /* "slim_bpr_epoch.pyx":922
  * 
  *         cdef long list_length = 0
  *         cdef long middle_element_step = 0             # <<<<<<<<<<<<<<
@@ -10144,7 +10146,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_middle_element_step = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":926
+  /* "slim_bpr_epoch.pyx":926
  *         cdef matrix_element_tree_s *current_element, *middleElement, *tree_root
  * 
  *         current_element = flat_list_head             # <<<<<<<<<<<<<<
@@ -10153,7 +10155,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_current_element = __pyx_v_flat_list_head;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":927
+  /* "slim_bpr_epoch.pyx":927
  * 
  *         current_element = flat_list_head
  *         middleElement = flat_list_head             # <<<<<<<<<<<<<<
@@ -10162,7 +10164,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_middleElement = __pyx_v_flat_list_head;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":930
+  /* "slim_bpr_epoch.pyx":930
  * 
  *         # Explore the flat list moving the middle elment every tho jumps
  *         while current_element != NULL:             # <<<<<<<<<<<<<<
@@ -10173,7 +10175,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_t_1 = ((__pyx_v_current_element != NULL) != 0);
     if (!__pyx_t_1) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":931
+    /* "slim_bpr_epoch.pyx":931
  *         # Explore the flat list moving the middle elment every tho jumps
  *         while current_element != NULL:
  *             current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -10183,7 +10185,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_t_2 = __pyx_v_current_element->higher;
     __pyx_v_current_element = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":932
+    /* "slim_bpr_epoch.pyx":932
  *         while current_element != NULL:
  *             current_element = current_element.higher
  *             list_length += 1             # <<<<<<<<<<<<<<
@@ -10192,7 +10194,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_list_length = (__pyx_v_list_length + 1);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":933
+    /* "slim_bpr_epoch.pyx":933
  *             current_element = current_element.higher
  *             list_length += 1
  *             middle_element_step += 1             # <<<<<<<<<<<<<<
@@ -10201,7 +10203,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_middle_element_step = (__pyx_v_middle_element_step + 1);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":935
+    /* "slim_bpr_epoch.pyx":935
  *             middle_element_step += 1
  * 
  *             if middle_element_step == 2:             # <<<<<<<<<<<<<<
@@ -10211,7 +10213,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_t_1 = ((__pyx_v_middle_element_step == 2) != 0);
     if (__pyx_t_1) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":936
+      /* "slim_bpr_epoch.pyx":936
  * 
  *             if middle_element_step == 2:
  *                 middleElement = middleElement.higher             # <<<<<<<<<<<<<<
@@ -10221,7 +10223,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
       __pyx_t_2 = __pyx_v_middleElement->higher;
       __pyx_v_middleElement = __pyx_t_2;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":937
+      /* "slim_bpr_epoch.pyx":937
  *             if middle_element_step == 2:
  *                 middleElement = middleElement.higher
  *                 middle_element_step = 0             # <<<<<<<<<<<<<<
@@ -10230,7 +10232,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
       __pyx_v_middle_element_step = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":935
+      /* "slim_bpr_epoch.pyx":935
  *             middle_element_step += 1
  * 
  *             if middle_element_step == 2:             # <<<<<<<<<<<<<<
@@ -10240,7 +10242,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":939
+  /* "slim_bpr_epoch.pyx":939
  *                 middle_element_step = 0
  * 
  *         tree_root = middleElement             # <<<<<<<<<<<<<<
@@ -10249,7 +10251,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_tree_root = __pyx_v_middleElement;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":943
+  /* "slim_bpr_epoch.pyx":943
  *         # To execute the recursion it is necessary to cut the flat list
  *         # The last of the lower elements will have to be a tail
  *         if middleElement.lower != NULL:             # <<<<<<<<<<<<<<
@@ -10259,7 +10261,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_middleElement->lower != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":944
+    /* "slim_bpr_epoch.pyx":944
  *         # The last of the lower elements will have to be a tail
  *         if middleElement.lower != NULL:
  *             middleElement.lower.higher = NULL             # <<<<<<<<<<<<<<
@@ -10268,16 +10270,16 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_middleElement->lower->higher = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":946
+    /* "slim_bpr_epoch.pyx":946
  *             middleElement.lower.higher = NULL
  * 
  *             tree_root.lower = self.build_tree_from_list_flat(flat_list_head)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_v_tree_root->lower = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, __pyx_v_flat_list_head);
+    __pyx_v_tree_root->lower = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, __pyx_v_flat_list_head);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":943
+    /* "slim_bpr_epoch.pyx":943
  *         # To execute the recursion it is necessary to cut the flat list
  *         # The last of the lower elements will have to be a tail
  *         if middleElement.lower != NULL:             # <<<<<<<<<<<<<<
@@ -10286,7 +10288,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":950
+  /* "slim_bpr_epoch.pyx":950
  * 
  *         # The first of the higher elements will have to be a head
  *         if middleElement.higher != NULL:             # <<<<<<<<<<<<<<
@@ -10296,7 +10298,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_middleElement->higher != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":951
+    /* "slim_bpr_epoch.pyx":951
  *         # The first of the higher elements will have to be a head
  *         if middleElement.higher != NULL:
  *             middleElement.higher.lower = NULL             # <<<<<<<<<<<<<<
@@ -10305,16 +10307,16 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_middleElement->higher->lower = NULL;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":953
+    /* "slim_bpr_epoch.pyx":953
  *             middleElement.higher.lower = NULL
  * 
  *             tree_root.higher = self.build_tree_from_list_flat(middleElement.higher)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_v_tree_root->higher = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, __pyx_v_middleElement->higher);
+    __pyx_v_tree_root->higher = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, __pyx_v_middleElement->higher);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":950
+    /* "slim_bpr_epoch.pyx":950
  * 
  *         # The first of the higher elements will have to be a head
  *         if middleElement.higher != NULL:             # <<<<<<<<<<<<<<
@@ -10323,7 +10325,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":956
+  /* "slim_bpr_epoch.pyx":956
  * 
  * 
  *         return tree_root             # <<<<<<<<<<<<<<
@@ -10333,7 +10335,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_r = __pyx_v_tree_root;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":906
+  /* "slim_bpr_epoch.pyx":906
  * 
  * 
  *     cdef matrix_element_tree_s* build_tree_from_list_flat(self, matrix_element_tree_s* flat_list_head):             # <<<<<<<<<<<<<<
@@ -10343,7 +10345,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.build_tree_from_list_flat", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.build_tree_from_list_flat", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -10351,7 +10353,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":961
+/* "slim_bpr_epoch.pyx":961
  * 
  * 
  *     cdef matrix_element_tree_s* topK_selection_from_list(self, matrix_element_tree_s* head, long TopK):             # <<<<<<<<<<<<<<
@@ -10359,23 +10361,23 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  *         The function selects the topK highest elements in the given list
  */
 
-static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_topK_selection_from_list(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head, long __pyx_v_TopK) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *__pyx_v_vector_pointer_to_list_elements;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_current_element;
+static __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_topK_selection_from_list(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head, long __pyx_v_TopK) {
+  __pyx_t_14slim_bpr_epoch_head_pointer_tree_s *__pyx_v_vector_pointer_to_list_elements;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_current_element;
   long __pyx_v_list_length;
   long __pyx_v_index;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_r;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_t_2;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_t_2;
   long __pyx_t_3;
   long __pyx_t_4;
   long __pyx_t_5;
   __Pyx_RefNannySetupContext("topK_selection_from_list", 0);
   __Pyx_TraceCall("topK_selection_from_list", __pyx_f[0], 961, 0, __PYX_ERR(0, 961, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":975
+  /* "slim_bpr_epoch.pyx":975
  * 
  *         # Get list size
  *         current_element = head             # <<<<<<<<<<<<<<
@@ -10384,7 +10386,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_current_element = __pyx_v_head;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":976
+  /* "slim_bpr_epoch.pyx":976
  *         # Get list size
  *         current_element = head
  *         list_length = 0             # <<<<<<<<<<<<<<
@@ -10393,7 +10395,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_list_length = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":978
+  /* "slim_bpr_epoch.pyx":978
  *         list_length = 0
  * 
  *         while current_element != NULL:             # <<<<<<<<<<<<<<
@@ -10404,7 +10406,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_t_1 = ((__pyx_v_current_element != NULL) != 0);
     if (!__pyx_t_1) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":979
+    /* "slim_bpr_epoch.pyx":979
  * 
  *         while current_element != NULL:
  *             list_length += 1             # <<<<<<<<<<<<<<
@@ -10413,7 +10415,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_list_length = (__pyx_v_list_length + 1);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":980
+    /* "slim_bpr_epoch.pyx":980
  *         while current_element != NULL:
  *             list_length += 1
  *             current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -10424,7 +10426,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_v_current_element = __pyx_t_2;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":984
+  /* "slim_bpr_epoch.pyx":984
  * 
  *         # If list elements are not enough to perform a selection, return
  *         if list_length < TopK:             # <<<<<<<<<<<<<<
@@ -10434,7 +10436,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_list_length < __pyx_v_TopK) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":985
+    /* "slim_bpr_epoch.pyx":985
  *         # If list elements are not enough to perform a selection, return
  *         if list_length < TopK:
  *             return head             # <<<<<<<<<<<<<<
@@ -10444,7 +10446,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_r = __pyx_v_head;
     goto __pyx_L0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":984
+    /* "slim_bpr_epoch.pyx":984
  * 
  *         # If list elements are not enough to perform a selection, return
  *         if list_length < TopK:             # <<<<<<<<<<<<<<
@@ -10453,16 +10455,16 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":988
+  /* "slim_bpr_epoch.pyx":988
  * 
  *         # Allocate vector that will be used for sorting
  *         vector_pointer_to_list_elements = < head_pointer_tree_s *> PyMem_Malloc(list_length * sizeof(head_pointer_tree_s))             # <<<<<<<<<<<<<<
  * 
  *         # Fill vector wit pointers to list elements
  */
-  __pyx_v_vector_pointer_to_list_elements = ((__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s *)PyMem_Malloc((__pyx_v_list_length * (sizeof(__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s)))));
+  __pyx_v_vector_pointer_to_list_elements = ((__pyx_t_14slim_bpr_epoch_head_pointer_tree_s *)PyMem_Malloc((__pyx_v_list_length * (sizeof(__pyx_t_14slim_bpr_epoch_head_pointer_tree_s)))));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":991
+  /* "slim_bpr_epoch.pyx":991
  * 
  *         # Fill vector wit pointers to list elements
  *         current_element = head             # <<<<<<<<<<<<<<
@@ -10471,7 +10473,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_current_element = __pyx_v_head;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":992
+  /* "slim_bpr_epoch.pyx":992
  *         # Fill vector wit pointers to list elements
  *         current_element = head
  *         for index in range(list_length):             # <<<<<<<<<<<<<<
@@ -10483,7 +10485,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_index = __pyx_t_5;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":993
+    /* "slim_bpr_epoch.pyx":993
  *         current_element = head
  *         for index in range(list_length):
  *             vector_pointer_to_list_elements[index].head = current_element             # <<<<<<<<<<<<<<
@@ -10492,7 +10494,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     (__pyx_v_vector_pointer_to_list_elements[__pyx_v_index]).head = __pyx_v_current_element;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":994
+    /* "slim_bpr_epoch.pyx":994
  *         for index in range(list_length):
  *             vector_pointer_to_list_elements[index].head = current_element
  *             current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -10503,25 +10505,25 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_v_current_element = __pyx_t_2;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":998
+  /* "slim_bpr_epoch.pyx":998
  * 
  *         # Sort array elements on their data field
  *         qsort(vector_pointer_to_list_elements, list_length, sizeof(head_pointer_tree_s), compare_struct_on_data)             # <<<<<<<<<<<<<<
  * 
  *         # Sort only the TopK according to their column field
  */
-  qsort(__pyx_v_vector_pointer_to_list_elements, __pyx_v_list_length, (sizeof(__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s)), __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_data);
+  qsort(__pyx_v_vector_pointer_to_list_elements, __pyx_v_list_length, (sizeof(__pyx_t_14slim_bpr_epoch_head_pointer_tree_s)), __pyx_f_14slim_bpr_epoch_compare_struct_on_data);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1002
+  /* "slim_bpr_epoch.pyx":1002
  *         # Sort only the TopK according to their column field
  *         # Sort is from lower to higher, therefore the elements to be considered are from len-topK to len
  *         qsort(&vector_pointer_to_list_elements[list_length-TopK], TopK, sizeof(head_pointer_tree_s), compare_struct_on_column)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  qsort((&(__pyx_v_vector_pointer_to_list_elements[(__pyx_v_list_length - __pyx_v_TopK)])), __pyx_v_TopK, (sizeof(__pyx_t_21SLIM_BPR_Cython_Epoch_head_pointer_tree_s)), __pyx_f_21SLIM_BPR_Cython_Epoch_compare_struct_on_column);
+  qsort((&(__pyx_v_vector_pointer_to_list_elements[(__pyx_v_list_length - __pyx_v_TopK)])), __pyx_v_TopK, (sizeof(__pyx_t_14slim_bpr_epoch_head_pointer_tree_s)), __pyx_f_14slim_bpr_epoch_compare_struct_on_column);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1006
+  /* "slim_bpr_epoch.pyx":1006
  * 
  *         # Rebuild list attaching the consecutive elements
  *         index = list_length-TopK             # <<<<<<<<<<<<<<
@@ -10530,7 +10532,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_index = (__pyx_v_list_length - __pyx_v_TopK);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1009
+  /* "slim_bpr_epoch.pyx":1009
  * 
  *         # Detach last TopK element from previous ones
  *         vector_pointer_to_list_elements[index].head.lower = NULL             # <<<<<<<<<<<<<<
@@ -10539,7 +10541,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   (__pyx_v_vector_pointer_to_list_elements[__pyx_v_index]).head->lower = NULL;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1011
+  /* "slim_bpr_epoch.pyx":1011
  *         vector_pointer_to_list_elements[index].head.lower = NULL
  * 
  *         while index<list_length-1:             # <<<<<<<<<<<<<<
@@ -10550,7 +10552,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_t_1 = ((__pyx_v_index < (__pyx_v_list_length - 1)) != 0);
     if (!__pyx_t_1) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1013
+    /* "slim_bpr_epoch.pyx":1013
  *         while index<list_length-1:
  *             # Rearrange bidirectional pointers
  *             vector_pointer_to_list_elements[index+1].head.lower = vector_pointer_to_list_elements[index].head             # <<<<<<<<<<<<<<
@@ -10560,7 +10562,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_t_2 = (__pyx_v_vector_pointer_to_list_elements[__pyx_v_index]).head;
     (__pyx_v_vector_pointer_to_list_elements[(__pyx_v_index + 1)]).head->lower = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1014
+    /* "slim_bpr_epoch.pyx":1014
  *             # Rearrange bidirectional pointers
  *             vector_pointer_to_list_elements[index+1].head.lower = vector_pointer_to_list_elements[index].head
  *             vector_pointer_to_list_elements[index].head.higher = vector_pointer_to_list_elements[index+1].head             # <<<<<<<<<<<<<<
@@ -10570,7 +10572,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_t_2 = (__pyx_v_vector_pointer_to_list_elements[(__pyx_v_index + 1)]).head;
     (__pyx_v_vector_pointer_to_list_elements[__pyx_v_index]).head->higher = __pyx_t_2;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1016
+    /* "slim_bpr_epoch.pyx":1016
  *             vector_pointer_to_list_elements[index].head.higher = vector_pointer_to_list_elements[index+1].head
  * 
  *             index += 1             # <<<<<<<<<<<<<<
@@ -10580,7 +10582,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
     __pyx_v_index = (__pyx_v_index + 1);
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1019
+  /* "slim_bpr_epoch.pyx":1019
  * 
  *         # Last element in vector will be the hew head
  *         vector_pointer_to_list_elements[list_length - 1].head.higher = NULL             # <<<<<<<<<<<<<<
@@ -10589,7 +10591,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   (__pyx_v_vector_pointer_to_list_elements[(__pyx_v_list_length - 1)]).head->higher = NULL;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1022
+  /* "slim_bpr_epoch.pyx":1022
  * 
  *         # Get hew list head
  *         current_element = vector_pointer_to_list_elements[list_length-TopK].head             # <<<<<<<<<<<<<<
@@ -10599,7 +10601,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_2 = (__pyx_v_vector_pointer_to_list_elements[(__pyx_v_list_length - __pyx_v_TopK)]).head;
   __pyx_v_current_element = __pyx_t_2;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1026
+  /* "slim_bpr_epoch.pyx":1026
  *         # If there are exactly enough elements to reach TopK, index == 0 will be the tail
  *         # Else, index will be the tail and the other elements will be removed
  *         index = list_length - TopK - 1             # <<<<<<<<<<<<<<
@@ -10608,7 +10610,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   __pyx_v_index = ((__pyx_v_list_length - __pyx_v_TopK) - 1);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1027
+  /* "slim_bpr_epoch.pyx":1027
  *         # Else, index will be the tail and the other elements will be removed
  *         index = list_length - TopK - 1
  *         if index > 0:             # <<<<<<<<<<<<<<
@@ -10618,7 +10620,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_t_1 = ((__pyx_v_index > 0) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1029
+    /* "slim_bpr_epoch.pyx":1029
  *         if index > 0:
  * 
  *             index -= 1             # <<<<<<<<<<<<<<
@@ -10627,7 +10629,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
     __pyx_v_index = (__pyx_v_index - 1);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1030
+    /* "slim_bpr_epoch.pyx":1030
  * 
  *             index -= 1
  *             while index >= 0:             # <<<<<<<<<<<<<<
@@ -10638,7 +10640,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
       __pyx_t_1 = ((__pyx_v_index >= 0) != 0);
       if (!__pyx_t_1) break;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1031
+      /* "slim_bpr_epoch.pyx":1031
  *             index -= 1
  *             while index >= 0:
  *                 PyMem_Free(vector_pointer_to_list_elements[index].head)             # <<<<<<<<<<<<<<
@@ -10647,7 +10649,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
       PyMem_Free((__pyx_v_vector_pointer_to_list_elements[__pyx_v_index]).head);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1032
+      /* "slim_bpr_epoch.pyx":1032
  *             while index >= 0:
  *                 PyMem_Free(vector_pointer_to_list_elements[index].head)
  *                 index -= 1             # <<<<<<<<<<<<<<
@@ -10657,7 +10659,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
       __pyx_v_index = (__pyx_v_index - 1);
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1027
+    /* "slim_bpr_epoch.pyx":1027
  *         # Else, index will be the tail and the other elements will be removed
  *         index = list_length - TopK - 1
  *         if index > 0:             # <<<<<<<<<<<<<<
@@ -10666,7 +10668,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1035
+  /* "slim_bpr_epoch.pyx":1035
  * 
  *         # Free array
  *         PyMem_Free(vector_pointer_to_list_elements)             # <<<<<<<<<<<<<<
@@ -10675,7 +10677,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  */
   PyMem_Free(__pyx_v_vector_pointer_to_list_elements);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1038
+  /* "slim_bpr_epoch.pyx":1038
  * 
  * 
  *         return current_element             # <<<<<<<<<<<<<<
@@ -10685,7 +10687,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   __pyx_r = __pyx_v_current_element;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":961
+  /* "slim_bpr_epoch.pyx":961
  * 
  * 
  *     cdef matrix_element_tree_s* topK_selection_from_list(self, matrix_element_tree_s* head, long TopK):             # <<<<<<<<<<<<<<
@@ -10695,7 +10697,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.topK_selection_from_list", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.topK_selection_from_list", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -10703,7 +10705,7 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1052
+/* "slim_bpr_epoch.pyx":1052
  * 
  * 
  *     cpdef test_list_tee_conversion(self, long row):             # <<<<<<<<<<<<<<
@@ -10711,12 +10713,12 @@ static __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_f_21SLIM_BPR
  *         The function tests the inner data structure conversion from tree to C linked list and back to tree
  */
 
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion(PyObject *__pyx_v_self, PyObject *__pyx_arg_row); /*proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, int __pyx_skip_dispatch) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_tree_root;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_current_element;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_previous_element;
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion(PyObject *__pyx_v_self, PyObject *__pyx_arg_row); /*proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, int __pyx_skip_dispatch) {
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_tree_root;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_current_element;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_previous_element;
   PyObject *__pyx_v_numElements_higher = 0;
   PyObject *__pyx_v_numElements_lower = 0;
   PyObject *__pyx_v_column_original = NULL;
@@ -10735,7 +10737,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   int __pyx_t_6;
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_t_7;
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_t_7;
   int __pyx_t_8;
   PyObject *(*__pyx_t_9)(PyObject *);
   Py_ssize_t __pyx_t_10;
@@ -10756,7 +10758,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       #endif
       __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_test_list_tee_conversion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion)) {
         __Pyx_XDECREF(__pyx_r);
         __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1052, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
@@ -10795,16 +10797,16 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     #endif
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1062
+  /* "slim_bpr_epoch.pyx":1062
  *         cdef matrix_element_tree_s *current_element, *previous_element
  * 
  *         head = self.subtree_to_list_flat(self.row_pointer[row].head)             # <<<<<<<<<<<<<<
  *         current_element = head
  * 
  */
-  __pyx_v_head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
+  __pyx_v_head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1063
+  /* "slim_bpr_epoch.pyx":1063
  * 
  *         head = self.subtree_to_list_flat(self.row_pointer[row].head)
  *         current_element = head             # <<<<<<<<<<<<<<
@@ -10813,7 +10815,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
  */
   __pyx_v_current_element = __pyx_v_head;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1065
+  /* "slim_bpr_epoch.pyx":1065
  *         current_element = head
  * 
  *         cdef numElements_higher = 0             # <<<<<<<<<<<<<<
@@ -10823,7 +10825,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_numElements_higher = __pyx_int_0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1066
+  /* "slim_bpr_epoch.pyx":1066
  * 
  *         cdef numElements_higher = 0
  *         cdef numElements_lower = 0             # <<<<<<<<<<<<<<
@@ -10833,7 +10835,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_numElements_lower = __pyx_int_0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1068
+  /* "slim_bpr_epoch.pyx":1068
  *         cdef numElements_lower = 0
  * 
  *         while current_element != NULL:             # <<<<<<<<<<<<<<
@@ -10844,7 +10846,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_t_6 = ((__pyx_v_current_element != NULL) != 0);
     if (!__pyx_t_6) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1069
+    /* "slim_bpr_epoch.pyx":1069
  * 
  *         while current_element != NULL:
  *             numElements_higher += 1             # <<<<<<<<<<<<<<
@@ -10856,7 +10858,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF_SET(__pyx_v_numElements_higher, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1070
+    /* "slim_bpr_epoch.pyx":1070
  *         while current_element != NULL:
  *             numElements_higher += 1
  *             previous_element = current_element             # <<<<<<<<<<<<<<
@@ -10865,7 +10867,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
  */
     __pyx_v_previous_element = __pyx_v_current_element;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1071
+    /* "slim_bpr_epoch.pyx":1071
  *             numElements_higher += 1
  *             previous_element = current_element
  *             current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -10876,7 +10878,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_v_current_element = __pyx_t_7;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1073
+  /* "slim_bpr_epoch.pyx":1073
  *             current_element = current_element.higher
  * 
  *         current_element = previous_element             # <<<<<<<<<<<<<<
@@ -10885,7 +10887,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
  */
   __pyx_v_current_element = __pyx_v_previous_element;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1074
+  /* "slim_bpr_epoch.pyx":1074
  * 
  *         current_element = previous_element
  *         while current_element != NULL:             # <<<<<<<<<<<<<<
@@ -10896,7 +10898,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_t_6 = ((__pyx_v_current_element != NULL) != 0);
     if (!__pyx_t_6) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1075
+    /* "slim_bpr_epoch.pyx":1075
  *         current_element = previous_element
  *         while current_element != NULL:
  *             numElements_lower += 1             # <<<<<<<<<<<<<<
@@ -10908,7 +10910,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF_SET(__pyx_v_numElements_lower, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1076
+    /* "slim_bpr_epoch.pyx":1076
  *         while current_element != NULL:
  *             numElements_lower += 1
  *             current_element = current_element.lower             # <<<<<<<<<<<<<<
@@ -10919,7 +10921,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_v_current_element = __pyx_t_7;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1078
+  /* "slim_bpr_epoch.pyx":1078
  *             current_element = current_element.lower
  * 
  *         assert numElements_higher == numElements_lower, 'Bidirectional linked list not consistent.' \             # <<<<<<<<<<<<<<
@@ -10933,7 +10935,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (unlikely(!__pyx_t_6)) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1079
+      /* "slim_bpr_epoch.pyx":1079
  * 
  *         assert numElements_higher == numElements_lower, 'Bidirectional linked list not consistent.' \
  *                                                         ' From head to tail element count is {}, from tail to head is {}'.format(             # <<<<<<<<<<<<<<
@@ -10943,7 +10945,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Bidirectional_linked_list_not_co, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1079, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1080
+      /* "slim_bpr_epoch.pyx":1080
  *         assert numElements_higher == numElements_lower, 'Bidirectional linked list not consistent.' \
  *                                                         ' From head to tail element count is {}, from tail to head is {}'.format(
  *                                                         numElements_higher, numElements_lower)             # <<<<<<<<<<<<<<
@@ -10996,7 +10998,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1079
+      /* "slim_bpr_epoch.pyx":1079
  * 
  *         assert numElements_higher == numElements_lower, 'Bidirectional linked list not consistent.' \
  *                                                         ' From head to tail element count is {}, from tail to head is {}'.format(             # <<<<<<<<<<<<<<
@@ -11013,7 +11015,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1082
+  /* "slim_bpr_epoch.pyx":1082
  *                                                         numElements_higher, numElements_lower)
  * 
  *         print("Bidirectional list link - Passed")             # <<<<<<<<<<<<<<
@@ -11024,14 +11026,14 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1084
+  /* "slim_bpr_epoch.pyx":1084
  *         print("Bidirectional list link - Passed")
  * 
  *         column_original, data_original = self.from_linked_list_to_python_list(head)             # <<<<<<<<<<<<<<
  * 
  *         assert numElements_higher == len(column_original), \
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1084, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1084, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
     PyObject* sequence = __pyx_t_2;
@@ -11084,7 +11086,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __pyx_v_data_original = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1086
+  /* "slim_bpr_epoch.pyx":1086
  *         column_original, data_original = self.from_linked_list_to_python_list(head)
  * 
  *         assert numElements_higher == len(column_original), \             # <<<<<<<<<<<<<<
@@ -11102,7 +11104,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_6)) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1087
+      /* "slim_bpr_epoch.pyx":1087
  * 
  *         assert numElements_higher == len(column_original), \
  *             'Data structure size inconsistent. LinkedList is {}, Python list is {}'.format(numElements_higher, len(column_original))             # <<<<<<<<<<<<<<
@@ -11171,7 +11173,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1089
+  /* "slim_bpr_epoch.pyx":1089
  *             'Data structure size inconsistent. LinkedList is {}, Python list is {}'.format(numElements_higher, len(column_original))
  * 
  *         for index in range(len(column_original)-1):             # <<<<<<<<<<<<<<
@@ -11227,7 +11229,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_XDECREF_SET(__pyx_v_index, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1090
+    /* "slim_bpr_epoch.pyx":1090
  * 
  *         for index in range(len(column_original)-1):
  *             assert column_original[index] < column_original[index+1],\             # <<<<<<<<<<<<<<
@@ -11255,7 +11257,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     }
     #endif
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1089
+    /* "slim_bpr_epoch.pyx":1089
  *             'Data structure size inconsistent. LinkedList is {}, Python list is {}'.format(numElements_higher, len(column_original))
  * 
  *         for index in range(len(column_original)-1):             # <<<<<<<<<<<<<<
@@ -11265,7 +11267,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1093
+  /* "slim_bpr_epoch.pyx":1093
  *                 'Columns not ordered correctly. Tree not flattened properly'
  * 
  *         print("Bidirectional list ordering - Passed")             # <<<<<<<<<<<<<<
@@ -11276,25 +11278,25 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1096
+  /* "slim_bpr_epoch.pyx":1096
  * 
  *         # Transform list into tree and back into list, as it is easy to test
  *         tree_root = self.build_tree_from_list_flat(head)             # <<<<<<<<<<<<<<
  *         head = self.subtree_to_list_flat(tree_root)
  * 
  */
-  __pyx_v_tree_root = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, __pyx_v_head);
+  __pyx_v_tree_root = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->build_tree_from_list_flat(__pyx_v_self, __pyx_v_head);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1097
+  /* "slim_bpr_epoch.pyx":1097
  *         # Transform list into tree and back into list, as it is easy to test
  *         tree_root = self.build_tree_from_list_flat(head)
  *         head = self.subtree_to_list_flat(tree_root)             # <<<<<<<<<<<<<<
  * 
  *         cdef numElements_higher_after = 0
  */
-  __pyx_v_head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, __pyx_v_tree_root);
+  __pyx_v_head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, __pyx_v_tree_root);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1099
+  /* "slim_bpr_epoch.pyx":1099
  *         head = self.subtree_to_list_flat(tree_root)
  * 
  *         cdef numElements_higher_after = 0             # <<<<<<<<<<<<<<
@@ -11304,7 +11306,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_numElements_higher_after = __pyx_int_0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1100
+  /* "slim_bpr_epoch.pyx":1100
  * 
  *         cdef numElements_higher_after = 0
  *         cdef numElements_lower_after = 0             # <<<<<<<<<<<<<<
@@ -11314,7 +11316,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_numElements_lower_after = __pyx_int_0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1102
+  /* "slim_bpr_epoch.pyx":1102
  *         cdef numElements_lower_after = 0
  * 
  *         current_element = head             # <<<<<<<<<<<<<<
@@ -11323,7 +11325,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
  */
   __pyx_v_current_element = __pyx_v_head;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1104
+  /* "slim_bpr_epoch.pyx":1104
  *         current_element = head
  * 
  *         while current_element != NULL:             # <<<<<<<<<<<<<<
@@ -11334,7 +11336,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_t_6 = ((__pyx_v_current_element != NULL) != 0);
     if (!__pyx_t_6) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1105
+    /* "slim_bpr_epoch.pyx":1105
  * 
  *         while current_element != NULL:
  *             numElements_higher_after += 1             # <<<<<<<<<<<<<<
@@ -11346,7 +11348,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF_SET(__pyx_v_numElements_higher_after, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1106
+    /* "slim_bpr_epoch.pyx":1106
  *         while current_element != NULL:
  *             numElements_higher_after += 1
  *             previous_element = current_element             # <<<<<<<<<<<<<<
@@ -11355,7 +11357,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
  */
     __pyx_v_previous_element = __pyx_v_current_element;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1107
+    /* "slim_bpr_epoch.pyx":1107
  *             numElements_higher_after += 1
  *             previous_element = current_element
  *             current_element = current_element.higher             # <<<<<<<<<<<<<<
@@ -11366,7 +11368,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_v_current_element = __pyx_t_7;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1109
+  /* "slim_bpr_epoch.pyx":1109
  *             current_element = current_element.higher
  * 
  *         current_element = previous_element             # <<<<<<<<<<<<<<
@@ -11375,7 +11377,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
  */
   __pyx_v_current_element = __pyx_v_previous_element;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1110
+  /* "slim_bpr_epoch.pyx":1110
  * 
  *         current_element = previous_element
  *         while current_element != NULL:             # <<<<<<<<<<<<<<
@@ -11386,7 +11388,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_t_6 = ((__pyx_v_current_element != NULL) != 0);
     if (!__pyx_t_6) break;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1111
+    /* "slim_bpr_epoch.pyx":1111
  *         current_element = previous_element
  *         while current_element != NULL:
  *             numElements_lower_after += 1             # <<<<<<<<<<<<<<
@@ -11398,7 +11400,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF_SET(__pyx_v_numElements_lower_after, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1112
+    /* "slim_bpr_epoch.pyx":1112
  *         while current_element != NULL:
  *             numElements_lower_after += 1
  *             current_element = current_element.lower             # <<<<<<<<<<<<<<
@@ -11409,7 +11411,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_v_current_element = __pyx_t_7;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1114
+  /* "slim_bpr_epoch.pyx":1114
  *             current_element = current_element.lower
  * 
  *         print("Bidirectional list from tree link - Passed")             # <<<<<<<<<<<<<<
@@ -11420,7 +11422,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1116
+  /* "slim_bpr_epoch.pyx":1116
  *         print("Bidirectional list from tree link - Passed")
  * 
  *         assert numElements_higher_after == numElements_lower_after, \             # <<<<<<<<<<<<<<
@@ -11434,7 +11436,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_6)) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1118
+      /* "slim_bpr_epoch.pyx":1118
  *         assert numElements_higher_after == numElements_lower_after, \
  *             'Bidirectional linked list after tree construction not consistent. ' \
  *             'From head to tail element count is {}, from tail to head is {}'.format(             # <<<<<<<<<<<<<<
@@ -11444,7 +11446,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Bidirectional_linked_list_after, __pyx_n_s_format); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1118, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1119
+      /* "slim_bpr_epoch.pyx":1119
  *             'Bidirectional linked list after tree construction not consistent. ' \
  *             'From head to tail element count is {}, from tail to head is {}'.format(
  *             numElements_higher_after, numElements_lower_after)             # <<<<<<<<<<<<<<
@@ -11497,7 +11499,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1118
+      /* "slim_bpr_epoch.pyx":1118
  *         assert numElements_higher_after == numElements_lower_after, \
  *             'Bidirectional linked list after tree construction not consistent. ' \
  *             'From head to tail element count is {}, from tail to head is {}'.format(             # <<<<<<<<<<<<<<
@@ -11514,7 +11516,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1121
+  /* "slim_bpr_epoch.pyx":1121
  *             numElements_higher_after, numElements_lower_after)
  * 
  *         assert numElements_higher == numElements_higher_after, \             # <<<<<<<<<<<<<<
@@ -11528,7 +11530,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (unlikely(!__pyx_t_6)) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1122
+      /* "slim_bpr_epoch.pyx":1122
  * 
  *         assert numElements_higher == numElements_higher_after, \
  *             'Data structure size inconsistent. Original length is {}, after tree conversion is {}'.format(             # <<<<<<<<<<<<<<
@@ -11538,7 +11540,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Data_structure_size_inconsistent_2, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1122, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1123
+      /* "slim_bpr_epoch.pyx":1123
  *         assert numElements_higher == numElements_higher_after, \
  *             'Data structure size inconsistent. Original length is {}, after tree conversion is {}'.format(
  *                 numElements_higher, numElements_higher_after)             # <<<<<<<<<<<<<<
@@ -11591,7 +11593,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1122
+      /* "slim_bpr_epoch.pyx":1122
  * 
  *         assert numElements_higher == numElements_higher_after, \
  *             'Data structure size inconsistent. Original length is {}, after tree conversion is {}'.format(             # <<<<<<<<<<<<<<
@@ -11608,14 +11610,14 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1125
+  /* "slim_bpr_epoch.pyx":1125
  *                 numElements_higher, numElements_higher_after)
  * 
  *         column_after_tree, data_after_tree = self.from_linked_list_to_python_list(head)             # <<<<<<<<<<<<<<
  * 
  *         assert len(column_original) == len(column_after_tree), \
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1125, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
     PyObject* sequence = __pyx_t_2;
@@ -11668,7 +11670,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __pyx_v_data_after_tree = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1127
+  /* "slim_bpr_epoch.pyx":1127
  *         column_after_tree, data_after_tree = self.from_linked_list_to_python_list(head)
  * 
  *         assert len(column_original) == len(column_after_tree), \             # <<<<<<<<<<<<<<
@@ -11681,7 +11683,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __pyx_t_12 = PyObject_Length(__pyx_v_column_after_tree); if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1127, __pyx_L1_error)
     if (unlikely(!((__pyx_t_10 == __pyx_t_12) != 0))) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1128
+      /* "slim_bpr_epoch.pyx":1128
  * 
  *         assert len(column_original) == len(column_after_tree), \
  *             'Data structure size inconsistent. Original length is {}, after tree conversion is {}'.format(             # <<<<<<<<<<<<<<
@@ -11691,7 +11693,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Data_structure_size_inconsistent_2, __pyx_n_s_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1128, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1129
+      /* "slim_bpr_epoch.pyx":1129
  *         assert len(column_original) == len(column_after_tree), \
  *             'Data structure size inconsistent. Original length is {}, after tree conversion is {}'.format(
  *                 len(column_original), len(column_after_tree))             # <<<<<<<<<<<<<<
@@ -11754,7 +11756,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1128
+      /* "slim_bpr_epoch.pyx":1128
  * 
  *         assert len(column_original) == len(column_after_tree), \
  *             'Data structure size inconsistent. Original length is {}, after tree conversion is {}'.format(             # <<<<<<<<<<<<<<
@@ -11771,7 +11773,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1131
+  /* "slim_bpr_epoch.pyx":1131
  *                 len(column_original), len(column_after_tree))
  * 
  *         for index in range(len(column_original)):             # <<<<<<<<<<<<<<
@@ -11827,7 +11829,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     __Pyx_XDECREF_SET(__pyx_v_index, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1132
+    /* "slim_bpr_epoch.pyx":1132
  * 
  *         for index in range(len(column_original)):
  *             assert column_original[index] == column_after_tree[index],\             # <<<<<<<<<<<<<<
@@ -11852,7 +11854,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     }
     #endif
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1134
+    /* "slim_bpr_epoch.pyx":1134
  *             assert column_original[index] == column_after_tree[index],\
  *                 'After tree construction columns are not ordered properly'
  *             assert data_original[index] == data_after_tree[index],\             # <<<<<<<<<<<<<<
@@ -11877,7 +11879,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
     }
     #endif
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1131
+    /* "slim_bpr_epoch.pyx":1131
  *                 len(column_original), len(column_after_tree))
  * 
  *         for index in range(len(column_original)):             # <<<<<<<<<<<<<<
@@ -11887,7 +11889,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1137
+  /* "slim_bpr_epoch.pyx":1137
  *                 'After tree construction data content is changed'
  * 
  *         print("Bidirectional list from tree ordering - Passed")             # <<<<<<<<<<<<<<
@@ -11898,7 +11900,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1052
+  /* "slim_bpr_epoch.pyx":1052
  * 
  * 
  *     cpdef test_list_tee_conversion(self, long row):             # <<<<<<<<<<<<<<
@@ -11916,7 +11918,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_14);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.test_list_tee_conversion", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.test_list_tee_conversion", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_numElements_higher);
@@ -11935,9 +11937,9 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_l
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion(PyObject *__pyx_v_self, PyObject *__pyx_arg_row); /*proto*/
-static char __pyx_doc_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion[] = "\n        The function tests the inner data structure conversion from tree to C linked list and back to tree\n\n        :param row: row to use for testing\n        ";
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion(PyObject *__pyx_v_self, PyObject *__pyx_arg_row) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion(PyObject *__pyx_v_self, PyObject *__pyx_arg_row); /*proto*/
+static char __pyx_doc_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion[] = "\n        The function tests the inner data structure conversion from tree to C linked list and back to tree\n\n        :param row: row to use for testing\n        ";
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion(PyObject *__pyx_v_self, PyObject *__pyx_arg_row) {
   long __pyx_v_row;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -11947,18 +11949,18 @@ static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_5test
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.test_list_tee_conversion", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.test_list_tee_conversion", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), ((long)__pyx_v_row));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion(((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), ((long)__pyx_v_row));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -11966,7 +11968,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test
   __Pyx_RefNannySetupContext("test_list_tee_conversion", 0);
   __Pyx_TraceCall("test_list_tee_conversion (wrapper)", __pyx_f[0], 1052, 0, __PYX_ERR(0, 1052, __pyx_L1_error));
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion(__pyx_v_self, __pyx_v_row, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion(__pyx_v_self, __pyx_v_row, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11975,7 +11977,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.test_list_tee_conversion", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.test_list_tee_conversion", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -11984,7 +11986,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1141
+/* "slim_bpr_epoch.pyx":1141
  * 
  * 
  *     cpdef test_topK_from_list_selection(self, long row, long topK):             # <<<<<<<<<<<<<<
@@ -11992,9 +11994,9 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test
  *         The function tests the topK selection from list
  */
 
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK, int __pyx_skip_dispatch) {
-  __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *__pyx_v_head;
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK, int __pyx_skip_dispatch) {
+  __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *__pyx_v_head;
   PyObject *__pyx_v_column_original = NULL;
   PyObject *__pyx_v_data_original = NULL;
   PyObject *__pyx_v_column_topK = NULL;
@@ -12033,7 +12035,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
       #endif
       __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_test_topK_from_list_selection); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1141, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection)) {
         __Pyx_XDECREF(__pyx_r);
         __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1141, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
@@ -12107,23 +12109,23 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
     #endif
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1150
+  /* "slim_bpr_epoch.pyx":1150
  *         cdef matrix_element_tree_s *head
  * 
  *         head = self.subtree_to_list_flat(self.row_pointer[row].head)             # <<<<<<<<<<<<<<
  * 
  *         column_original, data_original = self.from_linked_list_to_python_list(head)
  */
-  __pyx_v_head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
+  __pyx_v_head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->subtree_to_list_flat(__pyx_v_self, (__pyx_v_self->row_pointer[__pyx_v_row]).head);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1152
+  /* "slim_bpr_epoch.pyx":1152
  *         head = self.subtree_to_list_flat(self.row_pointer[row].head)
  * 
  *         column_original, data_original = self.from_linked_list_to_python_list(head)             # <<<<<<<<<<<<<<
  * 
  *         head = self.topK_selection_from_list(head, topK)
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1152, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
     PyObject* sequence = __pyx_t_1;
@@ -12176,23 +12178,23 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __pyx_v_data_original = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1154
+  /* "slim_bpr_epoch.pyx":1154
  *         column_original, data_original = self.from_linked_list_to_python_list(head)
  * 
  *         head = self.topK_selection_from_list(head, topK)             # <<<<<<<<<<<<<<
  * 
  *         column_topK, data_topK = self.from_linked_list_to_python_list(head)
  */
-  __pyx_v_head = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->topK_selection_from_list(__pyx_v_self, __pyx_v_head, __pyx_v_topK);
+  __pyx_v_head = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->topK_selection_from_list(__pyx_v_self, __pyx_v_head, __pyx_v_topK);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1156
+  /* "slim_bpr_epoch.pyx":1156
  *         head = self.topK_selection_from_list(head, topK)
  * 
  *         column_topK, data_topK = self.from_linked_list_to_python_list(head)             # <<<<<<<<<<<<<<
  * 
  *         assert len(column_topK) == len(data_topK),\
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1156, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self->__pyx_vtab)->from_linked_list_to_python_list(__pyx_v_self, __pyx_v_head); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1156, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
     PyObject* sequence = __pyx_t_1;
@@ -12245,7 +12247,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __pyx_v_data_topK = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1158
+  /* "slim_bpr_epoch.pyx":1158
  *         column_topK, data_topK = self.from_linked_list_to_python_list(head)
  * 
  *         assert len(column_topK) == len(data_topK),\             # <<<<<<<<<<<<<<
@@ -12258,7 +12260,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
     __pyx_t_11 = PyObject_Length(__pyx_v_data_topK); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1158, __pyx_L1_error)
     if (unlikely(!((__pyx_t_10 == __pyx_t_11) != 0))) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1159
+      /* "slim_bpr_epoch.pyx":1159
  * 
  *         assert len(column_topK) == len(data_topK),\
  *             "TopK data and column lists have different length. Columns length is {}, data is {}".format(len(column_topK), len(data_topK))             # <<<<<<<<<<<<<<
@@ -12332,7 +12334,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1160
+  /* "slim_bpr_epoch.pyx":1160
  *         assert len(column_topK) == len(data_topK),\
  *             "TopK data and column lists have different length. Columns length is {}, data is {}".format(len(column_topK), len(data_topK))
  *         assert len(column_topK) <= topK,\             # <<<<<<<<<<<<<<
@@ -12344,7 +12346,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
     __pyx_t_11 = PyObject_Length(__pyx_v_column_topK); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1160, __pyx_L1_error)
     if (unlikely(!((__pyx_t_11 <= __pyx_v_topK) != 0))) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1161
+      /* "slim_bpr_epoch.pyx":1161
  *             "TopK data and column lists have different length. Columns length is {}, data is {}".format(len(column_topK), len(data_topK))
  *         assert len(column_topK) <= topK,\
  *             "TopK extracted list is longer than desired value. Desired is {}, while list is {}".format(topK, len(column_topK))             # <<<<<<<<<<<<<<
@@ -12417,7 +12419,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1163
+  /* "slim_bpr_epoch.pyx":1163
  *             "TopK extracted list is longer than desired value. Desired is {}, while list is {}".format(topK, len(column_topK))
  * 
  *         print("TopK extracted length - Passed")             # <<<<<<<<<<<<<<
@@ -12428,7 +12430,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1166
+  /* "slim_bpr_epoch.pyx":1166
  * 
  *         # Sort with respect to the content to select topK
  *         idx_sorted = np.argsort(data_original)             # <<<<<<<<<<<<<<
@@ -12458,7 +12460,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __pyx_v_idx_sorted = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1167
+  /* "slim_bpr_epoch.pyx":1167
  *         # Sort with respect to the content to select topK
  *         idx_sorted = np.argsort(data_original)
  *         idx_sorted = np.flip(idx_sorted, axis=0)             # <<<<<<<<<<<<<<
@@ -12486,7 +12488,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __Pyx_DECREF_SET(__pyx_v_idx_sorted, __pyx_t_8);
   __pyx_t_8 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1168
+  /* "slim_bpr_epoch.pyx":1168
  *         idx_sorted = np.argsort(data_original)
  *         idx_sorted = np.flip(idx_sorted, axis=0)
  *         top_k_idx = idx_sorted[0:topK]             # <<<<<<<<<<<<<<
@@ -12498,7 +12500,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __pyx_v_top_k_idx = __pyx_t_8;
   __pyx_t_8 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1170
+  /* "slim_bpr_epoch.pyx":1170
  *         top_k_idx = idx_sorted[0:topK]
  * 
  *         column_topK_numpy = np.array(column_original)[top_k_idx]             # <<<<<<<<<<<<<<
@@ -12531,7 +12533,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __pyx_v_column_topK_numpy = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1171
+  /* "slim_bpr_epoch.pyx":1171
  * 
  *         column_topK_numpy = np.array(column_original)[top_k_idx]
  *         data_topK_numpy = np.array(data_original)[top_k_idx]             # <<<<<<<<<<<<<<
@@ -12564,7 +12566,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __pyx_v_data_topK_numpy = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1174
+  /* "slim_bpr_epoch.pyx":1174
  * 
  *         # Sort with respect to the column to ensure it is ordered as the tree flattened list
  *         idx_sorted = np.argsort(column_topK_numpy)             # <<<<<<<<<<<<<<
@@ -12594,7 +12596,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __Pyx_DECREF_SET(__pyx_v_idx_sorted, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1175
+  /* "slim_bpr_epoch.pyx":1175
  *         # Sort with respect to the column to ensure it is ordered as the tree flattened list
  *         idx_sorted = np.argsort(column_topK_numpy)
  *         column_topK_numpy = column_topK_numpy[idx_sorted]             # <<<<<<<<<<<<<<
@@ -12606,7 +12608,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __Pyx_DECREF_SET(__pyx_v_column_topK_numpy, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1176
+  /* "slim_bpr_epoch.pyx":1176
  *         idx_sorted = np.argsort(column_topK_numpy)
  *         column_topK_numpy = column_topK_numpy[idx_sorted]
  *         data_topK_numpy = data_topK_numpy[idx_sorted]             # <<<<<<<<<<<<<<
@@ -12618,7 +12620,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __Pyx_DECREF_SET(__pyx_v_data_topK_numpy, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1179
+  /* "slim_bpr_epoch.pyx":1179
  * 
  * 
  *         assert len(column_topK_numpy) <= len(column_topK),\             # <<<<<<<<<<<<<<
@@ -12631,7 +12633,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
     __pyx_t_10 = PyObject_Length(__pyx_v_column_topK); if (unlikely(__pyx_t_10 == ((Py_ssize_t)-1))) __PYX_ERR(0, 1179, __pyx_L1_error)
     if (unlikely(!((__pyx_t_11 <= __pyx_t_10) != 0))) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1180
+      /* "slim_bpr_epoch.pyx":1180
  * 
  *         assert len(column_topK_numpy) <= len(column_topK),\
  *             "TopK extracted list and numpy one have different length. Extracted list lenght is {}, while numpy is {}".format(             # <<<<<<<<<<<<<<
@@ -12641,7 +12643,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
       __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_TopK_extracted_list_and_numpy_on, __pyx_n_s_format); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1180, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1181
+      /* "slim_bpr_epoch.pyx":1181
  *         assert len(column_topK_numpy) <= len(column_topK),\
  *             "TopK extracted list and numpy one have different length. Extracted list lenght is {}, while numpy is {}".format(
  *                 len(column_topK_numpy), len(column_topK))             # <<<<<<<<<<<<<<
@@ -12704,7 +12706,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
       }
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1180
+      /* "slim_bpr_epoch.pyx":1180
  * 
  *         assert len(column_topK_numpy) <= len(column_topK),\
  *             "TopK extracted list and numpy one have different length. Extracted list lenght is {}, while numpy is {}".format(             # <<<<<<<<<<<<<<
@@ -12721,7 +12723,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   }
   #endif
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1184
+  /* "slim_bpr_epoch.pyx":1184
  * 
  * 
  *         for index in range(len(column_topK)):             # <<<<<<<<<<<<<<
@@ -12733,7 +12735,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
     __pyx_v_index = __pyx_t_12;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1186
+    /* "slim_bpr_epoch.pyx":1186
  *         for index in range(len(column_topK)):
  * 
  *             assert column_topK[index] == column_topK_numpy[index], \             # <<<<<<<<<<<<<<
@@ -12753,7 +12755,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (unlikely(!__pyx_t_13)) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1188
+        /* "slim_bpr_epoch.pyx":1188
  *             assert column_topK[index] == column_topK_numpy[index], \
  *                 "TopK extracted list and numpy one have different content at index {} as column value." \
  *                 " Extracted list lenght is {}, while numpy is {}".format(index, column_topK[index], column_topK_numpy[index])             # <<<<<<<<<<<<<<
@@ -12832,7 +12834,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
     }
     #endif
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1190
+    /* "slim_bpr_epoch.pyx":1190
  *                 " Extracted list lenght is {}, while numpy is {}".format(index, column_topK[index], column_topK_numpy[index])
  * 
  *             assert data_topK[index] == data_topK_numpy[index], \             # <<<<<<<<<<<<<<
@@ -12852,7 +12854,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (unlikely(!__pyx_t_13)) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1192
+        /* "slim_bpr_epoch.pyx":1192
  *             assert data_topK[index] == data_topK_numpy[index], \
  *                 "TopK extracted list and numpy one have different content at index {} as data value." \
  *                 " Extracted list lenght is {}, while numpy is {}".format(index, data_topK[index], data_topK_numpy[index])             # <<<<<<<<<<<<<<
@@ -12932,7 +12934,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
     #endif
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1194
+  /* "slim_bpr_epoch.pyx":1194
  *                 " Extracted list lenght is {}, while numpy is {}".format(index, data_topK[index], data_topK_numpy[index])
  * 
  *         print("TopK extracted content - Passed")             # <<<<<<<<<<<<<<
@@ -12943,7 +12945,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1141
+  /* "slim_bpr_epoch.pyx":1141
  * 
  * 
  *     cpdef test_topK_from_list_selection(self, long row, long topK):             # <<<<<<<<<<<<<<
@@ -12962,7 +12964,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.test_topK_from_list_selection", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.test_topK_from_list_selection", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_column_original);
@@ -12980,9 +12982,9 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_t
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection[] = "\n        The function tests the topK selection from list\n\n        :param row: row to use for testing\n        ";
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection[] = "\n        The function tests the topK selection from list\n\n        :param row: row to use for testing\n        ";
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   long __pyx_v_row;
   long __pyx_v_topK;
   PyObject *__pyx_r = 0;
@@ -13030,18 +13032,18 @@ static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_7test
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("test_topK_from_list_selection", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1141, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.test_topK_from_list_selection", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.test_topK_from_list_selection", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), __pyx_v_row, __pyx_v_topK);
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection(((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), __pyx_v_row, __pyx_v_topK);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, long __pyx_v_row, long __pyx_v_topK) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -13049,7 +13051,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test
   __Pyx_RefNannySetupContext("test_topK_from_list_selection", 0);
   __Pyx_TraceCall("test_topK_from_list_selection (wrapper)", __pyx_f[0], 1141, 0, __PYX_ERR(0, 1141, __pyx_L1_error));
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection(__pyx_v_self, __pyx_v_row, __pyx_v_topK, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1141, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection(__pyx_v_self, __pyx_v_row, __pyx_v_topK, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -13058,7 +13060,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.test_topK_from_list_selection", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.test_topK_from_list_selection", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13074,19 +13076,19 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_8__reduce_cython__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_8__reduce_cython__(((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -13115,7 +13117,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_8__re
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_TraceReturn(__pyx_r, 0);
@@ -13131,19 +13133,19 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_8__re
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_10__setstate_cython__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_10__setstate_cython__(((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -13172,7 +13174,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_10__s
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Sparse_Matrix_Tree_CSR.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_TraceReturn(__pyx_r, 0);
@@ -13180,7 +13182,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_10__s
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1241
+/* "slim_bpr_epoch.pyx":1241
  * 
  * 
  *     def __init__(self, long num_rows, int isSymmetric = False):             # <<<<<<<<<<<<<<
@@ -13189,8 +13191,8 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_10__s
  */
 
 /* Python wrapper */
-static int __pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   long __pyx_v_num_rows;
   int __pyx_v_isSymmetric;
   int __pyx_r;
@@ -13245,18 +13247,18 @@ static int __pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_1__init__(PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1241, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Triangular_Matrix.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Triangular_Matrix.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self), __pyx_v_num_rows, __pyx_v_isSymmetric);
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_17Triangular_Matrix___init__(((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self), __pyx_v_num_rows, __pyx_v_isSymmetric);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_num_rows, int __pyx_v_isSymmetric) {
+static int __pyx_pf_14slim_bpr_epoch_17Triangular_Matrix___init__(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_num_rows, int __pyx_v_isSymmetric) {
   int __pyx_v_numRow;
   int __pyx_v_numCol;
   int __pyx_r;
@@ -13271,7 +13273,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
   __Pyx_RefNannySetupContext("__init__", 0);
   __Pyx_TraceCall("__init__", __pyx_f[0], 1241, 0, __PYX_ERR(0, 1241, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1245
+  /* "slim_bpr_epoch.pyx":1245
  *         cdef int numRow, numCol
  * 
  *         self.num_rows = num_rows             # <<<<<<<<<<<<<<
@@ -13280,7 +13282,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
  */
   __pyx_v_self->num_rows = __pyx_v_num_rows;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1246
+  /* "slim_bpr_epoch.pyx":1246
  * 
  *         self.num_rows = num_rows
  *         self.num_cols = num_rows             # <<<<<<<<<<<<<<
@@ -13289,7 +13291,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
  */
   __pyx_v_self->num_cols = __pyx_v_num_rows;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1247
+  /* "slim_bpr_epoch.pyx":1247
  *         self.num_rows = num_rows
  *         self.num_cols = num_rows
  *         self.isSymmetric = isSymmetric             # <<<<<<<<<<<<<<
@@ -13298,7 +13300,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
  */
   __pyx_v_self->isSymmetric = __pyx_v_isSymmetric;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1249
+  /* "slim_bpr_epoch.pyx":1249
  *         self.isSymmetric = isSymmetric
  * 
  *         self.row_pointer = <double **> PyMem_Malloc(self.num_rows * sizeof(double*))             # <<<<<<<<<<<<<<
@@ -13307,7 +13309,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
  */
   __pyx_v_self->row_pointer = ((double **)PyMem_Malloc((__pyx_v_self->num_rows * (sizeof(double *)))));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1254
+  /* "slim_bpr_epoch.pyx":1254
  * 
  *         # Initialize all rows to empty
  *         for numRow in range(self.num_rows):             # <<<<<<<<<<<<<<
@@ -13319,7 +13321,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_numRow = __pyx_t_3;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1255
+    /* "slim_bpr_epoch.pyx":1255
  *         # Initialize all rows to empty
  *         for numRow in range(self.num_rows):
  *             self.row_pointer[numRow] = < double *> PyMem_Malloc((numRow+1) * sizeof(double))             # <<<<<<<<<<<<<<
@@ -13328,7 +13330,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
  */
     (__pyx_v_self->row_pointer[__pyx_v_numRow]) = ((double *)PyMem_Malloc(((__pyx_v_numRow + 1) * (sizeof(double)))));
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1257
+    /* "slim_bpr_epoch.pyx":1257
  *             self.row_pointer[numRow] = < double *> PyMem_Malloc((numRow+1) * sizeof(double))
  * 
  *             for numCol in range(numRow+1):             # <<<<<<<<<<<<<<
@@ -13340,7 +13342,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_numCol = __pyx_t_6;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1258
+      /* "slim_bpr_epoch.pyx":1258
  * 
  *             for numCol in range(numRow+1):
  *                 self.row_pointer[numRow][numCol] = 0.0             # <<<<<<<<<<<<<<
@@ -13351,7 +13353,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
     }
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1241
+  /* "slim_bpr_epoch.pyx":1241
  * 
  * 
  *     def __init__(self, long num_rows, int isSymmetric = False):             # <<<<<<<<<<<<<<
@@ -13363,7 +13365,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Triangular_Matrix.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Triangular_Matrix.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -13371,7 +13373,7 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1262
+/* "slim_bpr_epoch.pyx":1262
  * 
  * 
  *     def dealloc(self):             # <<<<<<<<<<<<<<
@@ -13380,20 +13382,20 @@ static int __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix___init__(struct 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc[] = "\n        Remove all PyMalloc allocaded memory\n        :return:\n        ";
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_14slim_bpr_epoch_17Triangular_Matrix_2dealloc[] = "\n        Remove all PyMalloc allocaded memory\n        :return:\n        ";
+static PyObject *__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_3dealloc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("dealloc (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_2dealloc(((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_2dealloc(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self) {
   int __pyx_v_numRow;
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
@@ -13404,7 +13406,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(s
   __Pyx_RefNannySetupContext("dealloc", 0);
   __Pyx_TraceCall("dealloc", __pyx_f[0], 1262, 0, __PYX_ERR(0, 1262, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1271
+  /* "slim_bpr_epoch.pyx":1271
  * 
  *         # Free all rows memory
  *         for numRow in range(self.num_rows):             # <<<<<<<<<<<<<<
@@ -13416,7 +13418,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(s
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_numRow = __pyx_t_3;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1272
+    /* "slim_bpr_epoch.pyx":1272
  *         # Free all rows memory
  *         for numRow in range(self.num_rows):
  *             PyMem_Free(self.row_pointer[numRow])             # <<<<<<<<<<<<<<
@@ -13426,7 +13428,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(s
     PyMem_Free((__pyx_v_self->row_pointer[__pyx_v_numRow]));
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1274
+  /* "slim_bpr_epoch.pyx":1274
  *             PyMem_Free(self.row_pointer[numRow])
  * 
  *         PyMem_Free(self.row_pointer)             # <<<<<<<<<<<<<<
@@ -13435,7 +13437,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(s
  */
   PyMem_Free(__pyx_v_self->row_pointer);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1262
+  /* "slim_bpr_epoch.pyx":1262
  * 
  * 
  *     def dealloc(self):             # <<<<<<<<<<<<<<
@@ -13447,7 +13449,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(s
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Triangular_Matrix.dealloc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Triangular_Matrix.dealloc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13456,7 +13458,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(s
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1279
+/* "slim_bpr_epoch.pyx":1279
  * 
  * 
  *     cdef double add_value(self, long row, long col, double value):             # <<<<<<<<<<<<<<
@@ -13464,7 +13466,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc(s
  *         The function adds a value to the specified cell. A new cell is created if necessary.
  */
 
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value) {
+static double __pyx_f_14slim_bpr_epoch_17Triangular_Matrix_add_value(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col, double __pyx_v_value) {
   double __pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -13484,7 +13486,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
   __Pyx_RefNannySetupContext("add_value", 0);
   __Pyx_TraceCall("add_value", __pyx_f[0], 1279, 0, __PYX_ERR(0, 1279, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1289
+  /* "slim_bpr_epoch.pyx":1289
  *         """
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -13514,7 +13516,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1291
+    /* "slim_bpr_epoch.pyx":1291
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}),"
  *                              " coordinates given are ({},{})".format(             # <<<<<<<<<<<<<<
@@ -13524,7 +13526,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Cell_is_outside_matrix_Matrix_sh, __pyx_n_s_format); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1291, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1292
+    /* "slim_bpr_epoch.pyx":1292
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}),"
  *                              " coordinates given are ({},{})".format(
  *                              self.num_rows, self.num_cols, row, col))             # <<<<<<<<<<<<<<
@@ -13599,7 +13601,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1290
+    /* "slim_bpr_epoch.pyx":1290
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}),"             # <<<<<<<<<<<<<<
@@ -13613,7 +13615,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __PYX_ERR(0, 1290, __pyx_L1_error)
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1289
+    /* "slim_bpr_epoch.pyx":1289
  *         """
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -13622,7 +13624,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1294
+  /* "slim_bpr_epoch.pyx":1294
  *                              self.num_rows, self.num_cols, row, col))
  * 
  *         elif col > row:             # <<<<<<<<<<<<<<
@@ -13632,7 +13634,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
   __pyx_t_1 = ((__pyx_v_col > __pyx_v_row) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1296
+    /* "slim_bpr_epoch.pyx":1296
  *         elif col > row:
  * 
  *             if self.isSymmetric:             # <<<<<<<<<<<<<<
@@ -13642,7 +13644,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
     __pyx_t_1 = (__pyx_v_self->isSymmetric != 0);
     if (likely(__pyx_t_1)) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1297
+      /* "slim_bpr_epoch.pyx":1297
  * 
  *             if self.isSymmetric:
  *                 self.row_pointer[col][row] += value             # <<<<<<<<<<<<<<
@@ -13653,7 +13655,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
       __pyx_t_13 = __pyx_v_row;
       ((__pyx_v_self->row_pointer[__pyx_t_12])[__pyx_t_13]) = (((__pyx_v_self->row_pointer[__pyx_t_12])[__pyx_t_13]) + __pyx_v_value);
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1299
+      /* "slim_bpr_epoch.pyx":1299
  *                 self.row_pointer[col][row] += value
  * 
  *                 return self.row_pointer[col][row]             # <<<<<<<<<<<<<<
@@ -13663,7 +13665,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
       __pyx_r = ((__pyx_v_self->row_pointer[__pyx_v_col])[__pyx_v_row]);
       goto __pyx_L0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1296
+      /* "slim_bpr_epoch.pyx":1296
  *         elif col > row:
  * 
  *             if self.isSymmetric:             # <<<<<<<<<<<<<<
@@ -13672,7 +13674,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1302
+    /* "slim_bpr_epoch.pyx":1302
  * 
  *             else:
  *                 raise ValueError("Cell is in the upper triangular of the matrix,"             # <<<<<<<<<<<<<<
@@ -13681,7 +13683,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
  */
     /*else*/ {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1304
+      /* "slim_bpr_epoch.pyx":1304
  *                 raise ValueError("Cell is in the upper triangular of the matrix,"
  *                                  " current matrix is lower triangular."
  *                                  " Coordinates given are ({},{})".format(row, col))             # <<<<<<<<<<<<<<
@@ -13744,7 +13746,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1302
+      /* "slim_bpr_epoch.pyx":1302
  * 
  *             else:
  *                 raise ValueError("Cell is in the upper triangular of the matrix,"             # <<<<<<<<<<<<<<
@@ -13759,7 +13761,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
       __PYX_ERR(0, 1302, __pyx_L1_error)
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1294
+    /* "slim_bpr_epoch.pyx":1294
  *                              self.num_rows, self.num_cols, row, col))
  * 
  *         elif col > row:             # <<<<<<<<<<<<<<
@@ -13768,7 +13770,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1307
+  /* "slim_bpr_epoch.pyx":1307
  *         else:
  * 
  *             self.row_pointer[row][col] += value             # <<<<<<<<<<<<<<
@@ -13780,7 +13782,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
     __pyx_t_13 = __pyx_v_col;
     ((__pyx_v_self->row_pointer[__pyx_t_12])[__pyx_t_13]) = (((__pyx_v_self->row_pointer[__pyx_t_12])[__pyx_t_13]) + __pyx_v_value);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1309
+    /* "slim_bpr_epoch.pyx":1309
  *             self.row_pointer[row][col] += value
  * 
  *             return self.row_pointer[row][col]             # <<<<<<<<<<<<<<
@@ -13791,7 +13793,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
     goto __pyx_L0;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1279
+  /* "slim_bpr_epoch.pyx":1279
  * 
  * 
  *     cdef double add_value(self, long row, long col, double value):             # <<<<<<<<<<<<<<
@@ -13809,7 +13811,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.Triangular_Matrix.add_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.Triangular_Matrix.add_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -13817,7 +13819,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1313
+/* "slim_bpr_epoch.pyx":1313
  * 
  * 
  *     cdef double get_value(self, long row, long col):             # <<<<<<<<<<<<<<
@@ -13825,7 +13827,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value(stru
  *         The function returns the value of the specified cell.
  */
 
-static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col) {
+static double __pyx_f_14slim_bpr_epoch_17Triangular_Matrix_get_value(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, long __pyx_v_row, long __pyx_v_col) {
   double __pyx_r;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -13843,7 +13845,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
   __Pyx_RefNannySetupContext("get_value", 0);
   __Pyx_TraceCall("get_value", __pyx_f[0], 1313, 0, __PYX_ERR(0, 1313, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1322
+  /* "slim_bpr_epoch.pyx":1322
  *         """
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -13873,7 +13875,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1323
+    /* "slim_bpr_epoch.pyx":1323
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(             # <<<<<<<<<<<<<<
@@ -13883,7 +13885,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_kp_u_Cell_is_outside_matrix_Matrix_sh, __pyx_n_s_format); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1324
+    /* "slim_bpr_epoch.pyx":1324
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(
  *                 self.num_rows, self.num_cols, row, col))             # <<<<<<<<<<<<<<
@@ -13958,7 +13960,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1323
+    /* "slim_bpr_epoch.pyx":1323
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:
  *             raise ValueError("Cell is outside matrix. Matrix shape is ({},{}), coordinates given are ({},{})".format(             # <<<<<<<<<<<<<<
@@ -13972,7 +13974,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __PYX_ERR(0, 1323, __pyx_L1_error)
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1322
+    /* "slim_bpr_epoch.pyx":1322
  *         """
  * 
  *         if row >= self.num_rows or col >= self.num_cols or row < 0 or col < 0:             # <<<<<<<<<<<<<<
@@ -13981,7 +13983,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1326
+  /* "slim_bpr_epoch.pyx":1326
  *                 self.num_rows, self.num_cols, row, col))
  * 
  *         elif col > row:             # <<<<<<<<<<<<<<
@@ -13991,7 +13993,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
   __pyx_t_1 = ((__pyx_v_col > __pyx_v_row) != 0);
   if (__pyx_t_1) {
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1328
+    /* "slim_bpr_epoch.pyx":1328
  *         elif col > row:
  * 
  *             if self.isSymmetric:             # <<<<<<<<<<<<<<
@@ -14001,7 +14003,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
     __pyx_t_1 = (__pyx_v_self->isSymmetric != 0);
     if (likely(__pyx_t_1)) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1329
+      /* "slim_bpr_epoch.pyx":1329
  * 
  *             if self.isSymmetric:
  *                 return self.row_pointer[col][row]             # <<<<<<<<<<<<<<
@@ -14011,7 +14013,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
       __pyx_r = ((__pyx_v_self->row_pointer[__pyx_v_col])[__pyx_v_row]);
       goto __pyx_L0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1328
+      /* "slim_bpr_epoch.pyx":1328
  *         elif col > row:
  * 
  *             if self.isSymmetric:             # <<<<<<<<<<<<<<
@@ -14020,7 +14022,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
  */
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1332
+    /* "slim_bpr_epoch.pyx":1332
  * 
  *             else:
  *                 raise ValueError("Cell is in the upper triangular of the matrix,"             # <<<<<<<<<<<<<<
@@ -14029,7 +14031,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
  */
     /*else*/ {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1334
+      /* "slim_bpr_epoch.pyx":1334
  *                 raise ValueError("Cell is in the upper triangular of the matrix,"
  *                                  " current matrix is lower triangular."
  *                                  " Coordinates given are ({},{})".format(row, col))             # <<<<<<<<<<<<<<
@@ -14092,7 +14094,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1332
+      /* "slim_bpr_epoch.pyx":1332
  * 
  *             else:
  *                 raise ValueError("Cell is in the upper triangular of the matrix,"             # <<<<<<<<<<<<<<
@@ -14107,7 +14109,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
       __PYX_ERR(0, 1332, __pyx_L1_error)
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1326
+    /* "slim_bpr_epoch.pyx":1326
  *                 self.num_rows, self.num_cols, row, col))
  * 
  *         elif col > row:             # <<<<<<<<<<<<<<
@@ -14116,7 +14118,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
  */
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1337
+  /* "slim_bpr_epoch.pyx":1337
  *         else:
  * 
  *             return self.row_pointer[row][col]             # <<<<<<<<<<<<<<
@@ -14128,7 +14130,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
     goto __pyx_L0;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1313
+  /* "slim_bpr_epoch.pyx":1313
  * 
  * 
  *     cdef double get_value(self, long row, long col):             # <<<<<<<<<<<<<<
@@ -14146,7 +14148,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_WriteUnraisable("SLIM_BPR_Cython_Epoch.Triangular_Matrix.get_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("slim_bpr_epoch.Triangular_Matrix.get_value", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_TraceReturn(Py_None, 0);
@@ -14154,7 +14156,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
   return __pyx_r;
 }
 
-/* "SLIM_BPR_Cython_Epoch.pyx":1342
+/* "slim_bpr_epoch.pyx":1342
  * 
  * 
  *     cdef get_scipy_csr(self, long TopK = False):             # <<<<<<<<<<<<<<
@@ -14162,7 +14164,7 @@ static double __pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value(stru
  *         The function returns the current sparse matrix as a scipy_csr object
  */
 
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args) {
+static PyObject *__pyx_f_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, struct __pyx_opt_args_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args) {
   long __pyx_v_TopK = ((long)0);
   long __pyx_v_row;
   long __pyx_v_col;
@@ -14246,7 +14248,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_pybuffernd_currentRowArray_np.data = NULL;
   __pyx_pybuffernd_currentRowArray_np.rcbuffer = &__pyx_pybuffer_currentRowArray_np;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1351
+  /* "slim_bpr_epoch.pyx":1351
  *         cdef long row, col, index
  * 
  *         cdef array[double] template_zero = array('d')             # <<<<<<<<<<<<<<
@@ -14266,7 +14268,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_v_template_zero = ((arrayobject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1352
+  /* "slim_bpr_epoch.pyx":1352
  * 
  *         cdef array[double] template_zero = array('d')
  *         cdef array[double] currentRowArray = clone(template_zero, self.num_cols, zero=True)             # <<<<<<<<<<<<<<
@@ -14286,7 +14288,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_v_currentRowArray = ((arrayobject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1359
+  /* "slim_bpr_epoch.pyx":1359
  * 
  * 
  *         data = []             # <<<<<<<<<<<<<<
@@ -14298,7 +14300,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_v_data = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1360
+  /* "slim_bpr_epoch.pyx":1360
  * 
  *         data = []
  *         indices = []             # <<<<<<<<<<<<<<
@@ -14310,7 +14312,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_v_indices = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1361
+  /* "slim_bpr_epoch.pyx":1361
  *         data = []
  *         indices = []
  *         indptr = []             # <<<<<<<<<<<<<<
@@ -14322,7 +14324,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_v_indptr = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1364
+  /* "slim_bpr_epoch.pyx":1364
  * 
  *         # Loop the rows
  *         for row in range(self.num_rows):             # <<<<<<<<<<<<<<
@@ -14334,7 +14336,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_row = __pyx_t_4;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1367
+    /* "slim_bpr_epoch.pyx":1367
  * 
  *             #Always set indptr
  *             indptr.append(len(data))             # <<<<<<<<<<<<<<
@@ -14347,7 +14349,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
     __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_indptr, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 1367, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1370
+    /* "slim_bpr_epoch.pyx":1370
  * 
  *             # Fill RowArray
  *             for col in range(self.num_cols):             # <<<<<<<<<<<<<<
@@ -14359,7 +14361,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
     for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
       __pyx_v_col = __pyx_t_9;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1372
+      /* "slim_bpr_epoch.pyx":1372
  *             for col in range(self.num_cols):
  * 
  *                 if col <= row:             # <<<<<<<<<<<<<<
@@ -14369,7 +14371,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       __pyx_t_10 = ((__pyx_v_col <= __pyx_v_row) != 0);
       if (__pyx_t_10) {
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1373
+        /* "slim_bpr_epoch.pyx":1373
  * 
  *                 if col <= row:
  *                     currentRowArray[col] = self.row_pointer[row][col]             # <<<<<<<<<<<<<<
@@ -14379,7 +14381,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
         __pyx_t_11 = __pyx_v_col;
         *__Pyx_BufPtrFull1d(double *, __pyx_pybuffernd_currentRowArray.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_currentRowArray.diminfo[0].strides, __pyx_pybuffernd_currentRowArray.diminfo[0].suboffsets) = ((__pyx_v_self->row_pointer[__pyx_v_row])[__pyx_v_col]);
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1372
+        /* "slim_bpr_epoch.pyx":1372
  *             for col in range(self.num_cols):
  * 
  *                 if col <= row:             # <<<<<<<<<<<<<<
@@ -14389,7 +14391,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
         goto __pyx_L7;
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1375
+      /* "slim_bpr_epoch.pyx":1375
  *                     currentRowArray[col] = self.row_pointer[row][col]
  *                 else:
  *                     if self.isSymmetric:             # <<<<<<<<<<<<<<
@@ -14400,7 +14402,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
         __pyx_t_10 = (__pyx_v_self->isSymmetric != 0);
         if (__pyx_t_10) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1376
+          /* "slim_bpr_epoch.pyx":1376
  *                 else:
  *                     if self.isSymmetric:
  *                         currentRowArray[col] = self.row_pointer[col][row]             # <<<<<<<<<<<<<<
@@ -14410,7 +14412,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
           __pyx_t_12 = __pyx_v_col;
           *__Pyx_BufPtrFull1d(double *, __pyx_pybuffernd_currentRowArray.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_currentRowArray.diminfo[0].strides, __pyx_pybuffernd_currentRowArray.diminfo[0].suboffsets) = ((__pyx_v_self->row_pointer[__pyx_v_col])[__pyx_v_row]);
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1375
+          /* "slim_bpr_epoch.pyx":1375
  *                     currentRowArray[col] = self.row_pointer[row][col]
  *                 else:
  *                     if self.isSymmetric:             # <<<<<<<<<<<<<<
@@ -14420,7 +14422,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
           goto __pyx_L8;
         }
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1378
+        /* "slim_bpr_epoch.pyx":1378
  *                         currentRowArray[col] = self.row_pointer[col][row]
  *                     else:
  *                         currentRowArray[col] = 0.0             # <<<<<<<<<<<<<<
@@ -14436,7 +14438,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       __pyx_L7:;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1381
+    /* "slim_bpr_epoch.pyx":1381
  * 
  * 
  *             if TopK:             # <<<<<<<<<<<<<<
@@ -14446,7 +14448,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
     __pyx_t_10 = (__pyx_v_TopK != 0);
     if (__pyx_t_10) {
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1393
+      /* "slim_bpr_epoch.pyx":1393
  *                 # - Get the original item index
  * 
  *                 currentRowArray_np = - np.array(currentRowArray)             # <<<<<<<<<<<<<<
@@ -14499,7 +14501,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       __Pyx_XDECREF_SET(__pyx_v_currentRowArray_np, ((PyArrayObject *)__pyx_t_15));
       __pyx_t_15 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1396
+      /* "slim_bpr_epoch.pyx":1396
  *                 #
  *                 # Get the unordered set of topK items
  *                 top_k_partition = np.argpartition(currentRowArray_np, TopK-1)[0:TopK]             # <<<<<<<<<<<<<<
@@ -14586,7 +14588,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       __Pyx_XDECREF_SET(__pyx_v_top_k_partition, ((PyArrayObject *)__pyx_t_14));
       __pyx_t_14 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1398
+      /* "slim_bpr_epoch.pyx":1398
  *                 top_k_partition = np.argpartition(currentRowArray_np, TopK-1)[0:TopK]
  *                 # Sort only the elements in the partition
  *                 top_k_partition_sorting = np.argsort(currentRowArray_np[top_k_partition])             # <<<<<<<<<<<<<<
@@ -14639,7 +14641,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       __Pyx_XDECREF_SET(__pyx_v_top_k_partition_sorting, ((PyArrayObject *)__pyx_t_14));
       __pyx_t_14 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1400
+      /* "slim_bpr_epoch.pyx":1400
  *                 top_k_partition_sorting = np.argsort(currentRowArray_np[top_k_partition])
  *                 # Get original index
  *                 top_k_idx = top_k_partition[top_k_partition_sorting]             # <<<<<<<<<<<<<<
@@ -14651,7 +14653,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       __Pyx_XDECREF_SET(__pyx_v_top_k_idx, __pyx_t_14);
       __pyx_t_14 = 0;
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1402
+      /* "slim_bpr_epoch.pyx":1402
  *                 top_k_idx = top_k_partition[top_k_partition_sorting]
  * 
  *                 for index in range(len(top_k_idx)):             # <<<<<<<<<<<<<<
@@ -14663,7 +14665,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_24; __pyx_t_7+=1) {
         __pyx_v_index = __pyx_t_7;
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1404
+        /* "slim_bpr_epoch.pyx":1404
  *                 for index in range(len(top_k_idx)):
  * 
  *                     col = top_k_idx[index]             # <<<<<<<<<<<<<<
@@ -14676,7 +14678,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
         __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
         __pyx_v_col = __pyx_t_8;
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1406
+        /* "slim_bpr_epoch.pyx":1406
  *                     col = top_k_idx[index]
  * 
  *                     if currentRowArray[col] != 0.0:             # <<<<<<<<<<<<<<
@@ -14687,7 +14689,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
         __pyx_t_10 = (((*__Pyx_BufPtrFull1d(double *, __pyx_pybuffernd_currentRowArray.rcbuffer->pybuffer.buf, __pyx_t_25, __pyx_pybuffernd_currentRowArray.diminfo[0].strides, __pyx_pybuffernd_currentRowArray.diminfo[0].suboffsets)) != 0.0) != 0);
         if (__pyx_t_10) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1407
+          /* "slim_bpr_epoch.pyx":1407
  * 
  *                     if currentRowArray[col] != 0.0:
  *                         indices.append(col)             # <<<<<<<<<<<<<<
@@ -14699,7 +14701,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
           __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_indices, __pyx_t_14); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 1407, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1408
+          /* "slim_bpr_epoch.pyx":1408
  *                     if currentRowArray[col] != 0.0:
  *                         indices.append(col)
  *                         data.append(currentRowArray[col])             # <<<<<<<<<<<<<<
@@ -14712,7 +14714,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
           __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_data, __pyx_t_14); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 1408, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1406
+          /* "slim_bpr_epoch.pyx":1406
  *                     col = top_k_idx[index]
  * 
  *                     if currentRowArray[col] != 0.0:             # <<<<<<<<<<<<<<
@@ -14722,7 +14724,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
         }
       }
 
-      /* "SLIM_BPR_Cython_Epoch.pyx":1381
+      /* "slim_bpr_epoch.pyx":1381
  * 
  * 
  *             if TopK:             # <<<<<<<<<<<<<<
@@ -14732,7 +14734,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       goto __pyx_L9;
     }
 
-    /* "SLIM_BPR_Cython_Epoch.pyx":1412
+    /* "slim_bpr_epoch.pyx":1412
  *             else:
  * 
  *                 for index in range(self.num_cols):             # <<<<<<<<<<<<<<
@@ -14745,7 +14747,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
       for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
         __pyx_v_index = __pyx_t_9;
 
-        /* "SLIM_BPR_Cython_Epoch.pyx":1414
+        /* "slim_bpr_epoch.pyx":1414
  *                 for index in range(self.num_cols):
  * 
  *                     if currentRowArray[index] != 0.0:             # <<<<<<<<<<<<<<
@@ -14756,7 +14758,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
         __pyx_t_10 = (((*__Pyx_BufPtrFull1d(double *, __pyx_pybuffernd_currentRowArray.rcbuffer->pybuffer.buf, __pyx_t_27, __pyx_pybuffernd_currentRowArray.diminfo[0].strides, __pyx_pybuffernd_currentRowArray.diminfo[0].suboffsets)) != 0.0) != 0);
         if (__pyx_t_10) {
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1415
+          /* "slim_bpr_epoch.pyx":1415
  * 
  *                     if currentRowArray[index] != 0.0:
  *                         indices.append(index)             # <<<<<<<<<<<<<<
@@ -14768,7 +14770,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
           __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_indices, __pyx_t_14); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 1415, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1416
+          /* "slim_bpr_epoch.pyx":1416
  *                     if currentRowArray[index] != 0.0:
  *                         indices.append(index)
  *                         data.append(currentRowArray[index])             # <<<<<<<<<<<<<<
@@ -14781,7 +14783,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
           __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_data, __pyx_t_14); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 1416, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
 
-          /* "SLIM_BPR_Cython_Epoch.pyx":1414
+          /* "slim_bpr_epoch.pyx":1414
  *                 for index in range(self.num_cols):
  * 
  *                     if currentRowArray[index] != 0.0:             # <<<<<<<<<<<<<<
@@ -14794,7 +14796,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
     __pyx_L9:;
   }
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1420
+  /* "slim_bpr_epoch.pyx":1420
  * 
  *         #Set terminal indptr
  *         indptr.append(len(data))             # <<<<<<<<<<<<<<
@@ -14807,7 +14809,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_indptr, __pyx_t_14); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 1420, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1422
+  /* "slim_bpr_epoch.pyx":1422
  *         indptr.append(len(data))
  * 
  *         return sps.csr_matrix((data, indices, indptr), shape=(self.num_rows, self.num_cols))             # <<<<<<<<<<<<<<
@@ -14859,7 +14861,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
   __pyx_t_29 = 0;
   goto __pyx_L0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1342
+  /* "slim_bpr_epoch.pyx":1342
  * 
  * 
  *     cdef get_scipy_csr(self, long TopK = False):             # <<<<<<<<<<<<<<
@@ -14885,7 +14887,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_top_k_partition.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_top_k_partition_sorting.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Triangular_Matrix.get_scipy_csr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Triangular_Matrix.get_scipy_csr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -14917,19 +14919,19 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_c
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_5__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_4__reduce_cython__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_4__reduce_cython__(((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_4__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -14958,7 +14960,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_4__reduce_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Triangular_Matrix.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Triangular_Matrix.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_TraceReturn(__pyx_r, 0);
@@ -14974,19 +14976,19 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_4__reduce_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_7__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_6__setstate_cython__(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_6__setstate_cython__(((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_14slim_bpr_epoch_17Triangular_Matrix_6__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -15015,7 +15017,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_6__setstat
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.Triangular_Matrix.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.Triangular_Matrix.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_TraceReturn(__pyx_r, 0);
@@ -15024,21 +15026,21 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_6__setstat
 }
 
 /* "(tree fragment)":1
- * def __pyx_unpickle_SLIM_BPR_Cython_Epoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_SLIMBPREpoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_1__pyx_unpickle_SLIM_BPR_Cython_Epoch(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_21SLIM_BPR_Cython_Epoch_1__pyx_unpickle_SLIM_BPR_Cython_Epoch = {"__pyx_unpickle_SLIM_BPR_Cython_Epoch", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_21SLIM_BPR_Cython_Epoch_1__pyx_unpickle_SLIM_BPR_Cython_Epoch, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_1__pyx_unpickle_SLIM_BPR_Cython_Epoch(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_14slim_bpr_epoch_1__pyx_unpickle_SLIMBPREpoch(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_14slim_bpr_epoch_1__pyx_unpickle_SLIMBPREpoch = {"__pyx_unpickle_SLIMBPREpoch", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_14slim_bpr_epoch_1__pyx_unpickle_SLIMBPREpoch, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14slim_bpr_epoch_1__pyx_unpickle_SLIMBPREpoch(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle_SLIM_BPR_Cython_Epoch (wrapper)", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle_SLIMBPREpoch (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
     PyObject* values[3] = {0,0,0};
@@ -15064,17 +15066,17 @@ static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_1__pyx_unpickle_SLIM_BPR_Cytho
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SLIM_BPR_Cython_Epoch", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SLIMBPREpoch", 1, 3, 3, 1); __PYX_ERR(1, 1, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SLIM_BPR_Cython_Epoch", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SLIMBPREpoch", 1, 3, 3, 2); __PYX_ERR(1, 1, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_SLIM_BPR_Cython_Epoch") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_SLIMBPREpoch") < 0)) __PYX_ERR(1, 1, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -15089,20 +15091,20 @@ static PyObject *__pyx_pw_21SLIM_BPR_Cython_Epoch_1__pyx_unpickle_SLIM_BPR_Cytho
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SLIM_BPR_Cython_Epoch", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SLIMBPREpoch", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.__pyx_unpickle_SLIM_BPR_Cython_Epoch", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.__pyx_unpickle_SLIMBPREpoch", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_Epoch(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_14slim_bpr_epoch___pyx_unpickle_SLIMBPREpoch(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_Epoch(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_14slim_bpr_epoch___pyx_unpickle_SLIMBPREpoch(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -15115,8 +15117,8 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
   PyObject *__pyx_t_5 = NULL;
   int __pyx_t_6;
   __Pyx_TraceFrameInit(__pyx_codeobj__13)
-  __Pyx_RefNannySetupContext("__pyx_unpickle_SLIM_BPR_Cython_Epoch", 0);
-  __Pyx_TraceCall("__pyx_unpickle_SLIM_BPR_Cython_Epoch", __pyx_f[1], 1, 0, __PYX_ERR(1, 1, __pyx_L1_error));
+  __Pyx_RefNannySetupContext("__pyx_unpickle_SLIMBPREpoch", 0);
+  __Pyx_TraceCall("__pyx_unpickle_SLIMBPREpoch", __pyx_f[1], 1, 0, __PYX_ERR(1, 1, __pyx_L1_error));
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
@@ -15133,7 +15135,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
  *     if __pyx_checksum != 0x66c4eac:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x66c4eac = (S_dense, S_sparse, S_symmetric, URM_mask_indices, URM_mask_indptr, batch_size, beta_1, beta_1_power_t, beta_2, beta_2_power_t, final_model_sparse_weights, gamma, learning_rate, li_reg, lj_reg, momentum_1, momentum_2, n_items, n_users, sgd_cache_I, sgd_cache_I_momentum_1, sgd_cache_I_momentum_2, symmetric, topK, train_with_sparse_weights, useAdaGrad, useAdam, useRmsprop, verbose))" % __pyx_checksum)
- *     __pyx_result = SLIM_BPR_Cython_Epoch.__new__(__pyx_type)
+ *     __pyx_result = SLIMBPREpoch.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -15154,7 +15156,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
  *     if __pyx_checksum != 0x66c4eac:
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x66c4eac = (S_dense, S_sparse, S_symmetric, URM_mask_indices, URM_mask_indptr, batch_size, beta_1, beta_1_power_t, beta_2, beta_2_power_t, final_model_sparse_weights, gamma, learning_rate, li_reg, lj_reg, momentum_1, momentum_2, n_items, n_users, sgd_cache_I, sgd_cache_I_momentum_1, sgd_cache_I_momentum_2, symmetric, topK, train_with_sparse_weights, useAdaGrad, useAdam, useRmsprop, verbose))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = SLIM_BPR_Cython_Epoch.__new__(__pyx_type)
+ *     __pyx_result = SLIMBPREpoch.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
@@ -15195,11 +15197,11 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x66c4eac = (S_dense, S_sparse, S_symmetric, URM_mask_indices, URM_mask_indptr, batch_size, beta_1, beta_1_power_t, beta_2, beta_2_power_t, final_model_sparse_weights, gamma, learning_rate, li_reg, lj_reg, momentum_1, momentum_2, n_items, n_users, sgd_cache_I, sgd_cache_I_momentum_1, sgd_cache_I_momentum_2, symmetric, topK, train_with_sparse_weights, useAdaGrad, useAdam, useRmsprop, verbose))" % __pyx_checksum)
- *     __pyx_result = SLIM_BPR_Cython_Epoch.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *     __pyx_result = SLIMBPREpoch.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
- *         __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(<SLIM_BPR_Cython_Epoch> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SLIMBPREpoch__set_state(<SLIMBPREpoch> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_14slim_bpr_epoch_SLIMBPREpoch), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -15221,9 +15223,9 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
 
   /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x66c4eac = (S_dense, S_sparse, S_symmetric, URM_mask_indices, URM_mask_indptr, batch_size, beta_1, beta_1_power_t, beta_2, beta_2_power_t, final_model_sparse_weights, gamma, learning_rate, li_reg, lj_reg, momentum_1, momentum_2, n_items, n_users, sgd_cache_I, sgd_cache_I_momentum_1, sgd_cache_I_momentum_2, symmetric, topK, train_with_sparse_weights, useAdaGrad, useAdam, useRmsprop, verbose))" % __pyx_checksum)
- *     __pyx_result = SLIM_BPR_Cython_Epoch.__new__(__pyx_type)
+ *     __pyx_result = SLIMBPREpoch.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(<SLIM_BPR_Cython_Epoch> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SLIMBPREpoch__set_state(<SLIMBPREpoch> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
@@ -15231,31 +15233,31 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
   if (__pyx_t_6) {
 
     /* "(tree fragment)":9
- *     __pyx_result = SLIM_BPR_Cython_Epoch.__new__(__pyx_type)
+ *     __pyx_result = SLIMBPREpoch.__new__(__pyx_type)
  *     if __pyx_state is not None:
- *         __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(<SLIM_BPR_Cython_Epoch> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle_SLIMBPREpoch__set_state(<SLIMBPREpoch> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
  *     return __pyx_result
- * cdef __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(SLIM_BPR_Cython_Epoch __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_SLIMBPREpoch__set_state(SLIMBPREpoch __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 9, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_14slim_bpr_epoch___pyx_unpickle_SLIMBPREpoch__set_state(((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x66c4eac = (S_dense, S_sparse, S_symmetric, URM_mask_indices, URM_mask_indptr, batch_size, beta_1, beta_1_power_t, beta_2, beta_2_power_t, final_model_sparse_weights, gamma, learning_rate, li_reg, lj_reg, momentum_1, momentum_2, n_items, n_users, sgd_cache_I, sgd_cache_I_momentum_1, sgd_cache_I_momentum_2, symmetric, topK, train_with_sparse_weights, useAdaGrad, useAdam, useRmsprop, verbose))" % __pyx_checksum)
- *     __pyx_result = SLIM_BPR_Cython_Epoch.__new__(__pyx_type)
+ *     __pyx_result = SLIMBPREpoch.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(<SLIM_BPR_Cython_Epoch> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SLIMBPREpoch__set_state(<SLIMBPREpoch> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   }
 
   /* "(tree fragment)":10
  *     if __pyx_state is not None:
- *         __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(<SLIM_BPR_Cython_Epoch> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SLIMBPREpoch__set_state(<SLIMBPREpoch> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(SLIM_BPR_Cython_Epoch __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_SLIMBPREpoch__set_state(SLIMBPREpoch __pyx_result, tuple __pyx_state):
  *     __pyx_result.S_dense = __pyx_state[0]; __pyx_result.S_sparse = __pyx_state[1]; __pyx_result.S_symmetric = __pyx_state[2]; __pyx_result.URM_mask_indices = __pyx_state[3]; __pyx_result.URM_mask_indptr = __pyx_state[4]; __pyx_result.batch_size = __pyx_state[5]; __pyx_result.beta_1 = __pyx_state[6]; __pyx_result.beta_1_power_t = __pyx_state[7]; __pyx_result.beta_2 = __pyx_state[8]; __pyx_result.beta_2_power_t = __pyx_state[9]; __pyx_result.final_model_sparse_weights = __pyx_state[10]; __pyx_result.gamma = __pyx_state[11]; __pyx_result.learning_rate = __pyx_state[12]; __pyx_result.li_reg = __pyx_state[13]; __pyx_result.lj_reg = __pyx_state[14]; __pyx_result.momentum_1 = __pyx_state[15]; __pyx_result.momentum_2 = __pyx_state[16]; __pyx_result.n_items = __pyx_state[17]; __pyx_result.n_users = __pyx_state[18]; __pyx_result.sgd_cache_I = __pyx_state[19]; __pyx_result.sgd_cache_I_momentum_1 = __pyx_state[20]; __pyx_result.sgd_cache_I_momentum_2 = __pyx_state[21]; __pyx_result.symmetric = __pyx_state[22]; __pyx_result.topK = __pyx_state[23]; __pyx_result.train_with_sparse_weights = __pyx_state[24]; __pyx_result.useAdaGrad = __pyx_state[25]; __pyx_result.useAdam = __pyx_state[26]; __pyx_result.useRmsprop = __pyx_state[27]; __pyx_result.verbose = __pyx_state[28]
  */
   __Pyx_XDECREF(__pyx_r);
@@ -15264,7 +15266,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
   goto __pyx_L0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_SLIM_BPR_Cython_Epoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_SLIMBPREpoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
@@ -15275,7 +15277,7 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.__pyx_unpickle_SLIM_BPR_Cython_Epoch", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.__pyx_unpickle_SLIMBPREpoch", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -15287,14 +15289,14 @@ static PyObject *__pyx_pf_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython
 }
 
 /* "(tree fragment)":11
- *         __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(<SLIM_BPR_Cython_Epoch> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SLIMBPREpoch__set_state(<SLIMBPREpoch> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(SLIM_BPR_Cython_Epoch __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_SLIMBPREpoch__set_state(SLIMBPREpoch __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.S_dense = __pyx_state[0]; __pyx_result.S_sparse = __pyx_state[1]; __pyx_result.S_symmetric = __pyx_state[2]; __pyx_result.URM_mask_indices = __pyx_state[3]; __pyx_result.URM_mask_indptr = __pyx_state[4]; __pyx_result.batch_size = __pyx_state[5]; __pyx_result.beta_1 = __pyx_state[6]; __pyx_result.beta_1_power_t = __pyx_state[7]; __pyx_result.beta_2 = __pyx_state[8]; __pyx_result.beta_2_power_t = __pyx_state[9]; __pyx_result.final_model_sparse_weights = __pyx_state[10]; __pyx_result.gamma = __pyx_state[11]; __pyx_result.learning_rate = __pyx_state[12]; __pyx_result.li_reg = __pyx_state[13]; __pyx_result.lj_reg = __pyx_state[14]; __pyx_result.momentum_1 = __pyx_state[15]; __pyx_result.momentum_2 = __pyx_state[16]; __pyx_result.n_items = __pyx_state[17]; __pyx_result.n_users = __pyx_state[18]; __pyx_result.sgd_cache_I = __pyx_state[19]; __pyx_result.sgd_cache_I_momentum_1 = __pyx_state[20]; __pyx_result.sgd_cache_I_momentum_2 = __pyx_state[21]; __pyx_result.symmetric = __pyx_state[22]; __pyx_result.topK = __pyx_state[23]; __pyx_result.train_with_sparse_weights = __pyx_state[24]; __pyx_result.useAdaGrad = __pyx_state[25]; __pyx_result.useAdam = __pyx_state[26]; __pyx_result.useRmsprop = __pyx_state[27]; __pyx_result.verbose = __pyx_state[28]
  *     if len(__pyx_state) > 29 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_14slim_bpr_epoch___pyx_unpickle_SLIMBPREpoch__set_state(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_TraceDeclarations
   __Pyx_RefNannyDeclarations
@@ -15311,12 +15313,12 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_
   PyObject *__pyx_t_11 = NULL;
   PyObject *__pyx_t_12 = NULL;
   PyObject *__pyx_t_13 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state", 0);
-  __Pyx_TraceCall("__pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state", __pyx_f[1], 11, 0, __PYX_ERR(1, 11, __pyx_L1_error));
+  __Pyx_RefNannySetupContext("__pyx_unpickle_SLIMBPREpoch__set_state", 0);
+  __Pyx_TraceCall("__pyx_unpickle_SLIMBPREpoch__set_state", __pyx_f[1], 11, 0, __PYX_ERR(1, 11, __pyx_L1_error));
 
   /* "(tree fragment)":12
  *     return __pyx_result
- * cdef __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(SLIM_BPR_Cython_Epoch __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_SLIMBPREpoch__set_state(SLIMBPREpoch __pyx_result, tuple __pyx_state):
  *     __pyx_result.S_dense = __pyx_state[0]; __pyx_result.S_sparse = __pyx_state[1]; __pyx_result.S_symmetric = __pyx_state[2]; __pyx_result.URM_mask_indices = __pyx_state[3]; __pyx_result.URM_mask_indptr = __pyx_state[4]; __pyx_result.batch_size = __pyx_state[5]; __pyx_result.beta_1 = __pyx_state[6]; __pyx_result.beta_1_power_t = __pyx_state[7]; __pyx_result.beta_2 = __pyx_state[8]; __pyx_result.beta_2_power_t = __pyx_state[9]; __pyx_result.final_model_sparse_weights = __pyx_state[10]; __pyx_result.gamma = __pyx_state[11]; __pyx_result.learning_rate = __pyx_state[12]; __pyx_result.li_reg = __pyx_state[13]; __pyx_result.lj_reg = __pyx_state[14]; __pyx_result.momentum_1 = __pyx_state[15]; __pyx_result.momentum_2 = __pyx_state[16]; __pyx_result.n_items = __pyx_state[17]; __pyx_result.n_users = __pyx_state[18]; __pyx_result.sgd_cache_I = __pyx_state[19]; __pyx_result.sgd_cache_I_momentum_1 = __pyx_state[20]; __pyx_result.sgd_cache_I_momentum_2 = __pyx_state[21]; __pyx_result.symmetric = __pyx_state[22]; __pyx_result.topK = __pyx_state[23]; __pyx_result.train_with_sparse_weights = __pyx_state[24]; __pyx_result.useAdaGrad = __pyx_state[25]; __pyx_result.useAdam = __pyx_state[26]; __pyx_result.useRmsprop = __pyx_state[27]; __pyx_result.verbose = __pyx_state[28]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 29 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[29])
@@ -15339,11 +15341,11 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR))))) __PYX_ERR(1, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR))))) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->S_sparse);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->S_sparse));
-  __pyx_v___pyx_result->S_sparse = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)__pyx_t_1);
+  __pyx_v___pyx_result->S_sparse = ((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -15351,11 +15353,11 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_21SLIM_BPR_Cython_Epoch_Triangular_Matrix))))) __PYX_ERR(1, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_14slim_bpr_epoch_Triangular_Matrix))))) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->S_symmetric);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->S_symmetric));
-  __pyx_v___pyx_result->S_symmetric = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)__pyx_t_1);
+  __pyx_v___pyx_result->S_symmetric = ((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -15608,7 +15610,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_
   __pyx_v___pyx_result->verbose = __pyx_t_4;
 
   /* "(tree fragment)":13
- * cdef __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(SLIM_BPR_Cython_Epoch __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_SLIMBPREpoch__set_state(SLIMBPREpoch __pyx_result, tuple __pyx_state):
  *     __pyx_result.S_dense = __pyx_state[0]; __pyx_result.S_sparse = __pyx_state[1]; __pyx_result.S_symmetric = __pyx_state[2]; __pyx_result.URM_mask_indices = __pyx_state[3]; __pyx_result.URM_mask_indptr = __pyx_state[4]; __pyx_result.batch_size = __pyx_state[5]; __pyx_result.beta_1 = __pyx_state[6]; __pyx_result.beta_1_power_t = __pyx_state[7]; __pyx_result.beta_2 = __pyx_state[8]; __pyx_result.beta_2_power_t = __pyx_state[9]; __pyx_result.final_model_sparse_weights = __pyx_state[10]; __pyx_result.gamma = __pyx_state[11]; __pyx_result.learning_rate = __pyx_state[12]; __pyx_result.li_reg = __pyx_state[13]; __pyx_result.lj_reg = __pyx_state[14]; __pyx_result.momentum_1 = __pyx_state[15]; __pyx_result.momentum_2 = __pyx_state[16]; __pyx_result.n_items = __pyx_state[17]; __pyx_result.n_users = __pyx_state[18]; __pyx_result.sgd_cache_I = __pyx_state[19]; __pyx_result.sgd_cache_I_momentum_1 = __pyx_state[20]; __pyx_result.sgd_cache_I_momentum_2 = __pyx_state[21]; __pyx_result.symmetric = __pyx_state[22]; __pyx_result.topK = __pyx_state[23]; __pyx_result.train_with_sparse_weights = __pyx_state[24]; __pyx_result.useAdaGrad = __pyx_state[25]; __pyx_result.useAdam = __pyx_state[26]; __pyx_result.useRmsprop = __pyx_state[27]; __pyx_result.verbose = __pyx_state[28]
  *     if len(__pyx_state) > 29 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[29])
@@ -15665,7 +15667,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "(tree fragment)":13
- * cdef __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(SLIM_BPR_Cython_Epoch __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle_SLIMBPREpoch__set_state(SLIMBPREpoch __pyx_result, tuple __pyx_state):
  *     __pyx_result.S_dense = __pyx_state[0]; __pyx_result.S_sparse = __pyx_state[1]; __pyx_result.S_symmetric = __pyx_state[2]; __pyx_result.URM_mask_indices = __pyx_state[3]; __pyx_result.URM_mask_indptr = __pyx_state[4]; __pyx_result.batch_size = __pyx_state[5]; __pyx_result.beta_1 = __pyx_state[6]; __pyx_result.beta_1_power_t = __pyx_state[7]; __pyx_result.beta_2 = __pyx_state[8]; __pyx_result.beta_2_power_t = __pyx_state[9]; __pyx_result.final_model_sparse_weights = __pyx_state[10]; __pyx_result.gamma = __pyx_state[11]; __pyx_result.learning_rate = __pyx_state[12]; __pyx_result.li_reg = __pyx_state[13]; __pyx_result.lj_reg = __pyx_state[14]; __pyx_result.momentum_1 = __pyx_state[15]; __pyx_result.momentum_2 = __pyx_state[16]; __pyx_result.n_items = __pyx_state[17]; __pyx_result.n_users = __pyx_state[18]; __pyx_result.sgd_cache_I = __pyx_state[19]; __pyx_result.sgd_cache_I_momentum_1 = __pyx_state[20]; __pyx_result.sgd_cache_I_momentum_2 = __pyx_state[21]; __pyx_result.symmetric = __pyx_state[22]; __pyx_result.topK = __pyx_state[23]; __pyx_result.train_with_sparse_weights = __pyx_state[24]; __pyx_result.useAdaGrad = __pyx_state[25]; __pyx_result.useAdam = __pyx_state[26]; __pyx_result.useRmsprop = __pyx_state[27]; __pyx_result.verbose = __pyx_state[28]
  *     if len(__pyx_state) > 29 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[29])
@@ -15673,9 +15675,9 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_
   }
 
   /* "(tree fragment)":11
- *         __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(<SLIM_BPR_Cython_Epoch> __pyx_result, __pyx_state)
+ *         __pyx_unpickle_SLIMBPREpoch__set_state(<SLIMBPREpoch> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state(SLIM_BPR_Cython_Epoch __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle_SLIMBPREpoch__set_state(SLIMBPREpoch __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.S_dense = __pyx_state[0]; __pyx_result.S_sparse = __pyx_state[1]; __pyx_result.S_symmetric = __pyx_state[2]; __pyx_result.URM_mask_indices = __pyx_state[3]; __pyx_result.URM_mask_indptr = __pyx_state[4]; __pyx_result.batch_size = __pyx_state[5]; __pyx_result.beta_1 = __pyx_state[6]; __pyx_result.beta_1_power_t = __pyx_state[7]; __pyx_result.beta_2 = __pyx_state[8]; __pyx_result.beta_2_power_t = __pyx_state[9]; __pyx_result.final_model_sparse_weights = __pyx_state[10]; __pyx_result.gamma = __pyx_state[11]; __pyx_result.learning_rate = __pyx_state[12]; __pyx_result.li_reg = __pyx_state[13]; __pyx_result.lj_reg = __pyx_state[14]; __pyx_result.momentum_1 = __pyx_state[15]; __pyx_result.momentum_2 = __pyx_state[16]; __pyx_result.n_items = __pyx_state[17]; __pyx_result.n_users = __pyx_state[18]; __pyx_result.sgd_cache_I = __pyx_state[19]; __pyx_result.sgd_cache_I_momentum_1 = __pyx_state[20]; __pyx_result.sgd_cache_I_momentum_2 = __pyx_state[21]; __pyx_result.symmetric = __pyx_state[22]; __pyx_result.topK = __pyx_state[23]; __pyx_result.train_with_sparse_weights = __pyx_state[24]; __pyx_result.useAdaGrad = __pyx_state[25]; __pyx_result.useAdam = __pyx_state[26]; __pyx_result.useRmsprop = __pyx_state[27]; __pyx_result.verbose = __pyx_state[28]
  *     if len(__pyx_state) > 29 and hasattr(__pyx_result, '__dict__'):
  */
@@ -15691,7 +15693,7 @@ static PyObject *__pyx_f_21SLIM_BPR_Cython_Epoch___pyx_unpickle_SLIM_BPR_Cython_
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_12);
   __Pyx_XDECREF(__pyx_t_13);
-  __Pyx_AddTraceback("SLIM_BPR_Cython_Epoch.__pyx_unpickle_SLIM_BPR_Cython_Epoch__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("slim_bpr_epoch.__pyx_unpickle_SLIMBPREpoch__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -31997,10 +31999,10 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch __pyx_vtable_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch;
+static struct __pyx_vtabstruct_14slim_bpr_epoch_SLIMBPREpoch __pyx_vtable_14slim_bpr_epoch_SLIMBPREpoch;
 
-static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *p;
+static PyObject *__pyx_tp_new_14slim_bpr_epoch_SLIMBPREpoch(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -32008,10 +32010,10 @@ static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyTy
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)o);
-  p->__pyx_vtab = __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch;
-  p->S_sparse = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)Py_None); Py_INCREF(Py_None);
-  p->S_symmetric = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)Py_None); Py_INCREF(Py_None);
+  p = ((struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)o);
+  p->__pyx_vtab = __pyx_vtabptr_14slim_bpr_epoch_SLIMBPREpoch;
+  p->S_sparse = ((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)Py_None); Py_INCREF(Py_None);
+  p->S_symmetric = ((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)Py_None); Py_INCREF(Py_None);
   p->URM_mask_indices.data = NULL;
   p->URM_mask_indices.memview = NULL;
   p->URM_mask_indptr.data = NULL;
@@ -32027,8 +32029,8 @@ static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyTy
   return o;
 }
 
-static void __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyObject *o) {
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *p = (struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)o;
+static void __pyx_tp_dealloc_14slim_bpr_epoch_SLIMBPREpoch(PyObject *o) {
+  struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *p = (struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && !_PyGC_FINALIZED(o)) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -32039,7 +32041,7 @@ static void __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyObj
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     ++Py_REFCNT(o);
-    __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_5__dealloc__(o);
+    __pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_5__dealloc__(o);
     --Py_REFCNT(o);
     PyErr_Restore(etype, eval, etb);
   }
@@ -32054,9 +32056,9 @@ static void __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyObj
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static int __pyx_tp_traverse_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_14slim_bpr_epoch_SLIMBPREpoch(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *p = (struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)o;
+  struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *p = (struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)o;
   if (p->S_sparse) {
     e = (*v)(((PyObject *)p->S_sparse), a); if (e) return e;
   }
@@ -32066,34 +32068,34 @@ static int __pyx_tp_traverse_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyObj
   return 0;
 }
 
-static int __pyx_tp_clear_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch(PyObject *o) {
+static int __pyx_tp_clear_14slim_bpr_epoch_SLIMBPREpoch(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *p = (struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *)o;
+  struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *p = (struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *)o;
   tmp = ((PyObject*)p->S_sparse);
-  p->S_sparse = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)Py_None); Py_INCREF(Py_None);
+  p->S_sparse = ((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->S_symmetric);
-  p->S_symmetric = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)Py_None); Py_INCREF(Py_None);
+  p->S_symmetric = ((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
 
-static PyMethodDef __pyx_methods_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch[] = {
-  {"_init_adaptive_gradient_cache", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_3_init_adaptive_gradient_cache, METH_VARARGS|METH_KEYWORDS, 0},
-  {"_dealloc", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_7_dealloc, METH_NOARGS, 0},
-  {"epochIteration_Cython", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_9epochIteration_Cython, METH_NOARGS, 0},
-  {"get_S", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_11get_S, METH_NOARGS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_13__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_15__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_14slim_bpr_epoch_SLIMBPREpoch[] = {
+  {"_init_adaptive_gradient_cache", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_3_init_adaptive_gradient_cache, METH_VARARGS|METH_KEYWORDS, 0},
+  {"_dealloc", (PyCFunction)__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_7_dealloc, METH_NOARGS, 0},
+  {"epochIteration_Cython", (PyCFunction)__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_9epochIteration_Cython, METH_NOARGS, 0},
+  {"get_S", (PyCFunction)__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_11get_S, METH_NOARGS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_13__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_15__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch = {
+static PyTypeObject __pyx_type_14slim_bpr_epoch_SLIMBPREpoch = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SLIM_BPR_Cython_Epoch.SLIM_BPR_Cython_Epoch", /*tp_name*/
-  sizeof(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch), /*tp_basicsize*/
+  "slim_bpr_epoch.SLIMBPREpoch", /*tp_name*/
+  sizeof(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch, /*tp_dealloc*/
+  __pyx_tp_dealloc_14slim_bpr_epoch_SLIMBPREpoch, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -32120,13 +32122,13 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch, /*tp_traverse*/
-  __pyx_tp_clear_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch, /*tp_clear*/
+  __pyx_tp_traverse_14slim_bpr_epoch_SLIMBPREpoch, /*tp_traverse*/
+  __pyx_tp_clear_14slim_bpr_epoch_SLIMBPREpoch, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch, /*tp_methods*/
+  __pyx_methods_14slim_bpr_epoch_SLIMBPREpoch, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -32134,9 +32136,9 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_1__init__, /*tp_init*/
+  __pyx_pw_14slim_bpr_epoch_12SLIMBPREpoch_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch, /*tp_new*/
+  __pyx_tp_new_14slim_bpr_epoch_SLIMBPREpoch, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -32156,10 +32158,10 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch = {
   0, /*tp_print*/
   #endif
 };
-static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR;
+static struct __pyx_vtabstruct_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR;
 
-static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *p;
+static PyObject *__pyx_tp_new_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -32167,12 +32169,12 @@ static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR(PyT
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *)o);
-  p->__pyx_vtab = __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR;
+  p = ((struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *)o);
+  p->__pyx_vtab = __pyx_vtabptr_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR;
   return o;
 }
 
-static void __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR(PyObject *o) {
+static void __pyx_tp_dealloc_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -32181,21 +32183,21 @@ static void __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR(PyOb
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR[] = {
-  {"dealloc", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_3dealloc, METH_NOARGS, __pyx_doc_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_2dealloc},
-  {"test_list_tee_conversion", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion, METH_O, __pyx_doc_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion},
-  {"test_topK_from_list_selection", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection, METH_VARARGS|METH_KEYWORDS, __pyx_doc_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_9__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_11__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR[] = {
+  {"dealloc", (PyCFunction)__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_3dealloc, METH_NOARGS, __pyx_doc_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_2dealloc},
+  {"test_list_tee_conversion", (PyCFunction)__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_5test_list_tee_conversion, METH_O, __pyx_doc_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_4test_list_tee_conversion},
+  {"test_topK_from_list_selection", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_7test_topK_from_list_selection, METH_VARARGS|METH_KEYWORDS, __pyx_doc_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_6test_topK_from_list_selection},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_9__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_11__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR = {
+static PyTypeObject __pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SLIM_BPR_Cython_Epoch.Sparse_Matrix_Tree_CSR", /*tp_name*/
-  sizeof(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR), /*tp_basicsize*/
+  "slim_bpr_epoch.Sparse_Matrix_Tree_CSR", /*tp_name*/
+  sizeof(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR, /*tp_dealloc*/
+  __pyx_tp_dealloc_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -32228,7 +32230,7 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR = 
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR, /*tp_methods*/
+  __pyx_methods_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -32236,9 +32238,9 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR = 
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_1__init__, /*tp_init*/
+  __pyx_pw_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR, /*tp_new*/
+  __pyx_tp_new_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -32258,10 +32260,10 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR = 
   0, /*tp_print*/
   #endif
 };
-static struct __pyx_vtabstruct_21SLIM_BPR_Cython_Epoch_Triangular_Matrix __pyx_vtable_21SLIM_BPR_Cython_Epoch_Triangular_Matrix;
+static struct __pyx_vtabstruct_14slim_bpr_epoch_Triangular_Matrix __pyx_vtable_14slim_bpr_epoch_Triangular_Matrix;
 
-static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_Triangular_Matrix(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *p;
+static PyObject *__pyx_tp_new_14slim_bpr_epoch_Triangular_Matrix(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -32269,12 +32271,12 @@ static PyObject *__pyx_tp_new_21SLIM_BPR_Cython_Epoch_Triangular_Matrix(PyTypeOb
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *)o);
-  p->__pyx_vtab = __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Triangular_Matrix;
+  p = ((struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *)o);
+  p->__pyx_vtab = __pyx_vtabptr_14slim_bpr_epoch_Triangular_Matrix;
   return o;
 }
 
-static void __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_Triangular_Matrix(PyObject *o) {
+static void __pyx_tp_dealloc_14slim_bpr_epoch_Triangular_Matrix(PyObject *o) {
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -32283,19 +32285,19 @@ static void __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_Triangular_Matrix(PyObject 
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_21SLIM_BPR_Cython_Epoch_Triangular_Matrix[] = {
-  {"dealloc", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_3dealloc, METH_NOARGS, __pyx_doc_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_2dealloc},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_5__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_7__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_14slim_bpr_epoch_Triangular_Matrix[] = {
+  {"dealloc", (PyCFunction)__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_3dealloc, METH_NOARGS, __pyx_doc_14slim_bpr_epoch_17Triangular_Matrix_2dealloc},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_5__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_7__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix = {
+static PyTypeObject __pyx_type_14slim_bpr_epoch_Triangular_Matrix = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SLIM_BPR_Cython_Epoch.Triangular_Matrix", /*tp_name*/
-  sizeof(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix), /*tp_basicsize*/
+  "slim_bpr_epoch.Triangular_Matrix", /*tp_name*/
+  sizeof(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_21SLIM_BPR_Cython_Epoch_Triangular_Matrix, /*tp_dealloc*/
+  __pyx_tp_dealloc_14slim_bpr_epoch_Triangular_Matrix, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -32328,7 +32330,7 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_21SLIM_BPR_Cython_Epoch_Triangular_Matrix, /*tp_methods*/
+  __pyx_methods_14slim_bpr_epoch_Triangular_Matrix, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -32336,9 +32338,9 @@ static PyTypeObject __pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_1__init__, /*tp_init*/
+  __pyx_pw_14slim_bpr_epoch_17Triangular_Matrix_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_21SLIM_BPR_Cython_Epoch_Triangular_Matrix, /*tp_new*/
+  __pyx_tp_new_14slim_bpr_epoch_Triangular_Matrix, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -32481,7 +32483,7 @@ static PyBufferProcs __pyx_tp_as_buffer_array = {
 
 static PyTypeObject __pyx_type___pyx_array = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SLIM_BPR_Cython_Epoch.array", /*tp_name*/
+  "slim_bpr_epoch.array", /*tp_name*/
   sizeof(struct __pyx_array_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_array, /*tp_dealloc*/
@@ -32600,7 +32602,7 @@ static PyMethodDef __pyx_methods_Enum[] = {
 
 static PyTypeObject __pyx_type___pyx_MemviewEnum = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SLIM_BPR_Cython_Epoch.Enum", /*tp_name*/
+  "slim_bpr_epoch.Enum", /*tp_name*/
   sizeof(struct __pyx_MemviewEnum_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_Enum, /*tp_dealloc*/
@@ -32861,7 +32863,7 @@ static PyBufferProcs __pyx_tp_as_buffer_memoryview = {
 
 static PyTypeObject __pyx_type___pyx_memoryview = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SLIM_BPR_Cython_Epoch.memoryview", /*tp_name*/
+  "slim_bpr_epoch.memoryview", /*tp_name*/
   sizeof(struct __pyx_memoryview_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_memoryview, /*tp_dealloc*/
@@ -32999,7 +33001,7 @@ static struct PyGetSetDef __pyx_getsets__memoryviewslice[] = {
 
 static PyTypeObject __pyx_type___pyx_memoryviewslice = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SLIM_BPR_Cython_Epoch._memoryviewslice", /*tp_name*/
+  "slim_bpr_epoch._memoryviewslice", /*tp_name*/
   sizeof(struct __pyx_memoryviewslice_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc__memoryviewslice, /*tp_dealloc*/
@@ -33081,17 +33083,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_SLIM_BPR_Cython_Epoch(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_slim_bpr_epoch(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_SLIM_BPR_Cython_Epoch},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_slim_bpr_epoch},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "SLIM_BPR_Cython_Epoch",
+    "slim_bpr_epoch",
     __pyx_k_Created_on_07_09_17_author_Maur, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -33123,7 +33125,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ASCII, __pyx_k_ASCII, sizeof(__pyx_k_ASCII), 0, 0, 1, 1},
   {&__pyx_kp_u_After_tree_construction_columns, __pyx_k_After_tree_construction_columns, sizeof(__pyx_k_After_tree_construction_columns), 0, 1, 0, 0},
   {&__pyx_kp_u_After_tree_construction_data_con, __pyx_k_After_tree_construction_data_con, sizeof(__pyx_k_After_tree_construction_data_con), 0, 1, 0, 0},
-  {&__pyx_n_s_Base_Recommender_utils, __pyx_k_Base_Recommender_utils, sizeof(__pyx_k_Base_Recommender_utils), 0, 0, 1, 1},
   {&__pyx_kp_u_Bidirectional_linked_list_after, __pyx_k_Bidirectional_linked_list_after, sizeof(__pyx_k_Bidirectional_linked_list_after), 0, 1, 0, 0},
   {&__pyx_kp_u_Bidirectional_linked_list_not_co, __pyx_k_Bidirectional_linked_list_not_co, sizeof(__pyx_k_Bidirectional_linked_list_not_co), 0, 1, 0, 0},
   {&__pyx_kp_u_Bidirectional_list_from_tree_lin, __pyx_k_Bidirectional_list_from_tree_lin, sizeof(__pyx_k_Bidirectional_list_from_tree_lin), 0, 1, 0, 0},
@@ -33162,7 +33163,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_kp_u_Processed_2f_in_2f_seconds_BPR_l, __pyx_k_Processed_2f_in_2f_seconds_BPR_l, sizeof(__pyx_k_Processed_2f_in_2f_seconds_BPR_l), 0, 1, 0, 0},
   {&__pyx_n_s_RuntimeError, __pyx_k_RuntimeError, sizeof(__pyx_k_RuntimeError), 0, 0, 1, 1},
-  {&__pyx_n_s_SLIM_BPR_Cython_Epoch, __pyx_k_SLIM_BPR_Cython_Epoch, sizeof(__pyx_k_SLIM_BPR_Cython_Epoch), 0, 0, 1, 1},
+  {&__pyx_n_s_SLIMBPREpoch, __pyx_k_SLIMBPREpoch, sizeof(__pyx_k_SLIMBPREpoch), 0, 0, 1, 1},
   {&__pyx_n_s_Sparse_Matrix_Tree_CSR, __pyx_k_Sparse_Matrix_Tree_CSR, sizeof(__pyx_k_Sparse_Matrix_Tree_CSR), 0, 0, 1, 1},
   {&__pyx_n_s_T, __pyx_k_T, sizeof(__pyx_k_T), 0, 0, 1, 1},
   {&__pyx_kp_u_TopK_data_and_column_lists_have, __pyx_k_TopK_data_and_column_lists_have, sizeof(__pyx_k_TopK_data_and_column_lists_have), 0, 1, 0, 0},
@@ -33232,6 +33233,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_k, __pyx_k_k, sizeof(__pyx_k_k), 0, 0, 1, 1},
   {&__pyx_n_s_learning_rate, __pyx_k_learning_rate, sizeof(__pyx_k_learning_rate), 0, 0, 1, 1},
   {&__pyx_n_s_li_reg, __pyx_k_li_reg, sizeof(__pyx_k_li_reg), 0, 0, 1, 1},
+  {&__pyx_n_s_lib_Recommender_utils, __pyx_k_lib_Recommender_utils, sizeof(__pyx_k_lib_Recommender_utils), 0, 0, 1, 1},
   {&__pyx_n_s_lj_reg, __pyx_k_lj_reg, sizeof(__pyx_k_lj_reg), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
@@ -33262,7 +33264,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_state, __pyx_k_pyx_state, sizeof(__pyx_k_pyx_state), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_type, __pyx_k_pyx_type, sizeof(__pyx_k_pyx_type), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Enum, __pyx_k_pyx_unpickle_Enum, sizeof(__pyx_k_pyx_unpickle_Enum), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle_SLIM_BPR_Cython_E, __pyx_k_pyx_unpickle_SLIM_BPR_Cython_E, sizeof(__pyx_k_pyx_unpickle_SLIM_BPR_Cython_E), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle_SLIMBPREpoch, __pyx_k_pyx_unpickle_SLIMBPREpoch, sizeof(__pyx_k_pyx_unpickle_SLIMBPREpoch), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_random_seed, __pyx_k_random_seed, sizeof(__pyx_k_random_seed), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
@@ -33282,6 +33284,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_shape, __pyx_k_shape, sizeof(__pyx_k_shape), 0, 0, 1, 1},
   {&__pyx_n_s_similarityMatrixTopK, __pyx_k_similarityMatrixTopK, sizeof(__pyx_k_similarityMatrixTopK), 0, 0, 1, 1},
   {&__pyx_n_s_size, __pyx_k_size, sizeof(__pyx_k_size), 0, 0, 1, 1},
+  {&__pyx_n_s_slim_bpr_epoch, __pyx_k_slim_bpr_epoch, sizeof(__pyx_k_slim_bpr_epoch), 0, 0, 1, 1},
   {&__pyx_n_s_sorted_indices, __pyx_k_sorted_indices, sizeof(__pyx_k_sorted_indices), 0, 0, 1, 1},
   {&__pyx_n_s_sps, __pyx_k_sps, sizeof(__pyx_k_sps), 0, 0, 1, 1},
   {&__pyx_n_s_start, __pyx_k_start, sizeof(__pyx_k_start), 0, 0, 1, 1},
@@ -33335,7 +33338,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":197
+  /* "slim_bpr_epoch.pyx":197
  *     def _dealloc(self):
  * 
  *         print("Deallocating Cython objects")             # <<<<<<<<<<<<<<
@@ -33346,7 +33349,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1082
+  /* "slim_bpr_epoch.pyx":1082
  *                                                         numElements_higher, numElements_lower)
  * 
  *         print("Bidirectional list link - Passed")             # <<<<<<<<<<<<<<
@@ -33357,7 +33360,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1093
+  /* "slim_bpr_epoch.pyx":1093
  *                 'Columns not ordered correctly. Tree not flattened properly'
  * 
  *         print("Bidirectional list ordering - Passed")             # <<<<<<<<<<<<<<
@@ -33368,7 +33371,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1114
+  /* "slim_bpr_epoch.pyx":1114
  *             current_element = current_element.lower
  * 
  *         print("Bidirectional list from tree link - Passed")             # <<<<<<<<<<<<<<
@@ -33379,7 +33382,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1137
+  /* "slim_bpr_epoch.pyx":1137
  *                 'After tree construction data content is changed'
  * 
  *         print("Bidirectional list from tree ordering - Passed")             # <<<<<<<<<<<<<<
@@ -33390,7 +33393,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1163
+  /* "slim_bpr_epoch.pyx":1163
  *             "TopK extracted list is longer than desired value. Desired is {}, while list is {}".format(topK, len(column_topK))
  * 
  *         print("TopK extracted length - Passed")             # <<<<<<<<<<<<<<
@@ -33401,7 +33404,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1194
+  /* "slim_bpr_epoch.pyx":1194
  *                 " Extracted list lenght is {}, while numpy is {}".format(index, data_topK[index], data_topK_numpy[index])
  * 
  *         print("TopK extracted content - Passed")             # <<<<<<<<<<<<<<
@@ -33431,7 +33434,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1351
+  /* "slim_bpr_epoch.pyx":1351
  *         cdef long row, col, index
  * 
  *         cdef array[double] template_zero = array('d')             # <<<<<<<<<<<<<<
@@ -33731,14 +33734,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__38);
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_SLIM_BPR_Cython_Epoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_SLIMBPREpoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
   __pyx_tuple__41 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_SLIM_BPR_Cython_E, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_SLIMBPREpoch, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(1, 1, __pyx_L1_error)
 
   /* "View.MemoryView":286
  *         return self.name
@@ -33870,59 +33873,59 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch = &__pyx_vtable_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch.adaptive_gradient = (double (*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *, double, long, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice))__pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_adaptive_gradient;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch.sampleBPR_Cython = (struct __pyx_t_21SLIM_BPR_Cython_Epoch_BPR_sample (*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch *))__pyx_f_21SLIM_BPR_Cython_Epoch_21SLIM_BPR_Cython_Epoch_sampleBPR_Cython;
-  if (PyType_Ready(&__pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_vtabptr_14slim_bpr_epoch_SLIMBPREpoch = &__pyx_vtable_14slim_bpr_epoch_SLIMBPREpoch;
+  __pyx_vtable_14slim_bpr_epoch_SLIMBPREpoch.adaptive_gradient = (double (*)(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *, double, long, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice))__pyx_f_14slim_bpr_epoch_12SLIMBPREpoch_adaptive_gradient;
+  __pyx_vtable_14slim_bpr_epoch_SLIMBPREpoch.sampleBPR_Cython = (struct __pyx_t_14slim_bpr_epoch_BPR_sample (*)(struct __pyx_obj_14slim_bpr_epoch_SLIMBPREpoch *))__pyx_f_14slim_bpr_epoch_12SLIMBPREpoch_sampleBPR_Cython;
+  if (PyType_Ready(&__pyx_type_14slim_bpr_epoch_SLIMBPREpoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch.tp_print = 0;
+  __pyx_type_14slim_bpr_epoch_SLIMBPREpoch.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch.tp_dictoffset && __pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_14slim_bpr_epoch_SLIMBPREpoch.tp_dictoffset && __pyx_type_14slim_bpr_epoch_SLIMBPREpoch.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_14slim_bpr_epoch_SLIMBPREpoch.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch.tp_dict, __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SLIM_BPR_Cython_Epoch, (PyObject *)&__pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
-  __pyx_ptype_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch = &__pyx_type_21SLIM_BPR_Cython_Epoch_SLIM_BPR_Cython_Epoch;
-  __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR = &__pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.add_value = (double (*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, long, double))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_add_value;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.get_value = (double (*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, long))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_value;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.get_scipy_csr = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.rebalance_tree = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.subtree_to_list_flat = (__pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtree_to_list_flat;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.from_linked_list_to_python_list = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_from_linked_list_to_python_list;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.subtree_free_memory = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_subtree_free_memory;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.list_free_memory = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_list_free_memory;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.build_tree_from_list_flat = (__pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_build_tree_from_list_flat;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.topK_selection_from_list = (__pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_21SLIM_BPR_Cython_Epoch_matrix_element_tree_s *, long))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_topK_selection_from_list;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.test_list_tee_conversion = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, int __pyx_skip_dispatch))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.test_topK_from_list_selection = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR *, long, long, int __pyx_skip_dispatch))__pyx_f_21SLIM_BPR_Cython_Epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection;
-  if (PyType_Ready(&__pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_14slim_bpr_epoch_SLIMBPREpoch.tp_dict, __pyx_vtabptr_14slim_bpr_epoch_SLIMBPREpoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SLIMBPREpoch, (PyObject *)&__pyx_type_14slim_bpr_epoch_SLIMBPREpoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14slim_bpr_epoch_SLIMBPREpoch) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_ptype_14slim_bpr_epoch_SLIMBPREpoch = &__pyx_type_14slim_bpr_epoch_SLIMBPREpoch;
+  __pyx_vtabptr_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR = &__pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.add_value = (double (*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, long, double))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_add_value;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.get_value = (double (*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, long))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_value;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.get_scipy_csr = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr *__pyx_optional_args))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_get_scipy_csr;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.rebalance_tree = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, struct __pyx_opt_args_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree *__pyx_optional_args))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_rebalance_tree;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.subtree_to_list_flat = (__pyx_t_14slim_bpr_epoch_matrix_element_tree_s *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_subtree_to_list_flat;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.from_linked_list_to_python_list = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_from_linked_list_to_python_list;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.subtree_free_memory = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_subtree_free_memory;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.list_free_memory = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_list_free_memory;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.build_tree_from_list_flat = (__pyx_t_14slim_bpr_epoch_matrix_element_tree_s *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_build_tree_from_list_flat;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.topK_selection_from_list = (__pyx_t_14slim_bpr_epoch_matrix_element_tree_s *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, __pyx_t_14slim_bpr_epoch_matrix_element_tree_s *, long))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_topK_selection_from_list;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.test_list_tee_conversion = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, int __pyx_skip_dispatch))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_list_tee_conversion;
+  __pyx_vtable_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.test_topK_from_list_selection = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR *, long, long, int __pyx_skip_dispatch))__pyx_f_14slim_bpr_epoch_22Sparse_Matrix_Tree_CSR_test_topK_from_list_selection;
+  if (PyType_Ready(&__pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.tp_print = 0;
+  __pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.tp_dictoffset && __pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.tp_dictoffset && __pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR.tp_dict, __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Sparse_Matrix_Tree_CSR, (PyObject *)&__pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
-  __pyx_ptype_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR = &__pyx_type_21SLIM_BPR_Cython_Epoch_Sparse_Matrix_Tree_CSR;
-  __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Triangular_Matrix = &__pyx_vtable_21SLIM_BPR_Cython_Epoch_Triangular_Matrix;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.add_value = (double (*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *, long, long, double))__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_add_value;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.get_value = (double (*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *, long, long))__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_value;
-  __pyx_vtable_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.get_scipy_csr = (PyObject *(*)(struct __pyx_obj_21SLIM_BPR_Cython_Epoch_Triangular_Matrix *, struct __pyx_opt_args_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args))__pyx_f_21SLIM_BPR_Cython_Epoch_17Triangular_Matrix_get_scipy_csr;
-  if (PyType_Ready(&__pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR.tp_dict, __pyx_vtabptr_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Sparse_Matrix_Tree_CSR, (PyObject *)&__pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR) < 0) __PYX_ERR(0, 582, __pyx_L1_error)
+  __pyx_ptype_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR = &__pyx_type_14slim_bpr_epoch_Sparse_Matrix_Tree_CSR;
+  __pyx_vtabptr_14slim_bpr_epoch_Triangular_Matrix = &__pyx_vtable_14slim_bpr_epoch_Triangular_Matrix;
+  __pyx_vtable_14slim_bpr_epoch_Triangular_Matrix.add_value = (double (*)(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *, long, long, double))__pyx_f_14slim_bpr_epoch_17Triangular_Matrix_add_value;
+  __pyx_vtable_14slim_bpr_epoch_Triangular_Matrix.get_value = (double (*)(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *, long, long))__pyx_f_14slim_bpr_epoch_17Triangular_Matrix_get_value;
+  __pyx_vtable_14slim_bpr_epoch_Triangular_Matrix.get_scipy_csr = (PyObject *(*)(struct __pyx_obj_14slim_bpr_epoch_Triangular_Matrix *, struct __pyx_opt_args_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr *__pyx_optional_args))__pyx_f_14slim_bpr_epoch_17Triangular_Matrix_get_scipy_csr;
+  if (PyType_Ready(&__pyx_type_14slim_bpr_epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.tp_print = 0;
+  __pyx_type_14slim_bpr_epoch_Triangular_Matrix.tp_print = 0;
   #endif
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.tp_dictoffset && __pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_14slim_bpr_epoch_Triangular_Matrix.tp_dictoffset && __pyx_type_14slim_bpr_epoch_Triangular_Matrix.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_14slim_bpr_epoch_Triangular_Matrix.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix.tp_dict, __pyx_vtabptr_21SLIM_BPR_Cython_Epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Triangular_Matrix, (PyObject *)&__pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
-  __pyx_ptype_21SLIM_BPR_Cython_Epoch_Triangular_Matrix = &__pyx_type_21SLIM_BPR_Cython_Epoch_Triangular_Matrix;
+  if (__Pyx_SetVtable(__pyx_type_14slim_bpr_epoch_Triangular_Matrix.tp_dict, __pyx_vtabptr_14slim_bpr_epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Triangular_Matrix, (PyObject *)&__pyx_type_14slim_bpr_epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14slim_bpr_epoch_Triangular_Matrix) < 0) __PYX_ERR(0, 1230, __pyx_L1_error)
+  __pyx_ptype_14slim_bpr_epoch_Triangular_Matrix = &__pyx_type_14slim_bpr_epoch_Triangular_Matrix;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
   if (PyType_Ready(&__pyx_type___pyx_array) < 0) __PYX_ERR(1, 105, __pyx_L1_error)
@@ -34056,11 +34059,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC initSLIM_BPR_Cython_Epoch(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC initSLIM_BPR_Cython_Epoch(void)
+__Pyx_PyMODINIT_FUNC initslim_bpr_epoch(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initslim_bpr_epoch(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_SLIM_BPR_Cython_Epoch(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_SLIM_BPR_Cython_Epoch(void)
+__Pyx_PyMODINIT_FUNC PyInit_slim_bpr_epoch(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_slim_bpr_epoch(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -34127,7 +34130,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_SLIM_BPR_Cython_Epoch(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_slim_bpr_epoch(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -34139,7 +34142,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_SLIM_BPR_Cython_Epoch(PyObject *__
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'SLIM_BPR_Cython_Epoch' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'slim_bpr_epoch' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -34154,7 +34157,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_SLIM_BPR_Cython_Epoch(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_slim_bpr_epoch(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -34193,7 +34196,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("SLIM_BPR_Cython_Epoch", __pyx_methods, __pyx_k_Created_on_07_09_17_author_Maur, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("slim_bpr_epoch", __pyx_methods, __pyx_k_Created_on_07_09_17_author_Maur, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -34211,14 +34214,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_SLIM_BPR_Cython_Epoch) {
+  if (__pyx_module_is_main_slim_bpr_epoch) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name_2, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "SLIM_BPR_Cython_Epoch")) {
-      if (unlikely(PyDict_SetItemString(modules, "SLIM_BPR_Cython_Epoch", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "slim_bpr_epoch")) {
+      if (unlikely(PyDict_SetItemString(modules, "slim_bpr_epoch", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -34238,12 +34241,12 @@ if (!__Pyx_RefNanny) {
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  __Pyx_TraceCall("__Pyx_PyMODINIT_FUNC PyInit_SLIM_BPR_Cython_Epoch(void)", __pyx_f[0], 1, 0, __PYX_ERR(0, 1, __pyx_L1_error));
+  __Pyx_TraceCall("__Pyx_PyMODINIT_FUNC PyInit_slim_bpr_epoch(void)", __pyx_f[0], 1, 0, __PYX_ERR(0, 1, __pyx_L1_error));
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":34
+  /* "slim_bpr_epoch.pyx":34
  * 
  * 
- * from Base.Recommender_utils import similarityMatrixTopK, check_matrix             # <<<<<<<<<<<<<<
+ * from lib.Recommender_utils import similarityMatrixTopK, check_matrix             # <<<<<<<<<<<<<<
  * import numpy as np
  * import cython
  */
@@ -34255,7 +34258,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(__pyx_n_s_check_matrix);
   __Pyx_GIVEREF(__pyx_n_s_check_matrix);
   PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_check_matrix);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_Base_Recommender_utils, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_lib_Recommender_utils, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_similarityMatrixTopK); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
@@ -34268,9 +34271,9 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":35
+  /* "slim_bpr_epoch.pyx":35
  * 
- * from Base.Recommender_utils import similarityMatrixTopK, check_matrix
+ * from lib.Recommender_utils import similarityMatrixTopK, check_matrix
  * import numpy as np             # <<<<<<<<<<<<<<
  * import cython
  * cimport numpy as np
@@ -34280,7 +34283,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_2) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":38
+  /* "slim_bpr_epoch.pyx":38
  * import cython
  * cimport numpy as np
  * import time             # <<<<<<<<<<<<<<
@@ -34292,7 +34295,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_2) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":39
+  /* "slim_bpr_epoch.pyx":39
  * cimport numpy as np
  * import time
  * import sys             # <<<<<<<<<<<<<<
@@ -34304,7 +34307,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_2) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":493
+  /* "slim_bpr_epoch.pyx":493
  * ##################################################################################################################
  * 
  * import scipy.sparse as sps             # <<<<<<<<<<<<<<
@@ -34322,7 +34325,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sps, __pyx_t_1) < 0) __PYX_ERR(0, 493, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":495
+  /* "slim_bpr_epoch.pyx":495
  * import scipy.sparse as sps
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -34334,7 +34337,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 495, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1208
+  /* "slim_bpr_epoch.pyx":1208
  * 
  * 
  * import scipy.sparse as sps             # <<<<<<<<<<<<<<
@@ -34352,7 +34355,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_sps, __pyx_t_2) < 0) __PYX_ERR(0, 1208, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1210
+  /* "slim_bpr_epoch.pyx":1210
  * import scipy.sparse as sps
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -34365,16 +34368,16 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_SLIM_BPR_Cython_Epoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle_SLIMBPREpoch(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_21SLIM_BPR_Cython_Epoch_1__pyx_unpickle_SLIM_BPR_Cython_Epoch, NULL, __pyx_n_s_SLIM_BPR_Cython_Epoch); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_14slim_bpr_epoch_1__pyx_unpickle_SLIMBPREpoch, NULL, __pyx_n_s_slim_bpr_epoch); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SLIM_BPR_Cython_E, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SLIMBPREpoch, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SLIM_BPR_Cython_Epoch.pyx":1
+  /* "slim_bpr_epoch.pyx":1
  * """             # <<<<<<<<<<<<<<
  * Created on 07/09/17
  * 
@@ -34546,11 +34549,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init SLIM_BPR_Cython_Epoch", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init slim_bpr_epoch", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init SLIM_BPR_Cython_Epoch");
+    PyErr_SetString(PyExc_ImportError, "init slim_bpr_epoch");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

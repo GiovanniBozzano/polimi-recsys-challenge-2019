@@ -31,7 +31,7 @@ ELSE:
 
 
 
-from Base.Recommender_utils import similarityMatrixTopK, check_matrix
+from lib.Recommender_utils import similarityMatrixTopK, check_matrix
 import numpy as np
 import cython
 cimport numpy as np
@@ -56,7 +56,7 @@ cdef struct BPR_sample:
 @cython.nonecheck(False)
 @cython.cdivision(True)
 @cython.overflowcheck(False)
-cdef class SLIM_BPR_Cython_Epoch:
+cdef class SLIMBPREpoch:
 
     cdef int n_users, n_items, batch_size
     cdef int topK
@@ -92,7 +92,7 @@ cdef class SLIM_BPR_Cython_Epoch:
                  verbose = False, random_seed = None,
                  sgd_mode='adam', gamma=0.995, beta_1=0.9, beta_2=0.999):
 
-        super(SLIM_BPR_Cython_Epoch, self).__init__()
+        super(SLIMBPREpoch, self).__init__()
 
         # Create copy of URM_train in csr format
         # make sure indices are sorted

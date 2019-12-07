@@ -11,7 +11,7 @@ import time, sys
 import scipy.sparse as sps
 
 
-class Compute_Similarity_Euclidean:
+class ComputeSimilarityEuclidean:
 
 
     def __init__(self, dataMatrix, topK=100, shrink = 0, normalize=False, normalize_avg_row=False,
@@ -31,7 +31,7 @@ class Compute_Similarity_Euclidean:
 
         """
 
-        super(Compute_Similarity_Euclidean, self).__init__()
+        super(ComputeSimilarityEuclidean, self).__init__()
 
         self.shrink = shrink
         self.normalize = normalize

@@ -1,13 +1,12 @@
 import numpy as np
 import pandas as pd
-
-from SLIM_BPR.slim_bpr import SLIMBPR
-from SLIM_ElasticNet.slim_elastic_net import SLIMElasticNet
-from cf.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
-from cf.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
-from cbf.user_content_based_filtering import UserContentBasedFiltering
-from cbf.item_content_based_filtering import ItemContentBasedFiltering
-from MF.alternating_least_square import AlternatingLeastSquare
+from recommenders.slim_bpr import SLIMBPR
+from recommenders.elastic_net import SLIMElasticNet
+from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
+from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
+from recommenders.user_content_based_filtering import UserContentBasedFiltering
+from recommenders.item_content_based_filtering import ItemContentBasedFiltering
+from recommenders.alternating_least_square import AlternatingLeastSquare
 
 
 class HybridRecommender(object):

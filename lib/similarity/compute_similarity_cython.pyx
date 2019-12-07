@@ -40,7 +40,7 @@ from libc.math cimport sqrt
 
 
 import scipy.sparse as sps
-from Base.Recommender_utils import check_matrix
+from lib.Recommender_utils import check_matrix
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -48,7 +48,7 @@ from Base.Recommender_utils import check_matrix
 @cython.nonecheck(False)
 @cython.cdivision(True)
 @cython.overflowcheck(False)
-cdef class Compute_Similarity_Cython:
+cdef class ComputeSimilarityCython:
 
     cdef int TopK
     cdef long n_columns, n_rows
@@ -98,7 +98,7 @@ cdef class Compute_Similarity_Cython:
         
         """
 
-        super(Compute_Similarity_Cython, self).__init__()
+        super(ComputeSimilarityCython, self).__init__()
 
         self.n_columns = dataMatrix.shape[1]
         self.n_rows = dataMatrix.shape[0]

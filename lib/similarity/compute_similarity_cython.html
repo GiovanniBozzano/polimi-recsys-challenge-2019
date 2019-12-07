@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Cython: Compute_Similarity_Cython.pyx</title>
+    <title>Cython: compute_similarity_cython.pyx</title>
     <style type="text/css">
     
 body.cython { font-family: courier; font-size: 12; }
@@ -294,7 +294,7 @@ body.cython { font-family: courier; font-size: 12; }
     <span style="background-color: #FFFF00">Yellow lines</span> hint at Python interaction.<br />
     Click on a line that starts with a "<code>+</code>" to see the C code that Cython generated for it.
 </p>
-<p>Raw output: <a href="Compute_Similarity_Cython.c">Compute_Similarity_Cython.c</a></p>
+<p>Raw output: <a href="compute_similarity_cython.c">compute_similarity_cython.c</a></p>
 <div class="cython"><pre class="cython line score-8" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">001</span>: """</pre>
 <pre class='cython code score-8 '>  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyDict_NewPresized</span>(0);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
@@ -363,13 +363,13 @@ body.cython { font-family: courier; font-size: 12; }
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_1); __pyx_t_1 = 0;
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_sps, __pyx_t_2) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 42, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
-</pre><pre class="cython line score-19" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">043</span>: from Base.Recommender_utils import check_matrix</pre>
+</pre><pre class="cython line score-19" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">043</span>: from lib.Recommender_utils import check_matrix</pre>
 <pre class='cython code score-19 '>  __pyx_t_2 = <span class='py_c_api'>PyList_New</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_n_s_check_matrix);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_n_s_check_matrix);
   <span class='py_macro_api'>PyList_SET_ITEM</span>(__pyx_t_2, 0, __pyx_n_s_check_matrix);
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_Import</span>(__pyx_n_s_Base_Recommender_utils, __pyx_t_2, 0);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_Import</span>(__pyx_n_s_lib_Recommender_utils, __pyx_t_2, 0);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = <span class='pyx_c_api'>__Pyx_ImportFrom</span>(__pyx_t_1, __pyx_n_s_check_matrix);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)</span>
@@ -384,10 +384,10 @@ body.cython { font-family: courier; font-size: 12; }
 <pre class="cython line score-0">&#xA0;<span class="">048</span>: @cython.nonecheck(False)</pre>
 <pre class="cython line score-0">&#xA0;<span class="">049</span>: @cython.cdivision(True)</pre>
 <pre class="cython line score-0">&#xA0;<span class="">050</span>: @cython.overflowcheck(False)</pre>
-<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">051</span>: cdef class Compute_Similarity_Cython:</pre>
-<pre class='cython code score-0 '>struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython {
+<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">051</span>: cdef class ComputeSimilarityCython:</pre>
+<pre class='cython code score-0 '>struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython {
   PyObject_HEAD
-  struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_vtab;
+  struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *__pyx_vtab;
   int TopK;
   long n_columns;
   long n_rows;
@@ -420,15 +420,15 @@ body.cython { font-family: courier; font-size: 12; }
   __Pyx_memviewslice W_dense;
 };
 /* … */
-struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython {
-  PyObject *(*useOnlyBooleanInteractions)(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *, PyObject *);
-  PyObject *(*applyPearsonCorrelation)(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *, PyObject *);
-  PyObject *(*applyAdjustedCosine)(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *, PyObject *);
-  __Pyx_memviewslice (*getUsersThatRatedItem)(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *, long);
-  __Pyx_memviewslice (*getItemsRatedByUser)(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *, long);
-  PyObject *(*computeItemSimilarities)(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *, long);
+struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython {
+  PyObject *(*useOnlyBooleanInteractions)(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *, PyObject *);
+  PyObject *(*applyPearsonCorrelation)(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *, PyObject *);
+  PyObject *(*applyAdjustedCosine)(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *, PyObject *);
+  __Pyx_memviewslice (*getUsersThatRatedItem)(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *, long);
+  __Pyx_memviewslice (*getItemsRatedByUser)(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *, long);
+  PyObject *(*computeItemSimilarities)(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *, long);
 };
-static struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_vtabptr_25Compute_Similarity_Cython_Compute_Similarity_Cython;
+static struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *__pyx_vtabptr_25compute_similarity_cython_ComputeSimilarityCython;
 
 </pre><pre class="cython line score-0">&#xA0;<span class="">052</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">053</span>:     cdef int TopK</pre>
@@ -452,12 +452,12 @@ static struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cy
 <pre class="cython line score-0">&#xA0;<span class="">071</span>: </pre>
 <pre class="cython line score-10" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">072</span>:     def __init__(self, dataMatrix, topK = 100, shrink=0, normalize = True,</pre>
 <pre class='cython code score-10 '>/* Python wrapper */
-static int __pyx_pw_25Compute_Similarity_Cython_25Compute_Similarity_Cython_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_25Compute_Similarity_Cython_25Compute_Similarity_Cython___init__[] = "\n        Computes the cosine similarity on the columns of dataMatrix\n        If it is computed on URM=|users|x|items|, pass the URM as is.\n        If it is computed on ICM=|items|x|features|, pass the ICM transposed.\n        :param dataMatrix:\n        :param topK:\n        :param shrink:\n        :param normalize:           If True divide the dot product by the product of the norms\n        :param row_weights:         Multiply the values in each row by a specified value. Array\n        :param asymmetric_alpha     Coefficient alpha for the asymmetric cosine\n        :param similarity:  \"cosine\"        computes Cosine similarity\n                            \"adjusted\"      computes Adjusted Cosine, removing the average of the users\n                            \"asymmetric\"    computes Asymmetric Cosine\n                            \"pearson\"       computes Pearson Correlation, removing the average of the items\n                            \"jaccard\"       computes Jaccard similarity for binary interactions using Tanimoto\n                            \"dice\"          computes Dice similarity for binary interactions\n                            \"tversky\"       computes Tversky similarity for binary interactions\n                            \"tanimoto\"      computes Tanimoto coefficient for binary interactions\n\n        ";
+static int __pyx_pw_25compute_similarity_cython_23ComputeSimilarityCython_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_25compute_similarity_cython_23ComputeSimilarityCython___init__[] = "\n        Computes the cosine similarity on the columns of dataMatrix\n        If it is computed on URM=|users|x|items|, pass the URM as is.\n        If it is computed on ICM=|items|x|features|, pass the ICM transposed.\n        :param dataMatrix:\n        :param topK:\n        :param shrink:\n        :param normalize:           If True divide the dot product by the product of the norms\n        :param row_weights:         Multiply the values in each row by a specified value. Array\n        :param asymmetric_alpha     Coefficient alpha for the asymmetric cosine\n        :param similarity:  \"cosine\"        computes Cosine similarity\n                            \"adjusted\"      computes Adjusted Cosine, removing the average of the users\n                            \"asymmetric\"    computes Asymmetric Cosine\n                            \"pearson\"       computes Pearson Correlation, removing the average of the items\n                            \"jaccard\"       computes Jaccard similarity for binary interactions using Tanimoto\n                            \"dice\"          computes Dice similarity for binary interactions\n                            \"tversky\"       computes Tversky similarity for binary interactions\n                            \"tanimoto\"      computes Tanimoto coefficient for binary interactions\n\n        ";
 #if CYTHON_COMPILING_IN_CPYTHON
-struct wrapperbase __pyx_wrapperbase_25Compute_Similarity_Cython_25Compute_Similarity_Cython___init__;
+struct wrapperbase __pyx_wrapperbase_25compute_similarity_cython_23ComputeSimilarityCython___init__;
 #endif
-static int __pyx_pw_25Compute_Similarity_Cython_25Compute_Similarity_Cython_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_25compute_similarity_cython_23ComputeSimilarityCython_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_dataMatrix = 0;
   PyObject *__pyx_v_topK = 0;
   PyObject *__pyx_v_shrink = 0;
@@ -486,7 +486,7 @@ static int __pyx_pw_25Compute_Similarity_Cython_25Compute_Similarity_Cython_1__i
   return __pyx_r;
 }
 
-static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___init__(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, PyObject *__pyx_v_dataMatrix, PyObject *__pyx_v_topK, PyObject *__pyx_v_shrink, PyObject *__pyx_v_normalize, PyObject *__pyx_v_asymmetric_alpha, PyObject *__pyx_v_tversky_alpha, PyObject *__pyx_v_tversky_beta, PyObject *__pyx_v_similarity, PyObject *__pyx_v_row_weights) {
+static int __pyx_pf_25compute_similarity_cython_23ComputeSimilarityCython___init__(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, PyObject *__pyx_v_dataMatrix, PyObject *__pyx_v_topK, PyObject *__pyx_v_shrink, PyObject *__pyx_v_normalize, PyObject *__pyx_v_asymmetric_alpha, PyObject *__pyx_v_tversky_alpha, PyObject *__pyx_v_tversky_beta, PyObject *__pyx_v_similarity, PyObject *__pyx_v_row_weights) {
   int __pyx_r;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
@@ -507,7 +507,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_12, 1);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_13);
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_15, 1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_dataMatrix);
@@ -637,11 +637,11 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
   __pyx_L5_argtuple_error:;
   <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 0, 1, 9, <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args)); <span class='error_goto'>__PYX_ERR(0, 72, __pyx_L3_error)</span>
   __pyx_L3_error:;
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___init__(((struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self), __pyx_v_dataMatrix, __pyx_v_topK, __pyx_v_shrink, __pyx_v_normalize, __pyx_v_asymmetric_alpha, __pyx_v_tversky_alpha, __pyx_v_tversky_beta, __pyx_v_similarity, __pyx_v_row_weights);
+  __pyx_r = __pyx_pf_25compute_similarity_cython_23ComputeSimilarityCython___init__(((struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self), __pyx_v_dataMatrix, __pyx_v_topK, __pyx_v_shrink, __pyx_v_normalize, __pyx_v_asymmetric_alpha, __pyx_v_tversky_alpha, __pyx_v_tversky_beta, __pyx_v_similarity, __pyx_v_row_weights);
 </pre><pre class="cython line score-0">&#xA0;<span class="">075</span>:         """</pre>
 <pre class="cython line score-0">&#xA0;<span class="">076</span>:         Computes the cosine similarity on the columns of dataMatrix</pre>
 <pre class="cython line score-0">&#xA0;<span class="">077</span>:         If it is computed on URM=|users|x|items|, pass the URM as is.</pre>
@@ -668,12 +668,12 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
 <pre class="cython line score-0">&#xA0;<span class="">098</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">099</span>:         """</pre>
 <pre class="cython line score-0">&#xA0;<span class="">100</span>: </pre>
-<pre class="cython line score-32" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">101</span>:         super(Compute_Similarity_Cython, self).__init__()</pre>
+<pre class="cython line score-32" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">101</span>:         super(ComputeSimilarityCython, self).__init__()</pre>
 <pre class='cython code score-32 '>  __pyx_t_2 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
-  <span class='pyx_macro_api'>__Pyx_INCREF</span>(((PyObject *)__pyx_ptype_25Compute_Similarity_Cython_Compute_Similarity_Cython));
-  <span class='refnanny'>__Pyx_GIVEREF</span>(((PyObject *)__pyx_ptype_25Compute_Similarity_Cython_Compute_Similarity_Cython));
-  <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_25Compute_Similarity_Cython_Compute_Similarity_Cython));
+  <span class='pyx_macro_api'>__Pyx_INCREF</span>(((PyObject *)__pyx_ptype_25compute_similarity_cython_ComputeSimilarityCython));
+  <span class='refnanny'>__Pyx_GIVEREF</span>(((PyObject *)__pyx_ptype_25compute_similarity_cython_ComputeSimilarityCython));
+  <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 0, ((PyObject *)__pyx_ptype_25compute_similarity_cython_ComputeSimilarityCython));
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(((PyObject *)__pyx_v_self));
   <span class='refnanny'>__Pyx_GIVEREF</span>(((PyObject *)__pyx_v_self));
   <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
@@ -1011,7 +1011,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
     goto __pyx_L6;
   }
 </pre><pre class="cython line score-1" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">160</span>:             dataMatrix = self.applyAdjustedCosine(dataMatrix)</pre>
-<pre class='cython code score-1 '>    __pyx_t_2 = ((struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;applyAdjustedCosine(__pyx_v_self, __pyx_v_dataMatrix);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)</span>
+<pre class='cython code score-1 '>    __pyx_t_2 = ((struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;applyAdjustedCosine(__pyx_v_self, __pyx_v_dataMatrix);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 160, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
     <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_v_dataMatrix, __pyx_t_2);
     __pyx_t_2 = 0;
@@ -1022,7 +1022,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
     goto __pyx_L6;
   }
 </pre><pre class="cython line score-1" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">162</span>:             dataMatrix = self.applyPearsonCorrelation(dataMatrix)</pre>
-<pre class='cython code score-1 '>    __pyx_t_2 = ((struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;applyPearsonCorrelation(__pyx_v_self, __pyx_v_dataMatrix);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)</span>
+<pre class='cython code score-1 '>    __pyx_t_2 = ((struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;applyPearsonCorrelation(__pyx_v_self, __pyx_v_dataMatrix);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
     <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_v_dataMatrix, __pyx_t_2);
     __pyx_t_2 = 0;
@@ -1047,7 +1047,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
   }
   __pyx_L6:;
 </pre><pre class="cython line score-1" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">164</span>:             dataMatrix = self.useOnlyBooleanInteractions(dataMatrix)</pre>
-<pre class='cython code score-1 '>    __pyx_t_2 = ((struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;useOnlyBooleanInteractions(__pyx_v_self, __pyx_v_dataMatrix);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 164, __pyx_L1_error)</span>
+<pre class='cython code score-1 '>    __pyx_t_2 = ((struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;useOnlyBooleanInteractions(__pyx_v_self, __pyx_v_dataMatrix);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 164, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
     <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_v_dataMatrix, __pyx_t_2);
     __pyx_t_2 = 0;
@@ -1716,7 +1716,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
 <pre class="cython line score-0">&#xA0;<span class="">217</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">218</span>: </pre>
 <pre class="cython line score-3" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">219</span>:     cdef useOnlyBooleanInteractions(self, dataMatrix):</pre>
-<pre class='cython code score-3 '>static PyObject *__pyx_f_25Compute_Similarity_Cython_25Compute_Similarity_Cython_useOnlyBooleanInteractions(CYTHON_UNUSED struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, PyObject *__pyx_v_dataMatrix) {
+<pre class='cython code score-3 '>static PyObject *__pyx_f_25compute_similarity_cython_23ComputeSimilarityCython_useOnlyBooleanInteractions(CYTHON_UNUSED struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, PyObject *__pyx_v_dataMatrix) {
   long __pyx_v_index;
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
@@ -1727,7 +1727,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.useOnlyBooleanInteractions", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.useOnlyBooleanInteractions", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -1766,7 +1766,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
 <pre class="cython line score-0">&#xA0;<span class="">232</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">233</span>: </pre>
 <pre class="cython line score-10" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">234</span>:     cdef applyPearsonCorrelation(self, dataMatrix):</pre>
-<pre class='cython code score-10 '>static PyObject *__pyx_f_25Compute_Similarity_Cython_25Compute_Similarity_Cython_applyPearsonCorrelation(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, PyObject *__pyx_v_dataMatrix) {
+<pre class='cython code score-10 '>static PyObject *__pyx_f_25compute_similarity_cython_23ComputeSimilarityCython_applyPearsonCorrelation(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, PyObject *__pyx_v_dataMatrix) {
   __Pyx_memviewslice __pyx_v_sumPerCol = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_interactionsPerCol = { 0, 0, { 0 }, { 0 }, { 0 } };
   long __pyx_v_colIndex;
@@ -1791,7 +1791,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_7);
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_8, 1);
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_9, 1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.applyPearsonCorrelation", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.applyPearsonCorrelation", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&amp;__pyx_v_sumPerCol, 1);
@@ -2030,7 +2030,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
 <pre class="cython line score-0">&#xA0;<span class="">273</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">274</span>: </pre>
 <pre class="cython line score-10" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">275</span>:     cdef applyAdjustedCosine(self, dataMatrix):</pre>
-<pre class='cython code score-10 '>static PyObject *__pyx_f_25Compute_Similarity_Cython_25Compute_Similarity_Cython_applyAdjustedCosine(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, PyObject *__pyx_v_dataMatrix) {
+<pre class='cython code score-10 '>static PyObject *__pyx_f_25compute_similarity_cython_23ComputeSimilarityCython_applyAdjustedCosine(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, PyObject *__pyx_v_dataMatrix) {
   __Pyx_memviewslice __pyx_v_sumPerRow = { 0, 0, { 0 }, { 0 }, { 0 } };
   __Pyx_memviewslice __pyx_v_interactionsPerRow = { 0, 0, { 0 }, { 0 }, { 0 } };
   long __pyx_v_rowIndex;
@@ -2055,7 +2055,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_7);
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_8, 1);
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_9, 1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.applyAdjustedCosine", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.applyAdjustedCosine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&amp;__pyx_v_sumPerRow, 1);
@@ -2294,7 +2294,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
 <pre class="cython line score-0">&#xA0;<span class="">314</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">315</span>: </pre>
 <pre class="cython line score-7" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">316</span>:     cdef int[:] getUsersThatRatedItem(self, long item_id):</pre>
-<pre class='cython code score-7 '>static __Pyx_memviewslice __pyx_f_25Compute_Similarity_Cython_25Compute_Similarity_Cython_getUsersThatRatedItem(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, long __pyx_v_item_id) {
+<pre class='cython code score-7 '>static __Pyx_memviewslice __pyx_f_25compute_similarity_cython_23ComputeSimilarityCython_getUsersThatRatedItem(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, long __pyx_v_item_id) {
   __Pyx_memviewslice __pyx_r = { 0, 0, { 0 }, { 0 }, { 0 } };
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
@@ -2306,7 +2306,7 @@ static int __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython___in
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_3, 1);
   __pyx_r.data = NULL;
   __pyx_r.memview = NULL;
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.getUsersThatRatedItem", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.getUsersThatRatedItem", __pyx_clineno, __pyx_lineno, __pyx_filename);
   goto __pyx_L2;
   __pyx_L0:;
   if (unlikely(!__pyx_r.memview)) {
@@ -2347,7 +2347,7 @@ __pyx_r = __pyx_t_3;
   goto __pyx_L0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">318</span>: </pre>
 <pre class="cython line score-7" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">319</span>:     cdef int[:] getItemsRatedByUser(self, long user_id):</pre>
-<pre class='cython code score-7 '>static __Pyx_memviewslice __pyx_f_25Compute_Similarity_Cython_25Compute_Similarity_Cython_getItemsRatedByUser(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, long __pyx_v_user_id) {
+<pre class='cython code score-7 '>static __Pyx_memviewslice __pyx_f_25compute_similarity_cython_23ComputeSimilarityCython_getItemsRatedByUser(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, long __pyx_v_user_id) {
   __Pyx_memviewslice __pyx_r = { 0, 0, { 0 }, { 0 }, { 0 } };
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
@@ -2359,7 +2359,7 @@ __pyx_r = __pyx_t_3;
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_3, 1);
   __pyx_r.data = NULL;
   __pyx_r.memview = NULL;
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.getItemsRatedByUser", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.getItemsRatedByUser", __pyx_clineno, __pyx_lineno, __pyx_filename);
   goto __pyx_L2;
   __pyx_L0:;
   if (unlikely(!__pyx_r.memview)) {
@@ -2403,7 +2403,7 @@ __pyx_r = __pyx_t_3;
 <pre class="cython line score-0">&#xA0;<span class="">323</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">324</span>: </pre>
 <pre class="cython line score-3" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">325</span>:     cdef computeItemSimilarities(self, long item_id_input):</pre>
-<pre class='cython code score-3 '>static PyObject *__pyx_f_25Compute_Similarity_Cython_25Compute_Similarity_Cython_computeItemSimilarities(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, long __pyx_v_item_id_input) {
+<pre class='cython code score-3 '>static PyObject *__pyx_f_25compute_similarity_cython_23ComputeSimilarityCython_computeItemSimilarities(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, long __pyx_v_item_id_input) {
   long __pyx_v_user_index;
   long __pyx_v_user_id;
   long __pyx_v_item_index;
@@ -2425,7 +2425,7 @@ __pyx_r = __pyx_t_3;
   goto __pyx_L0;
   __pyx_L1_error:;
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_1, 1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.computeItemSimilarities", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.computeItemSimilarities", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&amp;__pyx_v_users_that_rated_item, 1);
@@ -2470,7 +2470,7 @@ __pyx_r = __pyx_t_3;
 <pre class="cython line score-0">&#xA0;<span class="">358</span>:         cdef long user_index, user_id, item_index, item_id, item_id_second</pre>
 <pre class="cython line score-0">&#xA0;<span class="">359</span>: </pre>
 <pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">360</span>:         cdef int[:] users_that_rated_item = self.getUsersThatRatedItem(item_id_input)</pre>
-<pre class='cython code score-0 '>  __pyx_t_1 = ((struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;getUsersThatRatedItem(__pyx_v_self, __pyx_v_item_id_input);<span class='error_goto'> if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 360, __pyx_L1_error)</span>
+<pre class='cython code score-0 '>  __pyx_t_1 = ((struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;getUsersThatRatedItem(__pyx_v_self, __pyx_v_item_id_input);<span class='error_goto'> if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 360, __pyx_L1_error)</span>
   __pyx_v_users_that_rated_item = __pyx_t_1;
   __pyx_t_1.memview = NULL;
   __pyx_t_1.data = NULL;
@@ -2533,7 +2533,7 @@ __pyx_r = __pyx_t_3;
 </pre><pre class="cython line score-0">&#xA0;<span class="">385</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">386</span>:             # Get all items rated by that user</pre>
 <pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">387</span>:             items_rated_by_user = self.getItemsRatedByUser(user_id)</pre>
-<pre class='cython code score-0 '>    __pyx_t_1 = ((struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;getItemsRatedByUser(__pyx_v_self, __pyx_v_user_id);<span class='error_goto'> if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 387, __pyx_L1_error)</span>
+<pre class='cython code score-0 '>    __pyx_t_1 = ((struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;getItemsRatedByUser(__pyx_v_self, __pyx_v_user_id);<span class='error_goto'> if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 387, __pyx_L1_error)</span>
     __PYX_XDEC_MEMVIEW(&amp;__pyx_v_items_rated_by_user, 1);
     __pyx_v_items_rated_by_user = __pyx_t_1;
     __pyx_t_1.memview = NULL;
@@ -2590,9 +2590,9 @@ __pyx_r = __pyx_t_3;
 <pre class="cython line score-0">&#xA0;<span class="">410</span>: </pre>
 <pre class="cython line score-60" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">411</span>:     def compute_similarity(self, start_col=None, end_col=None):</pre>
 <pre class='cython code score-60 '>/* Python wrapper */
-static PyObject *__pyx_pw_25Compute_Similarity_Cython_25Compute_Similarity_Cython_3compute_similarity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_25Compute_Similarity_Cython_25Compute_Similarity_Cython_2compute_similarity[] = "\n        Compute the similarity for the given dataset\n        :param self:\n        :param start_col: column to begin with\n        :param end_col: column to stop before, end_col is excluded\n        :return:\n        ";
-static PyObject *__pyx_pw_25Compute_Similarity_Cython_25Compute_Similarity_Cython_3compute_similarity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_25compute_similarity_cython_23ComputeSimilarityCython_3compute_similarity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_25compute_similarity_cython_23ComputeSimilarityCython_2compute_similarity[] = "\n        Compute the similarity for the given dataset\n        :param self:\n        :param start_col: column to begin with\n        :param end_col: column to stop before, end_col is excluded\n        :return:\n        ";
+static PyObject *__pyx_pw_25compute_similarity_cython_23ComputeSimilarityCython_3compute_similarity(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_start_col = 0;
   PyObject *__pyx_v_end_col = 0;
   PyObject *__pyx_r = 0;
@@ -2648,18 +2648,18 @@ static PyObject *__pyx_pw_25Compute_Similarity_Cython_25Compute_Similarity_Cytho
   __pyx_L5_argtuple_error:;
   <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("compute_similarity", 0, 0, 2, <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args)); <span class='error_goto'>__PYX_ERR(0, 411, __pyx_L3_error)</span>
   __pyx_L3_error:;
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.compute_similarity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.compute_similarity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython_2compute_similarity(((struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self), __pyx_v_start_col, __pyx_v_end_col);
+  __pyx_r = __pyx_pf_25compute_similarity_cython_23ComputeSimilarityCython_2compute_similarity(((struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self), __pyx_v_start_col, __pyx_v_end_col);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cython_2compute_similarity(struct __pyx_obj_25Compute_Similarity_Cython_Compute_Similarity_Cython *__pyx_v_self, PyObject *__pyx_v_start_col, PyObject *__pyx_v_end_col) {
+static PyObject *__pyx_pf_25compute_similarity_cython_23ComputeSimilarityCython_2compute_similarity(struct __pyx_obj_25compute_similarity_cython_ComputeSimilarityCython *__pyx_v_self, PyObject *__pyx_v_start_col, PyObject *__pyx_v_end_col) {
   int __pyx_v_print_block_size;
   int __pyx_v_itemIndex;
   int __pyx_v_innerItemIndex;
@@ -2734,7 +2734,7 @@ static PyObject *__pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cytho
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_top_k_partition.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_top_k_partition_sorting.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Compute_Similarity_Cython.Compute_Similarity_Cython.compute_similarity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("compute_similarity_cython.ComputeSimilarityCython.compute_similarity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -3068,7 +3068,7 @@ static PyObject *__pyx_pf_25Compute_Similarity_Cython_25Compute_Similarity_Cytho
 </pre><pre class="cython line score-0">&#xA0;<span class="">467</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">468</span>:             # Computed similarities go in self.this_item_weights</pre>
 <pre class="cython line score-1" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">469</span>:             self.computeItemSimilarities(itemIndex)</pre>
-<pre class='cython code score-1 '>    __pyx_t_5 = ((struct __pyx_vtabstruct_25Compute_Similarity_Cython_Compute_Similarity_Cython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;computeItemSimilarities(__pyx_v_self, __pyx_v_itemIndex);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 469, __pyx_L1_error)</span>
+<pre class='cython code score-1 '>    __pyx_t_5 = ((struct __pyx_vtabstruct_25compute_similarity_cython_ComputeSimilarityCython *)__pyx_v_self-&gt;__pyx_vtab)-&gt;computeItemSimilarities(__pyx_v_self, __pyx_v_itemIndex);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 469, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">470</span>: </pre>

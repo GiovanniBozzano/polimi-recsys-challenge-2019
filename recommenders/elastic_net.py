@@ -114,7 +114,7 @@ class SLIMElasticNet(object):
     def get_expected_ratings(self, user_id):
         user_profile = self.training_urm[user_id]
         expected_ratings = user_profile.dot(self.W_sparse)
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
         if user_id == 0:
             print('0 ELASTICNET RATINGS:')

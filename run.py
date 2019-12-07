@@ -1,16 +1,10 @@
 import os
 import utils
 from tqdm import tqdm
-from Base.Similarity.Compute_Similarity import SimilarityFunction
-from MF.alternating_least_square import AlternatingLeastSquare
-from SLIM_BPR.slim_bpr import SLIMBPR
-from SLIM_ElasticNet.slim_elastic_net import SLIMElasticNet
-from cbf.item_content_based_filtering import ItemContentBasedFiltering
-from cbf.user_content_based_filtering import UserContentBasedFiltering
-from cf.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
-from cf.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
-from evaluation.evaluator import Evaluator
-from hybrid.hybrid import HybridRecommender
+from lib.similarity.compute_similarity import SimilarityFunction
+from recommenders.item_content_based_filtering import ItemContentBasedFiltering
+from evaluator import Evaluator
+from recommenders.hybrid import HybridRecommender
 from session import Session
 
 
@@ -75,9 +69,9 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
 # ============================
 # 0.04906610942956304
 # ======================================
-# 0.04850864702268111 - 1 - 2
+# 0.04985878519450332
 weights_short = {
-    'user_cbf': 0.1,
+    'user_cbf': 0.01,
     'item_cbf': 0.1,
     'user_cf': 0.2,
     'item_cf': 0.3,
@@ -88,7 +82,7 @@ weights_short = {
     'icm_svd': 0
 }
 weights_long = {
-    'user_cbf': 0.1,
+    'user_cbf': 0.01,
     'item_cbf': 0.1,
     'user_cf': 0.1,
     'item_cf': 0.4,
@@ -150,7 +144,7 @@ recommender = HybridRecommender(weights_long=weights_long,
                                 slim_param=slim_param,
                                 svd_param=svd_param,
                                 als_param=als_param)
-# recommender = ItemContentBasedFiltering()
+recommender = ItemContentBasedFiltering()
 if __name__ == '__main__':
     run(recommender=recommender,
         urm_path=os.path.join(os.getcwd(), './dataset/data_train.csv'),

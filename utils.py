@@ -7,7 +7,7 @@ import pandas as pd
 from scipy import sparse
 from sklearn import feature_extraction
 from sklearn.preprocessing import MultiLabelBinarizer, normalize
-from Base.IR_feature_weighting import okapi_BM_25
+from lib.IR_feature_weighting import okapi_BM_25
 
 
 def get_icm():

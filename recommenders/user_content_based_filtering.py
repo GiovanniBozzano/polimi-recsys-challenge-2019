@@ -4,11 +4,11 @@ from sklearn.preprocessing import normalize
 
 import session
 import utils
-from Base.Similarity.Compute_Similarity import Compute_Similarity, SimilarityFunction
+from lib.similarity.compute_similarity import ComputeSimilarity, SimilarityFunction
 
 
 def compute_similarity(ucm, top_k, shrink, similarity):
-    similarity_object = Compute_Similarity(ucm.transpose().tocsr(), topK=top_k, shrink=shrink, similarity=similarity)
+    similarity_object = ComputeSimilarity(ucm.transpose().tocsr(), topK=top_k, shrink=shrink, similarity=similarity)
     similarity_object = similarity_object.compute_similarity()
     return similarity_object
 
@@ -45,16 +45,13 @@ class UserContentBasedFiltering(object):
                                                           similarity=SimilarityFunction.COSINE.value)
         users_ages_similarity_matrix = users_ages_similarity_matrix.transpose().tocsr()
 
-        print(users_ages_similarity_matrix[0].getnnz())
-        print(users_regions_similarity_matrix[0].getnnz())
-
         self.similarity_matrix = users_regions_similarity_matrix * self.weight_user_region + \
             users_ages_similarity_matrix * (1 - self.weight_user_region)
 
     def get_expected_ratings(self, user_id):
         similar_users = self.similarity_matrix[user_id]
         expected_ratings = similar_users.dot(self.training_urm)
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
         if user_id == 0:
             print('0 UCBF RATINGS:')

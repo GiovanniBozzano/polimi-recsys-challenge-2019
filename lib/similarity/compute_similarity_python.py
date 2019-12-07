@@ -9,11 +9,11 @@ Created on 23/10/17
 import numpy as np
 import time, sys
 import scipy.sparse as sps
-from Base.Recommender_utils import check_matrix
+from lib.Recommender_utils import check_matrix
 
 
 
-class Compute_Similarity_Python:
+class ComputeSimilarityPython:
 
 
     def __init__(self, dataMatrix, topK=100, shrink = 0, normalize = True,
@@ -45,7 +45,7 @@ class Compute_Similarity_Python:
         
         """
 
-        super(Compute_Similarity_Python, self).__init__()
+        super(ComputeSimilarityPython, self).__init__()
 
 
         self.shrink = shrink

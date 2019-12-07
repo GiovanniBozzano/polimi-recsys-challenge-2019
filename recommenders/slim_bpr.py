@@ -8,8 +8,7 @@ import sys
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import normalize
-
-from Base.Recommender_utils import similarityMatrixTopK, check_matrix
+from lib.Recommender_utils import similarityMatrixTopK, check_matrix
 
 
 def estimate_required_mb(items_amount, symmetric):
@@ -60,7 +59,7 @@ class SLIMBPR(object):
         self.recommendations = None
 
     def fit(self, training_urm):
-        from SLIM_BPR_Cython_Epoch import SLIM_BPR_Cython_Epoch
+        from recommenders.slim_bpr_epoch import SLIMBPREpoch
 
         if self.train_with_sparse_weights is None:
             required_memory = estimate_required_mb(self.training_urm.shape[1], self.symmetric)
@@ -138,7 +137,7 @@ class SLIMBPR(object):
     def get_expected_ratings(self, user_id):
         user_id = int(user_id)
         expected_ratings = self.recommendations[user_id]
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
         if user_id == 0:
             print('0 SLIM BPR RATINGS:')

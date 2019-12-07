@@ -32,7 +32,7 @@ class Session(object):
 
         ratings_list = list(np.ones(len(item_list)))
         urm = sps.coo_matrix((ratings_list, (user_list, item_list)), shape=(users_amount, items_amount),
-                             dtype=np.float64)
+                             dtype=np.float32)
         self.urm = urm.tocsr()
 
         self.users_amount = users_amount
@@ -67,7 +67,7 @@ class Session(object):
         items_list = list(assets_data[self.icm_assets_index_column])
         assets_list = list(assets_data[self.icm_assets_value_column])
         zeroes = np.zeros(len(items_list), dtype=np.int)
-        icm_assets = sps.coo_matrix((assets_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float64)
+        icm_assets = sps.coo_matrix((assets_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float32)
         return icm_assets.tocsr()
 
     def get_icm_prices(self):
@@ -75,7 +75,7 @@ class Session(object):
         items_list = list(prices_data[self.icm_prices_index_column])
         prices_list = list(prices_data[self.icm_prices_value_column])
         zeroes = np.zeros(len(items_list), dtype=np.int)
-        icm_prices = sps.coo_matrix((prices_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float64)
+        icm_prices = sps.coo_matrix((prices_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float32)
         return icm_prices.tocsr()
 
     def get_icm_sub_classes(self):
@@ -84,7 +84,7 @@ class Session(object):
         sub_classes_list = list(sub_classes_data[self.icm_sub_classes_values_column])
         values_list = list(np.ones(len(sub_classes_list)))
         icm_sub_classes = sps.coo_matrix((values_list, (items_list, sub_classes_list)),
-                                         shape=(self.items_amount, max(sub_classes_list) + 1), dtype=np.float64)
+                                         shape=(self.items_amount, max(sub_classes_list) + 1), dtype=np.float32)
         return icm_sub_classes.tocsr()
 
     def get_ucm_regions(self):
@@ -93,7 +93,7 @@ class Session(object):
         regions_list = list(regions_data[self.ucm_regions_value_column])
         values_list = list(np.ones(len(regions_list)))
         ucm_regions = sps.coo_matrix((values_list, (items_list, regions_list)),
-                                     shape=(self.users_amount, max(regions_list) + 1), dtype=np.float64)
+                                     shape=(self.users_amount, max(regions_list) + 1), dtype=np.float32)
         return ucm_regions.tocsr()
 
     def get_ucm_ages(self):
@@ -102,5 +102,5 @@ class Session(object):
         ages_list = list(ages_data[self.ucm_ages_value_column])
         values_list = list(np.ones(len(ages_list)))
         ucm_ages = sps.coo_matrix((values_list, (items_list, ages_list)),
-                                  shape=(self.users_amount, max(ages_list) + 1), dtype=np.float64)
+                                  shape=(self.users_amount, max(ages_list) + 1), dtype=np.float32)
         return ucm_ages.tocsr()
