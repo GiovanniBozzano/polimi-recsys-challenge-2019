@@ -36,7 +36,7 @@ class ItemContentBasedFiltering(object):
     pesata, ma in questo modo i punteggi non sono normalizzati.
     """
 
-    def __init__(self, top_k_item_asset=1000, top_k_item_price=1000, top_k_item_sub_class=1000,
+    def __init__(self, top_k_item_asset=500, top_k_item_price=500, top_k_item_sub_class=1000,
                  shrink_item_asset=1, shrink_item_price=1, shrink_item_sub_class=1,
                  weight_item_asset=0.2, weight_item_price=0.2):
 
