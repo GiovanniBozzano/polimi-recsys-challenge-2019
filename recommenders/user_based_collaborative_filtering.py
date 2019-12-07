@@ -16,7 +16,7 @@ class UserBasedCollaborativeFiltering(object):
         self.recommendations = None
 
     def generate_similarity_matrix(self):
-        similarity_object = ComputeSimilarity(self.training_urm.transpose().tocsr(), topK=self.top_k,
+        similarity_object = ComputeSimilarity(self.training_urm.transpose().tocsr(), top_k=self.top_k,
                                               shrink=self.shrink, similarity=self.similarity)
         return similarity_object.compute_similarity()
 
@@ -28,7 +28,7 @@ class UserBasedCollaborativeFiltering(object):
 
     def get_expected_ratings(self, user_id):
         expected_ratings = self.recommendations[user_id]
-        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
         if user_id == 0:
             print('0 U_CF RATINGS:')

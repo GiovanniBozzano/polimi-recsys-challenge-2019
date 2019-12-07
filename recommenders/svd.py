@@ -1,8 +1,8 @@
 from pathlib import Path
+
 import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import svds
-from utils import URMUtils
 
 
 class SVD(object):

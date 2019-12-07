@@ -1,4 +1,5 @@
 import os
+
 import numpy as np
 import pandas as pd
 import scipy.sparse as sps
@@ -16,7 +17,6 @@ class Session(object):
                  icm_prices_path, icm_prices_index_column, icm_prices_value_column,
                  icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
                  users_usefulness_threshold, items_usefulness_threshold):
-
         global INSTANCE
         INSTANCE = self
 

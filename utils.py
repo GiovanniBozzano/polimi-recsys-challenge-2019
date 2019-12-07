@@ -1,13 +1,14 @@
 import os
 from datetime import datetime
 
-import scipy.sparse as sp
 import numpy as np
 import pandas as pd
+import scipy.sparse as sp
 from scipy import sparse
 from sklearn import feature_extraction
-from sklearn.preprocessing import MultiLabelBinarizer, normalize
-from lib.IR_feature_weighting import okapi_BM_25
+from sklearn.preprocessing import MultiLabelBinarizer
+
+from lib.feature_weighting import okapi_bm_25
 
 
 def get_icm():
@@ -35,7 +36,7 @@ def get_icm():
 
 
 def get_matrix_bm_25(matrix):
-    return okapi_BM_25(matrix)
+    return okapi_bm_25(matrix)
 
 
 def get_matrix_tfidf(matrix):
@@ -62,7 +63,7 @@ def train_test_split(interactions, test_percentage, split_count):
     try:
         user_index = np.random.choice(np.where(np.bincount(train.row) >= split_count * 2)[0], replace=False,
                                       size=np.int64(np.floor(test_percentage * train.shape[0]))
-        ).tolist()
+                                      ).tolist()
     except:
         print('Not enough users with > {} interactions for fraction of {}'.format(2 * split_count, test_percentage))
         raise
@@ -71,7 +72,7 @@ def train_test_split(interactions, test_percentage, split_count):
         test_interactions = np.random.choice(interactions.getrow(user).indices, size=split_count, replace=False)
         train[user, test_interactions] = 0
         test[user, test_interactions] = interactions[user, test_interactions]
-    assert(train.multiply(test).nnz == 0)
+    assert (train.multiply(test).nnz == 0)
     return train.tocsr(), test.tocsr(), user_index
 
 
@@ -83,7 +84,7 @@ def train_test_split_leave_one_out(urm, test_users):
         test_item = np.random.choice(urm.getrow(user).indices, replace=False)
         training_urm[user, test_item] = 0
         test_urm[user, test_item] = urm[user, test_item]
-    assert(training_urm.multiply(test_urm).nnz == 0)
+    assert training_urm.multiply(test_urm).nnz == 0
     return training_urm.tocsr(), test_urm.tocsr()
 
 

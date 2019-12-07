@@ -1,10 +1,12 @@
 import os
-import utils
+
 from tqdm import tqdm
-from lib.similarity.compute_similarity import SimilarityFunction
-from recommenders.item_content_based_filtering import ItemContentBasedFiltering
+
+import utils
 from evaluator import Evaluator
+from lib.similarity.compute_similarity import SimilarityFunction
 from recommenders.hybrid import HybridRecommender
+from recommenders.item_content_based_filtering import ItemContentBasedFiltering
 from session import Session
 
 
@@ -18,7 +20,6 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
         submission_users_column, submission_items_column,
         is_test, leave_one_out=True, test_percentage=0.2, test_interactions_threshold=10, k=10,
         users_usefulness_threshold=None, items_usefulness_threshold=None):
-
     session = Session(urm_path, urm_users_column, urm_items_column,
                       users_amount, items_amount, target_users_path,
                       ucm_ages_path, ucm_ages_index_column, ucm_ages_value_column,
@@ -44,62 +45,36 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
         print('Saved predictions to file')
 
 
-# 0.04680114031792625 = 0.03319
-# 0.034609182829823344 = 0.03319
-# ======================================
-# < 10
-# ============================
-# CBF = 0.011632757451942505
-# UCF = 0.046129799270716094
-# ICF = 0.04938960303985777
-# ALS = 0.04718438984143571
-# SLIM = 0.043278637039248266
-# ELASTICNET =
-# ============================
-# 0.05106765051586792
-# ======================================
-# > 10
-# ============================
-# CBF = 0.008287904950663514
-# UCF = 0.03880122241231024
-# ICF = 0.04681579272693917
-# ALS = 0.04121776645225262
-# SLIM = 0.041645630700148734
-# ELASTICNET =
-# ============================
-# 0.04906610942956304
-# ======================================
-# 0.04985878519450332
 weights_short = {
-    'user_cbf': 0.01,
-    'item_cbf': 0.1,
-    'user_cf': 0.2,
-    'item_cf': 0.3,
-    'slim': 0.2,
-    'elastic': 1.5,
-    'als': 0.2,
+    'user_content_based_filtering': 0.1,
+    'item_content_based_filtering': 0.1,
+    'user_based_collaborative_filtering': 0.2,
+    'item_based_collaborative_filtering': 0.3,
+    'slim_bpr': 0.2,
+    'elastic_net': 1.5,
+    'alternating_least_square': 0.2,
 
-    'icm_svd': 0
+    'svd': 0
 }
 weights_long = {
-    'user_cbf': 0.01,
-    'item_cbf': 0.1,
-    'user_cf': 0.1,
-    'item_cf': 0.4,
-    'slim': 0.2,
-    'elastic': 1,
-    'als': 0.2,
+    'user_content_based_filtering': 0.1,
+    'item_content_based_filtering': 0.1,
+    'user_based_collaborative_filtering': 0.1,
+    'item_based_collaborative_filtering': 0.4,
+    'slim_bpr': 0.2,
+    'elastic_net': 1,
+    'alternating_least_square': 0.2,
 
-    'icm_svd': 0
+    'svd': 0
 }
-user_cbf_param = {
+user_content_based_filtering_parameters = {
     'top_k_user_region': 1000,
     'top_k_user_age': 1000,
     'shrink_user_region': 1,
     'shrink_user_age': 1,
     'weight_user_region': 0.6
 }
-item_cbf_param = {
+item_content_based_filtering_parameters = {
     'top_k_item_asset': 50,
     'top_k_item_price': 50,
     'top_k_item_sub_class': 50,
@@ -109,41 +84,42 @@ item_cbf_param = {
     'weight_item_asset': 0.2,
     'weight_item_price': 0.2
 }
-user_cf_param = {
+user_based_collaborative_filtering_parameters = {
     'top_k': 2000,
     'shrink': 5,
     'similarity': SimilarityFunction.COSINE.value
 }
-item_cf_param = {
+item_based_collaborative_filtering_parameters = {
     'top_k': 10,
     'shrink': 500,
     'similarity': SimilarityFunction.JACCARD.value
 }
-slim_param = {
+slim_bpr_parameters = {
     'epochs': 80,
     'top-k': 40
 }
-svd_param = {
-    'n_factors': 2000,
-    'knn': 100
-}
-als_param = {
+alternating_least_square_parameters = {
     'factors': 448,
     'regularization': 100,
     'iterations': 30,
     'alpha': 24
 }
-
+svd_parameters = {
+    'n_factors': 2000,
+    'knn': 100
+}
 
 recommender = HybridRecommender(weights_long=weights_long,
                                 weights_short=weights_short,
-                                user_cbf_param=user_cbf_param,
-                                item_cbf_param=item_cbf_param,
-                                user_cf_param=user_cf_param,
-                                item_cf_param=item_cf_param,
-                                slim_param=slim_param,
-                                svd_param=svd_param,
-                                als_param=als_param)
+                                user_content_based_filtering_parameters=user_content_based_filtering_parameters,
+                                item_content_based_filtering_parameters=item_content_based_filtering_parameters,
+                                user_based_collaborative_filtering_parameters=
+                                user_based_collaborative_filtering_parameters,
+                                item_based_collaborative_filtering_parameters=
+                                item_based_collaborative_filtering_parameters,
+                                slim_bpr_parameters=slim_bpr_parameters,
+                                alternating_least_square_parameters=alternating_least_square_parameters,
+                                svd_parameters=svd_parameters)
 recommender = ItemContentBasedFiltering()
 if __name__ == '__main__':
     run(recommender=recommender,

@@ -1,5 +1,6 @@
-import utils
 from tqdm import tqdm
+
+import utils
 
 
 class Evaluator(object):

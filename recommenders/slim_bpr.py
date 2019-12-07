@@ -1,14 +1,15 @@
 """
 Created on 07/09/17
-
 @author: Maurizio Ferrari Dacrema
 """
 import os
 import sys
+
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import normalize
-from lib.Recommender_utils import similarityMatrixTopK, check_matrix
+
+from lib.recommender_utils import similarity_matrix_top_k, check_matrix
 
 
 def estimate_required_mb(items_amount, symmetric):
@@ -59,7 +60,7 @@ class SLIMBPR(object):
         self.recommendations = None
 
     def fit(self, training_urm):
-        from recommenders.slim_bpr_epoch import SLIMBPREpoch
+        from SLIM_BPR_Cython_Epoch import SLIM_BPR_Cython_Epoch
 
         if self.train_with_sparse_weights is None:
             required_memory = estimate_required_mb(self.training_urm.shape[1], self.symmetric)
@@ -123,7 +124,7 @@ class SLIMBPR(object):
         self.S_best = self.S_incremental.copy()
 
     def _run_epoch(self):
-        self.cython_epoch.epochIteration_Cython()
+        self.cython_epoch.epoch_iteration_cython()
 
     def get_S_incremental_and_set_W(self):
         self.S_incremental = self.cython_epoch.get_S()
@@ -131,13 +132,13 @@ class SLIMBPR(object):
             self.W_sparse = self.S_incremental
             self.W_sparse = check_matrix(self.W_sparse, format='csr')
         else:
-            self.W_sparse = similarityMatrixTopK(self.S_incremental, k=self.top_k)
+            self.W_sparse = similarity_matrix_top_k(self.S_incremental, k=self.top_k)
             self.W_sparse = check_matrix(self.W_sparse, format='csr')
 
     def get_expected_ratings(self, user_id):
         user_id = int(user_id)
         expected_ratings = self.recommendations[user_id]
-        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
         if user_id == 0:
             print('0 SLIM BPR RATINGS:')

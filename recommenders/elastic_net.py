@@ -1,6 +1,7 @@
 import multiprocessing
 import warnings
 from functools import partial
+
 import numpy as np
 import pandas as pd
 import scipy.sparse as sps
@@ -9,7 +10,7 @@ from sklearn.linear_model import ElasticNet
 from sklearn.preprocessing import normalize
 
 
-class SLIMElasticNet(object):
+class ElasticNet(object):
     """
     Train a Sparse Linear Methods (SLIM) item similarity model.
     NOTE: ElasticNet solver is parallel, a single intance of SLIM_ElasticNet will
@@ -22,6 +23,7 @@ class SLIMElasticNet(object):
         X. Ning and G. Karypis, ICDM 2011.
         http://glaros.dtc.umn.edu/gkhome/fetch/papers/SLIM2011icdm.pdf
     """
+
     # 0.042518585493269104
     def __init__(self, alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False,
                  selection='cyclic', max_iter=3, tol=1e-4, top_k=50, positive_only=True,
@@ -45,6 +47,7 @@ class SLIMElasticNet(object):
     ''' 
     Fit given to each pool thread, to fit the W_sparse 
     '''
+
     def _partial_fit(self, current_item, X):
         warnings.simplefilter('ignore', category=ConvergenceWarning)
 
@@ -114,7 +117,7 @@ class SLIMElasticNet(object):
     def get_expected_ratings(self, user_id):
         user_profile = self.training_urm[user_id]
         expected_ratings = user_profile.dot(self.W_sparse)
-        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
         if user_id == 0:
             print('0 ELASTICNET RATINGS:')

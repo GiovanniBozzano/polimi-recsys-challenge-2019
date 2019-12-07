@@ -1,9 +1,10 @@
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import normalize
-from lib.similarity.compute_similarity import ComputeSimilarity, SimilarityFunction
+
 import session
 import utils
+from lib.similarity.compute_similarity import ComputeSimilarity, SimilarityFunction
 
 
 # top-k = Oggetti simili da mappare per ogni oggetto.
@@ -11,7 +12,7 @@ import utils
 #         similitudini comuni a più oggetti con cui l'utente ha interagito.
 # shrink = Reduces the importance of average quantities with a small support.
 def compute_similarity(icm, top_k, shrink, similarity):
-    similarity_object = ComputeSimilarity(icm.transpose().tocsr(), topK=top_k, shrink=shrink, similarity=similarity)
+    similarity_object = ComputeSimilarity(icm.transpose().tocsr(), top_k=top_k, shrink=shrink, similarity=similarity)
     similarity_object = similarity_object.compute_similarity()
     """
     for i in [2103]:
@@ -36,11 +37,11 @@ class ItemContentBasedFiltering(object):
     pesata, ma in questo modo i punteggi non sono normalizzati.
     """
 
-    def __init__(self, top_k_item_asset=500, top_k_item_price=500, top_k_item_sub_class=1000,
+    def __init__(self, top_k_item_asset=600, top_k_item_price=600, top_k_item_sub_class=500,
                  shrink_item_asset=1, shrink_item_price=1, shrink_item_sub_class=1,
                  weight_item_asset=0.2, weight_item_price=0.2):
 
-        # 0.01147660397247628
+        # 0.011187666162900055
         self.top_k_item_asset = top_k_item_asset
         self.top_k_item_price = top_k_item_price
         self.top_k_item_sub_class = top_k_item_sub_class
@@ -74,8 +75,9 @@ class ItemContentBasedFiltering(object):
                                                                  similarity=SimilarityFunction.COSINE.value)
         items_sub_classes_similarity_matrix = items_sub_classes_similarity_matrix.transpose().tocsr()
         self.similarity_matrix = items_assets_similarity_matrix * self.weight_item_asset + \
-            items_prices_similarity_matrix * self.weight_item_price + \
-            items_sub_classes_similarity_matrix * (1 - self.weight_item_asset - self.weight_item_price)
+                                 items_prices_similarity_matrix * self.weight_item_price + \
+                                 items_sub_classes_similarity_matrix * (
+                                             1 - self.weight_item_asset - self.weight_item_price)
         """
         for i in [2103, 3741, 6885, 10144, 10807, 10808, 11752, 12638, 17594, 18053]:
             test = pd.DataFrame(self.similarity_matrix.toarray()).loc[[i]]
@@ -89,7 +91,7 @@ class ItemContentBasedFiltering(object):
         # sommando i punteggi se presenti più volte. Ad esempio un oggetto identico a due oggetti con cui l'utente
         # ha interagito avrà punteggio 2.0.
         expected_ratings = interacted_items.dot(self.similarity_matrix)
-        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
         if user_id == 0:
             print('0 ICBF RATINGS:')
