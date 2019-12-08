@@ -1,27 +1,39 @@
 import numpy as np
-from scipy import sparse
+from sklearn import decomposition
 from sklearn.preprocessing import normalize
-from sklearn.utils.extmath import randomized_svd
 
 
-class SVD(object):
+class NMF(object):
 
-    # 0.02403678660970901
-    def __init__(self, n_factors=100):
+    # 0.02005880674290138
+    def __init__(self, n_factors=100,
+                 l1_ratio=0.5,
+                 solver='mu',
+                 init_type='random',
+                 beta_loss='frobenius'):
         self.n_factors = n_factors
+        self.l1_ratio = l1_ratio
+        self.solver = solver
+        self.init_type = init_type
+        self.beta_loss = beta_loss
         self.training_urm = None
         self.user_factors = None
         self.item_factors = None
 
     def fit(self, training_urm):
         self.training_urm = training_urm
-        U, s, V = randomized_svd(self.training_urm,
-                                 n_components=self.n_factors,
-                                 n_oversamples=5,
-                                 n_iter=6)
-        s_V = sparse.diags(s) * V
-        self.user_factors = U
-        self.item_factors = s_V.T
+
+        model = decomposition.NMF(n_components=self.n_factors,
+                                  init=self.init_type,
+                                  solver=self.solver,
+                                  beta_loss=self.beta_loss,
+                                  l1_ratio=self.l1_ratio,
+                                  max_iter=500)
+
+        model.fit(self.training_urm)
+
+        self.item_factors = model.components_.copy().T
+        self.user_factors = model.transform(self.training_urm)
 
     def get_expected_ratings(self, user_id):
         expected_ratings = np.dot(self.user_factors[user_id], self.item_factors.T)

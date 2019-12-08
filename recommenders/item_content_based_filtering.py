@@ -1,26 +1,10 @@
 import numpy as np
-import pandas as pd
+import similaripy
+import similaripy.normalization
 from sklearn.preprocessing import normalize
 
 import session
-import utils
-from lib.similarity.compute_similarity import ComputeSimilarity, SimilarityFunction
-
-
-# top-k = Oggetti simili da mappare per ogni oggetto.
-#         Aumentando top-k si considerano più oggetti simili per ciascun oggetto, aumentando la probabilità di trovare
-#         similitudini comuni a più oggetti con cui l'utente ha interagito.
-# shrink = Reduces the importance of average quantities with a small support.
-def compute_similarity(icm, top_k, shrink, similarity):
-    similarity_object = ComputeSimilarity(icm.transpose().tocsr(), top_k=top_k, shrink=shrink, similarity=similarity)
-    similarity_object = similarity_object.compute_similarity()
-    """
-    for i in [2103]:
-        test = pd.DataFrame(similarity_object.transpose().toarray()).loc[[i]]
-        test = test.loc[:, (test != 0).any(axis=0)]
-        print(test)
-    """
-    return similarity_object
+from lib.similarity.compute_similarity_euclidean import ComputeSimilarityEuclidean
 
 
 class ItemContentBasedFiltering(object):
@@ -37,11 +21,10 @@ class ItemContentBasedFiltering(object):
     pesata, ma in questo modo i punteggi non sono normalizzati.
     """
 
-    def __init__(self, top_k_item_asset=600, top_k_item_price=600, top_k_item_sub_class=500,
+    def __init__(self, top_k_item_asset=140, top_k_item_price=140, top_k_item_sub_class=300,
                  shrink_item_asset=1, shrink_item_price=1, shrink_item_sub_class=1,
                  weight_item_asset=0.2, weight_item_price=0.2):
-
-        # 0.011187666162900055
+        # 0.013031728560071967
         self.top_k_item_asset = top_k_item_asset
         self.top_k_item_price = top_k_item_price
         self.top_k_item_sub_class = top_k_item_sub_class
@@ -60,30 +43,27 @@ class ItemContentBasedFiltering(object):
         items_prices = session.INSTANCE.get_icm_prices()
         items_sub_classes = session.INSTANCE.get_icm_sub_classes()
         # Imposta i pesi che verranno usati con lo shrink.
-        items_sub_classes = utils.get_matrix_bm_25(items_sub_classes)
+        items_sub_classes = similaripy.normalization.bm25plus(items_sub_classes)
 
-        items_assets_similarity_matrix = compute_similarity(items_assets, self.top_k_item_asset,
-                                                            self.shrink_item_asset,
-                                                            similarity=SimilarityFunction.EUCLIDEAN.value)
+        items_assets_similarity_matrix = ComputeSimilarityEuclidean(items_assets.transpose().tocsr(),
+                                                                    top_k=self.top_k_item_asset,
+                                                                    shrink=self.shrink_item_asset)
+        items_assets_similarity_matrix = items_assets_similarity_matrix.compute_similarity()
         items_assets_similarity_matrix = items_assets_similarity_matrix.transpose().tocsr()
-        items_prices_similarity_matrix = compute_similarity(items_prices, self.top_k_item_price,
-                                                            self.shrink_item_price,
-                                                            similarity=SimilarityFunction.EUCLIDEAN.value)
+
+        items_prices_similarity_matrix = ComputeSimilarityEuclidean(items_prices.transpose().tocsr(),
+                                                                    top_k=self.top_k_item_price,
+                                                                    shrink=self.shrink_item_price)
+        items_prices_similarity_matrix = items_prices_similarity_matrix.compute_similarity()
         items_prices_similarity_matrix = items_prices_similarity_matrix.transpose().tocsr()
-        items_sub_classes_similarity_matrix = compute_similarity(items_sub_classes, self.top_k_item_sub_class,
-                                                                 self.shrink_item_sub_class,
-                                                                 similarity=SimilarityFunction.COSINE.value)
-        items_sub_classes_similarity_matrix = items_sub_classes_similarity_matrix.transpose().tocsr()
+
+        items_sub_classes_similarity_matrix = similaripy.cosine(items_sub_classes, k=self.top_k_item_sub_class,
+                                                                shrink=self.shrink_item_sub_class, binary=False)
+        items_sub_classes_similarity_matrix = items_sub_classes_similarity_matrix.tocsr()
         self.similarity_matrix = items_assets_similarity_matrix * self.weight_item_asset + \
                                  items_prices_similarity_matrix * self.weight_item_price + \
                                  items_sub_classes_similarity_matrix * (
-                                             1 - self.weight_item_asset - self.weight_item_price)
-        """
-        for i in [2103, 3741, 6885, 10144, 10807, 10808, 11752, 12638, 17594, 18053]:
-            test = pd.DataFrame(self.similarity_matrix.toarray()).loc[[i]]
-            test = test.loc[:, (test != 0).any(axis=0)]
-            print(test)
-        """
+                                         1 - self.weight_item_asset - self.weight_item_price)
 
     def get_expected_ratings(self, user_id):
         interacted_items = self.training_urm[user_id]
@@ -91,21 +71,15 @@ class ItemContentBasedFiltering(object):
         # sommando i punteggi se presenti più volte. Ad esempio un oggetto identico a due oggetti con cui l'utente
         # ha interagito avrà punteggio 2.0.
         expected_ratings = interacted_items.dot(self.similarity_matrix)
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
-        if user_id == 0:
-            print('0 ICBF RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 1:
-            print('1 ICBF RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 2:
-            print('2 ICBF RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
         expected_ratings[interacted_items.indices] = -100
         return expected_ratings
 
     def recommend(self, user_id, k=10):
         expected_ratings = self.get_expected_ratings(user_id)
         recommended_items = np.flip(np.argsort(expected_ratings), axis=0)
+        unseen_items_mask = np.in1d(recommended_items, self.training_urm[user_id].indices, assume_unique=True,
+                                    invert=True)
+        recommended_items = recommended_items[unseen_items_mask]
         return recommended_items[:k]

@@ -1,49 +1,31 @@
 import numpy as np
-import pandas as pd
+import similaripy
+import similaripy.normalization
 from sklearn.preprocessing import normalize
-
-import utils
-from lib.similarity.compute_similarity import ComputeSimilarity, SimilarityFunction
 
 
 class ItemBasedCollaborativeFiltering(object):
-    def __init__(self, top_k=10, shrink=500, similarity=SimilarityFunction.JACCARD.value):
-        # 0.046665268932742816
+    def __init__(self, top_k=10, shrink=400):
+        # 0.04711466950872567
         self.top_k = top_k
         self.shrink = shrink
-        self.similarity = similarity
         self.training_urm = None
         self.recommendations = None
 
-    def generate_similarity_matrix(self):
-        similarity_object = ComputeSimilarity(self.training_urm.transpose().tocsr(), top_k=self.top_k,
-                                              shrink=self.shrink, similarity=self.similarity)
-        similarity_object = similarity_object.compute_similarity()
-        return similarity_object
-
     def fit(self, training_urm):
         self.training_urm = training_urm
-        self.training_urm = utils.get_matrix_tfidf(self.training_urm.transpose())
-        similarity_matrix = self.generate_similarity_matrix()
+        self.training_urm = similaripy.normalization.bm25(self.training_urm.transpose().tocsr())
+        similarity_matrix = similaripy.dice(self.training_urm, k=self.top_k, shrink=self.shrink, binary=True)
+        similarity_matrix = similarity_matrix.transpose().tocsr()
         self.training_urm = self.training_urm.transpose().tocsr()
         self.recommendations = self.training_urm.dot(similarity_matrix)
 
     def get_expected_ratings(self, user_id):
         expected_ratings = self.recommendations[user_id]
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
-        if user_id == 0:
-            print('0 I_CF RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 1:
-            print('1 I_CF RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 2:
-            print('2 I_CF RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 19335:
-            print('19335 I_CF RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        interacted_items = self.training_urm[user_id]
+        expected_ratings[interacted_items.indices] = -100
         return expected_ratings
 
     def recommend(self, user_id, k=10):

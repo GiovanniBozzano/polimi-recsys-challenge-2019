@@ -2,46 +2,7 @@ import os
 from datetime import datetime
 
 import numpy as np
-import pandas as pd
 import scipy.sparse as sp
-from scipy import sparse
-from sklearn import feature_extraction
-from sklearn.preprocessing import MultiLabelBinarizer
-
-from lib.feature_weighting import okapi_bm_25
-
-
-def get_icm():
-    tracks_data = pd.read_csv(os.path.join(os.getcwd(), '../data/tracks.csv'))
-    artists = tracks_data.reindex(columns=['track_id', 'artist_id'])
-    artists.sort_values(by='track_id', inplace=True)  # this seems not useful, values are already ordered
-    artists_list = [[a] for a in artists['artist_id']]
-    icm_artists = MultiLabelBinarizer(sparse_output=True).fit_transform(artists_list)
-    icm_artists_csr = icm_artists.tocsr()
-
-    albums = tracks_data.reindex(columns=['track_id', 'album_id'])
-    albums.sort_values(by='track_id', inplace=True)  # this seems not useful, values are already ordered
-    albums_list = [[a] for a in albums['album_id']]
-    icm_albums = MultiLabelBinarizer(sparse_output=True).fit_transform(albums_list)
-    icm_albums_csr = icm_albums.tocsr()
-
-    durations = tracks_data.reindex(columns=['track_id', 'duration_sec'])
-    durations.sort_values(by='track_id', inplace=True)  # this seems not useful, values are already ordered
-    durations_list = [[d] for d in durations['duration_sec']]
-    icm_durations = MultiLabelBinarizer(sparse_output=True).fit_transform(durations_list)
-    icm_durations_csr = icm_durations.tocsr()
-
-    icm = sparse.hstack((icm_albums_csr, icm_artists_csr, icm_durations_csr))
-    return icm.tocsr()
-
-
-def get_matrix_bm_25(matrix):
-    return okapi_bm_25(matrix)
-
-
-def get_matrix_tfidf(matrix):
-    matrix_tfidf = feature_extraction.text.TfidfTransformer().fit_transform(matrix)
-    return matrix_tfidf.tocsr()
 
 
 def mean_average_precision(recommended_items, relevant_items):

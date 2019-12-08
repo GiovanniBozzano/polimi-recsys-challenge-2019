@@ -6,7 +6,6 @@ import os
 import sys
 
 import numpy as np
-import pandas as pd
 from sklearn.preprocessing import normalize
 
 from lib.recommender_utils import similarity_matrix_top_k, check_matrix
@@ -60,7 +59,7 @@ class SLIMBPR(object):
         self.recommendations = None
 
     def fit(self, training_urm):
-        from SLIM_BPR_Cython_Epoch import SLIM_BPR_Cython_Epoch
+        from recommenders.slim_bpr_epoch import SLIMBPREpoch
 
         if self.train_with_sparse_weights is None:
             required_memory = estimate_required_mb(self.training_urm.shape[1], self.symmetric)
@@ -88,19 +87,19 @@ class SLIMBPR(object):
             assert training_urm_positive.nnz > 0, 'SLIM BPR: training_urm_positive is empty, positive threshold is ' \
                                                   'too high'
 
-        self.cython_epoch = SLIM_BPR_Cython_Epoch(training_urm_positive,
-                                                  train_with_sparse_weights=self.train_with_sparse_weights,
-                                                  final_model_sparse_weights=self.final_model_sparse_weights,
-                                                  topK=self.top_k,
-                                                  learning_rate=self.learning_rate,
-                                                  li_reg=self.lambda_i,
-                                                  lj_reg=self.lambda_j,
-                                                  batch_size=self.batch_size,
-                                                  symmetric=self.symmetric,
-                                                  sgd_mode=self.sgd_mode,
-                                                  gamma=self.gamma,
-                                                  beta_1=self.beta_1,
-                                                  beta_2=self.beta_2)
+        self.cython_epoch = SLIMBPREpoch(training_urm_positive,
+                                         train_with_sparse_weights=self.train_with_sparse_weights,
+                                         final_model_sparse_weights=self.final_model_sparse_weights,
+                                         top_k=self.top_k,
+                                         learning_rate=self.learning_rate,
+                                         li_reg=self.lambda_i,
+                                         lj_reg=self.lambda_j,
+                                         batch_size=self.batch_size,
+                                         symmetric=self.symmetric,
+                                         sgd_mode=self.sgd_mode,
+                                         gamma=self.gamma,
+                                         beta_1=self.beta_1,
+                                         beta_2=self.beta_2)
 
         self._initialize_incremental_model()
         current_epoch = 0
@@ -136,26 +135,17 @@ class SLIMBPR(object):
             self.W_sparse = check_matrix(self.W_sparse, format='csr')
 
     def get_expected_ratings(self, user_id):
-        user_id = int(user_id)
         expected_ratings = self.recommendations[user_id]
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
-        if user_id == 0:
-            print('0 SLIM BPR RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 1:
-            print('1 SLIM BPR RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 2:
-            print('2 SLIM BPR RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        interacted_items = self.training_urm[user_id]
+        expected_ratings[interacted_items.indices] = -100
         return expected_ratings
 
-    def recommend(self, user_id, at=10):
+    def recommend(self, user_id, k=10):
         expected_ratings = self.get_expected_ratings(user_id)
         recommended_items = np.flip(np.argsort(expected_ratings), 0)
-
-        unseen_items_mask = np.in1d(recommended_items, self.training_urm[user_id].indices,
-                                    assume_unique=True, invert=True)
+        unseen_items_mask = np.in1d(recommended_items, self.training_urm[user_id].indices, assume_unique=True,
+                                    invert=True)
         recommended_items = recommended_items[unseen_items_mask]
-        return recommended_items[0:at]
+        return recommended_items[:k]

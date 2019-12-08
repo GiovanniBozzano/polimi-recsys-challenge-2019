@@ -3,10 +3,9 @@ import warnings
 from functools import partial
 
 import numpy as np
-import pandas as pd
 import scipy.sparse as sps
+from sklearn import linear_model
 from sklearn.exceptions import ConvergenceWarning
-from sklearn.linear_model import ElasticNet
 from sklearn.preprocessing import normalize
 
 
@@ -44,23 +43,17 @@ class ElasticNet(object):
         self.training_urm = None
         self.W_sparse = None
 
-    ''' 
-    Fit given to each pool thread, to fit the W_sparse 
-    '''
-
     def _partial_fit(self, current_item, X):
         warnings.simplefilter('ignore', category=ConvergenceWarning)
-
-        model = ElasticNet(alpha=self.alpha,
-                           l1_ratio=self.l1_ratio,
-                           positive=self.positive_only,
-                           fit_intercept=self.fit_intercept,
-                           copy_X=self.copy_X,
-                           precompute=self.precompute,
-                           selection=self.selection,
-                           max_iter=self.max_iter,
-                           tol=self.tol)
-
+        model = linear_model.ElasticNet(alpha=self.alpha,
+                                        l1_ratio=self.l1_ratio,
+                                        positive=self.positive_only,
+                                        fit_intercept=self.fit_intercept,
+                                        copy_X=self.copy_X,
+                                        precompute=self.precompute,
+                                        selection=self.selection,
+                                        max_iter=self.max_iter,
+                                        tol=self.tol)
         # WARNING: make a copy of X to avoid race conditions on column j
         # TODO: We can probably come up with something better here.
         X_j = X.copy()
@@ -88,7 +81,7 @@ class ElasticNet(object):
         self.training_urm = sps.csc_matrix(training_urm)
 
         n_items = self.training_urm.shape[1]
-        print('Iterating for ' + str(n_items) + 'times')
+        print('Iterating for ' + str(n_items) + ' times')
         # fit item's factors in parallel
 
         # create a copy of the URM since each _pfit will modify it
@@ -115,25 +108,17 @@ class ElasticNet(object):
         self.W_sparse = sps.csr_matrix((values, (rows, cols)), shape=(n_items, n_items), dtype=np.float32)
 
     def get_expected_ratings(self, user_id):
-        user_profile = self.training_urm[user_id]
-        expected_ratings = user_profile.dot(self.W_sparse)
-        expected_ratings = normalize(expected_ratings, axis=1, norm='l2').tocsr()
+        interacted_items = self.training_urm[user_id]
+        expected_ratings = interacted_items.dot(self.W_sparse)
+        expected_ratings = normalize(expected_ratings, axis=1, norm='max').tocsr()
         expected_ratings = expected_ratings.toarray().ravel()
-        if user_id == 0:
-            print('0 ELASTICNET RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 1:
-            print('1 ELASTICNET RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
-        if user_id == 2:
-            print('2 ELASTICNET RATINGS:')
-            print(pd.DataFrame(expected_ratings).sort_values(by=0, ascending=False))
+        expected_ratings[interacted_items.indices] = -100
         return expected_ratings
 
-    def recommend(self, user_id, at=10):
-        user_id = int(user_id)
-        scores = self.get_expected_ratings(user_id)
-        user_profile = self.training_urm[user_id].indices
-        scores[user_profile] = 0
-        recommended_items = np.flip(np.argsort(scores), 0)
-        return recommended_items[:at]
+    def recommend(self, user_id, k=10):
+        expected_ratings = self.get_expected_ratings(user_id)
+        recommended_items = np.flip(np.argsort(expected_ratings), 0)
+        unseen_items_mask = np.in1d(recommended_items, self.training_urm[user_id].indices, assume_unique=True,
+                                    invert=True)
+        recommended_items = recommended_items[unseen_items_mask]
+        return recommended_items[:k]

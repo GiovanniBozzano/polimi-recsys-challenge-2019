@@ -4,9 +4,14 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
-from lib.similarity.compute_similarity import SimilarityFunction
+from recommenders.alternating_least_square import AlternatingLeastSquare
 from recommenders.hybrid import HybridRecommender
+from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from recommenders.item_content_based_filtering import ItemContentBasedFiltering
+from recommenders.svd import SVD
+from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
+from recommenders.user_content_based_filtering import UserContentBasedFiltering
+from recommenders.nmf import NMF
 from session import Session
 
 
@@ -45,39 +50,42 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
         print('Saved predictions to file')
 
 
-weights_short = {
-    'user_content_based_filtering': 0.1,
+# 0.04983499459834069
+weights_low_interactions = {
+    'top_popular': 0.01,
+    'user_content_based_filtering': 0.01,
     'item_content_based_filtering': 0.1,
     'user_based_collaborative_filtering': 0.2,
-    'item_based_collaborative_filtering': 0.3,
+    'item_based_collaborative_filtering': 0.7,  # ^^^
     'slim_bpr': 0.2,
-    'elastic_net': 1.5,
+    'elastic_net': 1.3,  # OK
     'alternating_least_square': 0.2,
 
     'svd': 0
 }
-weights_long = {
-    'user_content_based_filtering': 0.1,
+weights_high_interactions = {
+    'top_popular': 0.01,
+    'user_content_based_filtering': 0.01,
     'item_content_based_filtering': 0.1,
     'user_based_collaborative_filtering': 0.1,
     'item_based_collaborative_filtering': 0.4,
     'slim_bpr': 0.2,
-    'elastic_net': 1,
+    'elastic_net': 1.2,  # OK
     'alternating_least_square': 0.2,
 
     'svd': 0
 }
 user_content_based_filtering_parameters = {
-    'top_k_user_region': 1000,
-    'top_k_user_age': 1000,
-    'shrink_user_region': 1,
-    'shrink_user_age': 1,
+    'top_k_user_region': 2000,
+    'top_k_user_age': 2000,
+    'shrink_user_region': 40,
+    'shrink_user_age': 40,
     'weight_user_region': 0.6
 }
 item_content_based_filtering_parameters = {
-    'top_k_item_asset': 50,
-    'top_k_item_price': 50,
-    'top_k_item_sub_class': 50,
+    'top_k_item_asset': 140,
+    'top_k_item_price': 140,
+    'top_k_item_sub_class': 300,
     'shrink_item_asset': 1,
     'shrink_item_price': 1,
     'shrink_item_sub_class': 1,
@@ -85,32 +93,30 @@ item_content_based_filtering_parameters = {
     'weight_item_price': 0.2
 }
 user_based_collaborative_filtering_parameters = {
-    'top_k': 2000,
-    'shrink': 5,
-    'similarity': SimilarityFunction.COSINE.value
+    'top_k': 1000,
+    'shrink': 5
 }
 item_based_collaborative_filtering_parameters = {
     'top_k': 10,
-    'shrink': 500,
-    'similarity': SimilarityFunction.JACCARD.value
+    'shrink': 400
 }
 slim_bpr_parameters = {
     'epochs': 80,
-    'top-k': 40
+    'top_k': 40
 }
 alternating_least_square_parameters = {
     'factors': 448,
     'regularization': 100,
     'iterations': 30,
-    'alpha': 24
+    'alpha': 21
 }
 svd_parameters = {
     'n_factors': 2000,
     'knn': 100
 }
 
-recommender = HybridRecommender(weights_long=weights_long,
-                                weights_short=weights_short,
+recommender = HybridRecommender(weights_high_interactions=weights_high_interactions,
+                                weights_low_interactions=weights_low_interactions,
                                 user_content_based_filtering_parameters=user_content_based_filtering_parameters,
                                 item_content_based_filtering_parameters=item_content_based_filtering_parameters,
                                 user_based_collaborative_filtering_parameters=
@@ -118,9 +124,8 @@ recommender = HybridRecommender(weights_long=weights_long,
                                 item_based_collaborative_filtering_parameters=
                                 item_based_collaborative_filtering_parameters,
                                 slim_bpr_parameters=slim_bpr_parameters,
-                                alternating_least_square_parameters=alternating_least_square_parameters,
-                                svd_parameters=svd_parameters)
-recommender = ItemContentBasedFiltering()
+                                alternating_least_square_parameters=alternating_least_square_parameters)
+# recommender = AlternatingLeastSquare()
 if __name__ == '__main__':
     run(recommender=recommender,
         urm_path=os.path.join(os.getcwd(), './dataset/data_train.csv'),
@@ -146,7 +151,7 @@ if __name__ == '__main__':
         icm_sub_classes_values_column='col',
         submission_users_column='user_id',
         submission_items_column='item_list',
-        is_test=True,
+        is_test=False,
         leave_one_out=True,
         test_percentage=0.2,
         k=10,
