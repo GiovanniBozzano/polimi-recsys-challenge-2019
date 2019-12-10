@@ -4,7 +4,7 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
-from recommenders.alternating_least_square import AlternatingLeastSquare
+from recommenders.als import ALS
 from recommenders.hybrid import HybridRecommender
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from recommenders.item_content_based_filtering import ItemContentBasedFiltering
@@ -52,28 +52,28 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
 
 # 0.050232533421856386
 weights_low_interactions = {
-    'top_popular': 0.01,
     'user_content_based_filtering': 0.01,  # OK
     'item_content_based_filtering': 0.1,  # OK
     'user_based_collaborative_filtering': 0.2,  # OK
     'item_based_collaborative_filtering': 0.7,  # OK
     'slim_bpr': 0.1,  # OK
     'elastic_net': 1.3,  # OK
-    'alternating_least_square': 0.2,  # OK
+    'als': 0.2,  # OK
 
-    'svd': 0
+    'svd': 0.1,
+    'top_popular': 0.01
 }
 weights_high_interactions = {
-    'top_popular': 0.01,
     'user_content_based_filtering': 0.01,  # OK
     'item_content_based_filtering': 0.1,  # OK
     'user_based_collaborative_filtering': 0.0,  # OK
     'item_based_collaborative_filtering': 0.4,  # OK
     'slim_bpr': 0.0,  # OK
     'elastic_net': 1.2,  # OK
-    'alternating_least_square': 0.4,  # OK
+    'als': 0.4,  # OK
 
-    'svd': 0
+    'svd': 0.1,
+    'top_popular': 0.01
 }
 user_content_based_filtering_parameters = {
     'top_k_user_region': 2000,
@@ -104,7 +104,7 @@ slim_bpr_parameters = {
     'epochs': 80,
     'top_k': 40
 }
-alternating_least_square_parameters = {
+als_parameters = {
     'factors': 448,
     'regularization': 100,
     'iterations': 30,
@@ -124,7 +124,7 @@ recommender = HybridRecommender(weights_high_interactions=weights_high_interacti
                                 item_based_collaborative_filtering_parameters=
                                 item_based_collaborative_filtering_parameters,
                                 slim_bpr_parameters=slim_bpr_parameters,
-                                alternating_least_square_parameters=alternating_least_square_parameters)
+                                als_parameters=als_parameters)
 # recommender = AlternatingLeastSquare()
 if __name__ == '__main__':
     run(recommender=recommender,

@@ -5,7 +5,7 @@ from implicit.als import AlternatingLeastSquares
 from sklearn.preprocessing import normalize
 
 
-class AlternatingLeastSquare:
+class ALS:
 
     def __init__(self, factors=448, regularization=100, iterations=30, alpha=21):
         # 0.04271062831051826
