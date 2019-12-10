@@ -59,8 +59,8 @@ class HybridRecommender(object):
     def fit(self, training_urm):
         self.training_urm = training_urm
 
-        print('Fitting Top Popular...')
-        self.top_popular.fit(self.training_urm)
+        #print('Fitting Top Popular...')
+        #self.top_popular.fit(self.training_urm)
         print('Fitting User Content Based Filtering...')
         self.user_content_based_filtering.fit(self.training_urm)
         print('Fitting Item Content Based Filtering...')

@@ -50,28 +50,28 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
         print('Saved predictions to file')
 
 
-# 0.04983499459834069
+# 0.050232533421856386
 weights_low_interactions = {
     'top_popular': 0.01,
-    'user_content_based_filtering': 0.01,
-    'item_content_based_filtering': 0.1,
-    'user_based_collaborative_filtering': 0.2,
-    'item_based_collaborative_filtering': 0.7,  # ^^^
-    'slim_bpr': 0.2,
+    'user_content_based_filtering': 0.01,  # OK
+    'item_content_based_filtering': 0.1,  # OK
+    'user_based_collaborative_filtering': 0.2,  # OK
+    'item_based_collaborative_filtering': 0.7,  # OK
+    'slim_bpr': 0.1,  # OK
     'elastic_net': 1.3,  # OK
-    'alternating_least_square': 0.2,
+    'alternating_least_square': 0.2,  # OK
 
     'svd': 0
 }
 weights_high_interactions = {
     'top_popular': 0.01,
-    'user_content_based_filtering': 0.01,
-    'item_content_based_filtering': 0.1,
-    'user_based_collaborative_filtering': 0.1,
-    'item_based_collaborative_filtering': 0.4,
-    'slim_bpr': 0.2,
+    'user_content_based_filtering': 0.01,  # OK
+    'item_content_based_filtering': 0.1,  # OK
+    'user_based_collaborative_filtering': 0.0,  # OK
+    'item_based_collaborative_filtering': 0.4,  # OK
+    'slim_bpr': 0.0,  # OK
     'elastic_net': 1.2,  # OK
-    'alternating_least_square': 0.2,
+    'alternating_least_square': 0.4,  # OK
 
     'svd': 0
 }
@@ -151,7 +151,7 @@ if __name__ == '__main__':
         icm_sub_classes_values_column='col',
         submission_users_column='user_id',
         submission_items_column='item_list',
-        is_test=False,
+        is_test=True,
         leave_one_out=True,
         test_percentage=0.2,
         k=10,
