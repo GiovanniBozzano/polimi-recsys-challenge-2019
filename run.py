@@ -5,7 +5,7 @@ from tqdm import tqdm
 import utils
 from evaluator import Evaluator
 from recommenders.als import ALS
-from recommenders.hybrid import HybridRecommender
+from recommenders.hybrid import Hybrid
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from recommenders.item_content_based_filtering import ItemContentBasedFiltering
 from recommenders.svd import SVD
@@ -51,6 +51,10 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
 
 
 # 0.050232533421856386
+
+# 0.05003082294496706 0.1 0.1
+#
+
 weights_low_interactions = {
     'user_content_based_filtering': 0.01,  # OK
     'item_content_based_filtering': 0.1,  # OK
@@ -60,7 +64,8 @@ weights_low_interactions = {
     'elastic_net': 1.3,  # OK
     'als': 0.2,  # OK
 
-    'svd': 0.1,
+    'nmf': 0.0,
+    'svd': 0.0,
     'top_popular': 0.01
 }
 weights_high_interactions = {
@@ -72,7 +77,8 @@ weights_high_interactions = {
     'elastic_net': 1.2,  # OK
     'als': 0.4,  # OK
 
-    'svd': 0.1,
+    'nmf': 0.1,
+    'svd': 0.0,
     'top_popular': 0.01
 }
 user_content_based_filtering_parameters = {
@@ -115,16 +121,16 @@ svd_parameters = {
     'knn': 100
 }
 
-recommender = HybridRecommender(weights_high_interactions=weights_high_interactions,
-                                weights_low_interactions=weights_low_interactions,
-                                user_content_based_filtering_parameters=user_content_based_filtering_parameters,
-                                item_content_based_filtering_parameters=item_content_based_filtering_parameters,
-                                user_based_collaborative_filtering_parameters=
+recommender = Hybrid(weights_high_interactions=weights_high_interactions,
+                     weights_low_interactions=weights_low_interactions,
+                     user_content_based_filtering_parameters=user_content_based_filtering_parameters,
+                     item_content_based_filtering_parameters=item_content_based_filtering_parameters,
+                     user_based_collaborative_filtering_parameters=
                                 user_based_collaborative_filtering_parameters,
-                                item_based_collaborative_filtering_parameters=
+                     item_based_collaborative_filtering_parameters=
                                 item_based_collaborative_filtering_parameters,
-                                slim_bpr_parameters=slim_bpr_parameters,
-                                als_parameters=als_parameters)
+                     slim_bpr_parameters=slim_bpr_parameters,
+                     als_parameters=als_parameters)
 # recommender = AlternatingLeastSquare()
 if __name__ == '__main__':
     run(recommender=recommender,

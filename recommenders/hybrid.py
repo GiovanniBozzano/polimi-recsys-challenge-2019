@@ -9,9 +9,10 @@ from recommenders.svd import SVD
 from recommenders.top_popular import TopPopular
 from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from recommenders.user_content_based_filtering import UserContentBasedFiltering
+from recommenders.nmf import NMF
 
 
-class HybridRecommender(object):
+class Hybrid(object):
     def __init__(self, weights_low_interactions, weights_high_interactions, user_content_based_filtering_parameters,
                  item_content_based_filtering_parameters, user_based_collaborative_filtering_parameters,
                  item_based_collaborative_filtering_parameters, slim_bpr_parameters,
@@ -53,67 +54,72 @@ class HybridRecommender(object):
                        iterations=als_parameters['iterations'],
                        alpha=als_parameters['alpha'])
         self.svd = SVD()
+        self.nmf = NMF()
 
         self.training_urm = None
 
+    def fit(self, training_urm):
+        self.training_urm = training_urm
+        print('Digimon Rearise > Star Wars BOZAAAAAAAAAA')
 
-def fit(self, training_urm):
-    self.training_urm = training_urm
+        print('Fitting User Content Based Filtering...')
+        self.user_content_based_filtering.fit(self.training_urm)
+        print('Fitting Item Content Based Filtering...')
+        self.item_content_based_filtering.fit(self.training_urm)
+        print('Fitting User Collaborative Filtering...')
+        self.user_based_collaborative_filtering.fit(self.training_urm)
+        print('Fitting Item Collaborative Filtering...')
+        self.item_based_collaborative_filtering.fit(self.training_urm)
+        print('Fitting SLIM BPR...')
+        self.slim_bpr.fit(self.training_urm)
+        print('Fitting ElasticNet...')
+        self.elastic_net.fit(self.training_urm)
+        print('Fitting ALS...')
+        self.als.fit(self.training_urm)
+        print('Fitting SVD...')
+        self.svd.fit(self.training_urm)
+        print('Fitting NMF...')
+        self.nmf.fit(self.training_urm)
+        # print('Fitting Top Popular...')
+        # self.top_popular.fit(self.training_urm)
 
-    print('Fitting User Content Based Filtering...')
-    self.user_content_based_filtering.fit(self.training_urm)
-    print('Fitting Item Content Based Filtering...')
-    self.item_content_based_filtering.fit(self.training_urm)
-    print('Fitting User Collaborative Filtering...')
-    self.user_based_collaborative_filtering.fit(self.training_urm)
-    print('Fitting Item Collaborative Filtering...')
-    self.item_based_collaborative_filtering.fit(self.training_urm)
-    print('Fitting SLIM BPR...')
-    self.slim_bpr.fit(self.training_urm)
-    print('Fitting Elastic Net...')
-    self.elastic_net.fit(self.training_urm)
-    print('Fitting ALS...')
-    self.als.fit(self.training_urm)
-    print('Fitting SVD...')
-    self.svd.fit(self.training_urm)
-    # print('Fitting Top Popular...')
-    # self.top_popular.fit(self.training_urm)
+    def recommend(self, user_id, k=10):
+        # DUE TO TIME CONSTRAINT THE CODE STRUCTURE HERE IS REDUNDANT
+        # TODO exploit inheritance to reduce code duplications and simple extract ratings, combine them,
+        #  simply by iterate over a list of recommenders
 
-def recommend(self, user_id, k=10):
-    # DUE TO TIME CONSTRAINT THE CODE STRUCTURE HERE IS REDUNDANT
-    # TODO exploit inheritance to reduce code duplications and simple extract ratings, combine them,
-    #  simply by iterate over a list of recommenders
+        user_content_based_filtering_ratings = self.user_content_based_filtering.get_expected_ratings(user_id)
+        item_content_based_filtering_ratings = self.item_content_based_filtering.get_expected_ratings(user_id)
+        user_based_collaborative_filtering_ratings = \
+            self.user_based_collaborative_filtering.get_expected_ratings(user_id)
+        item_based_collaborative_filtering_ratings = \
+            self.item_based_collaborative_filtering.get_expected_ratings(user_id)
+        slim_bpr_ratings = self.slim_bpr.get_expected_ratings(user_id)
+        elastic_net_ratings = self.elastic_net.get_expected_ratings(user_id)
+        als_ratings = self.als.get_expected_ratings(user_id)
+        nmf_ratings = self.nmf.get_expected_ratings(user_id)
+        # svd_ratings = self.svd.get_expected_ratings(user_id)
+        # top_popular_ratings = self.top_popular.get_expected_ratings(user_id)
 
-    user_content_based_filtering_ratings = self.user_content_based_filtering.get_expected_ratings(user_id)
-    item_content_based_filtering_ratings = self.item_content_based_filtering.get_expected_ratings(user_id)
-    user_based_collaborative_filtering_ratings = \
-        self.user_based_collaborative_filtering.get_expected_ratings(user_id)
-    item_based_collaborative_filtering_ratings = \
-        self.item_based_collaborative_filtering.get_expected_ratings(user_id)
-    slim_bpr_ratings = self.slim_bpr.get_expected_ratings(user_id)
-    elastic_net_ratings = self.elastic_net.get_expected_ratings(user_id)
-    als_ratings = self.als.get_expected_ratings(user_id)
-    svd_ratings = self.svd.get_expected_ratings(user_id)
-    # top_popular_ratings = self.top_popular.get_expected_ratings(user_id)
+        if self.training_urm[user_id].getnnz() > 10:
+            weights = self.weights_high_interactions
+        else:
+            weights = self.weights_low_interactions
 
-    if self.training_urm[user_id].getnnz() > 10:
-        weights = self.weights_high_interactions
-    else:
-        weights = self.weights_low_interactions
+        hybrid_ratings = user_content_based_filtering_ratings * weights['user_content_based_filtering']
+        hybrid_ratings += item_content_based_filtering_ratings * weights['item_content_based_filtering']
+        hybrid_ratings += user_based_collaborative_filtering_ratings * weights['user_based_collaborative_filtering']
+        hybrid_ratings += item_based_collaborative_filtering_ratings * weights['item_based_collaborative_filtering']
+        hybrid_ratings += slim_bpr_ratings * weights['slim_bpr']
+        hybrid_ratings += elastic_net_ratings * weights['elastic_net']
+        hybrid_ratings += als_ratings * weights['als']
+        hybrid_ratings += nmf_ratings * weights['nmf']
+        # hybrid_ratings += svd_ratings * weights['svd']
+        # hybrid_ratings += top_popular_ratings * weights['top_popular']
 
-    hybrid_ratings = user_content_based_filtering_ratings * weights['user_content_based_filtering']
-    hybrid_ratings += item_content_based_filtering_ratings * weights['item_content_based_filtering']
-    hybrid_ratings += user_based_collaborative_filtering_ratings * weights['user_based_collaborative_filtering']
-    hybrid_ratings += item_based_collaborative_filtering_ratings * weights['item_based_collaborative_filtering']
-    hybrid_ratings += slim_bpr_ratings * weights['slim_bpr']
-    hybrid_ratings += elastic_net_ratings * weights['elastic_net']
-    hybrid_ratings += als_ratings * weights['als']
-    hybrid_ratings += svd_ratings * weights['svd']
-    # hybrid_ratings += top_popular_ratings * weights['top_popular']
+        recommended_items = np.flip(np.argsort(hybrid_ratings), 0)
+        unseen_items_mask = np.in1d(recommended_items, self.training_urm[user_id].indices, assume_unique=True,
+                                    invert=True)
+        recommended_items = recommended_items[unseen_items_mask]
 
-    recommended_items = np.flip(np.argsort(hybrid_ratings), 0)
-    unseen_items_mask = np.in1d(recommended_items, self.training_urm[user_id].indices, assume_unique=True,
-                                invert=True)
-    recommended_items = recommended_items[unseen_items_mask]
-
-    return recommended_items[:k]
+        return recommended_items[:k]
