@@ -16,11 +16,13 @@ class Session(object):
                  icm_assets_path, icm_assets_index_column, icm_assets_value_column,
                  icm_prices_path, icm_prices_index_column, icm_prices_value_column,
                  icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
-                 users_usefulness_threshold, items_usefulness_threshold):
+                 users_usefulness_threshold, items_usefulness_threshold,
+                 random_seed=3333):
         global INSTANCE
         INSTANCE = self
 
-        np.random.seed(3333)
+        self.random_seed = random_seed
+        np.random.seed(self.random_seed)
 
         self.urm_dataframe = pd.read_csv(urm_path)
 
@@ -87,19 +89,14 @@ class Session(object):
                                          shape=(self.items_amount, max(sub_classes_list) + 1), dtype=np.float32)
         return icm_sub_classes.tocsr()
 
-    def get_ucm(self):
-        regions_data = pd.read_csv(os.path.join(os.getcwd(), self.ucm_regions_path))
-        regions_data = regions_data.rename(columns={self.ucm_regions_index_column: 'uid',
-                                                    self.ucm_regions_value_column: 'region'})
-        regions_data = regions_data[['uid', 'region']]
+    def get_ucm_ages(self):
         ages_data = pd.read_csv(os.path.join(os.getcwd(), self.ucm_ages_path))
-        ages_data = ages_data.rename(columns={self.ucm_ages_index_column: 'uid',
-                                              self.ucm_ages_value_column: 'age'})
-        ages_data = ages_data[['uid', 'age']]
-        print(regions_data)
-        print(ages_data)
-        ucm = pd.concat([regions_data, ages_data], axis=0)
-        return ucm
+        users_list = list(ages_data[self.ucm_ages_index_column])
+        ages_list = list(ages_data[self.ucm_ages_value_column])
+        values_list = list(np.ones(len(ages_list)))
+        ucm_ages = sps.coo_matrix((values_list, (users_list, ages_list)),
+                                  shape=(self.users_amount, max(ages_list) + 1), dtype=np.float32)
+        return ucm_ages.tocsr()
 
     def get_ucm_regions(self):
         regions_data = pd.read_csv(os.path.join(os.getcwd(), self.ucm_regions_path))
@@ -109,12 +106,3 @@ class Session(object):
         ucm_regions = sps.coo_matrix((values_list, (users_list, regions_list)),
                                      shape=(self.users_amount, max(regions_list) + 1), dtype=np.float32)
         return ucm_regions.tocsr()
-
-    def get_ucm_ages(self):
-        ages_data = pd.read_csv(os.path.join(os.getcwd(), self.ucm_ages_path))
-        users_list = list(ages_data[self.ucm_ages_index_column])
-        ages_list = list(ages_data[self.ucm_ages_value_column])
-        values_list = list(np.ones(len(ages_list)))
-        ucm_ages = sps.coo_matrix((values_list, (users_list, ages_list)),
-                                  shape=(self.users_amount, max(ages_list) + 1), dtype=np.float32)
-        return ucm_ages.tocsr()

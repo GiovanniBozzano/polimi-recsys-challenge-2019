@@ -1,8 +1,9 @@
 Cython
 implicit
+lightfm
 numpy
 pandas
-sklearn
+scikit-learn
 scipy
 similaripy
 tqdm

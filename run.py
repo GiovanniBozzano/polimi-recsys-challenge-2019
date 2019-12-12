@@ -4,14 +4,7 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
-from recommenders.als import ALS
 from recommenders.hybrid import Hybrid
-from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
-from recommenders.item_content_based_filtering import ItemContentBasedFiltering
-from recommenders.svd import SVD
-from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
-from recommenders.user_content_based_filtering import UserContentBasedFiltering
-from recommenders.nmf import NMF
 from session import Session
 
 
@@ -24,7 +17,7 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
         icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
         submission_users_column, submission_items_column,
         is_test, leave_one_out=True, test_percentage=0.2, test_interactions_threshold=10, k=10,
-        users_usefulness_threshold=None, items_usefulness_threshold=None):
+        users_usefulness_threshold=None, items_usefulness_threshold=None, random_seed=3333):
     session = Session(urm_path, urm_users_column, urm_items_column,
                       users_amount, items_amount, target_users_path,
                       ucm_ages_path, ucm_ages_index_column, ucm_ages_value_column,
@@ -32,7 +25,7 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
                       icm_assets_path, icm_assets_index_column, icm_assets_value_column,
                       icm_prices_path, icm_prices_index_column, icm_prices_value_column,
                       icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
-                      users_usefulness_threshold, items_usefulness_threshold)
+                      users_usefulness_threshold, items_usefulness_threshold, random_seed)
     if is_test:
         print('Starting testing phase..')
         evaluator = Evaluator(session)
@@ -50,43 +43,53 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
         print('Saved predictions to file')
 
 
-# 0.050232533421856386
-
-# 0.05003082294496706 0.1 0.1
-#
-
+# 0.05031654305457266
+# 0.050240381115449796
+weights_cold_start = {
+    'user_content_based_filtering': 1,
+    'item_content_based_filtering': 0,
+    'user_based_collaborative_filtering': 0,
+    'item_based_collaborative_filtering': 0,
+    'slim_bpr': 0,
+    'elastic_net': 0,
+    'als': 0,
+    'lightfm': 1,
+    'nmf': 0,
+    'svd': 0,
+    'top_popular': 0
+}
 weights_low_interactions = {
-    'user_content_based_filtering': 0.01,  # OK
+    'user_content_based_filtering': 0,  # OK
     'item_content_based_filtering': 0.1,  # OK
     'user_based_collaborative_filtering': 0.2,  # OK
     'item_based_collaborative_filtering': 0.7,  # OK
     'slim_bpr': 0.1,  # OK
     'elastic_net': 1.3,  # OK
     'als': 0.2,  # OK
-
-    'nmf': 0.0,
-    'svd': 0.0,
-    'top_popular': 0.01
+    'lightfm': 0,
+    'nmf': 0,
+    'svd': 0,
+    'top_popular': 0
 }
 weights_high_interactions = {
-    'user_content_based_filtering': 0.01,  # OK
+    'user_content_based_filtering': 0,  # OK
     'item_content_based_filtering': 0.1,  # OK
     'user_based_collaborative_filtering': 0.0,  # OK
     'item_based_collaborative_filtering': 0.4,  # OK
     'slim_bpr': 0.0,  # OK
     'elastic_net': 1.2,  # OK
     'als': 0.4,  # OK
-
-    'nmf': 0.1,
-    'svd': 0.0,
-    'top_popular': 0.01
+    'lightfm': 0,
+    'nmf': 0,
+    'svd': 0,
+    'top_popular': 0
 }
 user_content_based_filtering_parameters = {
-    'top_k_user_region': 2000,
     'top_k_user_age': 2000,
-    'shrink_user_region': 40,
+    'top_k_user_region': 2000,
     'shrink_user_age': 40,
-    'weight_user_region': 0.6
+    'shrink_user_region': 40,
+    'weight_user_age': 0.6
 }
 item_content_based_filtering_parameters = {
     'top_k_item_asset': 140,
@@ -121,17 +124,18 @@ svd_parameters = {
     'knn': 100
 }
 
-recommender = Hybrid(weights_high_interactions=weights_high_interactions,
+recommender = Hybrid(weights_cold_start=weights_cold_start,
                      weights_low_interactions=weights_low_interactions,
+                     weights_high_interactions=weights_high_interactions,
                      user_content_based_filtering_parameters=user_content_based_filtering_parameters,
                      item_content_based_filtering_parameters=item_content_based_filtering_parameters,
                      user_based_collaborative_filtering_parameters=
-                                user_based_collaborative_filtering_parameters,
+                     user_based_collaborative_filtering_parameters,
                      item_based_collaborative_filtering_parameters=
-                                item_based_collaborative_filtering_parameters,
+                     item_based_collaborative_filtering_parameters,
                      slim_bpr_parameters=slim_bpr_parameters,
                      als_parameters=als_parameters)
-# recommender = AlternatingLeastSquare()
+# recommender = LightFM()
 if __name__ == '__main__':
     run(recommender=recommender,
         urm_path=os.path.join(os.getcwd(), './dataset/data_train.csv'),
@@ -163,4 +167,5 @@ if __name__ == '__main__':
         k=10,
         test_interactions_threshold=10,
         users_usefulness_threshold=0,
-        items_usefulness_threshold=4)
+        items_usefulness_threshold=4,
+        random_seed=3333)

@@ -4,29 +4,28 @@ from recommenders.als import ALS
 from recommenders.elastic_net import ElasticNet
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from recommenders.item_content_based_filtering import ItemContentBasedFiltering
+from recommenders.lightfm import LightFM
 from recommenders.slim_bpr import SLIMBPR
-from recommenders.svd import SVD
 from recommenders.top_popular import TopPopular
 from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from recommenders.user_content_based_filtering import UserContentBasedFiltering
-from recommenders.nmf import NMF
 
 
 class Hybrid(object):
-    def __init__(self, weights_low_interactions, weights_high_interactions, user_content_based_filtering_parameters,
-                 item_content_based_filtering_parameters, user_based_collaborative_filtering_parameters,
-                 item_based_collaborative_filtering_parameters, slim_bpr_parameters,
-                 als_parameters):
+    def __init__(self, weights_cold_start, weights_low_interactions, weights_high_interactions,
+                 user_content_based_filtering_parameters, item_content_based_filtering_parameters,
+                 user_based_collaborative_filtering_parameters, item_based_collaborative_filtering_parameters,
+                 slim_bpr_parameters, als_parameters):
+        self.weights_cold_start = weights_cold_start
         self.weights_low_interactions = weights_low_interactions
         self.weights_high_interactions = weights_high_interactions
 
-        self.top_popular = TopPopular()
         self.user_content_based_filtering = \
-            UserContentBasedFiltering(top_k_user_region=user_content_based_filtering_parameters['top_k_user_region'],
-                                      top_k_user_age=user_content_based_filtering_parameters['top_k_user_age'],
-                                      shrink_user_region=user_content_based_filtering_parameters['shrink_user_region'],
+            UserContentBasedFiltering(top_k_user_age=user_content_based_filtering_parameters['top_k_user_age'],
+                                      top_k_user_region=user_content_based_filtering_parameters['top_k_user_region'],
                                       shrink_user_age=user_content_based_filtering_parameters['shrink_user_age'],
-                                      weight_user_region=user_content_based_filtering_parameters['weight_user_region'])
+                                      shrink_user_region=user_content_based_filtering_parameters['shrink_user_region'],
+                                      weight_user_age=user_content_based_filtering_parameters['weight_user_age'])
         self.item_content_based_filtering = \
             ItemContentBasedFiltering(top_k_item_asset=item_content_based_filtering_parameters['top_k_item_asset'],
                                       top_k_item_price=
@@ -53,14 +52,15 @@ class Hybrid(object):
                        regularization=als_parameters['regularization'],
                        iterations=als_parameters['iterations'],
                        alpha=als_parameters['alpha'])
-        self.svd = SVD()
-        self.nmf = NMF()
+        self.lightfm = LightFM()
+        # self.svd = SVD()
+        # self.nmf = NMF()
+        # self.top_popular = TopPopular()
 
         self.training_urm = None
 
     def fit(self, training_urm):
         self.training_urm = training_urm
-        print('Digimon Rearise > Star Wars BOZAAAAAAAAAA')
 
         print('Fitting User Content Based Filtering...')
         self.user_content_based_filtering.fit(self.training_urm)
@@ -76,10 +76,12 @@ class Hybrid(object):
         self.elastic_net.fit(self.training_urm)
         print('Fitting ALS...')
         self.als.fit(self.training_urm)
-        print('Fitting SVD...')
-        self.svd.fit(self.training_urm)
-        print('Fitting NMF...')
-        self.nmf.fit(self.training_urm)
+        # print('Fitting LightFM...')
+        # self.lightfm.fit(self.training_urm)
+        # print('Fitting NMF...')
+        # self.nmf.fit(self.training_urm)
+        # print('Fitting SVD...')
+        # self.svd.fit(self.training_urm)
         # print('Fitting Top Popular...')
         # self.top_popular.fit(self.training_urm)
 
@@ -97,12 +99,15 @@ class Hybrid(object):
         slim_bpr_ratings = self.slim_bpr.get_expected_ratings(user_id)
         elastic_net_ratings = self.elastic_net.get_expected_ratings(user_id)
         als_ratings = self.als.get_expected_ratings(user_id)
-        nmf_ratings = self.nmf.get_expected_ratings(user_id)
+        # lightfm_ratings = self.lightfm.get_expected_ratings(user_id)
+        # nmf_ratings = self.nmf.get_expected_ratings(user_id)
         # svd_ratings = self.svd.get_expected_ratings(user_id)
         # top_popular_ratings = self.top_popular.get_expected_ratings(user_id)
 
         if self.training_urm[user_id].getnnz() > 10:
             weights = self.weights_high_interactions
+        elif self.training_urm[user_id].getnnz() == 0:
+            weights = self.weights_cold_start
         else:
             weights = self.weights_low_interactions
 
@@ -113,7 +118,8 @@ class Hybrid(object):
         hybrid_ratings += slim_bpr_ratings * weights['slim_bpr']
         hybrid_ratings += elastic_net_ratings * weights['elastic_net']
         hybrid_ratings += als_ratings * weights['als']
-        hybrid_ratings += nmf_ratings * weights['nmf']
+        # hybrid_ratings += lightfm_ratings * weights['lightfm']
+        # hybrid_ratings += nmf_ratings * weights['nmf']
         # hybrid_ratings += svd_ratings * weights['svd']
         # hybrid_ratings += top_popular_ratings * weights['top_popular']
 
