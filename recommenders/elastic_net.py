@@ -27,8 +27,8 @@ class ElasticNet(BaseRecommender):
 
     name = 'elastic_net'
 
-    # 0.042518585493269104
-    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+    # 0.04781464301002003
+    def __init__(self, session, user_interactions_threshold=2, item_interactions_threshold=0,
                  alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False,
                  selection='cyclic', max_iter=3, tol=1e-4, top_k=50, positive_only=True,
                  workers=multiprocessing.cpu_count()):

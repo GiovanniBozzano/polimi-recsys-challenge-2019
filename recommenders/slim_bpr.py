@@ -33,8 +33,8 @@ def get_ram_status():
 class SLIMBPR(BaseRecommender):
     name = 'slim_bpr'
 
-    # 0.04119881891483439
-    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+    # 0.04119579049133264
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
                  final_model_sparse_weights=True, train_with_sparse_weights=False, symmetric=False,
                  epochs=200, batch_size=1, lambda_i=0.05, lambda_j=0.005, learning_rate=0.001, top_k=16,
                  sgd_mode='adagrad', gamma=0.995, beta_1=0.9, beta_2=0.999):

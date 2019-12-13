@@ -4,10 +4,7 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
-from recommenders.als import ALS
 from recommenders.hybrid import Hybrid
-from recommenders.item_content_based_filtering import ItemContentBasedFiltering
-from recommenders.slim_bpr import SLIMBPR
 from session import Session
 
 
@@ -44,7 +41,7 @@ def run(urm_path, urm_users_column, urm_items_column,
                          nmf_parameters=nmf_parameters,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters)
-    recommender = ALS(session=session)
+    # recommender = LightFM(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -126,7 +123,7 @@ item_content_based_filtering_parameters = {
 }
 user_based_collaborative_filtering_parameters = {
     'user_interactions_threshold': 0,
-    'item_interactions_threshold': 0,
+    'item_interactions_threshold': 1,
     'top_k': 1000,
     'shrink': 5
 }
@@ -138,17 +135,17 @@ item_based_collaborative_filtering_parameters = {
 }
 slim_bpr_parameters = {
     'user_interactions_threshold': 0,
-    'item_interactions_threshold': 0,
+    'item_interactions_threshold': 1,
     'epochs': 200,
     'top_k': 16
 }
 elastic_net_parameters = {
-    'user_interactions_threshold': 0,
+    'user_interactions_threshold': 2,
     'item_interactions_threshold': 0
 }
 als_parameters = {
     'user_interactions_threshold': 0,
-    'item_interactions_threshold': 0,
+    'item_interactions_threshold': 2,
     'factors': 448,
     'regularization': 100,
     'iterations': 30,

@@ -8,7 +8,7 @@ from recommenders.base_recommender import BaseRecommender
 class ItemBasedCollaborativeFiltering(BaseRecommender):
     name = 'item_based_collaborative_filtering'
 
-    # 0.04711466950872567
+    # 0.04712787518236062
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
                  top_k=10, shrink=400):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)

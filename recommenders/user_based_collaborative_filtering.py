@@ -8,8 +8,8 @@ from recommenders.base_recommender import BaseRecommender
 class UserBasedCollaborativeFiltering(BaseRecommender):
     name = 'user_based_collaborative_filtering'
 
-    # 0.041997361777218724
-    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+    # 0.04204615142699898
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
                  top_k=1000, shrink=5):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.top_k = top_k

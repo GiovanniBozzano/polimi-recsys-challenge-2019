@@ -21,15 +21,15 @@ class LightFM(BaseRecommender):
         training_urm = super().fit(training_urm)
 
         user_list = np.arange(self.session.users_amount)
-        ones = np.ones(self.session.users_amount, dtype=np.int)
+        ones = np.ones(self.session.users_amount, dtype=np.int32)
         user_identity_matrix = sps.coo_matrix((ones, (user_list, user_list)),
                                               shape=(self.session.users_amount, self.session.users_amount),
-                                              dtype=np.int).tocsr()
+                                              dtype=np.int32).tocsr()
         item_list = np.arange(self.session.items_amount)
-        ones = np.ones(self.session.items_amount, dtype=np.int)
+        ones = np.ones(self.session.items_amount, dtype=np.int32)
         item_identity_matrix = sps.coo_matrix((ones, (item_list, item_list)),
                                               shape=(self.session.items_amount, self.session.items_amount),
-                                              dtype=np.int).tocsr()
+                                              dtype=np.int32).tocsr()
 
         self.ucm = sps.hstack((user_identity_matrix, self.session.get_ucm_ages(),
                                self.session.get_ucm_regions())).tocsr()
@@ -44,7 +44,7 @@ class LightFM(BaseRecommender):
                                      item_alpha=1e-5,
                                      random_state=np.random.RandomState(self.session.random_seed))
         for _ in tqdm(np.arange(20)):
-            self.model.fit_partial(training_urm,
+            self.model.fit_partial(interactions=training_urm,
                                    user_features=self.ucm,
                                    item_features=self.icm,
                                    epochs=1)

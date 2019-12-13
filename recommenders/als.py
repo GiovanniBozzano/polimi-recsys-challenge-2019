@@ -10,8 +10,8 @@ from recommenders.base_recommender import BaseRecommender
 class ALS(BaseRecommender):
     name = 'als'
 
-    # 0.042505452618275985
-    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+    # 0.04276524185164801
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=2,
                  factors=448, regularization=100, iterations=30, alpha=21):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.factors = factors
