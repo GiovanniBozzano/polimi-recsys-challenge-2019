@@ -4,21 +4,21 @@ import scipy.sparse as sps
 from sklearn.preprocessing import normalize
 from tqdm import tqdm
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class LightFM(Recommender):
+class LightFM(BaseRecommender):
     name = 'lightfm'
 
     # 0.017361384106018098
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.ucm = None
         self.icm = None
         self.model = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         user_list = np.arange(self.session.users_amount)
         ones = np.ones(self.session.users_amount, dtype=np.int)

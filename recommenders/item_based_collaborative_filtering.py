@@ -2,21 +2,22 @@ import similaripy
 import similaripy.normalization
 from sklearn.preprocessing import normalize
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class ItemBasedCollaborativeFiltering(Recommender):
+class ItemBasedCollaborativeFiltering(BaseRecommender):
     name = 'item_based_collaborative_filtering'
 
     # 0.04711466950872567
-    def __init__(self, session, top_k=10, shrink=400):
-        super().__init__(session)
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+                 top_k=10, shrink=400):
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.top_k = top_k
         self.shrink = shrink
         self.recommendations = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         training_urm = similaripy.normalization.bm25(training_urm.transpose().tocsr())
         similarity_matrix = similaripy.dice(training_urm, k=self.top_k, shrink=self.shrink, binary=True, verbose=False)

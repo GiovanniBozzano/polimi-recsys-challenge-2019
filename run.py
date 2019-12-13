@@ -5,6 +5,7 @@ from tqdm import tqdm
 import utils
 from evaluator import Evaluator
 from recommenders.hybrid import Hybrid
+from recommenders.slim_bpr import SLIMBPR
 from session import Session
 
 
@@ -16,16 +17,14 @@ def run(urm_path, urm_users_column, urm_items_column,
         icm_prices_path, icm_prices_index_column, icm_prices_value_column,
         icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
         submission_users_column, submission_items_column,
-        is_test, leave_one_out=True, test_percentage=0.2, test_interactions_threshold=10, k=10,
-        users_usefulness_threshold=None, items_usefulness_threshold=None, random_seed=3333):
+        is_test, leave_one_out=True, test_percentage=0.2, test_interactions_threshold=10, k=10, random_seed=3333):
     session = Session(urm_path, urm_users_column, urm_items_column,
                       users_amount, items_amount, target_users_path,
                       ucm_ages_path, ucm_ages_index_column, ucm_ages_value_column,
                       ucm_regions_path, ucm_regions_index_column, ucm_regions_value_column,
                       icm_assets_path, icm_assets_index_column, icm_assets_value_column,
                       icm_prices_path, icm_prices_index_column, icm_prices_value_column,
-                      icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
-                      users_usefulness_threshold, items_usefulness_threshold, random_seed)
+                      icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column, random_seed)
 
     recommender = Hybrid(session=session,
                          weights_cold_start=weights_cold_start,
@@ -36,8 +35,14 @@ def run(urm_path, urm_users_column, urm_items_column,
                          user_based_collaborative_filtering_parameters=user_based_collaborative_filtering_parameters,
                          item_based_collaborative_filtering_parameters=item_based_collaborative_filtering_parameters,
                          slim_bpr_parameters=slim_bpr_parameters,
-                         als_parameters=als_parameters)
-    # recommender = UserContentBasedFiltering(session=session)
+                         elastic_net_parameters=elastic_net_parameters,
+                         als_parameters=als_parameters,
+                         lightfm_parameters=lightfm_parameters,
+                         svd_parameters=svd_parameters,
+                         nmf_parameters=nmf_parameters,
+                         top_popular_parameters=top_popular_parameters,
+                         spotlight_parameters=spotlight_parameters)
+    recommender = SLIMBPR(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -97,6 +102,8 @@ weights_high_interactions = {
     'spotlight': 0
 }
 user_content_based_filtering_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0,
     'top_k_user_age': 2000,
     'top_k_user_region': 2000,
     'shrink_user_age': 40,
@@ -104,6 +111,8 @@ user_content_based_filtering_parameters = {
     'weight_user_age': 0.6
 }
 item_content_based_filtering_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0,
     'top_k_item_asset': 140,
     'top_k_item_price': 140,
     'top_k_item_sub_class': 300,
@@ -114,26 +123,54 @@ item_content_based_filtering_parameters = {
     'weight_item_price': 0.2
 }
 user_based_collaborative_filtering_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0,
     'top_k': 1000,
     'shrink': 5
 }
 item_based_collaborative_filtering_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0,
     'top_k': 10,
     'shrink': 400
 }
 slim_bpr_parameters = {
-    'epochs': 80,
-    'top_k': 40
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0,
+    'epochs': 200,
+    'top_k': 16
+}
+elastic_net_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0
 }
 als_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0,
     'factors': 448,
     'regularization': 100,
     'iterations': 30,
     'alpha': 21
 }
+lightfm_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0
+}
 svd_parameters = {
-    'n_factors': 2000,
-    'knn': 100
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0
+}
+nmf_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0
+}
+top_popular_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0
+}
+spotlight_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0
 }
 
 if __name__ == '__main__':
@@ -164,7 +201,4 @@ if __name__ == '__main__':
         leave_one_out=True,
         test_percentage=0.2,
         k=10,
-        test_interactions_threshold=10,
-        users_usefulness_threshold=0,
-        items_usefulness_threshold=4,
         random_seed=3333)

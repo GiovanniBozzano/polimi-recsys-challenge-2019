@@ -20,18 +20,6 @@ class Evaluator(object):
             self.training_urm, self.test_urm, self.target_users = utils.train_test_split(self.session.urm,
                                                                                          test_percentage,
                                                                                          test_interaction_threshold)
-        training_urm = self.training_urm.copy().tolil()
-        for user_id in self.session.user_list_unique:
-            if self.training_urm[user_id].getnnz() < self.session.users_usefulness_threshold:
-                for item_id in self.training_urm[user_id].indices:
-                    training_urm[user_id, item_id] = 0
-        self.training_urm = training_urm.transpose().tocsr()
-        training_urm = training_urm.transpose().tocsr()
-        for item_id in self.session.item_list_unique:
-            if self.training_urm[item_id].getnnz() < self.session.items_usefulness_threshold:
-                for user_id in self.training_urm[item_id].indices:
-                    training_urm[item_id, user_id] = 0
-        self.training_urm = training_urm.transpose().tocsr()
 
     def evaluate(self, recommender, k):
         mean_average_precision_final = 0

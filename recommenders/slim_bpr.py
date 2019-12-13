@@ -8,7 +8,7 @@ import sys
 from sklearn.preprocessing import normalize
 
 from lib.recommender_utils import similarity_matrix_top_k, check_matrix
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
 def estimate_required_mb(items_amount, symmetric):
@@ -30,15 +30,15 @@ def get_ram_status():
     return total_memory, used_memory, available_memory
 
 
-class SLIMBPR(Recommender):
+class SLIMBPR(BaseRecommender):
     name = 'slim_bpr'
 
-    # 0.03988547317661249
-    def __init__(self, session, positive_threshold=1, final_model_sparse_weights=True, train_with_sparse_weights=False,
-                 symmetric=False, epochs=80, batch_size=1, lambda_i=0.03, lambda_j=0.003, learning_rate=0.01, top_k=40,
+    # 0.04119881891483439
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+                 final_model_sparse_weights=True, train_with_sparse_weights=False, symmetric=False,
+                 epochs=200, batch_size=1, lambda_i=0.05, lambda_j=0.005, learning_rate=0.001, top_k=16,
                  sgd_mode='adagrad', gamma=0.995, beta_1=0.9, beta_2=0.999):
-        super().__init__(session)
-        self.positive_threshold = positive_threshold
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.final_model_sparse_weights = final_model_sparse_weights
         self.train_with_sparse_weights = train_with_sparse_weights
         if self.train_with_sparse_weights:
@@ -60,7 +60,7 @@ class SLIMBPR(Recommender):
         self.recommendations = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         from recommenders.slim_bpr_epoch import SLIMBPREpoch
 
@@ -82,11 +82,6 @@ class SLIMBPR(Recommender):
                 self.train_with_sparse_weights = True
 
         training_urm_positive = training_urm.copy()
-        if self.positive_threshold is not None:
-            training_urm_positive.data = training_urm_positive.data >= self.positive_threshold
-            training_urm_positive.eliminate_zeros()
-            assert training_urm_positive.nnz > 0, 'SLIM BPR: training_urm_positive is empty, positive threshold is ' \
-                                                  'too high'
 
         self.cython_epoch = SLIMBPREpoch(training_urm_positive,
                                          train_with_sparse_weights=self.train_with_sparse_weights,

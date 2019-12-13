@@ -2,19 +2,19 @@ import numpy as np
 import scipy.sparse as sps
 from sklearn.preprocessing import normalize
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class TopPopular(Recommender):
+class TopPopular(BaseRecommender):
     name = 'top_popular'
 
     # 0.007290055996715304
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.ratings = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         item_popularity = (training_urm > 0).sum(axis=0)
         item_popularity = np.array(item_popularity).squeeze()

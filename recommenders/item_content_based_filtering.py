@@ -3,10 +3,10 @@ import similaripy.normalization
 from sklearn.preprocessing import normalize
 
 from lib.similarity.compute_similarity_euclidean import ComputeSimilarityEuclidean
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class ItemContentBasedFiltering(Recommender):
+class ItemContentBasedFiltering(BaseRecommender):
     """
     Crea una similarity matrix che rappresenta quanto ogni oggetto è simile a top-k altri oggetti.
     La similarity matrix è la somma pesata di tre similarity matrix, ciascuna rappresentante una feature diversa con
@@ -23,10 +23,11 @@ class ItemContentBasedFiltering(Recommender):
     name = 'item_content_based_filtering'
 
     # 0.013031728560071967
-    def __init__(self, session, top_k_item_asset=140, top_k_item_price=140, top_k_item_sub_class=300,
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+                 top_k_item_asset=140, top_k_item_price=140, top_k_item_sub_class=300,
                  shrink_item_asset=1, shrink_item_price=1, shrink_item_sub_class=1, weight_item_asset=0.2,
                  weight_item_price=0.2):
-        super().__init__(session)
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.top_k_item_asset = top_k_item_asset
         self.top_k_item_price = top_k_item_price
         self.top_k_item_sub_class = top_k_item_sub_class
@@ -38,7 +39,7 @@ class ItemContentBasedFiltering(Recommender):
         self.similarity_matrix = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        super().fit(training_urm)
 
         items_assets = self.session.get_icm_assets()
         items_prices = self.session.get_icm_prices()

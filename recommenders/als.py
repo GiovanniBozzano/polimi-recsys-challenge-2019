@@ -4,15 +4,15 @@ import numpy as np
 from implicit.als import AlternatingLeastSquares
 from sklearn.preprocessing import normalize
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class ALS(Recommender):
+class ALS(BaseRecommender):
     name = 'als'
 
     # 0.04271062831051826
-    def __init__(self, session, factors=448, regularization=100, iterations=30, alpha=21):
-        super().__init__(session)
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0, factors=448, regularization=100, iterations=30, alpha=21):
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.factors = factors
         self.regularization = regularization
         self.iterations = iterations
@@ -21,7 +21,7 @@ class ALS(Recommender):
         self.item_factors = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         sparse_item_user = training_urm.transpose().tocsr()
         os.environ['OPENBLAS_NUM_THREADS'] = '1'

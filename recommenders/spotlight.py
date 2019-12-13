@@ -3,19 +3,19 @@ from sklearn.preprocessing import normalize
 from spotlight.factorization.implicit import ImplicitFactorizationModel
 from spotlight.interactions import Interactions
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class Spotlight(Recommender):
+class Spotlight(BaseRecommender):
     name = 'spotlight'
 
     # 0.010533919799192217
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.model = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         training_urm = training_urm.tocoo()
         interactions = Interactions(user_ids=training_urm.row, item_ids=training_urm.col, ratings=training_urm.data)

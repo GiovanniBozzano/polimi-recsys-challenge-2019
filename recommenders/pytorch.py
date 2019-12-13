@@ -5,14 +5,14 @@ from torch.autograd import Variable
 from torch.utils.data import DataLoader
 
 from recommenders.pytorch_model import PyTorchModel, DatasetIterator
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class PyTorch(Recommender):
+class PyTorch(BaseRecommender):
     name = 'pytorch'
 
-    def __init__(self, session):
-        super().__init__(session)
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.n_factors = 32
         self.epochs = 10
         self.batch_size = 20
@@ -26,7 +26,7 @@ class PyTorch(Recommender):
         self.item_factors = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         if torch.cuda.is_available():
             self.device = torch.device('cuda')

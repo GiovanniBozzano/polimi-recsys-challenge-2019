@@ -3,21 +3,22 @@ from scipy import sparse
 from sklearn.preprocessing import normalize
 from sklearn.utils.extmath import randomized_svd
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class SVD(Recommender):
+class SVD(BaseRecommender):
     name = 'svd'
 
     # 0.02403678660970901
-    def __init__(self, session, n_factors=100):
-        super().__init__(session)
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+                 n_factors=100):
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.n_factors = n_factors
         self.user_factors = None
         self.item_factors = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         U, s, V = randomized_svd(training_urm,
                                  n_components=self.n_factors,

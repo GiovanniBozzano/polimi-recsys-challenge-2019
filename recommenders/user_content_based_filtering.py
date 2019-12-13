@@ -2,16 +2,17 @@ import similaripy
 import similaripy.normalization
 from sklearn.preprocessing import normalize
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class UserContentBasedFiltering(Recommender):
+class UserContentBasedFiltering(BaseRecommender):
     name = 'user_content_based_filtering'
 
     # 0.009671896521098483
-    def __init__(self, session, top_k_user_age=2000, top_k_user_region=2000, shrink_user_age=40, shrink_user_region=40,
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+                 top_k_user_age=2000, top_k_user_region=2000, shrink_user_age=40, shrink_user_region=40,
                  weight_user_age=0.4):
-        super().__init__(session)
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.top_k_user_age = top_k_user_age
         self.top_k_user_region = top_k_user_region
         self.shrink_user_age = shrink_user_age
@@ -20,7 +21,7 @@ class UserContentBasedFiltering(Recommender):
         self.similarity_matrix = None
 
     def fit(self, training_urm):
-        super().fit(self)
+        super().fit(training_urm)
 
         users_ages = self.session.get_ucm_ages()
         users_ages = similaripy.normalization.bm25plus(users_ages)

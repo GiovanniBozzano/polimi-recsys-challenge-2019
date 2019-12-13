@@ -13,9 +13,7 @@ class Session(object):
                  ucm_regions_path, ucm_regions_index_column, ucm_regions_value_column,
                  icm_assets_path, icm_assets_index_column, icm_assets_value_column,
                  icm_prices_path, icm_prices_index_column, icm_prices_value_column,
-                 icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
-                 users_usefulness_threshold, items_usefulness_threshold,
-                 random_seed=3333):
+                 icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column, random_seed=3333):
 
         self.random_seed = random_seed
         np.random.seed(self.random_seed)
@@ -57,8 +55,6 @@ class Session(object):
         self.icm_sub_classes_path = icm_sub_classes_path
         self.icm_sub_classes_index_column = icm_sub_classes_index_column
         self.icm_sub_classes_values_column = icm_sub_classes_values_column
-        self.users_usefulness_threshold = users_usefulness_threshold
-        self.items_usefulness_threshold = items_usefulness_threshold
 
     def get_icm_assets(self):
         assets_data = pd.read_csv(os.path.join(os.getcwd(), self.icm_assets_path))

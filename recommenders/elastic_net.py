@@ -8,10 +8,10 @@ from sklearn import linear_model
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.preprocessing import normalize
 
-from recommenders.recommender import Recommender
+from recommenders.base_recommender import BaseRecommender
 
 
-class ElasticNet(Recommender):
+class ElasticNet(BaseRecommender):
     """
     Train a Sparse Linear Methods (SLIM) item similarity model.
     NOTE: ElasticNet solver is parallel, a single intance of SLIM_ElasticNet will
@@ -28,10 +28,11 @@ class ElasticNet(Recommender):
     name = 'elastic_net'
 
     # 0.042518585493269104
-    def __init__(self, session, alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False,
+    def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
+                 alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False,
                  selection='cyclic', max_iter=3, tol=1e-4, top_k=50, positive_only=True,
                  workers=multiprocessing.cpu_count()):
-        super().__init__(session)
+        super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.analyzed_items = 0
         self.alpha = alpha
         self.l1_ratio = l1_ratio
@@ -80,7 +81,7 @@ class ElasticNet(Recommender):
         return values, rows, cols
 
     def fit(self, training_urm):
-        super().fit(self)
+        training_urm = super().fit(training_urm)
 
         training_urm = training_urm.tocsc()
 
