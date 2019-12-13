@@ -16,12 +16,12 @@ class BaseRecommender(object):
         print('=== Fitting ' + self.name)
         training_urm = training_urm.copy()
         for user_id in self.session.user_list_unique:
-            if training_urm[user_id].getnnz() < self.user_interactions_threshold:
+            if training_urm[user_id].getnnz() <= self.user_interactions_threshold:
                 for item_id in training_urm[user_id].indices:
                     training_urm[user_id, item_id] = 0
         training_urm = training_urm.transpose().tocsr()
         for item_id in self.session.item_list_unique:
-            if training_urm[item_id].getnnz() < self.item_interactions_threshold:
+            if training_urm[item_id].getnnz() <= self.item_interactions_threshold:
                 for user_id in training_urm[item_id].indices:
                     training_urm[item_id, user_id] = 0
         training_urm = training_urm.transpose().tocsr()

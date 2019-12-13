@@ -4,6 +4,7 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
+from recommenders.als import ALS
 from recommenders.hybrid import Hybrid
 from recommenders.item_content_based_filtering import ItemContentBasedFiltering
 from recommenders.slim_bpr import SLIMBPR
@@ -43,7 +44,7 @@ def run(urm_path, urm_users_column, urm_items_column,
                          nmf_parameters=nmf_parameters,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters)
-    # recommender = ItemContentBasedFiltering(session=session)
+    recommender = ALS(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
