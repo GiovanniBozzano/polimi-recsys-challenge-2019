@@ -23,8 +23,7 @@ def train_test_split(interactions, test_percentage, split_count):
     test = sp.lil_matrix(train.shape)
     try:
         user_index = np.random.choice(np.where(np.bincount(train.row) >= split_count * 2)[0], replace=False,
-                                      size=np.int64(np.floor(test_percentage * train.shape[0]))
-                                      ).tolist()
+                                      size=np.int64(np.floor(test_percentage * train.shape[0]))).tolist()
     except:
         print('Not enough users with > {} interactions for fraction of {}'.format(2 * split_count, test_percentage))
         raise

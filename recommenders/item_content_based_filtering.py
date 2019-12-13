@@ -22,7 +22,7 @@ class ItemContentBasedFiltering(BaseRecommender):
 
     name = 'item_content_based_filtering'
 
-    # 0.013031728560071967
+    # 0.013040420717911071
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
                  top_k_item_asset=140, top_k_item_price=140, top_k_item_sub_class=300,
                  shrink_item_asset=1, shrink_item_price=1, shrink_item_sub_class=1, weight_item_asset=0.2,

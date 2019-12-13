@@ -60,6 +60,7 @@ class SLIMBPR(BaseRecommender):
         self.recommendations = None
 
     def fit(self, training_urm):
+
         training_urm = super().fit(training_urm)
 
         from recommenders.slim_bpr_epoch import SLIMBPREpoch

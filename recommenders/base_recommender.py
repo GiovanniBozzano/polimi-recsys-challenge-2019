@@ -14,7 +14,7 @@ class BaseRecommender(object):
 
     def fit(self, training_urm):
         print('=== Fitting ' + self.name)
-        training_urm = training_urm.copy().tolil()
+        training_urm = training_urm.copy()
         for user_id in self.session.user_list_unique:
             if training_urm[user_id].getnnz() < self.user_interactions_threshold:
                 for item_id in training_urm[user_id].indices:

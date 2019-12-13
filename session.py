@@ -60,7 +60,7 @@ class Session(object):
         assets_data = pd.read_csv(os.path.join(os.getcwd(), self.icm_assets_path))
         items_list = list(assets_data[self.icm_assets_index_column])
         assets_list = list(assets_data[self.icm_assets_value_column])
-        zeroes = np.zeros(len(items_list), dtype=np.int)
+        zeroes = np.zeros(len(items_list), dtype=np.int32)
         icm_assets = sps.coo_matrix((assets_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float32)
         return icm_assets.tocsr()
 
@@ -68,7 +68,7 @@ class Session(object):
         prices_data = pd.read_csv(os.path.join(os.getcwd(), self.icm_prices_path))
         items_list = list(prices_data[self.icm_prices_index_column])
         prices_list = list(prices_data[self.icm_prices_value_column])
-        zeroes = np.zeros(len(items_list), dtype=np.int)
+        zeroes = np.zeros(len(items_list), dtype=np.int32)
         icm_prices = sps.coo_matrix((prices_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float32)
         return icm_prices.tocsr()
 
