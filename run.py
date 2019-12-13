@@ -8,7 +8,7 @@ from recommenders.hybrid import Hybrid
 from session import Session
 
 
-def run(recommender, urm_path, urm_users_column, urm_items_column,
+def run(urm_path, urm_users_column, urm_items_column,
         users_amount, items_amount, target_users_path,
         ucm_ages_path, ucm_ages_index_column, ucm_ages_value_column,
         ucm_regions_path, ucm_regions_index_column, ucm_regions_value_column,
@@ -26,37 +26,47 @@ def run(recommender, urm_path, urm_users_column, urm_items_column,
                       icm_prices_path, icm_prices_index_column, icm_prices_value_column,
                       icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
                       users_usefulness_threshold, items_usefulness_threshold, random_seed)
+
+    recommender = Hybrid(session=session,
+                         weights_cold_start=weights_cold_start,
+                         weights_low_interactions=weights_low_interactions,
+                         weights_high_interactions=weights_high_interactions,
+                         user_content_based_filtering_parameters=user_content_based_filtering_parameters,
+                         item_content_based_filtering_parameters=item_content_based_filtering_parameters,
+                         user_based_collaborative_filtering_parameters=user_based_collaborative_filtering_parameters,
+                         item_based_collaborative_filtering_parameters=item_based_collaborative_filtering_parameters,
+                         slim_bpr_parameters=slim_bpr_parameters,
+                         als_parameters=als_parameters)
+    # recommender = UserContentBasedFiltering(session=session)
+
     if is_test:
-        print('Starting testing phase..')
         evaluator = Evaluator(session)
         evaluator.split(leave_one_out, test_percentage, test_interactions_threshold)
-        score = evaluator.evaluate(recommender, k)
-        print('Evaluation completed, score = ' + str(score) + '\n')
-        return score
+        mapk = evaluator.evaluate(recommender, k)
+        print('map@' + str(k) + ' = ' + str(mapk) + '\n')
     else:
-        print('Starting prediction to be submitted..')
         recommender.fit(session.urm)
         results = {}
         for user in tqdm(session.target_users_list):
-            results[user] = recommender.recommend(user, k)
+            results[user] = recommender.recommend(session.urm, user, k)
         utils.create_csv(results, users_column=submission_users_column, items_column=submission_items_column)
-        print('Saved predictions to file')
 
 
-# 0.05031654305457266
-# 0.050240381115449796
+# 0.05048601829284261 lightfm
+# 0.05040985635371977
 weights_cold_start = {
-    'user_content_based_filtering': 1,
-    'item_content_based_filtering': 0,
-    'user_based_collaborative_filtering': 0,
-    'item_based_collaborative_filtering': 0,
-    'slim_bpr': 0,
-    'elastic_net': 0,
-    'als': 0,
-    'lightfm': 1,
-    'nmf': 0,
-    'svd': 0,
-    'top_popular': 0
+    'user_content_based_filtering': 1,  # OK
+    'item_content_based_filtering': 0,  # OK
+    'user_based_collaborative_filtering': 0,  # OK
+    'item_based_collaborative_filtering': 0,  # OK
+    'slim_bpr': 0,  # OK
+    'elastic_net': 0,  # OK
+    'als': 0,  # OK
+    'lightfm': 1,  # OK
+    'nmf': 0,  # OK
+    'svd': 0,  # OK
+    'top_popular': 0,  # OK
+    'spotlight': 0  # OK
 }
 weights_low_interactions = {
     'user_content_based_filtering': 0,  # OK
@@ -64,12 +74,13 @@ weights_low_interactions = {
     'user_based_collaborative_filtering': 0.2,  # OK
     'item_based_collaborative_filtering': 0.7,  # OK
     'slim_bpr': 0.1,  # OK
-    'elastic_net': 1.3,  # OK
+    'elastic_net': 0.7,  # OK
     'als': 0.2,  # OK
     'lightfm': 0,
     'nmf': 0,
     'svd': 0,
-    'top_popular': 0
+    'top_popular': 0,
+    'spotlight': 0
 }
 weights_high_interactions = {
     'user_content_based_filtering': 0,  # OK
@@ -82,7 +93,8 @@ weights_high_interactions = {
     'lightfm': 0,
     'nmf': 0,
     'svd': 0,
-    'top_popular': 0
+    'top_popular': 0,
+    'spotlight': 0
 }
 user_content_based_filtering_parameters = {
     'top_k_user_age': 2000,
@@ -124,21 +136,8 @@ svd_parameters = {
     'knn': 100
 }
 
-recommender = Hybrid(weights_cold_start=weights_cold_start,
-                     weights_low_interactions=weights_low_interactions,
-                     weights_high_interactions=weights_high_interactions,
-                     user_content_based_filtering_parameters=user_content_based_filtering_parameters,
-                     item_content_based_filtering_parameters=item_content_based_filtering_parameters,
-                     user_based_collaborative_filtering_parameters=
-                     user_based_collaborative_filtering_parameters,
-                     item_based_collaborative_filtering_parameters=
-                     item_based_collaborative_filtering_parameters,
-                     slim_bpr_parameters=slim_bpr_parameters,
-                     als_parameters=als_parameters)
-# recommender = LightFM()
 if __name__ == '__main__':
-    run(recommender=recommender,
-        urm_path=os.path.join(os.getcwd(), './dataset/data_train.csv'),
+    run(urm_path=os.path.join(os.getcwd(), './dataset/data_train.csv'),
         urm_users_column='row',
         urm_items_column='col',
         users_amount=30911,

@@ -4,8 +4,6 @@ import numpy as np
 import pandas as pd
 import scipy.sparse as sps
 
-INSTANCE = None
-
 
 class Session(object):
 
@@ -18,8 +16,6 @@ class Session(object):
                  icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column,
                  users_usefulness_threshold, items_usefulness_threshold,
                  random_seed=3333):
-        global INSTANCE
-        INSTANCE = self
 
         self.random_seed = random_seed
         np.random.seed(self.random_seed)

@@ -112,18 +112,6 @@ class ComputeSimilarityEuclidean:
             end_col_block = min(start_col_block + block_size, end_col_local)
             this_block_size = end_col_block - start_col_block
 
-            if time.time() - start_time_print_batch >= 30 or end_col_block == end_col_local:
-                columns_per_sec = processed_items / (time.time() - start_time + 1e-9)
-
-                print('similarity column {} ( {:2.0f} % ), {:.2f} column/sec, elapsed time {:.2f} min'.format(
-                    processed_items, processed_items / (end_col_local - start_col_local) * 100, columns_per_sec,
-                                     (time.time() - start_time) / 60))
-
-                sys.stdout.flush()
-                sys.stderr.flush()
-
-                start_time_print_batch = time.time()
-
             # All data points for a given item
             item_data = self.data_matrix[:, start_col_block:end_col_block]
             item_data = item_data.toarray().squeeze()

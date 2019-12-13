@@ -7,19 +7,19 @@ import torch
 from torch.utils.data import Dataset
 
 
-class MF_MSE_PyTorch_model(torch.nn.Module):
+class PyTorchModel(torch.nn.Module):
 
-    def __init__(self, n_users, n_items, n_factors):
-        super(MF_MSE_PyTorch_model, self).__init__()
+    def __init__(self, users_amount, items_amount, factors_amount):
+        super(PyTorchModel, self).__init__()
 
-        self.n_users = n_users
-        self.n_items = n_items
-        self.n_factors = n_factors
+        self.users_amount = users_amount
+        self.items_amount = items_amount
+        self.factors_amount = factors_amount
 
-        self.user_factors = torch.nn.Embedding(num_embeddings=self.n_users, embedding_dim=self.n_factors)
-        self.item_factors = torch.nn.Embedding(num_embeddings=self.n_items, embedding_dim=self.n_factors)
+        self.user_factors = torch.nn.Embedding(num_embeddings=self.users_amount, embedding_dim=self.factors_amount)
+        self.item_factors = torch.nn.Embedding(num_embeddings=self.items_amount, embedding_dim=self.factors_amount)
 
-        self.layer_1 = torch.nn.Linear(in_features=self.n_factors, out_features=1)
+        self.layer_1 = torch.nn.Linear(in_features=self.factors_amount, out_features=1)
 
         self.activation_function = torch.nn.ReLU()
 
@@ -41,29 +41,23 @@ class MF_MSE_PyTorch_model(torch.nn.Module):
         return self.item_factors.weight.detach().cpu().numpy()
 
 
-class DatasetIterator_URM(Dataset):
+class DatasetIterator(Dataset):
 
-    def __init__(self, URM):
-        URM = URM.tocoo()
+    def __init__(self, urm):
+        urm = urm.tocoo()
 
-        self.n_data_points = URM.nnz
+        self.n_data_points = urm.nnz
 
         self.user_item_coordinates = np.empty((self.n_data_points, 2))
 
-        self.user_item_coordinates[:, 0] = URM.row.copy()
-        self.user_item_coordinates[:, 1] = URM.col.copy()
-        self.rating = URM.data.copy().astype(np.float)
+        self.user_item_coordinates[:, 0] = urm.row.copy()
+        self.user_item_coordinates[:, 1] = urm.col.copy()
+        self.rating = urm.data.copy().astype(np.float)
 
         self.user_item_coordinates = torch.Tensor(self.user_item_coordinates).type(torch.LongTensor)
         self.rating = torch.Tensor(self.rating)
 
     def __getitem__(self, index):
-        """
-        Format is (row, col, data)
-        :param index:
-        :return:
-        """
-
         return self.user_item_coordinates[index, :], self.rating[index]
 
     def __len__(self):

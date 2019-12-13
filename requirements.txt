@@ -7,3 +7,5 @@ scikit-learn
 scipy
 similaripy
 tqdm
+-e https://download.pytorch.org/whl/torch_stable.html
+-e git+https://github.com/maciejkula/spotlight.git@master#egg=spotlight

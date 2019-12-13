@@ -13,10 +13,6 @@ class Evaluator(object):
 
     def split(self, leave_one_out=True, test_percentage=0.2, test_interaction_threshold=10):
         if leave_one_out:
-            test_users2 = []
-            for user_id in self.session.user_list_unique:
-                if self.session.urm[user_id].getnnz() > 10:
-                    test_users2.append(user_id)
             self.target_users = self.session.user_list_unique
             self.training_urm, self.test_urm = utils.train_test_split_leave_one_out(self.session.urm,
                                                                                     self.session.user_list_unique)
@@ -41,7 +37,7 @@ class Evaluator(object):
         mean_average_precision_final = 0
         recommender.fit(self.training_urm)
         for target_user in tqdm(self.target_users):
-            recommended_items = recommender.recommend(target_user, k)
+            recommended_items = recommender.recommend(self.training_urm, target_user, k)
             relevant_items = self.test_urm[target_user].indices
             mean_average_precision = utils.mean_average_precision(recommended_items, relevant_items)
             mean_average_precision_final += mean_average_precision
