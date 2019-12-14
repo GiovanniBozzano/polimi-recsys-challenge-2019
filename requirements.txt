@@ -3,9 +3,9 @@ implicit
 lightfm
 numpy
 pandas
-scikit-learn
+sklearn
 scipy
 similaripy
 tqdm
--e torch https://download.pytorch.org/whl/torch_stable.html
+torch -f https://download.pytorch.org/whl/torch_stable.html
 -e git+https://github.com/maciejkula/spotlight.git@master#egg=spotlight

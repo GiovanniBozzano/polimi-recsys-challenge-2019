@@ -1,11 +1,14 @@
 import os
 
+import implicit.cuda as implicit
 from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
 from recommenders.elastic_net import ElasticNet
 from recommenders.hybrid import Hybrid
+from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
+from recommenders.user_content_based_filtering import UserContentBasedFiltering
 from session import Session
 
 
@@ -42,7 +45,7 @@ def run(urm_path, urm_users_column, urm_items_column,
                          nmf_parameters=nmf_parameters,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters)
-    recommender = ElasticNet(session=session)
+    # recommender = ElasticNet(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -57,7 +60,7 @@ def run(urm_path, urm_users_column, urm_items_column,
         utils.create_csv(results, users_column=submission_users_column, items_column=submission_items_column)
 
 
-# 0.05054569861944648
+# 0.05046661017492042
 weights_cold_start = {
     'user_content_based_filtering': 1,  # OK
     'item_content_based_filtering': 0,  # OK
@@ -90,7 +93,7 @@ weights_high_interactions = {
     'user_content_based_filtering': 0,  # OK
     'item_content_based_filtering': 0.1,  # OK
     'user_based_collaborative_filtering': 0,  # OK
-    'item_based_collaborative_filtering': 1.1,  # OK
+    'item_based_collaborative_filtering': 0.4,  # OK
     'slim_bpr': 0,  # OK
     'elastic_net': 1.1,  # OK
     'als': 0.4,  # OK
@@ -100,14 +103,15 @@ weights_high_interactions = {
     'top_popular': 0,
     'spotlight': 0
 }
+
 user_content_based_filtering_parameters = {
     'user_interactions_threshold': 0,
     'item_interactions_threshold': 0,
-    'top_k_user_age': 2000,
-    'top_k_user_region': 2000,
+    'top_k_user_age': 2500,
+    'top_k_user_region': 2500,
     'shrink_user_age': 40,
     'shrink_user_region': 40,
-    'weight_user_age': 0.6
+    'weight_user_age': 0.4
 }
 item_content_based_filtering_parameters = {
     'user_interactions_threshold': 0,

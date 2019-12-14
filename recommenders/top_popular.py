@@ -25,4 +25,6 @@ class TopPopular(BaseRecommender):
     def get_ratings(self, training_urm, user_id):
         ratings = normalize(self.ratings, axis=0, norm='max')
         ratings = ratings.toarray().ravel()
+        interacted_items = training_urm[user_id]
+        ratings[interacted_items.indices] = -100
         return ratings

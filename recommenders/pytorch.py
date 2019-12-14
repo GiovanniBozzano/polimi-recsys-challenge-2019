@@ -87,4 +87,6 @@ class PyTorch(BaseRecommender):
         ratings = np.dot(self.user_factors[user_id], self.item_factors.T)
         ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.ravel()
+        interacted_items = training_urm[user_id]
+        ratings[interacted_items.indices] = -100
         return ratings

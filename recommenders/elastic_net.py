@@ -15,10 +15,9 @@ class ElasticNet(BaseRecommender):
     name = 'elastic_net'
 
     # 0.04783908879395942
-    # TODO max_iter=50
     def __init__(self, session, user_interactions_threshold=2, item_interactions_threshold=0,
-                 alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False, selection='cyclic',
-                 max_iter=3, tol=1e-4, top_k=50, positive_only=True, workers=multiprocessing.cpu_count()):
+                 alpha=0.001, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False, selection='cyclic',
+                 max_iter=50, tol=1e-4, top_k=50, positive_only=True, workers=int(multiprocessing.cpu_count() * 3 / 4)):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.analyzed_items = 0
         self.alpha = alpha
@@ -103,4 +102,5 @@ class ElasticNet(BaseRecommender):
         ratings = interacted_items.dot(self.W_sparse)
         ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.toarray().ravel()
+        ratings[interacted_items.indices] = -100
         return ratings

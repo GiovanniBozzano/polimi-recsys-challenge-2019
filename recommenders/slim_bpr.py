@@ -135,4 +135,6 @@ class SLIMBPR(BaseRecommender):
         ratings = self.recommendations[user_id]
         ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.toarray().ravel()
+        interacted_items = training_urm[user_id]
+        ratings[interacted_items.indices] = -100
         return ratings

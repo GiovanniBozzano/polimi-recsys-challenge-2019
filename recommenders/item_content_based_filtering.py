@@ -76,4 +76,5 @@ class ItemContentBasedFiltering(BaseRecommender):
         ratings = interacted_items.dot(self.similarity_matrix)
         ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.toarray().ravel()
+        ratings[interacted_items.indices] = -100
         return ratings

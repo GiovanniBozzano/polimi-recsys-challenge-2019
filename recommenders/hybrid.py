@@ -1,3 +1,5 @@
+import numpy as np
+
 from recommenders.als import ALS
 from recommenders.base_recommender import BaseRecommender
 from recommenders.elastic_net import ElasticNet
@@ -124,7 +126,7 @@ class Hybrid(BaseRecommender):
         else:
             weights = self.weights_low_interactions
 
-        hybrid_ratings = [self.session.items_amount]
+        hybrid_ratings = [0] * self.session.items_amount
         for recommender in self.recommenders:
             hybrid_ratings += recommender.get_ratings(training_urm, user_id) * weights[recommender.name]
 

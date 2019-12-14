@@ -40,4 +40,6 @@ class ALS(BaseRecommender):
         ratings = ratings.reshape(1, -1)
         ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.ravel()
+        interacted_items = training_urm[user_id]
+        ratings[interacted_items.indices] = -100
         return ratings

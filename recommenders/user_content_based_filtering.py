@@ -8,9 +8,9 @@ from recommenders.base_recommender import BaseRecommender
 class UserContentBasedFiltering(BaseRecommender):
     name = 'user_content_based_filtering'
 
-    # 0.009671896521098483
+    # 0.0097340228820691
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
-                 top_k_user_age=2000, top_k_user_region=2000, shrink_user_age=40, shrink_user_region=40,
+                 top_k_user_age=2500, top_k_user_region=2500, shrink_user_age=40, shrink_user_region=40,
                  weight_user_age=0.4):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.top_k_user_age = top_k_user_age
@@ -44,4 +44,6 @@ class UserContentBasedFiltering(BaseRecommender):
         ratings = similar_users.dot(training_urm)
         ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.toarray().ravel()
+        interacted_items = training_urm[user_id]
+        ratings[interacted_items.indices] = -100
         return ratings
