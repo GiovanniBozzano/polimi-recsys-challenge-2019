@@ -4,6 +4,7 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
+from recommenders.elastic_net import ElasticNet
 from recommenders.hybrid import Hybrid
 from session import Session
 
@@ -41,7 +42,7 @@ def run(urm_path, urm_users_column, urm_items_column,
                          nmf_parameters=nmf_parameters,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters)
-    # recommender = LightFM(session=session)
+    recommender = ElasticNet(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -56,8 +57,7 @@ def run(urm_path, urm_users_column, urm_items_column,
         utils.create_csv(results, users_column=submission_users_column, items_column=submission_items_column)
 
 
-# 0.05048601829284261 lightfm
-# 0.05040985635371977
+# 0.05054569861944648
 weights_cold_start = {
     'user_content_based_filtering': 1,  # OK
     'item_content_based_filtering': 0,  # OK
@@ -89,10 +89,10 @@ weights_low_interactions = {
 weights_high_interactions = {
     'user_content_based_filtering': 0,  # OK
     'item_content_based_filtering': 0.1,  # OK
-    'user_based_collaborative_filtering': 0.0,  # OK
-    'item_based_collaborative_filtering': 0.4,  # OK
-    'slim_bpr': 0.0,  # OK
-    'elastic_net': 1.2,  # OK
+    'user_based_collaborative_filtering': 0,  # OK
+    'item_based_collaborative_filtering': 1.1,  # OK
+    'slim_bpr': 0,  # OK
+    'elastic_net': 1.1,  # OK
     'als': 0.4,  # OK
     'lightfm': 0,
     'nmf': 0,
@@ -136,8 +136,8 @@ item_based_collaborative_filtering_parameters = {
 slim_bpr_parameters = {
     'user_interactions_threshold': 0,
     'item_interactions_threshold': 1,
-    'epochs': 200,
-    'top_k': 16
+    'epochs': 80,
+    'top_k': 40
 }
 elastic_net_parameters = {
     'user_interactions_threshold': 2,

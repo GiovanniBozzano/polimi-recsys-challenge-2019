@@ -89,7 +89,7 @@ class Hybrid(BaseRecommender):
             #     session=session,
             #     user_interactions_threshold=lightfm_parameters['user_interactions_threshold'],
             #     item_interactions_threshold=lightfm_parameters['item_interactions_threshold']
-            # )
+            # ),
             # SVD(
             #     session=session,
             #     user_interactions_threshold=svd_parameters['user_interactions_threshold'],

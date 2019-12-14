@@ -12,26 +12,13 @@ from recommenders.base_recommender import BaseRecommender
 
 
 class ElasticNet(BaseRecommender):
-    """
-    Train a Sparse Linear Methods (SLIM) item similarity model.
-    NOTE: ElasticNet solver is parallel, a single intance of SLIM_ElasticNet will
-          make use of half the cores available
-    See:
-        Efficient Top-N Recommendation by Linear Regression,
-        M. Levy and K. Jack, LSRS workshop at RecSys 2013.
-        https://www.slideshare.net/MarkLevy/efficient-slides
-        SLIM: Sparse linear methods for top-n recommender systems,
-        X. Ning and G. Karypis, ICDM 2011.
-        http://glaros.dtc.umn.edu/gkhome/fetch/papers/SLIM2011icdm.pdf
-    """
-
     name = 'elastic_net'
 
-    # 0.04781464301002003
+    # 0.04783908879395942
+    # TODO max_iter=50
     def __init__(self, session, user_interactions_threshold=2, item_interactions_threshold=0,
-                 alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False,
-                 selection='cyclic', max_iter=3, tol=1e-4, top_k=50, positive_only=True,
-                 workers=multiprocessing.cpu_count()):
+                 alpha=1e-3, l1_ratio=0.1, fit_intercept=False, copy_X=False, precompute=False, selection='cyclic',
+                 max_iter=3, tol=1e-4, top_k=50, positive_only=True, workers=multiprocessing.cpu_count()):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.analyzed_items = 0
         self.alpha = alpha

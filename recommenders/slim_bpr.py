@@ -36,7 +36,7 @@ class SLIMBPR(BaseRecommender):
     # 0.04119579049133264
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
                  final_model_sparse_weights=True, train_with_sparse_weights=False, symmetric=False,
-                 epochs=200, batch_size=1, lambda_i=0.05, lambda_j=0.005, learning_rate=0.001, top_k=16,
+                 epochs=80, batch_size=1, lambda_i=0.03, lambda_j=0.003, learning_rate=0.01, top_k=40,
                  sgd_mode='adagrad', gamma=0.995, beta_1=0.9, beta_2=0.999):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.final_model_sparse_weights = final_model_sparse_weights
