@@ -1,14 +1,11 @@
 import os
 
-import implicit.cuda as implicit
 from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
-from recommenders.elastic_net import ElasticNet
 from recommenders.hybrid import Hybrid
-from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
-from recommenders.user_content_based_filtering import UserContentBasedFiltering
+from recommenders.spotlight import Spotlight
 from session import Session
 
 
@@ -44,14 +41,15 @@ def run(urm_path, urm_users_column, urm_items_column,
                          svd_parameters=svd_parameters,
                          nmf_parameters=nmf_parameters,
                          top_popular_parameters=top_popular_parameters,
-                         spotlight_parameters=spotlight_parameters)
-    # recommender = ElasticNet(session=session)
+                         spotlight_parameters=spotlight_parameters,
+                         fpgrowth_parameters=fpgrowth_parameters)
+    recommender = Spotlight(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
         evaluator.split(leave_one_out, test_percentage, test_interactions_threshold)
         mapk = evaluator.evaluate(recommender, k)
-        print('map@' + str(k) + ' = ' + str(mapk) + '\n')
+        print('map@' + str(k) + ' = ' + str(mapk))
     else:
         recommender.fit(session.urm)
         results = {}
@@ -62,46 +60,49 @@ def run(urm_path, urm_users_column, urm_items_column,
 
 # 0.05046661017492042
 weights_cold_start = {
-    'user_content_based_filtering': 1,  # OK
-    'item_content_based_filtering': 0,  # OK
-    'user_based_collaborative_filtering': 0,  # OK
-    'item_based_collaborative_filtering': 0,  # OK
-    'slim_bpr': 0,  # OK
-    'elastic_net': 0,  # OK
-    'als': 0,  # OK
-    'lightfm': 1,  # OK
-    'nmf': 0,  # OK
-    'svd': 0,  # OK
-    'top_popular': 0,  # OK
-    'spotlight': 0  # OK
+    'user_content_based_filtering': 1,
+    'item_content_based_filtering': 0,
+    'user_based_collaborative_filtering': 0,
+    'item_based_collaborative_filtering': 0,
+    'slim_bpr': 0,
+    'elastic_net': 0,
+    'als': 0,
+    'lightfm': 1,
+    'nmf': 0,
+    'svd': 0,
+    'top_popular': 0,
+    'spotlight': 0,
+    'fpgrowth': 0
 }
 weights_low_interactions = {
-    'user_content_based_filtering': 0,  # OK
-    'item_content_based_filtering': 0.1,  # OK
-    'user_based_collaborative_filtering': 0.2,  # OK
-    'item_based_collaborative_filtering': 0.7,  # OK
-    'slim_bpr': 0.1,  # OK
-    'elastic_net': 0.7,  # OK
-    'als': 0.2,  # OK
+    'user_content_based_filtering': 0,
+    'item_content_based_filtering': 0.1,
+    'user_based_collaborative_filtering': 0,
+    'item_based_collaborative_filtering': 0.7,
+    'slim_bpr': 0.1,
+    'elastic_net': 0.7,
+    'als': 0.1,
     'lightfm': 0,
     'nmf': 0,
     'svd': 0,
     'top_popular': 0,
-    'spotlight': 0
+    'spotlight': 0,
+    'fpgrowth': 0
 }
 weights_high_interactions = {
-    'user_content_based_filtering': 0,  # OK
-    'item_content_based_filtering': 0.1,  # OK
-    'user_based_collaborative_filtering': 0,  # OK
-    'item_based_collaborative_filtering': 0.4,  # OK
-    'slim_bpr': 0,  # OK
-    'elastic_net': 1.1,  # OK
-    'als': 0.4,  # OK
+    'user_content_based_filtering': 0,
+    'item_content_based_filtering': 0,
+    'user_based_collaborative_filtering': 0.2,
+    'item_based_collaborative_filtering': 0.4,
+    'slim_bpr': 0,
+    'elastic_net': 1.1,
+    'als': 0.4,
     'lightfm': 0,
     'nmf': 0,
     'svd': 0,
     'top_popular': 0,
-    'spotlight': 0
+    'spotlight': 0,
+    'fpgrowth': 0
 }
 
 user_content_based_filtering_parameters = {
@@ -152,7 +153,7 @@ als_parameters = {
     'item_interactions_threshold': 2,
     'factors': 448,
     'regularization': 100,
-    'iterations': 30,
+    'iterations': 35,
     'alpha': 21
 }
 lightfm_parameters = {
@@ -172,6 +173,10 @@ top_popular_parameters = {
     'item_interactions_threshold': 0
 }
 spotlight_parameters = {
+    'user_interactions_threshold': 0,
+    'item_interactions_threshold': 0
+}
+fpgrowth_parameters = {
     'user_interactions_threshold': 0,
     'item_interactions_threshold': 0
 }

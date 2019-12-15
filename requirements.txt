@@ -1,3 +1,4 @@
+mlxtend
 Cython
 implicit
 lightfm

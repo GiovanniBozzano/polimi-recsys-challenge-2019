@@ -1,8 +1,7 @@
-import numpy as np
-
 from recommenders.als import ALS
 from recommenders.base_recommender import BaseRecommender
 from recommenders.elastic_net import ElasticNet
+from recommenders.fpgrowth import FPGrowth
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from recommenders.item_content_based_filtering import ItemContentBasedFiltering
 from recommenders.slim_bpr import SLIMBPR
@@ -17,7 +16,7 @@ class Hybrid(BaseRecommender):
                  user_content_based_filtering_parameters, item_content_based_filtering_parameters,
                  user_based_collaborative_filtering_parameters, item_based_collaborative_filtering_parameters,
                  slim_bpr_parameters, elastic_net_parameters, als_parameters, lightfm_parameters, svd_parameters,
-                 nmf_parameters, top_popular_parameters, spotlight_parameters):
+                 nmf_parameters, top_popular_parameters, spotlight_parameters, fpgrowth_parameters):
         super().__init__(session)
 
         self.weights_cold_start = weights_cold_start
@@ -111,6 +110,11 @@ class Hybrid(BaseRecommender):
             #     session=session,
             #     user_interactions_threshold=spotlight_parameters['user_interactions_threshold'],
             #     item_interactions_threshold=spotlight_parameters['item_interactions_threshold']
+            # ),
+            # FPGrowth(
+            #     session=session,
+            #     user_interactions_threshold=fpgrowth_parameters['user_interactions_threshold'],
+            #     item_interactions_threshold=fpgrowth_parameters['item_interactions_threshold']
             # )
         ]
 
