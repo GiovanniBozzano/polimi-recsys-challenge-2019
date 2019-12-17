@@ -1,9 +1,12 @@
+import numpy as np
 import similaripy
 import similaripy.normalization
 from sklearn.preprocessing import normalize
 
 from lib.similarity.compute_similarity_euclidean import ComputeSimilarityEuclidean
 from recommenders.base_recommender import BaseRecommender
+
+maximum = 16.068316
 
 
 class ItemContentBasedFiltering(BaseRecommender):
@@ -74,7 +77,11 @@ class ItemContentBasedFiltering(BaseRecommender):
         # sommando i punteggi se presenti più volte. Ad esempio un oggetto identico a due oggetti con cui l'utente
         # ha interagito avrà punteggio 2.0.
         ratings = interacted_items.dot(self.similarity_matrix)
-        ratings = normalize(ratings, axis=1, norm='max')
+        # global maximum
+        # ratings = ratings / maximum
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
+        # ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.toarray().ravel()
         ratings[interacted_items.indices] = -100
         return ratings

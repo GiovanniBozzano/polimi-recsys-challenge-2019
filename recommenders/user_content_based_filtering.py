@@ -1,3 +1,4 @@
+import numpy as np
 import similaripy
 import similaripy.normalization
 from sklearn.preprocessing import normalize
@@ -42,7 +43,9 @@ class UserContentBasedFiltering(BaseRecommender):
     def get_ratings(self, training_urm, user_id):
         similar_users = self.similarity_matrix[user_id]
         ratings = similar_users.dot(training_urm)
-        ratings = normalize(ratings, axis=1, norm='max')
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
+        # ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.toarray().ravel()
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100

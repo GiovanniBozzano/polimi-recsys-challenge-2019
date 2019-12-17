@@ -3,9 +3,9 @@ Created on 07/09/17
 @author: Maurizio Ferrari Dacrema
 """
 import os
-import sys
 
-from sklearn.preprocessing import normalize
+import numpy as np
+import similaripy.normalization
 
 from lib.recommender_utils import similarity_matrix_top_k, check_matrix
 from recommenders.base_recommender import BaseRecommender
@@ -33,10 +33,18 @@ def get_ram_status():
 class SLIMBPR(BaseRecommender):
     name = 'slim_bpr'
 
-    # 0.04119579049133264
+    # 0.0410184093205558
+
+    # 0.042227128850684255
+    # 0.040589610760221766
+    # 0.042831998206241506
+
+    # 0.04331217804800644
+    # 0.041642191763270504
+    # 0.04405226360097026
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
                  final_model_sparse_weights=True, train_with_sparse_weights=False, symmetric=False,
-                 epochs=80, batch_size=1, lambda_i=0.03, lambda_j=0.003, learning_rate=0.01, top_k=40,
+                 epochs=150, batch_size=1, lambda_i=0.001, lambda_j=0.0001, learning_rate=0.001, top_k=20,
                  sgd_mode='adagrad', gamma=0.995, beta_1=0.9, beta_2=0.999):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.final_model_sparse_weights = final_model_sparse_weights
@@ -82,9 +90,9 @@ class SLIMBPR(BaseRecommender):
                 print(string + 'Using sparse matrix.')
                 self.train_with_sparse_weights = True
 
-        training_urm_positive = training_urm.copy()
+        interactions = training_urm.copy()
 
-        self.cython_epoch = SLIMBPREpoch(training_urm_positive,
+        self.cython_epoch = SLIMBPREpoch(interactions,
                                          train_with_sparse_weights=self.train_with_sparse_weights,
                                          final_model_sparse_weights=self.final_model_sparse_weights,
                                          top_k=self.top_k,
@@ -108,7 +116,10 @@ class SLIMBPR(BaseRecommender):
 
         self.get_S_incremental_and_set_W()
         self.cython_epoch._dealloc()
-        sys.stdout.flush()
+
+        training_urm = similaripy.normalization.bm25plus(training_urm)
+        training_urm = similaripy.normalization.bm25plus(training_urm)
+        training_urm = similaripy.normalization.bm25plus(training_urm)
 
         self.recommendations = training_urm.dot(self.W_sparse)
 
@@ -133,7 +144,8 @@ class SLIMBPR(BaseRecommender):
 
     def get_ratings(self, training_urm, user_id):
         ratings = self.recommendations[user_id]
-        ratings = normalize(ratings, axis=1, norm='max')
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
         ratings = ratings.toarray().ravel()
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100

@@ -1,8 +1,8 @@
 import os
 
 import numpy as np
+import similaripy.normalization
 from implicit.als import AlternatingLeastSquares
-from sklearn.preprocessing import normalize
 
 from recommenders.base_recommender import BaseRecommender
 
@@ -11,9 +11,14 @@ class ALS(BaseRecommender):
     name = 'als'
 
     # 0.04278745999714631
+
+    # 0.04553946705570259
+    # 0.044830524761730044
+    # 0.04650393258263375
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=2,
-                 factors=448, regularization=100, iterations=35, alpha=21):
+                 factors=1024, regularization=100, iterations=35, alpha=21):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
+
         self.factors = factors
         self.regularization = regularization
         self.iterations = iterations
@@ -23,7 +28,6 @@ class ALS(BaseRecommender):
 
     def fit(self, training_urm):
         training_urm = super().fit(training_urm)
-
         sparse_item_user = training_urm.transpose().tocsr()
         os.environ['OPENBLAS_NUM_THREADS'] = '1'
         model = AlternatingLeastSquares(factors=self.factors,
@@ -36,9 +40,10 @@ class ALS(BaseRecommender):
 
     def get_ratings(self, training_urm, user_id):
         ratings = np.dot(self.user_factors[user_id], self.item_factors.T)
-        ratings = ratings - ratings.min()
+        ratings = ratings - np.min(ratings)
         ratings = ratings.reshape(1, -1)
-        ratings = normalize(ratings, axis=1, norm='max')
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
         ratings = ratings.ravel()
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100

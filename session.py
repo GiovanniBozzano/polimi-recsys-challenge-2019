@@ -14,7 +14,6 @@ class Session(object):
                  icm_assets_path, icm_assets_index_column, icm_assets_value_column,
                  icm_prices_path, icm_prices_index_column, icm_prices_value_column,
                  icm_sub_classes_path, icm_sub_classes_index_column, icm_sub_classes_values_column, random_seed=3333):
-
         self.random_seed = random_seed
         np.random.seed(self.random_seed)
 
