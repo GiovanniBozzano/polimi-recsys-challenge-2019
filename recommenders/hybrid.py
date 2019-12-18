@@ -2,6 +2,7 @@ from recommenders.base_recommender import BaseRecommender
 from recommenders.elastic_net import ElasticNet
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from recommenders.item_content_based_filtering import ItemContentBasedFiltering
+from recommenders.slim_bpr import SLIMBPR
 from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from recommenders.user_content_based_filtering import UserContentBasedFiltering
 
@@ -25,7 +26,7 @@ class Hybrid(BaseRecommender):
             #     session=session,
             #     user_interactions_threshold=user_content_based_filtering_parameters['user_interactions_threshold'],
             #     item_interactions_threshold=user_content_based_filtering_parameters['item_interactions_threshold'],
-            #    top_k_user_age=user_content_based_filtering_parameters['top_k_user_age'],
+            #     top_k_user_age=user_content_based_filtering_parameters['top_k_user_age'],
             #     top_k_user_region=user_content_based_filtering_parameters['top_k_user_region'],
             #     shrink_user_age=user_content_based_filtering_parameters['shrink_user_age'],
             #     shrink_user_region=user_content_based_filtering_parameters['shrink_user_region'],
@@ -62,18 +63,18 @@ class Hybrid(BaseRecommender):
                 top_k=item_based_collaborative_filtering_parameters['top_k'],
                 shrink=item_based_collaborative_filtering_parameters['shrink']
             ),
-            # SLIMBPR(
-            #    session=session,
-            #    user_interactions_threshold=slim_bpr_parameters['user_interactions_threshold'],
-            #    item_interactions_threshold=slim_bpr_parameters['item_interactions_threshold'],
-            #    epochs=slim_bpr_parameters['epochs'],
-            #    top_k=slim_bpr_parameters['top_k']
-            # ),
-            # ElasticNet(
-            #    session=session,
-            #    user_interactions_threshold=elastic_net_parameters['user_interactions_threshold'],
-            #    item_interactions_threshold=elastic_net_parameters['item_interactions_threshold']
-            # ),
+            SLIMBPR(
+                session=session,
+                user_interactions_threshold=slim_bpr_parameters['user_interactions_threshold'],
+                item_interactions_threshold=slim_bpr_parameters['item_interactions_threshold'],
+                epochs=slim_bpr_parameters['epochs'],
+                top_k=slim_bpr_parameters['top_k']
+            ),
+            ElasticNet(
+                session=session,
+                user_interactions_threshold=elastic_net_parameters['user_interactions_threshold'],
+                item_interactions_threshold=elastic_net_parameters['item_interactions_threshold']
+            ),
             # ALS(
             #    session=session,
             #    user_interactions_threshold=als_parameters['user_interactions_threshold'],
@@ -120,7 +121,7 @@ class Hybrid(BaseRecommender):
             recommender.fit(training_urm.copy())
 
     def get_ratings(self, training_urm, user_id):
-        if training_urm[user_id].getnnz() > 14:
+        if training_urm[user_id].getnnz() > 13:
             weights = self.weights_high_interactions
         elif training_urm[user_id].getnnz() == 0:
             weights = self.weights_cold_start

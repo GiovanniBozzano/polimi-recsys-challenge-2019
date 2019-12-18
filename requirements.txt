@@ -4,8 +4,9 @@ implicit
 lightfm
 numpy
 pandas
-sklearn
 scipy
+sklearn
+scikit-optimize
 similaripy
 tqdm
 torch -f https://download.pytorch.org/whl/torch_stable.html

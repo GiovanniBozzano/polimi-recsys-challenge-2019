@@ -73,17 +73,10 @@ def run(weights_cold_start,
         for user in tqdm(session.target_users_list):
             results[user] = recommender.recommend(session.urm, user, k)
         utils.create_csv(results, users_column=submission_users_column, items_column=submission_items_column)
+        return 0
 
 
-# 0.05136369327893812
-# 0.05078289115438248
-# 0.052682702751497314
-
-# 0.05124332800447265
-# 0.050935404309097106
-# 0.052128326533940096
-
-# 0.03796073047127908 @ 10 10
+# 0.05244297682382427
 
 def objective(parameters):
     # li_ucf, li_icf = parameters
@@ -106,10 +99,10 @@ def objective(parameters):
     weights_low_interactions = {
         'user_content_based_filtering': 0,
         'item_content_based_filtering': 0,
-        'user_based_collaborative_filtering': 4,
-        'item_based_collaborative_filtering': 10,
+        'user_based_collaborative_filtering': 10,
+        'item_based_collaborative_filtering': 9,
         'slim_bpr': 0,
-        'elastic_net': 10,
+        'elastic_net': 1,
         'als': 5,
         'lightfm': 0,
         'nmf': 0,
@@ -121,10 +114,10 @@ def objective(parameters):
     weights_high_interactions = {
         'user_content_based_filtering': 0,
         'item_content_based_filtering': 0,
-        'user_based_collaborative_filtering': 0,
-        'item_based_collaborative_filtering': 0,
-        'slim_bpr': 0,
-        'elastic_net': 10,
+        'user_based_collaborative_filtering': 5,
+        'item_based_collaborative_filtering': 10,
+        'slim_bpr': 1,
+        'elastic_net': 11,
         'als': 5,
         'lightfm': 0,
         'nmf': 0,
