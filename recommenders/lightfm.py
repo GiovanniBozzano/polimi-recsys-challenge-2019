@@ -1,7 +1,6 @@
 import lightfm
 import numpy as np
 import scipy.sparse as sps
-from sklearn.preprocessing import normalize
 from tqdm import tqdm
 
 from recommenders.base_recommender import BaseRecommender
@@ -10,7 +9,7 @@ from recommenders.base_recommender import BaseRecommender
 class LightFM(BaseRecommender):
     name = 'lightfm'
 
-    # 0.017361384106018098
+    # 0.017679965522563193
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.ucm = None
@@ -37,7 +36,7 @@ class LightFM(BaseRecommender):
                                self.session.get_icm_prices(), self.session.get_icm_sub_classes())).tocsr()
 
         self.model = lightfm.LightFM(loss='warp',
-                                     no_components=64,
+                                     no_components=256,
                                      learning_rate=0.05,
                                      learning_schedule='adagrad',
                                      user_alpha=1e-5,
@@ -52,9 +51,10 @@ class LightFM(BaseRecommender):
     def get_ratings(self, training_urm, user_id):
         ratings = self.model.predict(user_ids=user_id, item_ids=np.arange(self.session.items_amount),
                                      user_features=self.ucm, item_features=self.icm)
-        ratings = ratings - ratings.min()
+        ratings = ratings - np.min(ratings)
         ratings = ratings.reshape(1, -1)
-        ratings = normalize(ratings, axis=1, norm='max')
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
         ratings = ratings.ravel()
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100

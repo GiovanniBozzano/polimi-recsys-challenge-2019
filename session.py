@@ -4,6 +4,8 @@ import numpy as np
 import pandas as pd
 import scipy.sparse as sps
 
+import utils
+
 
 class Session(object):
 
@@ -63,8 +65,30 @@ class Session(object):
         icm_assets = sps.coo_matrix((assets_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float32)
         return icm_assets.tocsr()
 
+    def get_icm_assets_ohe(self):
+        assets_data = pd.read_csv(os.path.join(os.getcwd(), self.icm_assets_path))
+        thresholds = (0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.2, 0.5, 1)
+        assets_data[self.icm_assets_value_column] = assets_data[self.icm_assets_value_column].apply(
+            utils.binarize, thresholds=thresholds)
+        items_list = list(assets_data[self.icm_assets_index_column])
+        assets_list = list(assets_data[self.icm_assets_value_column])
+        zeroes = np.zeros(len(items_list), dtype=np.int32)
+        icm_assets = sps.coo_matrix((assets_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float32)
+        return icm_assets.tocsr()
+
     def get_icm_prices(self):
         prices_data = pd.read_csv(os.path.join(os.getcwd(), self.icm_prices_path))
+        items_list = list(prices_data[self.icm_prices_index_column])
+        prices_list = list(prices_data[self.icm_prices_value_column])
+        zeroes = np.zeros(len(items_list), dtype=np.int32)
+        icm_prices = sps.coo_matrix((prices_list, (items_list, zeroes)), shape=(self.items_amount, 1), dtype=np.float32)
+        return icm_prices.tocsr()
+
+    def get_icm_prices_ohe(self):
+        prices_data = pd.read_csv(os.path.join(os.getcwd(), self.icm_assets_path))
+        thresholds = (0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.2, 0.5, 1)
+        prices_data[self.icm_prices_value_column] = prices_data[self.icm_prices_value_column].apply(
+            utils.binarize, thresholds=thresholds)
         items_list = list(prices_data[self.icm_prices_index_column])
         prices_list = list(prices_data[self.icm_prices_value_column])
         zeroes = np.zeros(len(items_list), dtype=np.int32)

@@ -1,11 +1,11 @@
 import os
 
-from skopt import forest_minimize
 from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
 from recommenders.hybrid import Hybrid
+from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
 from session import Session
 
 
@@ -59,7 +59,7 @@ def run(weights_cold_start,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters,
                          fpgrowth_parameters=fpgrowth_parameters)
-    # recommender = ElasticNet(session=session)
+    recommender = ItemBasedCollaborativeFiltering(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -77,7 +77,6 @@ def run(weights_cold_start,
 
 
 # 0.05244297682382427
-
 def objective(parameters):
     # li_ucf, li_icf = parameters
 
@@ -89,7 +88,7 @@ def objective(parameters):
         'slim_bpr': 0,
         'elastic_net': 0,
         'als': 0,
-        'lightfm': 10,
+        'lightfm': 0,
         'nmf': 0,
         'svd': 0,
         'top_popular': 0,
@@ -103,7 +102,7 @@ def objective(parameters):
         'item_based_collaborative_filtering': 9,
         'slim_bpr': 0,
         'elastic_net': 1,
-        'als': 5,
+        'als': 0,
         'lightfm': 0,
         'nmf': 0,
         'svd': 0,
@@ -118,7 +117,7 @@ def objective(parameters):
         'item_based_collaborative_filtering': 10,
         'slim_bpr': 1,
         'elastic_net': 11,
-        'als': 5,
+        'als': 0,
         'lightfm': 0,
         'nmf': 0,
         'svd': 0,
@@ -132,8 +131,8 @@ def objective(parameters):
         'item_interactions_threshold': 0,
         'top_k_user_age': 2500,
         'top_k_user_region': 2500,
-        'shrink_user_age': 40,
-        'shrink_user_region': 40,
+        'shrink_user_age': 10,
+        'shrink_user_region': 10,
         'weight_user_age': 0.4
     }
     item_content_based_filtering_parameters = {
@@ -158,7 +157,7 @@ def objective(parameters):
         'user_interactions_threshold': 0,
         'item_interactions_threshold': 1,
         'top_k': 20,
-        'shrink': 500
+        'shrink': 550
     }
     slim_bpr_parameters = {
         'user_interactions_threshold': 0,

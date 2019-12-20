@@ -1,10 +1,9 @@
+from recommenders.als import ALS
 from recommenders.base_recommender import BaseRecommender
 from recommenders.elastic_net import ElasticNet
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
-from recommenders.item_content_based_filtering import ItemContentBasedFiltering
 from recommenders.slim_bpr import SLIMBPR
 from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
-from recommenders.user_content_based_filtering import UserContentBasedFiltering
 
 
 class Hybrid(BaseRecommender):

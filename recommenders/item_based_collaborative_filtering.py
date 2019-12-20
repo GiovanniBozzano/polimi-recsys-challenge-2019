@@ -18,8 +18,10 @@ class ItemBasedCollaborativeFiltering(BaseRecommender):
     # 0.04811303008331077
     # 0.048589832068092906
     # 0.04964753809552925
+
+    # 0.04883036848731215
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
-                 top_k=20, shrink=500):
+                 top_k=20, shrink=550):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.top_k = top_k
         self.shrink = shrink
@@ -28,7 +30,6 @@ class ItemBasedCollaborativeFiltering(BaseRecommender):
     def fit(self, training_urm):
         training_urm = super().fit(training_urm)
 
-        # TODO: provare ad aggiungere price ed asset in one hot encode.
         items_sub_classes = self.session.get_icm_sub_classes()
 
         matrix = sps.hstack((training_urm.transpose().tocsr(), items_sub_classes))

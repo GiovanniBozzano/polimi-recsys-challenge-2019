@@ -62,3 +62,10 @@ def create_csv(results, users_column, items_column, results_directory='./'):
                 first = False
                 file.write(str(prediction))
             file.write('\n')
+
+
+def binarize(value, thresholds):
+    for index, threshold in enumerate(thresholds):
+        if value <= threshold:
+            return index + 1
+    raise ValueError
