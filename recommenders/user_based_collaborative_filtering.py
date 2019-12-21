@@ -9,7 +9,7 @@ from recommenders.base_recommender import BaseRecommender
 class UserBasedCollaborativeFiltering(BaseRecommender):
     name = 'user_based_collaborative_filtering'
 
-    # 0.045663098562566534
+    # 0.0457084618229362
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=2,
                  top_k=1500, shrink=5):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
@@ -23,7 +23,7 @@ class UserBasedCollaborativeFiltering(BaseRecommender):
         users_ages = self.session.get_ucm_ages()
         users_regions = self.session.get_ucm_regions()
 
-        interactions = similaripy.normalization.bm25plus(training_urm)
+        interactions = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.85, tf_mode='raw', idf_mode='bm25', inplace=False)
         users_ages = similaripy.normalization.bm25(users_ages)
         users_regions = similaripy.normalization.tfidf(users_regions)
 

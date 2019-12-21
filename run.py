@@ -60,7 +60,7 @@ def run(weights_cold_start,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters,
                          fpgrowth_parameters=fpgrowth_parameters)
-    recommender = UserBasedCollaborativeFiltering(session=session)
+    #recommender = UserBasedCollaborativeFiltering(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -245,7 +245,7 @@ def objective(parameters):
                     icm_sub_classes_values_column='col',
                     submission_users_column='user_id',
                     submission_items_column='item_list',
-                    is_test=True,
+                    is_test=False,
                     leave_one_out=True,
                     test_percentage=0.2,
                     k=10,
