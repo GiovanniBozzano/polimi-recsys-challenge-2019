@@ -6,6 +6,7 @@ import utils
 from evaluator import Evaluator
 from recommenders.hybrid import Hybrid
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
+from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from session import Session
 
 
@@ -59,7 +60,7 @@ def run(weights_cold_start,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters,
                          fpgrowth_parameters=fpgrowth_parameters)
-    recommender = ItemBasedCollaborativeFiltering(session=session)
+    recommender = UserBasedCollaborativeFiltering(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -157,7 +158,7 @@ def objective(parameters):
         'user_interactions_threshold': 0,
         'item_interactions_threshold': 1,
         'top_k': 20,
-        'shrink': 550
+        'shrink': 500
     }
     slim_bpr_parameters = {
         'user_interactions_threshold': 0,

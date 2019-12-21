@@ -21,7 +21,7 @@ class ItemBasedCollaborativeFiltering(BaseRecommender):
 
     # 0.04883036848731215
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
-                 top_k=20, shrink=550):
+                 top_k=20, shrink=500):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.top_k = top_k
         self.shrink = shrink

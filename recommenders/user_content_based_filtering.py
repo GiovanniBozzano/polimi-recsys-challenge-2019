@@ -30,12 +30,12 @@ class UserContentBasedFiltering(BaseRecommender):
         users_ages = similaripy.normalization.bm25plus(users_ages)
         users_regions = similaripy.normalization.tfidf(users_regions)
 
-        users_ages_similarity_matrix = similaripy.dice(users_ages, k=self.top_k_user_age, shrink=self.shrink_user_age,
-                                                       binary=False, verbose=False)
+        users_ages_similarity_matrix = similaripy.cosine(users_ages, k=self.top_k_user_age, shrink=self.shrink_user_age,
+                                                         binary=False, verbose=False)
         users_ages_similarity_matrix = users_ages_similarity_matrix.tocsr()
 
-        users_regions_similarity_matrix = similaripy.dice(users_regions, k=self.top_k_user_region,
-                                                          shrink=self.shrink_user_region, binary=False, verbose=False)
+        users_regions_similarity_matrix = similaripy.cosine(users_regions, k=self.top_k_user_region,
+                                                            shrink=self.shrink_user_region, binary=False, verbose=False)
         users_regions_similarity_matrix = users_regions_similarity_matrix.tocsr()
 
         self.similarity_matrix = users_ages_similarity_matrix * self.weight_user_age + \

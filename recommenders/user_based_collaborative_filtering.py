@@ -9,11 +9,7 @@ from recommenders.base_recommender import BaseRecommender
 class UserBasedCollaborativeFiltering(BaseRecommender):
     name = 'user_based_collaborative_filtering'
 
-    # 0.04205705666355089
-
-    # 0.0454344331752147
-    # 0.04487072417176985
-    # 0.046343498935683805
+    # 0.045663098562566534
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=2,
                  top_k=1500, shrink=5):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
@@ -36,8 +32,8 @@ class UserBasedCollaborativeFiltering(BaseRecommender):
         similarity_matrix = similaripy.cosine(matrix, k=self.top_k, shrink=self.shrink, binary=False, verbose=False)
         similarity_matrix = similarity_matrix.transpose().tocsr()
 
-        training_urm = similaripy.normalization.bm25plus(training_urm)
-        training_urm = similaripy.normalization.bm25plus(training_urm)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.8, tf_mode='raw', idf_mode='bm25', inplace=False)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.8, tf_mode='raw', idf_mode='bm25', inplace=False)
 
         self.recommendations = similarity_matrix.dot(training_urm)
 
