@@ -33,15 +33,7 @@ def get_ram_status():
 class SLIMBPR(BaseRecommender):
     name = 'slim_bpr'
 
-    # 0.0410184093205558
-
-    # 0.042227128850684255
-    # 0.040589610760221766
-    # 0.042831998206241506
-
-    # 0.04331217804800644
-    # 0.041642191763270504
-    # 0.04405226360097026
+    # 0.04302551155605646
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
                  final_model_sparse_weights=True, train_with_sparse_weights=False, symmetric=False,
                  epochs=150, batch_size=1, lambda_i=0.001, lambda_j=0.0001, learning_rate=0.001, top_k=20,
@@ -117,9 +109,9 @@ class SLIMBPR(BaseRecommender):
         self.get_S_incremental_and_set_W()
         self.cython_epoch._dealloc()
 
-        training_urm = similaripy.normalization.bm25plus(training_urm)
-        training_urm = similaripy.normalization.bm25plus(training_urm)
-        training_urm = similaripy.normalization.bm25plus(training_urm)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.85, tf_mode='raw', idf_mode='bm25', inplace=False)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.85, tf_mode='raw', idf_mode='bm25', inplace=False)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.85, tf_mode='raw', idf_mode='bm25', inplace=False)
 
         self.recommendations = training_urm.dot(self.W_sparse)
 

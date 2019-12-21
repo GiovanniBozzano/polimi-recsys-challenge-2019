@@ -4,8 +4,10 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
+from recommenders.elastic_net import ElasticNet
 from recommenders.hybrid import Hybrid
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
+from recommenders.slim_bpr import SLIMBPR
 from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from session import Session
 
@@ -60,7 +62,7 @@ def run(weights_cold_start,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters,
                          fpgrowth_parameters=fpgrowth_parameters)
-    #recommender = UserBasedCollaborativeFiltering(session=session)
+    #recommender = ElasticNet(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
