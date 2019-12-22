@@ -9,11 +9,8 @@ from recommenders.base_recommender import BaseRecommender
 class ItemBasedCollaborativeFiltering(BaseRecommender):
     name = 'item_based_collaborative_filtering'
 
-    # 0.04811303008331077
-    # 0.048589832068092906
-    # 0.04964753809552925
+    # 0.0489724229038116
 
-    # 0.048783466748977634
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
                  top_k=20, shrink=500):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
@@ -33,7 +30,7 @@ class ItemBasedCollaborativeFiltering(BaseRecommender):
 
         # Epic magic trick of destiny
         training_urm = training_urm.transpose().tocsr()
-        training_urm = similaripy.normalization.bm25(training_urm)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.02, tf_mode='raw', idf_mode='bm25', inplace=False)
         training_urm = training_urm.transpose().tocsr()
 
         self.recommendations = training_urm.dot(similarity_matrix)
