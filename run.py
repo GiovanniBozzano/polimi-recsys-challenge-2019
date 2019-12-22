@@ -245,7 +245,7 @@ def objective(parameters):
                     icm_sub_classes_values_column='col',
                     submission_users_column='user_id',
                     submission_items_column='item_list',
-                    is_test=False,
+                    is_test=True,
                     leave_one_out=True,
                     test_percentage=0.2,
                     k=10,
