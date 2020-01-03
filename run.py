@@ -4,10 +4,8 @@ from tqdm import tqdm
 
 import utils
 from evaluator import Evaluator
-from recommenders.elastic_net import ElasticNet
 from recommenders.hybrid import Hybrid
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
-from recommenders.slim_bpr import SLIMBPR
 from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from session import Session
 
@@ -62,7 +60,7 @@ def run(weights_cold_start,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters,
                          fpgrowth_parameters=fpgrowth_parameters)
-    #recommender = ElasticNet(session=session)
+    #recommender = UserBasedCollaborativeFiltering(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -79,7 +77,11 @@ def run(weights_cold_start,
         return 0
 
 
-# 0.05244297682382427
+# 0.052523336817961536
+
+# 0.05264107648807693
+
+# 0.05160087125414581
 def objective(parameters):
     # li_ucf, li_icf = parameters
 
@@ -101,10 +103,10 @@ def objective(parameters):
     weights_low_interactions = {
         'user_content_based_filtering': 0,
         'item_content_based_filtering': 0,
-        'user_based_collaborative_filtering': 10,
-        'item_based_collaborative_filtering': 9,
+        'user_based_collaborative_filtering': 0.02,
+        'item_based_collaborative_filtering': 4.5,
         'slim_bpr': 0,
-        'elastic_net': 1,
+        'elastic_net': 4,
         'als': 0,
         'lightfm': 0,
         'nmf': 0,
@@ -116,10 +118,10 @@ def objective(parameters):
     weights_high_interactions = {
         'user_content_based_filtering': 0,
         'item_content_based_filtering': 0,
-        'user_based_collaborative_filtering': 5,
-        'item_based_collaborative_filtering': 10,
+        'user_based_collaborative_filtering': 0.01,  # 0.001
+        'item_based_collaborative_filtering': 5,  # 0.5
         'slim_bpr': 1,
-        'elastic_net': 11,
+        'elastic_net': 33,  # 3
         'als': 0,
         'lightfm': 0,
         'nmf': 0,
@@ -206,7 +208,7 @@ def objective(parameters):
     }
 
     sum_score = 0
-    for seed in (1000, 2000, 3000):
+    for seed in (2000, 1000, 3000):
         score = run(weights_cold_start=weights_cold_start,
                     weights_low_interactions=weights_low_interactions,
                     weights_high_interactions=weights_high_interactions,

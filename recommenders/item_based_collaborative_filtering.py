@@ -30,16 +30,19 @@ class ItemBasedCollaborativeFiltering(BaseRecommender):
 
         # Epic magic trick of destiny
         training_urm = training_urm.transpose().tocsr()
-        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.02, tf_mode='raw', idf_mode='bm25', inplace=False)
+        training_urm = similaripy.normalization.bm25(training_urm)
         training_urm = training_urm.transpose().tocsr()
 
         self.recommendations = training_urm.dot(similarity_matrix)
 
     def get_ratings(self, training_urm, user_id):
         ratings = self.recommendations[user_id]
-        if np.max(ratings) != 0:
-            ratings = ratings / np.max(ratings)
+        # if np.max(ratings) != 0:
+        #    ratings = ratings / np.max(ratings)
         ratings = ratings.toarray().ravel()
+        if user_id == 0:
+            print('I_CF')
+            print(np.sort(ratings))
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100
         return ratings

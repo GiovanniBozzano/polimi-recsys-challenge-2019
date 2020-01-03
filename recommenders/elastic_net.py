@@ -13,19 +13,17 @@ from recommenders.base_recommender import BaseRecommender
 class ElasticNet(BaseRecommender):
     name = 'elastic_net'
 
+    # 0.04783908879395942
+
+    # 0.04816971110586959
+    # 0.0476014303477154
+    # 0.04910325176973495
+
     # 0.049132269308383734
     # 0.04855494695890949
     # 0.050044057738058756
-
-    # 0.04924375800178399
-
-    # 0.049154254498228044
-    # 0.04857187992300811
-    # 0.05007964171420407
-
-    # 0.04926859204514674
     def __init__(self, session, user_interactions_threshold=2, item_interactions_threshold=0,
-                 alpha=0.001, l1_ratio=0.041, fit_intercept=False, copy_X=False, precompute=False, selection='cyclic',
+                 alpha=0.001, l1_ratio=0.04, fit_intercept=False, copy_X=False, precompute=False, selection='cyclic',
                  max_iter=50, tol=1e-4, top_k=200, positive_only=True,
                  workers=int(multiprocessing.cpu_count() * 3 / 4)):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
@@ -110,8 +108,11 @@ class ElasticNet(BaseRecommender):
     def get_ratings(self, training_urm, user_id):
         interacted_items = training_urm[user_id]
         ratings = interacted_items.dot(self.W_sparse)
-        if np.max(ratings) != 0:
-            ratings = ratings / np.max(ratings)
+        # if np.max(ratings) != 0:
+        #    ratings = ratings / np.max(ratings)
         ratings = ratings.toarray().ravel()
+        if user_id == 0:
+            print('ELASTICNET')
+            print(np.sort(ratings))
         ratings[interacted_items.indices] = -100
         return ratings
