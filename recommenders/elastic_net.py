@@ -108,11 +108,8 @@ class ElasticNet(BaseRecommender):
     def get_ratings(self, training_urm, user_id):
         interacted_items = training_urm[user_id]
         ratings = interacted_items.dot(self.W_sparse)
-        # if np.max(ratings) != 0:
-        #    ratings = ratings / np.max(ratings)
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
         ratings = ratings.toarray().ravel()
-        if user_id == 0:
-            print('ELASTICNET')
-            print(np.sort(ratings))
         ratings[interacted_items.indices] = -100
         return ratings

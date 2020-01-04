@@ -9,8 +9,17 @@ from recommenders.base_recommender import BaseRecommender
 class ItemBasedCollaborativeFiltering(BaseRecommender):
     name = 'item_based_collaborative_filtering'
 
-    # 0.0489724229038116
+    # 0.04716062001147311
 
+    # 0.047007276952241155
+    # 0.047739194497587414
+    # 0.04861113295070362
+
+    # 0.04811303008331077
+    # 0.048589832068092906
+    # 0.04964753809552925
+
+    # 0.04883036848731215
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=1,
                  top_k=20, shrink=500):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
@@ -37,12 +46,9 @@ class ItemBasedCollaborativeFiltering(BaseRecommender):
 
     def get_ratings(self, training_urm, user_id):
         ratings = self.recommendations[user_id]
-        # if np.max(ratings) != 0:
-        #    ratings = ratings / np.max(ratings)
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
         ratings = ratings.toarray().ravel()
-        if user_id == 0:
-            print('I_CF')
-            print(np.sort(ratings))
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100
         return ratings

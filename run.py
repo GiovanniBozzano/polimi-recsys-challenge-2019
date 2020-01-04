@@ -77,11 +77,8 @@ def run(weights_cold_start,
         return 0
 
 
+# 0.05185755926537426
 # 0.052523336817961536
-
-# 0.05264107648807693
-
-# 0.05160087125414581
 def objective(parameters):
     # li_ucf, li_icf = parameters
 
@@ -103,10 +100,10 @@ def objective(parameters):
     weights_low_interactions = {
         'user_content_based_filtering': 0,
         'item_content_based_filtering': 0,
-        'user_based_collaborative_filtering': 0.02,
-        'item_based_collaborative_filtering': 4.5,
+        'user_based_collaborative_filtering': 10,
+        'item_based_collaborative_filtering': 9,
         'slim_bpr': 0,
-        'elastic_net': 4,
+        'elastic_net': 1,
         'als': 0,
         'lightfm': 0,
         'nmf': 0,
@@ -118,10 +115,10 @@ def objective(parameters):
     weights_high_interactions = {
         'user_content_based_filtering': 0,
         'item_content_based_filtering': 0,
-        'user_based_collaborative_filtering': 0.01,  # 0.001
-        'item_based_collaborative_filtering': 5,  # 0.5
+        'user_based_collaborative_filtering': 5,
+        'item_based_collaborative_filtering': 10,
         'slim_bpr': 1,
-        'elastic_net': 33,  # 3
+        'elastic_net': 11,
         'als': 0,
         'lightfm': 0,
         'nmf': 0,
@@ -249,7 +246,7 @@ def objective(parameters):
                     icm_sub_classes_values_column='col',
                     submission_users_column='user_id',
                     submission_items_column='item_list',
-                    is_test=True,
+                    is_test=False,
                     leave_one_out=True,
                     test_percentage=0.2,
                     k=10,

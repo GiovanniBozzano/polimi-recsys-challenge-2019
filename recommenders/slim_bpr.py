@@ -144,12 +144,9 @@ class SLIMBPR(BaseRecommender):
 
     def get_ratings(self, training_urm, user_id):
         ratings = self.recommendations[user_id]
-        # if np.max(ratings) != 0:
-        #    ratings = ratings / np.max(ratings)
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
         ratings = ratings.toarray().ravel()
-        if user_id == 0:
-            print('BPR')
-            print(np.sort(ratings))
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100
         return ratings

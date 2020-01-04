@@ -23,8 +23,7 @@ class UserBasedCollaborativeFiltering(BaseRecommender):
         users_ages = self.session.get_ucm_ages()
         users_regions = self.session.get_ucm_regions()
 
-        interactions = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.85,
-                                                         tf_mode='raw', idf_mode='bm25', inplace=False)
+        interactions = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.85, tf_mode='raw', idf_mode='bm25', inplace=False)
         users_ages = similaripy.normalization.bm25(users_ages)
         users_regions = similaripy.normalization.tfidf(users_regions)
 
@@ -33,21 +32,16 @@ class UserBasedCollaborativeFiltering(BaseRecommender):
         similarity_matrix = similaripy.cosine(matrix, k=self.top_k, shrink=self.shrink, binary=False, verbose=False)
         similarity_matrix = similarity_matrix.transpose().tocsr()
 
-        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.8, tf_mode='raw',
-                                                         idf_mode='bm25', inplace=False)
-        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.8, tf_mode='raw',
-                                                         idf_mode='bm25', inplace=False)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.8, tf_mode='raw', idf_mode='bm25', inplace=False)
+        training_urm = similaripy.normalization.bm25plus(training_urm, axis=1, k1=1.2, b=0.75, delta=0.8, tf_mode='raw', idf_mode='bm25', inplace=False)
 
         self.recommendations = similarity_matrix.dot(training_urm)
 
     def get_ratings(self, training_urm, user_id):
         ratings = self.recommendations[user_id]
-        # if np.max(ratings) != 0:
-        #    ratings = ratings / np.max(ratings)
+        if np.max(ratings) != 0:
+            ratings = ratings / np.max(ratings)
         ratings = ratings.toarray().ravel()
-        if user_id == 0:
-            print('U_CF')
-            print(np.sort(ratings))
         interacted_items = training_urm[user_id]
         ratings[interacted_items.indices] = -100
         return ratings
