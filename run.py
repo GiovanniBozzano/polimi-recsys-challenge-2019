@@ -78,7 +78,7 @@ def run(weights_cold_start,
 # 0.05185755926537426
 # 0.052523336817961536
 
-# 0.0519615157259625
+# 0.051967630811879474
 def objective(parameters):
     # li_ucf, li_icf = parameters
 

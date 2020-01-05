@@ -119,7 +119,7 @@ class Hybrid(BaseRecommender):
             recommender.fit(training_urm.copy())
 
     def get_ratings(self, training_urm, user_id):
-        if training_urm[user_id].getnnz() > 13:
+        if training_urm[user_id].getnnz() > 10:
             weights = self.weights_high_interactions
         elif training_urm[user_id].getnnz() == 0:
             weights = self.weights_cold_start
