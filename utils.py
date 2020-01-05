@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 import numpy as np
-import scipy.sparse as sp
+import scipy.sparse as sps
 
 
 def mean_average_precision(recommended_items, relevant_items):
@@ -20,7 +20,7 @@ def categorize(value, category_map):
 
 def train_test_split(interactions, test_percentage, split_count):
     train = interactions.copy().tocoo()
-    test = sp.lil_matrix(train.shape)
+    test = sps.lil_matrix(train.shape)
     try:
         user_index = np.random.choice(np.where(np.bincount(train.row) >= split_count * 2)[0], replace=False,
                                       size=np.int64(np.floor(test_percentage * train.shape[0]))).tolist()
@@ -38,7 +38,7 @@ def train_test_split(interactions, test_percentage, split_count):
 
 def train_test_split_leave_one_out(urm, test_users):
     training_urm = urm.copy().tocoo()
-    test_urm = sp.lil_matrix(training_urm.shape)
+    test_urm = sps.lil_matrix(training_urm.shape)
     training_urm = training_urm.tolil()
     for user in test_users:
         test_item = np.random.choice(urm.getrow(user).indices, replace=False)

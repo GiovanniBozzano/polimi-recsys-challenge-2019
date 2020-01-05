@@ -1,4 +1,3 @@
-from recommenders.als import ALS
 from recommenders.base_recommender import BaseRecommender
 from recommenders.elastic_net import ElasticNet
 from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering

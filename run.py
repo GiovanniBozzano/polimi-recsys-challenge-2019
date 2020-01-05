@@ -5,8 +5,6 @@ from tqdm import tqdm
 import utils
 from evaluator import Evaluator
 from recommenders.hybrid import Hybrid
-from recommenders.item_based_collaborative_filtering import ItemBasedCollaborativeFiltering
-from recommenders.user_based_collaborative_filtering import UserBasedCollaborativeFiltering
 from session import Session
 
 
@@ -60,7 +58,7 @@ def run(weights_cold_start,
                          top_popular_parameters=top_popular_parameters,
                          spotlight_parameters=spotlight_parameters,
                          fpgrowth_parameters=fpgrowth_parameters)
-    #recommender = UserBasedCollaborativeFiltering(session=session)
+    # recommender = ElasticNet(session=session)
 
     if is_test:
         evaluator = Evaluator(session)
@@ -79,6 +77,8 @@ def run(weights_cold_start,
 
 # 0.05185755926537426
 # 0.052523336817961536
+
+# 0.0519615157259625
 def objective(parameters):
     # li_ucf, li_icf = parameters
 
@@ -115,9 +115,9 @@ def objective(parameters):
     weights_high_interactions = {
         'user_content_based_filtering': 0,
         'item_content_based_filtering': 0,
-        'user_based_collaborative_filtering': 5,
-        'item_based_collaborative_filtering': 10,
-        'slim_bpr': 1,
+        'user_based_collaborative_filtering': 0,
+        'item_based_collaborative_filtering': 20,
+        'slim_bpr': 2,
         'elastic_net': 11,
         'als': 0,
         'lightfm': 0,

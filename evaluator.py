@@ -1,5 +1,6 @@
+import numpy as np
 from tqdm import tqdm
-
+import scipy.sparse as sps
 import utils
 
 
@@ -15,7 +16,7 @@ class Evaluator(object):
         if leave_one_out:
             self.target_users = self.session.user_list_unique
             self.training_urm, self.test_urm = utils.train_test_split_leave_one_out(self.session.urm,
-                                                                                    self.session.user_list_unique)
+                                                                                    self.target_users)
         else:
             self.training_urm, self.test_urm, self.target_users = utils.train_test_split(self.session.urm,
                                                                                          test_percentage,
