@@ -1,6 +1,5 @@
-import numpy as np
 from tqdm import tqdm
-import scipy.sparse as sps
+
 import utils
 
 

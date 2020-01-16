@@ -1,7 +1,6 @@
 import os
 
 import numpy as np
-import similaripy.normalization
 from implicit.als import AlternatingLeastSquares
 
 from recommenders.base_recommender import BaseRecommender
@@ -10,11 +9,6 @@ from recommenders.base_recommender import BaseRecommender
 class ALS(BaseRecommender):
     name = 'als'
 
-    # 0.04278745999714631
-
-    # 0.04553946705570259
-    # 0.044830524761730044
-    # 0.04650393258263375
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=2,
                  factors=1024, regularization=100, iterations=35, alpha=21):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)

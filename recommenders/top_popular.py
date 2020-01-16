@@ -8,7 +8,6 @@ from recommenders.base_recommender import BaseRecommender
 class TopPopular(BaseRecommender):
     name = 'top_popular'
 
-    # 0.007290055996715304
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.ratings = None

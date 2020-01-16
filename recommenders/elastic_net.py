@@ -13,15 +13,6 @@ from recommenders.base_recommender import BaseRecommender
 class ElasticNet(BaseRecommender):
     name = 'elastic_net'
 
-    # 0.04783908879395942
-
-    # 0.04816971110586959
-    # 0.0476014303477154
-    # 0.04910325176973495
-
-    # 0.049132269308383734
-    # 0.04855494695890949
-    # 0.050044057738058756
     def __init__(self, session, user_interactions_threshold=2, item_interactions_threshold=0,
                  alpha=0.001, l1_ratio=0.04, fit_intercept=False, copy_X=False, precompute=False, selection='cyclic',
                  max_iter=50, tol=1e-4, top_k=200, positive_only=True,
@@ -52,13 +43,13 @@ class ElasticNet(BaseRecommender):
                                         max_iter=self.max_iter,
                                         tol=self.tol,
                                         random_state=np.random.RandomState(self.session.random_seed))
-        # WARNING: make a copy of X to avoid race conditions on column j
+        # WARNING: Make a copy of X to avoid race conditions on column j
         X_j = X.copy()
-        # get the target column
+        # Get the target column
         y = X_j[:, current_item].toarray()
-        # set the j-th column of X to zero
+        # Set the j-th column of X to zero
         X_j.data[X_j.indptr[current_item]:X_j.indptr[current_item + 1]] = 0.0
-        # fit one ElasticNet model per column
+        # Fit one ElasticNet model per column
         model.fit(X_j, y)
 
         relevant_items_partition = (-model.coef_).argpartition(self.top_k)[0:self.top_k]
@@ -80,29 +71,22 @@ class ElasticNet(BaseRecommender):
         training_urm = training_urm.tocsc()
 
         n_items = training_urm.shape[1]
-        # fit item's factors in parallel
 
-        # create a copy of the URM since each _pfit will modify it
+        # Create a copy of the URM since each _pfit will modify it
         copy_urm = training_urm.copy()
 
-        # oggetto riferito alla funzione nel quale predefinisco parte dell'input
         _pfit = partial(self._partial_fit, X=copy_urm)
 
-        # creo un pool con un certo numero di processi
         pool = multiprocessing.Pool(processes=self.workers)
 
-        # avvio il pool passando la funzione (con la parte fissa dell'input)
-        # e il rimanente parametro, variabile
         res = pool.map(_pfit, np.arange(n_items))
 
-        # res contains a vector of (values, rows, cols) tuples
         values, rows, cols = [], [], []
         for values_, rows_, cols_ in res:
             values.extend(values_)
             rows.extend(rows_)
             cols.extend(cols_)
 
-        # generate the sparse weight matrix
         self.W_sparse = sps.csr_matrix((values, (rows, cols)), shape=(n_items, n_items), dtype=np.float32)
 
     def get_ratings(self, training_urm, user_id):

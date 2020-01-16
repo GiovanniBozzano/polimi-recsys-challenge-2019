@@ -4,8 +4,8 @@ from sklearn.preprocessing import normalize
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 
-from recommenders.pytorch_model import PyTorchModel, DatasetIterator
 from recommenders.base_recommender import BaseRecommender
+from recommenders.pytorch_model import PyTorchModel, DatasetIterator
 
 
 class PyTorch(BaseRecommender):
@@ -78,7 +78,7 @@ class PyTorch(BaseRecommender):
             if num_batch % 100 == 0:
                 print("Batch {} of {}, loss {:.4f}".format(num_batch, len(self.train_data_loader), loss.data.item()))
 
-            # BACKWARD pass
+            # Backward pass
             self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()

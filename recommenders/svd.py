@@ -9,7 +9,6 @@ from recommenders.base_recommender import BaseRecommender
 class SVD(BaseRecommender):
     name = 'svd'
 
-    # 0.02403678660970901
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
                  n_factors=100):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)

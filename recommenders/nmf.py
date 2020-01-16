@@ -8,7 +8,6 @@ from recommenders.base_recommender import BaseRecommender
 class NMF(BaseRecommender):
     name = 'nmf'
 
-    # 0.02005880674290138
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
                  n_factors=100, l1_ratio=0.5, solver='mu', init_type='random', beta_loss='frobenius'):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)

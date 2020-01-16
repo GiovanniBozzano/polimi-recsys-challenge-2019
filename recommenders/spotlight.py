@@ -9,7 +9,6 @@ from recommenders.base_recommender import BaseRecommender
 class Spotlight(BaseRecommender):
     name = 'spotlight'
 
-    # 0.007656160366672194
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.model = None

@@ -1,31 +1,14 @@
 import numpy as np
 import similaripy
 import similaripy.normalization
-from sklearn.preprocessing import normalize
 
 from lib.similarity.compute_similarity_euclidean import ComputeSimilarityEuclidean
 from recommenders.base_recommender import BaseRecommender
 
-maximum = 16.068316
-
 
 class ItemContentBasedFiltering(BaseRecommender):
-    """
-    Crea una similarity matrix che rappresenta quanto ogni oggetto è simile a top-k altri oggetti.
-    La similarity matrix è la somma pesata di tre similarity matrix, ciascuna rappresentante una feature diversa con
-    valori da 0 a 1. I pesi dovrebbero avere somma 1 in modo da mantenere i valori normalizzati anche nella similarity
-    matrix complessiva.
-
-    La similarity matrix complessiva viene moltiplicata per la matrice delle interazioni per ottenere una matrice di
-    oggetti simili a quelli con cui l'utente ha interagito, ciascuno con il suo punteggio di similarità.
-
-    Un altro approccio è calcolare i punteggi di similarità con ogni similarity matrix separatamente e poi fare la somma
-    pesata, ma in questo modo i punteggi non sono normalizzati.
-    """
-
     name = 'item_content_based_filtering'
 
-    # 0.013040420717911071
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0,
                  top_k_item_asset=140, top_k_item_price=140, top_k_item_sub_class=300,
                  shrink_item_asset=1, shrink_item_price=1, shrink_item_sub_class=1, weight_item_asset=0.2,
@@ -47,7 +30,6 @@ class ItemContentBasedFiltering(BaseRecommender):
         items_assets = self.session.get_icm_assets()
         items_prices = self.session.get_icm_prices()
         items_sub_classes = self.session.get_icm_sub_classes()
-        # Imposta i pesi che verranno usati con lo shrink.
         items_sub_classes = similaripy.normalization.bm25plus(items_sub_classes)
 
         items_assets_similarity_matrix = ComputeSimilarityEuclidean(items_assets.transpose().tocsr(),
@@ -73,15 +55,9 @@ class ItemContentBasedFiltering(BaseRecommender):
 
     def get_ratings(self, training_urm, user_id):
         interacted_items = training_urm[user_id]
-        # Si selezionano gli oggetti dalla similarity matrix in base a quelli con cui l'utente ha interagito,
-        # sommando i punteggi se presenti più volte. Ad esempio un oggetto identico a due oggetti con cui l'utente
-        # ha interagito avrà punteggio 2.0.
         ratings = interacted_items.dot(self.similarity_matrix)
-        # global maximum
-        # ratings = ratings / maximum
         if np.max(ratings) != 0:
             ratings = ratings / np.max(ratings)
-        # ratings = normalize(ratings, axis=1, norm='max')
         ratings = ratings.toarray().ravel()
         ratings[interacted_items.indices] = -100
         return ratings

@@ -2,7 +2,6 @@ import numpy as np
 
 
 class BaseRecommender(object):
-
     @property
     def name(self):
         raise NotImplementedError

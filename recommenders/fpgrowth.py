@@ -11,7 +11,6 @@ from recommenders.base_recommender import BaseRecommender
 class FPGrowth(BaseRecommender):
     name = 'fpgrowth'
 
-    # 0.007336210335659976
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.results = None

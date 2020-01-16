@@ -9,7 +9,6 @@ from recommenders.base_recommender import BaseRecommender
 class LightFM(BaseRecommender):
     name = 'lightfm'
 
-    # 0.017679965522563193
     def __init__(self, session, user_interactions_threshold=0, item_interactions_threshold=0):
         super().__init__(session, user_interactions_threshold, item_interactions_threshold)
         self.ucm = None
